@@ -1,0 +1,21 @@
+{
+  "name": "family-health",
+  "version": "0.1.0",
+  "description": "Private family health app: deterministic Labcorp/Quest lab PDF extraction, local storage, cross-vendor comparison",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test test/",
+    "fixtures": "node fixtures/gen/build.js",
+    "extract": "node cli/extract.js",
+    "serve": "npx -y serve -l 8080 ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.10.38"
+  },
+  "private": true
+}
