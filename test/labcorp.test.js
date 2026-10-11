@@ -1,0 +1,231 @@
+// node --test test/labcorp.test.js
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync, readdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import { parseLabcorp } from '../src/parse/labcorp.js';
+
+const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'fixtures', 'labcorp');
+const load = (f) => JSON.parse(readFileSync(path.join(DIR, f), 'utf8'));
+
+/** Every key/index present in `expected` must deep-equal the corresponding part of `actual`. */
+function assertSubset(actual, expected, where = '$') {
+  if (expected === null || typeof expected !== 'object') {
+    assert.deepEqual(actual, expected, `${where}: expected ${JSON.stringify(expected)} got ${JSON.stringify(actual)}`);
+    return;
+  }
+  if (Array.isArray(expected)) {
+    assert.ok(Array.isArray(actual), `${where}: expected array, got ${typeof actual}`);
+    assert.equal(actual.length, expected.length, `${where}: length ${actual.length} !== ${expected.length}` +
+      (actual.length !== expected.length && actual[0] && actual[0].name !== undefined
+        ? `\n  actual names: ${actual.map((r) => r.name).join(' | ')}` : ''));
+    expected.forEach((e, i) => assertSubset(actual[i], e, `${where}[${i}]`));
+    return;
+  }
+  assert.ok(actual && typeof actual === 'object', `${where}: expected object, got ${JSON.stringify(actual)}`);
+  for (const k of Object.keys(expected)) assertSubset(actual[k], expected[k], `${where}.${k}`);
+}
+
+const fixtures = readdirSync(DIR).filter((f) => f.endsWith('.doc.json')).map((f) => f.replace(/\.doc\.json$/, ''));
+assert.ok(fixtures.length >= 3, 'expected at least three Labcorp fixtures');
+
+const FULLY_CONSUMED = ['classic-3page', 'portal-2023', 'edge-cases'];
+
+for (const name of fixtures) {
+  const doc = load(`${name}.doc.json`);
+  const expected = load(`${name}.expected.json`);
+
+  test(`labcorp fixture ${name}: expected subset matches`, () => {
+    const { report, consumed, notes, fieldEvidence } = parseLabcorp(doc);
+    assert.ok(consumed instanceof Map, 'consumed must be a Map');
+    assert.ok(Array.isArray(notes));
+    assertSubset(report, expected);
+    // result ids are sequential r1..rn in document order
+    report.results.forEach((r, i) => assert.equal(r.id, `r${i + 1}`));
+    // every result has lineIds, a fieldStatus and a confidence in range
+    for (const r of report.results) {
+      assert.ok(r.lineIds.length >= 1, `${r.id} has no lineIds`);
+      assert.ok(r.confidence >= 0 && r.confidence <= 1, `${r.id} confidence out of range`);
+      for (const k of ['value', 'unit', 'range', 'flag']) assert.ok(['found', 'missing', 'uncertain', 'na'].includes(r.fieldStatus[k]), `${r.id} fieldStatus.${k}`);
+      assert.equal(r.fieldStatus.value, 'found');
+      if (r.unit) assert.equal(r.fieldStatus.unit, 'found');
+      if (r.value != null && !r.unit) assert.equal(r.fieldStatus.unit, 'missing');
+      if (r.value != null && r.referenceRange.kind == null) assert.equal(r.fieldStatus.range, 'missing');
+      if (r.flag) assert.equal(r.fieldStatus.flag, 'found');
+    }
+    // every header field set has evidence
+    for (const path of ['patient.fullName', 'patient.dob', 'patient.sex', 'specimen.specimenId', 'specimen.collectedAt',
+      'specimen.reportedAt', 'provider.orderingName', 'provider.npi', 'provider.accountNumber', 'source.reportStatus']) {
+      const v = path.split('.').reduce((o, k) => o[k], report);
+      if (v != null) assert.ok(fieldEvidence[path] && fieldEvidence[path].length, `no fieldEvidence for ${path}`);
+    }
+    assert.ok(fieldEvidence.performingLabs && fieldEvidence.performingLabs.length >= doc.pageCount, 'performingLabs evidence from every page');
+    // panels reference real result ids and every result sits in its panel
+    const ids = new Set(report.results.map((r) => r.id));
+    for (const p of report.panels) for (const id of p.resultIds) assert.ok(ids.has(id), `${p.name} references ${id}`);
+    for (const r of report.results) if (r.panel) assert.ok(report.panels.find((p) => p.name === r.panel).resultIds.includes(r.id));
+    // no header conflicts on fixtures where every page repeats the same values
+    assert.deepEqual(notes.filter((n) => n.startsWith('conflict:')), [], 'no conflicts expected');
+    // every consumed id exists in the document and every result line is tagged with its id
+    const allIds = new Set(doc.pages.flatMap((p) => p.lines.map((l) => l.id)));
+    for (const id of consumed.keys()) assert.ok(allIds.has(id), `consumed unknown line ${id}`);
+    for (const r of report.results) assert.ok(consumed.get(r.lineIds[r.lineIds.length - 1]).startsWith(`result:${r.id}`) || consumed.get(r.lineIds[0]).startsWith(`result:${r.id}`));
+  });
+
+  test(`labcorp fixture ${name}: line coverage`, () => {
+    const { consumed } = parseLabcorp(doc);
+    const unconsumed = doc.pages.flatMap((p) => p.lines.filter((l) => !consumed.has(l.id)).map((l) => `${l.id}: ${l.text}`));
+    if (FULLY_CONSUMED.includes(name)) {
+      assert.deepEqual(unconsumed, [], `unconsumed lines in ${name}:\n  ${unconsumed.join('\n  ')}`);
+    } else {
+      assert.ok(unconsumed.length <= 1, `too many unconsumed lines in ${name}:\n  ${unconsumed.join('\n  ')}`);
+    }
+    for (const [, tag] of consumed) assert.ok(typeof tag === 'string' && tag.length, 'consumed reason tags must be non-empty strings');
+  });
+}
+
+// ---------------- spot checks ----------------
+test('classic-3page spot checks', () => {
+  const doc = load('classic-3page.doc.json');
+  const { report, consumed, fieldEvidence } = parseLabcorp(doc);
+  const by = (n) => report.results.find((r) => r.name === n);
+
+  const plt = by('Platelets');
+  assert.equal(plt.value, 462); assert.equal(plt.flag, 'H'); assert.equal(plt.unit, 'x10E3/uL');
+  assert.deepEqual([plt.referenceRange.low, plt.referenceRange.high, plt.referenceRange.kind], [150, 450, 'range']);
+  assert.equal(plt.performingLabCode, '01'); assert.equal(plt.panel, 'CBC With Differential/Platelet'); assert.equal(plt.page, 1);
+  assert.equal(plt.confidence, 1);
+
+  const k = by('Potassium');
+  assert.equal(k.flag, 'C'); assert.equal(k.fieldStatus.flag, 'found');
+
+  const tg = by('Triglycerides');
+  assert.equal(tg.valueText, '1,045'); assert.equal(tg.value, 1045); assert.equal(tg.flag, 'H');
+
+  const hdl = by('HDL Cholesterol');
+  assert.equal(hdl.flag, 'L'); assert.deepEqual([hdl.referenceRange.low, hdl.referenceRange.high, hdl.referenceRange.kind], [39, null, 'gt']);
+
+  const neut = by('Neutrophils');
+  assert.equal(neut.referenceRange.kind, 'text'); assert.equal(neut.referenceRange.text, 'Not Estab.'); assert.equal(neut.fieldStatus.range, 'na');
+  assert.equal(neut.confidence, 1);
+
+  const bun = by('BUN/Creatinine Ratio');
+  assert.equal(bun.unit, null); assert.equal(bun.fieldStatus.unit, 'missing'); assert.equal(bun.confidence, 0.75);
+
+  const egfr = by('eGFR');
+  assert.equal(egfr.unit, 'mL/min/1.73');
+  assert.match(egfr.comment, /^Please Note:\neGFR is calculated/);
+  assert.equal(report.comments.find((c) => c.attachedTo === egfr.id).lineIds.length, 2);
+
+  const ldl = by('LDL Chol Calc (NIH)');
+  assert.equal(ldl.comment, 'Comment:\nDesirable range <100 mg/dL for primary prevention goal.');
+  assert.equal(report.comments.filter((c) => c.attachedTo === ldl.id).length, 1, 'Comment: label and its text form one block');
+  assert.deepEqual(report.comments.filter((c) => c.attachedTo == null), [], 'every comment is attached to a result');
+
+  const a1c = by('Hemoglobin A1c');
+  assert.equal(a1c.flag, 'H'); assert.equal(a1c.unit, '%');
+  assert.equal(a1c.comment.split('\n').length, 4);
+  assert.match(a1c.comment, /Glycemic control for adults with diabetes: <7.0$/);
+
+  // wrapped name above the value line: merged, two lineIds, tagged :wrap, −0.1
+  const eag = by('Estimated Average Glucose (eAG)');
+  assert.ok(eag, 'wrapped eAG name merged');
+  assert.equal(eag.lineIds.length, 2);
+  assert.equal(consumed.get(eag.lineIds[0]), `result:${eag.id}:wrap`);
+  assert.equal(eag.referenceRange.kind, null); assert.equal(eag.fieldStatus.range, 'missing');
+  assert.equal(eag.confidence, 0.65);   // 1 − 0.25 (no range) − 0.1 (wrapped)
+  assert.equal(eag.panel, 'Hemoglobin A1c');
+
+  // wrapped name below the value line
+  const vd = by('Vitamin D, 25-Hydroxy');
+  assert.ok(vd, 'wrapped Vitamin D name merged');
+  assert.equal(vd.value, 32.4); assert.equal(vd.performingLabCode, '02'); assert.equal(vd.page, 3);
+  assert.equal(consumed.get(vd.lineIds[1]), `result:${vd.id}:wrap`);
+  assert.equal(vd.confidence, 0.9);
+  assert.match(vd.comment, /Endocrine Society/);
+
+  const tsh = by('TSH');
+  assert.equal(tsh.value, 1.23); assert.equal(tsh.unit, 'uIU/mL'); assert.equal(tsh.panel, 'TSH');
+
+  assert.equal(report.results.length, 49);
+  assert.deepEqual(report.panels.map((p) => [p.name, p.resultIds.length, p.page]), [
+    ['CBC With Differential/Platelet', 21, 1], ['Comp. Metabolic Panel (14)', 18, 2], ['Lipid Panel', 6, 2],
+    ['Hemoglobin A1c', 2, 3], ['Vitamin D, 25-Hydroxy', 1, 3], ['TSH', 1, 3],
+  ]);
+  // header evidence collected from all three pages
+  assert.equal(fieldEvidence['patient.dob'].length, 3);
+  assert.equal(fieldEvidence['specimen.specimenId'].length, 3);
+  assert.equal(fieldEvidence.pages.length, 3);
+  // tags used for boilerplate
+  const tags = new Set(consumed.values());
+  for (const t of ['header', 'header:patient.name', 'header:section', 'orderedItems', 'table.header', 'panel', 'footer:lab', 'footer', 'footer:copyright', 'footer:disclaimer'])
+    assert.ok(tags.has(t), `tag ${t} used`);
+});
+
+test('portal-2023 spot checks', () => {
+  const doc = load('portal-2023.doc.json');
+  const { report, fieldEvidence } = parseLabcorp(doc);
+  assert.equal(report.patient.sex, 'F'); assert.equal(report.patient.ageAtCollection, 11); assert.equal(report.specimen.fasting, true);
+  assert.equal(report.provider.accountName, 'SAMPLE PEDIATRICS GROUP');
+  const fer = report.results.find((r) => r.name === 'Ferritin');
+  assert.equal(fer.flag, 'L'); assert.equal(fer.value, 9); assert.equal(fer.panel, 'Ferritin'); assert.equal(fer.page, 2);
+  assert.equal(fer.comment, 'Please Note:\nReference interval for ferritin is age and sex dependent.');
+  assert.deepEqual([fer.referenceRange.low, fer.referenceRange.high], [13, 150]);
+  assert.equal(report.results.length, 23);
+  assert.equal(fieldEvidence['patient.fullName'].length, 2);
+  assert.equal(fieldEvidence['specimen.fasting'].length, 2);
+});
+
+test('edge-cases spot checks (no table header → shape fallback)', () => {
+  const doc = load('edge-cases.doc.json');
+  const { report, notes } = parseLabcorp(doc);
+  const by = (n) => report.results.find((r) => r.name === n);
+  assert.equal(report.source.reportStatus, 'partial');
+  assert.equal(report.patient.patientId, null);
+  const tsh = by('TSH');
+  assert.equal(tsh.valueText, '<0.1'); assert.equal(tsh.value, 0.1); assert.equal(tsh.valueQualifier, '<'); assert.equal(tsh.flag, 'L');
+  const egfr = by('eGFR');
+  assert.equal(egfr.value, 90); assert.equal(egfr.valueQualifier, '>'); assert.equal(egfr.unit, 'mL/min/1.73'); assert.equal(egfr.referenceRange.kind, 'gt');
+  const titer = by('ANA Titer');
+  assert.equal(titer.valueText, '1:40'); assert.equal(titer.value, null); assert.equal(titer.flag, 'A');
+  assert.equal(titer.referenceRange.kind, null); assert.equal(titer.fieldStatus.range, 'na'); assert.equal(titer.fieldStatus.unit, 'na');
+  const pat = by('ANA Pattern');
+  assert.equal(pat.valueText, 'See Note');
+  assert.equal(pat.comment, 'Please Note:\nPattern: Homogeneous. Homogeneous patterns are associated with a variety of\nconditions; clinical correlation is recommended.');
+  const fti = by('Free Thyroxine Index');
+  assert.equal(fti.unit, null); assert.equal(fti.fieldStatus.unit, 'missing'); assert.equal(fti.referenceRange.high, 4.9); assert.equal(fti.confidence, 0.75);
+  const eag = by('Estim. Avg Glu (eAG)');
+  assert.equal(eag.referenceRange.kind, null); assert.equal(eag.fieldStatus.range, 'missing'); assert.equal(eag.unit, 'mg/dL');
+  const sat = by('Iron Saturation');
+  assert.equal(sat.flag, null); assert.equal(sat.fieldStatus.flag, 'na'); assert.equal(sat.unit, '%'); assert.equal(sat.confidence, 1);
+  const hep = by('Hepatitis B Surface Ab, Qual');
+  assert.equal(hep.valueText, 'Positive'); assert.equal(hep.referenceRange.text, 'Negative'); assert.equal(hep.performingLabCode, '02');
+  assert.equal(report.performingLabs.length, 2);
+  assert.ok(!notes.some((n) => /conflict/.test(n)), notes.join('\n'));
+});
+
+test('header values that differ between pages produce a conflict note and keep the first value', () => {
+  const doc = load('classic-3page.doc.json');
+  const l = doc.pages[1].lines.find((x) => x.text.startsWith('DOB:'));
+  l.cells[0] = 'DOB: 01/16/1980'; l.text = l.text.replace('01/15/1980', '01/16/1980');
+  const { report, notes } = parseLabcorp(doc);
+  assert.equal(report.patient.dob, '1980-01-15');
+  assert.ok(notes.some((n) => n.startsWith('conflict:patient.dob:')), notes.join('\n'));
+  assert.ok(notes.includes('uncertain:patient.dob'));
+});
+
+test('performing-lab legend parses when the extractor did not split it into cells', () => {
+  const doc = load('classic-3page.doc.json');
+  const leg = doc.pages[2].lines.find((x) => x.text.startsWith('02 SE'));
+  leg.cells = [leg.text.replace(/ {2}/g, ' ')]; leg.cellX = [36]; leg.text = leg.cells[0];
+  const { report } = parseLabcorp(doc);
+  assert.deepEqual(report.performingLabs[1], { code: '02', name: 'LabCorp Phoenix', address: '5005 S 40th St Ste 1100, Phoenix, AZ 850403222',
+    director: 'Chris Sample, MD', clia: null, phone: '800-555-0102' });
+});
+
+test('parseLabcorp tolerates an empty document', () => {
+  const { report, consumed, notes } = parseLabcorp({ fileName: 'x.pdf', fileHash: 'abc', pageCount: 0, pages: [] });
+  assert.equal(report.results.length, 0); assert.equal(consumed.size, 0);
+  assert.ok(notes.includes('No result rows recognized'));
+});

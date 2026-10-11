@@ -1,0 +1,966 @@
+{
+ "source": {
+  "vendor": "quest",
+  "reportStatus": "final",
+  "pageCount": 4
+ },
+ "patient": {
+  "fullName": "SAMPLE, ALEX Q",
+  "lastName": "SAMPLE",
+  "firstName": "ALEX",
+  "middleName": "Q",
+  "dob": "1980-01-15",
+  "sex": "M",
+  "ageAtCollection": 45,
+  "patientId": "987654",
+  "phone": "609.555.0100",
+  "address": null
+ },
+ "specimen": {
+  "specimenId": "AB123456C",
+  "requisition": "0012345",
+  "labRef": "1234567",
+  "collectedAt": "2025-09-10T08:15",
+  "collectedTz": "EDT",
+  "receivedAt": "2025-09-10T20:33",
+  "reportedAt": "2025-09-11T06:12",
+  "enteredAt": null,
+  "fasting": true
+ },
+ "provider": {
+  "orderingName": "DR. JANE DOE",
+  "npi": "1234567893",
+  "accountNumber": "12345678",
+  "accountName": "ANYTOWN FAMILY MEDICINE",
+  "address": "123 MAIN STREET, SUITE 100, ANYTOWN, NJ 08540-0000",
+  "referringName": null
+ },
+ "performingLabs": [
+  {
+   "code": "EZ",
+   "name": "Quest Diagnostics Nichols Institute",
+   "address": "33608 Example Hwy, San Juan Capistrano, CA 92675-2042",
+   "director": "SAMPLE DIRECTOR, MD",
+   "clia": "05D0000001",
+   "phone": "800.555.0199"
+  },
+  {
+   "code": "PR",
+   "name": "Quest Diagnostics-Teterboro",
+   "address": "1 Example Blvd, Teterboro, NJ 07608-1070",
+   "director": "TEST PATHOLOGIST, MD",
+   "clia": "31D0000002",
+   "phone": "800.555.0198"
+  }
+ ],
+ "panels": [
+  {
+   "name": "CBC (INCLUDES DIFF/PLT)",
+   "resultIds": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9",
+    "r10",
+    "r11",
+    "r12",
+    "r13",
+    "r14",
+    "r15",
+    "r16",
+    "r17",
+    "r18",
+    "r19",
+    "r20"
+   ],
+   "page": 1
+  },
+  {
+   "name": "COMPREHENSIVE METABOLIC PANEL",
+   "resultIds": [
+    "r21",
+    "r22",
+    "r23",
+    "r24",
+    "r25",
+    "r26",
+    "r27",
+    "r28",
+    "r29",
+    "r30",
+    "r31",
+    "r32",
+    "r33",
+    "r34",
+    "r35",
+    "r36",
+    "r37",
+    "r38"
+   ],
+   "page": 2
+  },
+  {
+   "name": "LIPID PANEL",
+   "resultIds": [
+    "r39",
+    "r40",
+    "r41",
+    "r42",
+    "r43",
+    "r44"
+   ],
+   "page": 3
+  },
+  {
+   "name": "HEMOGLOBIN A1c",
+   "resultIds": [
+    "r45"
+   ],
+   "page": 3
+  },
+  {
+   "name": "VITAMIN D,25-OH,TOTAL,IA",
+   "resultIds": [
+    "r46"
+   ],
+   "page": 4
+  },
+  {
+   "name": "TSH",
+   "resultIds": [
+    "r47"
+   ],
+   "page": 4
+  },
+  {
+   "name": "HEPATITIS C ANTIBODY",
+   "resultIds": [
+    "r48"
+   ],
+   "page": 4
+  }
+ ],
+ "results": [
+  {
+   "id": "r1",
+   "name": "WBC",
+   "valueText": "7.2",
+   "value": 7.2,
+   "valueQualifier": null,
+   "unit": "Thousand/uL",
+   "flag": null,
+   "referenceRange": {
+    "low": 3.8,
+    "high": 10.8,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r2",
+   "name": "RBC",
+   "valueText": "4.85",
+   "value": 4.85,
+   "valueQualifier": null,
+   "unit": "Million/uL",
+   "flag": null,
+   "referenceRange": {
+    "low": 4.2,
+    "high": 5.8,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r3",
+   "name": "HEMOGLOBIN",
+   "valueText": "12.9",
+   "value": 12.9,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": "L",
+   "referenceRange": {
+    "low": 13.2,
+    "high": 17.1,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r4",
+   "name": "HEMATOCRIT",
+   "valueText": "39.5",
+   "value": 39.5,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "low": 38.5,
+    "high": 50,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r5",
+   "name": "MCV",
+   "valueText": "87.6",
+   "value": 87.6,
+   "valueQualifier": null,
+   "unit": "fL",
+   "flag": null,
+   "referenceRange": {
+    "low": 80,
+    "high": 100,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r6",
+   "name": "MCH",
+   "valueText": "29.1",
+   "value": 29.1,
+   "valueQualifier": null,
+   "unit": "pg",
+   "flag": null,
+   "referenceRange": {
+    "low": 27,
+    "high": 33,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r7",
+   "name": "MCHC",
+   "valueText": "33.2",
+   "value": 33.2,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 32,
+    "high": 36,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r8",
+   "name": "RDW",
+   "valueText": "13.1",
+   "value": 13.1,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "low": 11,
+    "high": 15,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r9",
+   "name": "PLATELET COUNT",
+   "valueText": "245",
+   "value": 245,
+   "valueQualifier": null,
+   "unit": "Thousand/uL",
+   "flag": null,
+   "referenceRange": {
+    "low": 140,
+    "high": 400,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r10",
+   "name": "MPV",
+   "valueText": "10.2",
+   "value": 10.2,
+   "valueQualifier": null,
+   "unit": "fL",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r11",
+   "name": "ABSOLUTE NEUTROPHILS",
+   "valueText": "4,320",
+   "value": 4320,
+   "valueQualifier": null,
+   "unit": "cells/uL",
+   "flag": null,
+   "referenceRange": {
+    "low": 1500,
+    "high": 7800,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r12",
+   "name": "ABSOLUTE LYMPHOCYTES",
+   "valueText": "2,010",
+   "value": 2010,
+   "valueQualifier": null,
+   "unit": "cells/uL",
+   "flag": null,
+   "referenceRange": {
+    "low": 850,
+    "high": 3900,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r13",
+   "name": "ABSOLUTE MONOCYTES",
+   "valueText": "540",
+   "value": 540,
+   "valueQualifier": null,
+   "unit": "cells/uL",
+   "flag": null,
+   "referenceRange": {
+    "low": 200,
+    "high": 950,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r14",
+   "name": "ABSOLUTE EOSINOPHILS",
+   "valueText": "180",
+   "value": 180,
+   "valueQualifier": null,
+   "unit": "cells/uL",
+   "flag": null,
+   "referenceRange": {
+    "low": 15,
+    "high": 500,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r15",
+   "name": "ABSOLUTE BASOPHILS",
+   "valueText": "50",
+   "value": 50,
+   "valueQualifier": null,
+   "unit": "cells/uL",
+   "flag": null,
+   "referenceRange": {
+    "low": 0,
+    "high": 200,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r16",
+   "name": "NEUTROPHILS",
+   "valueText": "60.0",
+   "value": 60,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r17",
+   "name": "LYMPHOCYTES",
+   "valueText": "27.9",
+   "value": 27.9,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r18",
+   "name": "MONOCYTES",
+   "valueText": "7.5",
+   "value": 7.5,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r19",
+   "name": "EOSINOPHILS",
+   "valueText": "2.5",
+   "value": 2.5,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r20",
+   "name": "BASOPHILS",
+   "valueText": "0.7",
+   "value": 0.7,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r21",
+   "name": "GLUCOSE",
+   "valueText": "92",
+   "value": 92,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 65,
+    "high": 99,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r22",
+   "name": "UREA NITROGEN (BUN)",
+   "valueText": "14",
+   "value": 14,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 7,
+    "high": 25,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r23",
+   "name": "CREATININE",
+   "valueText": "0.98",
+   "value": 0.98,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 0.6,
+    "high": 1.35,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r24",
+   "name": "EGFR",
+   "valueText": "95",
+   "value": 95,
+   "valueQualifier": null,
+   "unit": "mL/min/1.73m2",
+   "flag": null,
+   "referenceRange": {
+    "low": 60,
+    "high": null,
+    "kind": "ge"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r25",
+   "name": "BUN/CREATININE RATIO",
+   "valueText": "NOT APPLICABLE",
+   "value": null,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": null,
+   "referenceRange": {
+    "low": 6,
+    "high": 22,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r26",
+   "name": "SODIUM",
+   "valueText": "139",
+   "value": 139,
+   "valueQualifier": null,
+   "unit": "mmol/L",
+   "flag": null,
+   "referenceRange": {
+    "low": 135,
+    "high": 146,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r27",
+   "name": "POTASSIUM",
+   "valueText": "4.3",
+   "value": 4.3,
+   "valueQualifier": null,
+   "unit": "mmol/L",
+   "flag": null,
+   "referenceRange": {
+    "low": 3.5,
+    "high": 5.3,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r28",
+   "name": "CHLORIDE",
+   "valueText": "103",
+   "value": 103,
+   "valueQualifier": null,
+   "unit": "mmol/L",
+   "flag": null,
+   "referenceRange": {
+    "low": 98,
+    "high": 110,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r29",
+   "name": "CARBON DIOXIDE",
+   "valueText": "26",
+   "value": 26,
+   "valueQualifier": null,
+   "unit": "mmol/L",
+   "flag": null,
+   "referenceRange": {
+    "low": 20,
+    "high": 32,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r30",
+   "name": "CALCIUM",
+   "valueText": "9.4",
+   "value": 9.4,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 8.6,
+    "high": 10.3,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r31",
+   "name": "PROTEIN, TOTAL",
+   "valueText": "7.0",
+   "value": 7,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 6.1,
+    "high": 8.1,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r32",
+   "name": "ALBUMIN",
+   "valueText": "4.4",
+   "value": 4.4,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 3.6,
+    "high": 5.1,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r33",
+   "name": "GLOBULIN",
+   "valueText": "2.6",
+   "value": 2.6,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 1.9,
+    "high": 3.7,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r34",
+   "name": "ALBUMIN/GLOBULIN RATIO",
+   "valueText": "1.7",
+   "value": 1.7,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": null,
+   "referenceRange": {
+    "low": 1,
+    "high": 2.5,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r35",
+   "name": "BILIRUBIN, TOTAL",
+   "valueText": "0.6",
+   "value": 0.6,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 0.2,
+    "high": 1.2,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r36",
+   "name": "ALKALINE PHOSPHATASE",
+   "valueText": "68",
+   "value": 68,
+   "valueQualifier": null,
+   "unit": "U/L",
+   "flag": null,
+   "referenceRange": {
+    "low": 36,
+    "high": 130,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r37",
+   "name": "AST",
+   "valueText": "22",
+   "value": 22,
+   "valueQualifier": null,
+   "unit": "U/L",
+   "flag": null,
+   "referenceRange": {
+    "low": 10,
+    "high": 35,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r38",
+   "name": "ALT",
+   "valueText": "28",
+   "value": 28,
+   "valueQualifier": null,
+   "unit": "U/L",
+   "flag": null,
+   "referenceRange": {
+    "low": 9,
+    "high": 46,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "COMPREHENSIVE METABOLIC PANEL",
+   "page": 2
+  },
+  {
+   "id": "r39",
+   "name": "CHOLESTEROL, TOTAL",
+   "valueText": "210",
+   "value": 210,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": "H",
+   "referenceRange": {
+    "low": null,
+    "high": 200,
+    "kind": "lt"
+   },
+   "performingLabCode": "EZ",
+   "panel": "LIPID PANEL",
+   "page": 3
+  },
+  {
+   "id": "r40",
+   "name": "HDL CHOLESTEROL",
+   "valueText": "52",
+   "value": 52,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 40,
+    "high": null,
+    "kind": "ge"
+   },
+   "performingLabCode": "EZ",
+   "panel": "LIPID PANEL",
+   "page": 3
+  },
+  {
+   "id": "r41",
+   "name": "TRIGLYCERIDES",
+   "valueText": "1,250",
+   "value": 1250,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": "HH",
+   "referenceRange": {
+    "low": null,
+    "high": 150,
+    "kind": "lt"
+   },
+   "performingLabCode": "EZ",
+   "panel": "LIPID PANEL",
+   "page": 3
+  },
+  {
+   "id": "r42",
+   "name": "LDL-CHOLESTEROL",
+   "valueText": "NOT CALC.",
+   "value": null,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "EZ",
+   "panel": "LIPID PANEL",
+   "page": 3
+  },
+  {
+   "id": "r43",
+   "name": "CHOL/HDLC RATIO",
+   "valueText": "4.0",
+   "value": 4,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": 5,
+    "kind": "lt"
+   },
+   "performingLabCode": "EZ",
+   "panel": "LIPID PANEL",
+   "page": 3
+  },
+  {
+   "id": "r44",
+   "name": "NON HDL CHOLESTEROL",
+   "valueText": "158",
+   "value": 158,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": "H",
+   "referenceRange": {
+    "low": null,
+    "high": 130,
+    "kind": "lt"
+   },
+   "performingLabCode": "EZ",
+   "panel": "LIPID PANEL",
+   "page": 3
+  },
+  {
+   "id": "r45",
+   "name": "HEMOGLOBIN A1c",
+   "valueText": "5.9",
+   "value": 5.9,
+   "valueQualifier": null,
+   "unit": "% of total Hgb",
+   "flag": "H",
+   "referenceRange": {
+    "low": null,
+    "high": 5.7,
+    "kind": "lt"
+   },
+   "performingLabCode": "EZ",
+   "panel": "HEMOGLOBIN A1c",
+   "page": 3
+  },
+  {
+   "id": "r46",
+   "name": "VITAMIN D, 25-OH, TOTAL, IMMUNOASSAY",
+   "valueText": "22",
+   "value": 22,
+   "valueQualifier": null,
+   "unit": "ng/mL",
+   "flag": "L",
+   "referenceRange": {
+    "low": 30,
+    "high": 100,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "VITAMIN D,25-OH,TOTAL,IA",
+   "page": 4
+  },
+  {
+   "id": "r47",
+   "name": "TSH",
+   "valueText": "1.85",
+   "value": 1.85,
+   "valueQualifier": null,
+   "unit": "mIU/L",
+   "flag": null,
+   "referenceRange": {
+    "low": 0.4,
+    "high": 4.5,
+    "kind": "range"
+   },
+   "performingLabCode": "PR",
+   "panel": "TSH",
+   "page": 4
+  },
+  {
+   "id": "r48",
+   "name": "HEPATITIS C ANTIBODY W/REFLEX TO HCV RNA, QN, PCR",
+   "valueText": "NON-REACTIVE",
+   "value": null,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "PR",
+   "panel": "HEPATITIS C ANTIBODY",
+   "page": 4
+  }
+ ]
+}

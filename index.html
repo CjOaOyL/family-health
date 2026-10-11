@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self' https://cdnjs.cloudflare.com; worker-src blob: https://cdnjs.cloudflare.com; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>Family Health</title>
+  <link rel="stylesheet" href="./app/styles.css">
+</head>
+<body>
+  <a class="skip" href="#app">Skip to content</a>
+  <header id="topbar" class="topbar"></header>
+  <main id="app" class="container" aria-live="polite">
+    <p class="muted">Loading…</p>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><p class="container">This app needs JavaScript. Nothing is sent anywhere; all processing happens in your browser.</p></noscript>
+
+  <!-- app/boot.js loads pdf.js 4.10.38 from cdnjs (module + worker, pinned) and starts the app.
+       The CSP above forbids inline scripts, any other origin, and all fetch/XHR. -->
+  <script type="module" src="./app/boot.js"></script>
+</body>
+</html>

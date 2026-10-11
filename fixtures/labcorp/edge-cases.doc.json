@@ -1,0 +1,941 @@
+{
+ "fileName": "edge-cases.pdf",
+ "fileHash": "eeca0627a0eef4c4e12dcd9e91995e34dca1f8b60b91846604ba541873c841d0",
+ "pageCount": 2,
+ "pages": [
+  {
+   "pageNumber": 1,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p1l0",
+     "page": 1,
+     "y": 40,
+     "x0": 36,
+     "x1": 503,
+     "text": "Labcorp  Partial Report",
+     "cells": [
+      "Labcorp",
+      "Partial Report"
+     ],
+     "cellX": [
+      36,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l1",
+     "page": 1,
+     "y": 51.5,
+     "x0": 36,
+     "x1": 104,
+     "text": "SAMPLE, CASEY",
+     "cells": [
+      "SAMPLE, CASEY"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l2",
+     "page": 1,
+     "y": 63,
+     "x0": 36,
+     "x1": 518,
+     "text": "Patient Details  Specimen Details  Physician Details",
+     "cells": [
+      "Patient Details",
+      "Specimen Details",
+      "Physician Details"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l3",
+     "page": 1,
+     "y": 74.5,
+     "x0": 36,
+     "x1": 508,
+     "text": "DOB: 11/30/1965  Date collected: 05/20/2024 0730 Local  Ordering: R DOE",
+     "cells": [
+      "DOB: 11/30/1965",
+      "Date collected: 05/20/2024 0730 Local",
+      "Ordering: R DOE"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l4",
+     "page": 1,
+     "y": 86,
+     "x0": 36,
+     "x1": 482,
+     "text": "Age: 58  Date received: 05/20/2024  Referring:",
+     "cells": [
+      "Age: 58",
+      "Date received: 05/20/2024",
+      "Referring:"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l5",
+     "page": 1,
+     "y": 97.5,
+     "x0": 36,
+     "x1": 508,
+     "text": "Gender: F  Date entered: 05/20/2024  NPI: 1234567893",
+     "cells": [
+      "Gender: F",
+      "Date entered: 05/20/2024",
+      "NPI: 1234567893"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l6",
+     "page": 1,
+     "y": 109,
+     "x0": 36,
+     "x1": 555,
+     "text": "Patient ID:  Date reported: 05/21/2024 0912 ET  Account Number: 55566677",
+     "cells": [
+      "Patient ID:",
+      "Date reported: 05/21/2024 0912 ET",
+      "Account Number: 55566677"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l7",
+     "page": 1,
+     "y": 120.5,
+     "x0": 36,
+     "x1": 498,
+     "text": "Phone:  Specimen ID: 063-987-6543-0  SAMPLE CLINIC",
+     "cells": [
+      "Phone:",
+      "Specimen ID: 063-987-6543-0",
+      "SAMPLE CLINIC"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l8",
+     "page": 1,
+     "y": 132,
+     "x0": 36,
+     "x1": 665,
+     "text": "Ordered Items: Thyroid Panel; ANA Screen, IFA w/Reflex; Hemoglobin A1c; eGFR; Iron and TIBC; Hepatitis B Surface Ab, Qual",
+     "cells": [
+      "Ordered Items: Thyroid Panel; ANA Screen, IFA w/Reflex; Hemoglobin A1c; eGFR; Iron and TIBC; Hepatitis B Surface Ab, Qual"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l9",
+     "page": 1,
+     "y": 149.3,
+     "x0": 36,
+     "x1": 104,
+     "text": "Thyroid Panel",
+     "cells": [
+      "Thyroid Panel"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l10",
+     "page": 1,
+     "y": 160.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "TSH  <0.1  Low  uIU/mL  0.450-4.500  01",
+     "cells": [
+      "TSH",
+      "<0.1",
+      "Low",
+      "uIU/mL",
+      "0.450-4.500",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l11",
+     "page": 1,
+     "y": 172.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Thyroxine (T4)  13.4  High  ug/dL  4.5-12.0  01",
+     "cells": [
+      "Thyroxine (T4)",
+      "13.4",
+      "High",
+      "ug/dL",
+      "4.5-12.0",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l12",
+     "page": 1,
+     "y": 183.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "T3 Uptake  30  %  24-39  01",
+     "cells": [
+      "T3 Uptake",
+      "30",
+      "%",
+      "24-39",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l13",
+     "page": 1,
+     "y": 195.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Free Thyroxine Index  4.0  1.2-4.9  01",
+     "cells": [
+      "Free Thyroxine Index",
+      "4.0",
+      "1.2-4.9",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l14",
+     "page": 1,
+     "y": 206.8,
+     "x0": 36,
+     "x1": 161,
+     "text": "ANA Screen, IFA w/Reflex",
+     "cells": [
+      "ANA Screen, IFA w/Reflex"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l15",
+     "page": 1,
+     "y": 218.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "ANA Direct  Positive  Abnormal  Negative  01",
+     "cells": [
+      "ANA Direct",
+      "Positive",
+      "Abnormal",
+      "Negative",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l16",
+     "page": 1,
+     "y": 229.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "ANA Titer  1:40  Abnormal  01",
+     "cells": [
+      "ANA Titer",
+      "1:40",
+      "Abnormal",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l17",
+     "page": 1,
+     "y": 241.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "ANA Pattern  See Note  01",
+     "cells": [
+      "ANA Pattern",
+      "See Note",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l18",
+     "page": 1,
+     "y": 252.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Please Note:  01",
+     "cells": [
+      "Please Note:",
+      "01"
+     ],
+     "cellX": [
+      42,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l19",
+     "page": 1,
+     "y": 264.3,
+     "x0": 42,
+     "x1": 432,
+     "text": "Pattern: Homogeneous. Homogeneous patterns are associated with a variety of",
+     "cells": [
+      "Pattern: Homogeneous. Homogeneous patterns are associated with a variety of"
+     ],
+     "cellX": [
+      42
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l20",
+     "page": 1,
+     "y": 275.8,
+     "x0": 42,
+     "x1": 292,
+     "text": "conditions; clinical correlation is recommended.",
+     "cells": [
+      "conditions; clinical correlation is recommended."
+     ],
+     "cellX": [
+      42
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l21",
+     "page": 1,
+     "y": 700,
+     "x0": 36,
+     "x1": 624,
+     "text": "01 BN  LabCorp Burlington  1447 York Court, Burlington, NC 272153361  Dir: Pat Example, MD  Phone: 800-555-0101",
+     "cells": [
+      "01 BN",
+      "LabCorp Burlington",
+      "1447 York Court, Burlington, NC 272153361",
+      "Dir: Pat Example, MD",
+      "Phone: 800-555-0101"
+     ],
+     "cellX": [
+      36,
+      78,
+      180,
+      410,
+      525
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l22",
+     "page": 1,
+     "y": 711.5,
+     "x0": 36,
+     "x1": 577,
+     "text": "Date Issued: 05/21/24 0912 ET  PARTIAL REPORT  Page 1 of 2",
+     "cells": [
+      "Date Issued: 05/21/24 0912 ET",
+      "PARTIAL REPORT",
+      "Page 1 of 2"
+     ],
+     "cellX": [
+      36,
+      300,
+      520
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l23",
+     "page": 1,
+     "y": 723,
+     "x0": 36,
+     "x1": 322,
+     "text": "© 1995-2025 Laboratory Corporation of America® Holdings",
+     "cells": [
+      "© 1995-2025 Laboratory Corporation of America® Holdings"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    }
+   ]
+  },
+  {
+   "pageNumber": 2,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p2l0",
+     "page": 2,
+     "y": 40,
+     "x0": 36,
+     "x1": 503,
+     "text": "Labcorp  Partial Report",
+     "cells": [
+      "Labcorp",
+      "Partial Report"
+     ],
+     "cellX": [
+      36,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l1",
+     "page": 2,
+     "y": 51.5,
+     "x0": 36,
+     "x1": 104,
+     "text": "SAMPLE, CASEY",
+     "cells": [
+      "SAMPLE, CASEY"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l2",
+     "page": 2,
+     "y": 63,
+     "x0": 36,
+     "x1": 518,
+     "text": "Patient Details  Specimen Details  Physician Details",
+     "cells": [
+      "Patient Details",
+      "Specimen Details",
+      "Physician Details"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l3",
+     "page": 2,
+     "y": 74.5,
+     "x0": 36,
+     "x1": 508,
+     "text": "DOB: 11/30/1965  Date collected: 05/20/2024 0730 Local  Ordering: R DOE",
+     "cells": [
+      "DOB: 11/30/1965",
+      "Date collected: 05/20/2024 0730 Local",
+      "Ordering: R DOE"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l4",
+     "page": 2,
+     "y": 86,
+     "x0": 36,
+     "x1": 482,
+     "text": "Age: 58  Date received: 05/20/2024  Referring:",
+     "cells": [
+      "Age: 58",
+      "Date received: 05/20/2024",
+      "Referring:"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l5",
+     "page": 2,
+     "y": 97.5,
+     "x0": 36,
+     "x1": 508,
+     "text": "Gender: F  Date entered: 05/20/2024  NPI: 1234567893",
+     "cells": [
+      "Gender: F",
+      "Date entered: 05/20/2024",
+      "NPI: 1234567893"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l6",
+     "page": 2,
+     "y": 109,
+     "x0": 36,
+     "x1": 555,
+     "text": "Patient ID:  Date reported: 05/21/2024 0912 ET  Account Number: 55566677",
+     "cells": [
+      "Patient ID:",
+      "Date reported: 05/21/2024 0912 ET",
+      "Account Number: 55566677"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l7",
+     "page": 2,
+     "y": 120.5,
+     "x0": 36,
+     "x1": 498,
+     "text": "Phone:  Specimen ID: 063-987-6543-0  SAMPLE CLINIC",
+     "cells": [
+      "Phone:",
+      "Specimen ID: 063-987-6543-0",
+      "SAMPLE CLINIC"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l8",
+     "page": 2,
+     "y": 137.8,
+     "x0": 36,
+     "x1": 109,
+     "text": "Hemoglobin A1c",
+     "cells": [
+      "Hemoglobin A1c"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l9",
+     "page": 2,
+     "y": 149.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Hemoglobin A1c  6.1  High  %  4.8-5.6  01",
+     "cells": [
+      "Hemoglobin A1c",
+      "6.1",
+      "High",
+      "%",
+      "4.8-5.6",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l10",
+     "page": 2,
+     "y": 160.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Estim. Avg Glu (eAG)  128  mg/dL  01",
+     "cells": [
+      "Estim. Avg Glu (eAG)",
+      "128",
+      "mg/dL",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l11",
+     "page": 2,
+     "y": 172.3,
+     "x0": 36,
+     "x1": 57,
+     "text": "eGFR",
+     "cells": [
+      "eGFR"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l12",
+     "page": 2,
+     "y": 183.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "eGFR  >90  mL/min/1.73  >59  01",
+     "cells": [
+      "eGFR",
+      ">90",
+      "mL/min/1.73",
+      ">59",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l13",
+     "page": 2,
+     "y": 195.3,
+     "x0": 36,
+     "x1": 104,
+     "text": "Iron and TIBC",
+     "cells": [
+      "Iron and TIBC"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l14",
+     "page": 2,
+     "y": 206.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Iron Bind.Cap.(TIBC)  312  ug/dL  250-450  01",
+     "cells": [
+      "Iron Bind.Cap.(TIBC)",
+      "312",
+      "ug/dL",
+      "250-450",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l15",
+     "page": 2,
+     "y": 218.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "UIBC  220  ug/dL  131-425  01",
+     "cells": [
+      "UIBC",
+      "220",
+      "ug/dL",
+      "131-425",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l16",
+     "page": 2,
+     "y": 229.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Iron  92  ug/dL  27-159  01",
+     "cells": [
+      "Iron",
+      "92",
+      "ug/dL",
+      "27-159",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l17",
+     "page": 2,
+     "y": 241.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Iron Saturation  29  %  15-55  01",
+     "cells": [
+      "Iron Saturation",
+      "29",
+      "%",
+      "15-55",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l18",
+     "page": 2,
+     "y": 252.8,
+     "x0": 36,
+     "x1": 182,
+     "text": "Hepatitis B Surface Ab, Qual",
+     "cells": [
+      "Hepatitis B Surface Ab, Qual"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l19",
+     "page": 2,
+     "y": 264.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Hepatitis B Surface Ab, Qual  Positive  Negative  02",
+     "cells": [
+      "Hepatitis B Surface Ab, Qual",
+      "Positive",
+      "Negative",
+      "02"
+     ],
+     "cellX": [
+      42,
+      250,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l20",
+     "page": 2,
+     "y": 700,
+     "x0": 36,
+     "x1": 624,
+     "text": "01 BN  LabCorp Burlington  1447 York Court, Burlington, NC 272153361  Dir: Pat Example, MD  Phone: 800-555-0101",
+     "cells": [
+      "01 BN",
+      "LabCorp Burlington",
+      "1447 York Court, Burlington, NC 272153361",
+      "Dir: Pat Example, MD",
+      "Phone: 800-555-0101"
+     ],
+     "cellX": [
+      36,
+      78,
+      180,
+      410,
+      525
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l21",
+     "page": 2,
+     "y": 711.5,
+     "x0": 36,
+     "x1": 624,
+     "text": "02 SE  LabCorp Phoenix  5005 S 40th St Ste 1100, Phoenix, AZ 850403222  Dir: Chris Sample, MD  Phone: 800-555-0102",
+     "cells": [
+      "02 SE",
+      "LabCorp Phoenix",
+      "5005 S 40th St Ste 1100, Phoenix, AZ 850403222",
+      "Dir: Chris Sample, MD",
+      "Phone: 800-555-0102"
+     ],
+     "cellX": [
+      36,
+      78,
+      180,
+      410,
+      525
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l22",
+     "page": 2,
+     "y": 723,
+     "x0": 36,
+     "x1": 577,
+     "text": "Date Issued: 05/21/24 0912 ET  PARTIAL REPORT  Page 2 of 2",
+     "cells": [
+      "Date Issued: 05/21/24 0912 ET",
+      "PARTIAL REPORT",
+      "Page 2 of 2"
+     ],
+     "cellX": [
+      36,
+      300,
+      520
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l23",
+     "page": 2,
+     "y": 734.5,
+     "x0": 36,
+     "x1": 322,
+     "text": "© 1995-2025 Laboratory Corporation of America® Holdings",
+     "cells": [
+      "© 1995-2025 Laboratory Corporation of America® Holdings"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    }
+   ]
+  }
+ ]
+}

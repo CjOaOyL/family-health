@@ -1,0 +1,1140 @@
+{
+ "fileName": "portal-2023.pdf",
+ "fileHash": "e14f692ca47b38e06c73939c719e35ff45258457243a64629d8223d1e472fd6e",
+ "pageCount": 2,
+ "pages": [
+  {
+   "pageNumber": 1,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p1l0",
+     "page": 1,
+     "y": 40,
+     "x0": 36,
+     "x1": 492,
+     "text": "Labcorp  Final Report",
+     "cells": [
+      "Labcorp",
+      "Final Report"
+     ],
+     "cellX": [
+      36,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l1",
+     "page": 1,
+     "y": 51.5,
+     "x0": 36,
+     "x1": 465,
+     "text": "Patient: SAMPLE, JORDAN  Specimen #: 123-456-7890-0",
+     "cells": [
+      "Patient: SAMPLE, JORDAN",
+      "Specimen #: 123-456-7890-0"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l2",
+     "page": 1,
+     "y": 63,
+     "x0": 36,
+     "x1": 496,
+     "text": "Date of Birth: 06/02/2012  Collected: 09/10/2023 0902 Local",
+     "cells": [
+      "Date of Birth: 06/02/2012",
+      "Collected: 09/10/2023 0902 Local"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l3",
+     "page": 1,
+     "y": 74.5,
+     "x0": 36,
+     "x1": 434,
+     "text": "Sex: F  Received: 09/10/2023",
+     "cells": [
+      "Sex: F",
+      "Received: 09/10/2023"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l4",
+     "page": 1,
+     "y": 86,
+     "x0": 36,
+     "x1": 476,
+     "text": "Age: 11  Reported: 09/11/2023 1415 ET",
+     "cells": [
+      "Age: 11",
+      "Reported: 09/11/2023 1415 ET"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l5",
+     "page": 1,
+     "y": 97.5,
+     "x0": 36,
+     "x1": 392,
+     "text": "Patient ID: 998877  Fasting: Yes",
+     "cells": [
+      "Patient ID: 998877",
+      "Fasting: Yes"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l6",
+     "page": 1,
+     "y": 109,
+     "x0": 36,
+     "x1": 418,
+     "text": "Ordering Physician: A JONES  Account: 87654321",
+     "cells": [
+      "Ordering Physician: A JONES",
+      "Account: 87654321"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l7",
+     "page": 1,
+     "y": 120.5,
+     "x0": 36,
+     "x1": 450,
+     "text": "NPI: 1234567893  SAMPLE PEDIATRICS GROUP",
+     "cells": [
+      "NPI: 1234567893",
+      "SAMPLE PEDIATRICS GROUP"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l8",
+     "page": 1,
+     "y": 132,
+     "x0": 330,
+     "x1": 486,
+     "text": "456 FAKE AVE, ANYTOWN NY 12345",
+     "cells": [
+      "456 FAKE AVE, ANYTOWN NY 12345"
+     ],
+     "cellX": [
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l9",
+     "page": 1,
+     "y": 143.5,
+     "x0": 36,
+     "x1": 348,
+     "text": "Ordered Items: CBC With Differential/Platelet; Ferritin; TSH",
+     "cells": [
+      "Ordered Items: CBC With Differential/Platelet; Ferritin; TSH"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l10",
+     "page": 1,
+     "y": 160.8,
+     "x0": 36,
+     "x1": 576,
+     "text": "Test Name  Result  Flag  Units  Reference Interval  Lab",
+     "cells": [
+      "Test Name",
+      "Result",
+      "Flag",
+      "Units",
+      "Reference Interval",
+      "Lab"
+     ],
+     "cellX": [
+      36,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l11",
+     "page": 1,
+     "y": 172.3,
+     "x0": 36,
+     "x1": 192,
+     "text": "CBC With Differential/Platelet",
+     "cells": [
+      "CBC With Differential/Platelet"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l12",
+     "page": 1,
+     "y": 183.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "WBC  7.2  x10E3/uL  4.5-13.5  01",
+     "cells": [
+      "WBC",
+      "7.2",
+      "x10E3/uL",
+      "4.5-13.5",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l13",
+     "page": 1,
+     "y": 195.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "RBC  4.60  x10E6/uL  3.90-5.20  01",
+     "cells": [
+      "RBC",
+      "4.60",
+      "x10E6/uL",
+      "3.90-5.20",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l14",
+     "page": 1,
+     "y": 206.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Hemoglobin  13.1  g/dL  11.1-14.7  01",
+     "cells": [
+      "Hemoglobin",
+      "13.1",
+      "g/dL",
+      "11.1-14.7",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l15",
+     "page": 1,
+     "y": 218.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Hematocrit  38.9  %  34.0-44.0  01",
+     "cells": [
+      "Hematocrit",
+      "38.9",
+      "%",
+      "34.0-44.0",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l16",
+     "page": 1,
+     "y": 229.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "MCV  85  fL  77-95  01",
+     "cells": [
+      "MCV",
+      "85",
+      "fL",
+      "77-95",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l17",
+     "page": 1,
+     "y": 241.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "MCH  28.5  pg  25.0-33.0  01",
+     "cells": [
+      "MCH",
+      "28.5",
+      "pg",
+      "25.0-33.0",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l18",
+     "page": 1,
+     "y": 252.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "MCHC  33.7  g/dL  31.5-35.7  01",
+     "cells": [
+      "MCHC",
+      "33.7",
+      "g/dL",
+      "31.5-35.7",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l19",
+     "page": 1,
+     "y": 264.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "RDW  12.5  %  11.7-15.4  01",
+     "cells": [
+      "RDW",
+      "12.5",
+      "%",
+      "11.7-15.4",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l20",
+     "page": 1,
+     "y": 275.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Platelets  298  x10E3/uL  150-450  01",
+     "cells": [
+      "Platelets",
+      "298",
+      "x10E3/uL",
+      "150-450",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l21",
+     "page": 1,
+     "y": 287.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Neutrophils  45  %  Not Estab.  01",
+     "cells": [
+      "Neutrophils",
+      "45",
+      "%",
+      "Not Estab.",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l22",
+     "page": 1,
+     "y": 298.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Lymphs  42  %  Not Estab.  01",
+     "cells": [
+      "Lymphs",
+      "42",
+      "%",
+      "Not Estab.",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l23",
+     "page": 1,
+     "y": 310.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Monocytes  8  %  Not Estab.  01",
+     "cells": [
+      "Monocytes",
+      "8",
+      "%",
+      "Not Estab.",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l24",
+     "page": 1,
+     "y": 321.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Eos  4  %  Not Estab.  01",
+     "cells": [
+      "Eos",
+      "4",
+      "%",
+      "Not Estab.",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l25",
+     "page": 1,
+     "y": 333.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Basos  1  %  Not Estab.  01",
+     "cells": [
+      "Basos",
+      "1",
+      "%",
+      "Not Estab.",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l26",
+     "page": 1,
+     "y": 344.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Neutrophils (Absolute)  3.2  x10E3/uL  1.5-8.0  01",
+     "cells": [
+      "Neutrophils (Absolute)",
+      "3.2",
+      "x10E3/uL",
+      "1.5-8.0",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l27",
+     "page": 1,
+     "y": 356.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Lymphs (Absolute)  3.0  x10E3/uL  1.2-5.2  01",
+     "cells": [
+      "Lymphs (Absolute)",
+      "3.0",
+      "x10E3/uL",
+      "1.2-5.2",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l28",
+     "page": 1,
+     "y": 367.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Monocytes(Absolute)  0.6  x10E3/uL  0.1-1.0  01",
+     "cells": [
+      "Monocytes(Absolute)",
+      "0.6",
+      "x10E3/uL",
+      "0.1-1.0",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l29",
+     "page": 1,
+     "y": 379.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Eos (Absolute)  0.3  x10E3/uL  0.0-0.7  01",
+     "cells": [
+      "Eos (Absolute)",
+      "0.3",
+      "x10E3/uL",
+      "0.0-0.7",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l30",
+     "page": 1,
+     "y": 390.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Baso (Absolute)  0.1  x10E3/uL  0.0-0.2  01",
+     "cells": [
+      "Baso (Absolute)",
+      "0.1",
+      "x10E3/uL",
+      "0.0-0.2",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l31",
+     "page": 1,
+     "y": 402.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Immature Granulocytes  0  %  Not Estab.  01",
+     "cells": [
+      "Immature Granulocytes",
+      "0",
+      "%",
+      "Not Estab.",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l32",
+     "page": 1,
+     "y": 413.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Immature Grans (Abs)  0.0  x10E3/uL  0.0-0.1  01",
+     "cells": [
+      "Immature Grans (Abs)",
+      "0.0",
+      "x10E3/uL",
+      "0.0-0.1",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l33",
+     "page": 1,
+     "y": 700,
+     "x0": 36,
+     "x1": 624,
+     "text": "01 BN  LabCorp Burlington  1447 York Court, Burlington, NC 272153361  Dir: Pat Example, MD  Phone: 800-555-0101",
+     "cells": [
+      "01 BN",
+      "LabCorp Burlington",
+      "1447 York Court, Burlington, NC 272153361",
+      "Dir: Pat Example, MD",
+      "Phone: 800-555-0101"
+     ],
+     "cellX": [
+      36,
+      78,
+      180,
+      410,
+      525
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l34",
+     "page": 1,
+     "y": 711.5,
+     "x0": 36,
+     "x1": 577,
+     "text": "Date Issued: 09/11/23 1415 ET  FINAL REPORT  Page 1 of 2",
+     "cells": [
+      "Date Issued: 09/11/23 1415 ET",
+      "FINAL REPORT",
+      "Page 1 of 2"
+     ],
+     "cellX": [
+      36,
+      300,
+      520
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l35",
+     "page": 1,
+     "y": 723,
+     "x0": 36,
+     "x1": 322,
+     "text": "© 1995-2025 Laboratory Corporation of America® Holdings",
+     "cells": [
+      "© 1995-2025 Laboratory Corporation of America® Holdings"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l36",
+     "page": 1,
+     "y": 734.5,
+     "x0": 36,
+     "x1": 566,
+     "text": "This document contains private and confidential health information protected by state and federal law.",
+     "cells": [
+      "This document contains private and confidential health information protected by state and federal law."
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    }
+   ]
+  },
+  {
+   "pageNumber": 2,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p2l0",
+     "page": 2,
+     "y": 40,
+     "x0": 36,
+     "x1": 492,
+     "text": "Labcorp  Final Report",
+     "cells": [
+      "Labcorp",
+      "Final Report"
+     ],
+     "cellX": [
+      36,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l1",
+     "page": 2,
+     "y": 51.5,
+     "x0": 36,
+     "x1": 465,
+     "text": "Patient: SAMPLE, JORDAN  Specimen #: 123-456-7890-0",
+     "cells": [
+      "Patient: SAMPLE, JORDAN",
+      "Specimen #: 123-456-7890-0"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l2",
+     "page": 2,
+     "y": 63,
+     "x0": 36,
+     "x1": 496,
+     "text": "Date of Birth: 06/02/2012  Collected: 09/10/2023 0902 Local",
+     "cells": [
+      "Date of Birth: 06/02/2012",
+      "Collected: 09/10/2023 0902 Local"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l3",
+     "page": 2,
+     "y": 74.5,
+     "x0": 36,
+     "x1": 434,
+     "text": "Sex: F  Received: 09/10/2023",
+     "cells": [
+      "Sex: F",
+      "Received: 09/10/2023"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l4",
+     "page": 2,
+     "y": 86,
+     "x0": 36,
+     "x1": 476,
+     "text": "Age: 11  Reported: 09/11/2023 1415 ET",
+     "cells": [
+      "Age: 11",
+      "Reported: 09/11/2023 1415 ET"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l5",
+     "page": 2,
+     "y": 97.5,
+     "x0": 36,
+     "x1": 392,
+     "text": "Patient ID: 998877  Fasting: Yes",
+     "cells": [
+      "Patient ID: 998877",
+      "Fasting: Yes"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l6",
+     "page": 2,
+     "y": 109,
+     "x0": 36,
+     "x1": 418,
+     "text": "Ordering Physician: A JONES  Account: 87654321",
+     "cells": [
+      "Ordering Physician: A JONES",
+      "Account: 87654321"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l7",
+     "page": 2,
+     "y": 120.5,
+     "x0": 36,
+     "x1": 450,
+     "text": "NPI: 1234567893  SAMPLE PEDIATRICS GROUP",
+     "cells": [
+      "NPI: 1234567893",
+      "SAMPLE PEDIATRICS GROUP"
+     ],
+     "cellX": [
+      36,
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l8",
+     "page": 2,
+     "y": 132,
+     "x0": 330,
+     "x1": 486,
+     "text": "456 FAKE AVE, ANYTOWN NY 12345",
+     "cells": [
+      "456 FAKE AVE, ANYTOWN NY 12345"
+     ],
+     "cellX": [
+      330
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l9",
+     "page": 2,
+     "y": 149.3,
+     "x0": 36,
+     "x1": 576,
+     "text": "Test Name  Result  Flag  Units  Reference Interval  Lab",
+     "cells": [
+      "Test Name",
+      "Result",
+      "Flag",
+      "Units",
+      "Reference Interval",
+      "Lab"
+     ],
+     "cellX": [
+      36,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l10",
+     "page": 2,
+     "y": 160.8,
+     "x0": 36,
+     "x1": 78,
+     "text": "Ferritin",
+     "cells": [
+      "Ferritin"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l11",
+     "page": 2,
+     "y": 172.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Ferritin  9  Low  ng/mL  13-150  01",
+     "cells": [
+      "Ferritin",
+      "9",
+      "Low",
+      "ng/mL",
+      "13-150",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l12",
+     "page": 2,
+     "y": 183.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Please Note:  01",
+     "cells": [
+      "Please Note:",
+      "01"
+     ],
+     "cellX": [
+      42,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l13",
+     "page": 2,
+     "y": 195.3,
+     "x0": 42,
+     "x1": 338,
+     "text": "Reference interval for ferritin is age and sex dependent.",
+     "cells": [
+      "Reference interval for ferritin is age and sex dependent."
+     ],
+     "cellX": [
+      42
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l14",
+     "page": 2,
+     "y": 206.8,
+     "x0": 36,
+     "x1": 52,
+     "text": "TSH",
+     "cells": [
+      "TSH"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l15",
+     "page": 2,
+     "y": 218.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "TSH  2.110  uIU/mL  0.500-4.300  01",
+     "cells": [
+      "TSH",
+      "2.110",
+      "uIU/mL",
+      "0.500-4.300",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l16",
+     "page": 2,
+     "y": 700,
+     "x0": 36,
+     "x1": 624,
+     "text": "01 BN  LabCorp Burlington  1447 York Court, Burlington, NC 272153361  Dir: Pat Example, MD  Phone: 800-555-0101",
+     "cells": [
+      "01 BN",
+      "LabCorp Burlington",
+      "1447 York Court, Burlington, NC 272153361",
+      "Dir: Pat Example, MD",
+      "Phone: 800-555-0101"
+     ],
+     "cellX": [
+      36,
+      78,
+      180,
+      410,
+      525
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l17",
+     "page": 2,
+     "y": 711.5,
+     "x0": 36,
+     "x1": 577,
+     "text": "Date Issued: 09/11/23 1415 ET  FINAL REPORT  Page 2 of 2",
+     "cells": [
+      "Date Issued: 09/11/23 1415 ET",
+      "FINAL REPORT",
+      "Page 2 of 2"
+     ],
+     "cellX": [
+      36,
+      300,
+      520
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l18",
+     "page": 2,
+     "y": 723,
+     "x0": 36,
+     "x1": 322,
+     "text": "© 1995-2025 Laboratory Corporation of America® Holdings",
+     "cells": [
+      "© 1995-2025 Laboratory Corporation of America® Holdings"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l19",
+     "page": 2,
+     "y": 734.5,
+     "x0": 36,
+     "x1": 566,
+     "text": "This document contains private and confidential health information protected by state and federal law.",
+     "cells": [
+      "This document contains private and confidential health information protected by state and federal law."
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    }
+   ]
+  }
+ ]
+}

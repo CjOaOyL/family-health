@@ -4,7 +4,7 @@
   "description": "Private family health app: deterministic Labcorp/Quest lab PDF extraction, local storage, cross-vendor comparison",
   "main": "index.js",
   "scripts": {
-    "test": "node --test test/",
+    "test": "node --test \"test/**/*.test.js\"",
     "fixtures": "node fixtures/gen/build.js",
     "extract": "node cli/extract.js",
     "serve": "npx -y serve -l 8080 ."

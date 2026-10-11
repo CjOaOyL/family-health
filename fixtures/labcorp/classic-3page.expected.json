@@ -1,0 +1,1075 @@
+{
+ "source": {
+  "vendor": "labcorp",
+  "pageCount": 3,
+  "reportStatus": "final"
+ },
+ "patient": {
+  "fullName": "SAMPLE, ALEX Q",
+  "lastName": "SAMPLE",
+  "firstName": "ALEX",
+  "middleName": "Q",
+  "dob": "1980-01-15",
+  "sex": "M",
+  "ageAtCollection": 45,
+  "patientId": "100200300",
+  "phone": "555-010-0100"
+ },
+ "specimen": {
+  "specimenId": "063-123-4567-0",
+  "collectedAt": "2025-03-04T08:15",
+  "collectedTz": "Local",
+  "receivedAt": "2025-03-04",
+  "enteredAt": "2025-03-04",
+  "reportedAt": "2025-03-05T10:23",
+  "fasting": true
+ },
+ "provider": {
+  "orderingName": "J SMITH",
+  "referringName": null,
+  "npi": "1234567893",
+  "accountNumber": "12345678",
+  "accountName": "SAMPLE FAMILY MEDICINE",
+  "address": "123 FAKE STREET STE 4, ANYTOWN NY 12345-0000",
+  "phone": "555-010-0200",
+  "fax": "555-010-0201"
+ },
+ "performingLabs": [
+  {
+   "code": "01",
+   "name": "LabCorp Burlington",
+   "address": "1447 York Court, Burlington, NC 272153361",
+   "director": "Pat Example, MD",
+   "clia": null,
+   "phone": "800-555-0101"
+  },
+  {
+   "code": "02",
+   "name": "LabCorp Phoenix",
+   "address": "5005 S 40th St Ste 1100, Phoenix, AZ 850403222",
+   "director": "Chris Sample, MD",
+   "clia": null,
+   "phone": "800-555-0102"
+  }
+ ],
+ "panels": [
+  {
+   "name": "CBC With Differential/Platelet",
+   "resultIds": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9",
+    "r10",
+    "r11",
+    "r12",
+    "r13",
+    "r14",
+    "r15",
+    "r16",
+    "r17",
+    "r18",
+    "r19",
+    "r20",
+    "r21"
+   ],
+   "page": 1
+  },
+  {
+   "name": "Comp. Metabolic Panel (14)",
+   "resultIds": [
+    "r22",
+    "r23",
+    "r24",
+    "r25",
+    "r26",
+    "r27",
+    "r28",
+    "r29",
+    "r30",
+    "r31",
+    "r32",
+    "r33",
+    "r34",
+    "r35",
+    "r36",
+    "r37",
+    "r38",
+    "r39"
+   ],
+   "page": 2
+  },
+  {
+   "name": "Lipid Panel",
+   "resultIds": [
+    "r40",
+    "r41",
+    "r42",
+    "r43",
+    "r44",
+    "r45"
+   ],
+   "page": 2
+  },
+  {
+   "name": "Hemoglobin A1c",
+   "resultIds": [
+    "r46",
+    "r47"
+   ],
+   "page": 3
+  },
+  {
+   "name": "Vitamin D, 25-Hydroxy",
+   "resultIds": [
+    "r48"
+   ],
+   "page": 3
+  },
+  {
+   "name": "TSH",
+   "resultIds": [
+    "r49"
+   ],
+   "page": 3
+  }
+ ],
+ "results": [
+  {
+   "id": "r1",
+   "panel": "CBC With Differential/Platelet",
+   "name": "WBC",
+   "valueText": "6.8",
+   "value": 6.8,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "3.4-10.8",
+    "low": 3.4,
+    "high": 10.8,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r2",
+   "panel": "CBC With Differential/Platelet",
+   "name": "RBC",
+   "valueText": "4.95",
+   "value": 4.95,
+   "valueQualifier": null,
+   "unit": "x10E6/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "4.14-5.80",
+    "low": 4.14,
+    "high": 5.8,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r3",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Hemoglobin",
+   "valueText": "15.1",
+   "value": 15.1,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "13.0-17.7",
+    "low": 13,
+    "high": 17.7,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r4",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Hematocrit",
+   "valueText": "44.2",
+   "value": 44.2,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "37.5-51.0",
+    "low": 37.5,
+    "high": 51,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r5",
+   "panel": "CBC With Differential/Platelet",
+   "name": "MCV",
+   "valueText": "89",
+   "value": 89,
+   "valueQualifier": null,
+   "unit": "fL",
+   "flag": null,
+   "referenceRange": {
+    "text": "79-97",
+    "low": 79,
+    "high": 97,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r6",
+   "panel": "CBC With Differential/Platelet",
+   "name": "MCH",
+   "valueText": "30.5",
+   "value": 30.5,
+   "valueQualifier": null,
+   "unit": "pg",
+   "flag": null,
+   "referenceRange": {
+    "text": "26.6-33.0",
+    "low": 26.6,
+    "high": 33,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r7",
+   "panel": "CBC With Differential/Platelet",
+   "name": "MCHC",
+   "valueText": "34.2",
+   "value": 34.2,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "31.5-35.7",
+    "low": 31.5,
+    "high": 35.7,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r8",
+   "panel": "CBC With Differential/Platelet",
+   "name": "RDW",
+   "valueText": "12.9",
+   "value": 12.9,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "11.6-15.4",
+    "low": 11.6,
+    "high": 15.4,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r9",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Platelets",
+   "valueText": "462",
+   "value": 462,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": "H",
+   "referenceRange": {
+    "text": "150-450",
+    "low": 150,
+    "high": 450,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r10",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Neutrophils",
+   "valueText": "58",
+   "value": 58,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "Not Estab.",
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r11",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Lymphs",
+   "valueText": "30",
+   "value": 30,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "Not Estab.",
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r12",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Monocytes",
+   "valueText": "8",
+   "value": 8,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "Not Estab.",
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r13",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Eos",
+   "valueText": "3",
+   "value": 3,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "Not Estab.",
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r14",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Basos",
+   "valueText": "1",
+   "value": 1,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "Not Estab.",
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r15",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Neutrophils (Absolute)",
+   "valueText": "3.9",
+   "value": 3.9,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "1.4-7.0",
+    "low": 1.4,
+    "high": 7,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r16",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Lymphs (Absolute)",
+   "valueText": "2.0",
+   "value": 2,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.7-3.1",
+    "low": 0.7,
+    "high": 3.1,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r17",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Monocytes(Absolute)",
+   "valueText": "0.5",
+   "value": 0.5,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.1-0.9",
+    "low": 0.1,
+    "high": 0.9,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r18",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Eos (Absolute)",
+   "valueText": "0.2",
+   "value": 0.2,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.0-0.4",
+    "low": 0,
+    "high": 0.4,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r19",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Baso (Absolute)",
+   "valueText": "0.1",
+   "value": 0.1,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.0-0.2",
+    "low": 0,
+    "high": 0.2,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r20",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Immature Granulocytes",
+   "valueText": "0",
+   "value": 0,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "Not Estab.",
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r21",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Immature Grans (Abs)",
+   "valueText": "0.0",
+   "value": 0,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.0-0.1",
+    "low": 0,
+    "high": 0.1,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r22",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "Glucose",
+   "valueText": "102",
+   "value": 102,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": "H",
+   "referenceRange": {
+    "text": "70-99",
+    "low": 70,
+    "high": 99,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r23",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "BUN",
+   "valueText": "15",
+   "value": 15,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "6-24",
+    "low": 6,
+    "high": 24,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r24",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "Creatinine",
+   "valueText": "0.98",
+   "value": 0.98,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.76-1.27",
+    "low": 0.76,
+    "high": 1.27,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r25",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "eGFR",
+   "valueText": "92",
+   "value": 92,
+   "valueQualifier": null,
+   "unit": "mL/min/1.73",
+   "flag": null,
+   "referenceRange": {
+    "text": ">59",
+    "low": 59,
+    "high": null,
+    "kind": "gt"
+   },
+   "performingLabCode": "01",
+   "comment": "Please Note:\neGFR is calculated using the 2021 CKD-EPI creatinine equation, without a race variable.",
+   "page": 2
+  },
+  {
+   "id": "r26",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "BUN/Creatinine Ratio",
+   "valueText": "15",
+   "value": 15,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": null,
+   "referenceRange": {
+    "text": "9-20",
+    "low": 9,
+    "high": 20,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r27",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "Sodium",
+   "valueText": "140",
+   "value": 140,
+   "valueQualifier": null,
+   "unit": "mmol/L",
+   "flag": null,
+   "referenceRange": {
+    "text": "134-144",
+    "low": 134,
+    "high": 144,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r28",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "Potassium",
+   "valueText": "6.3",
+   "value": 6.3,
+   "valueQualifier": null,
+   "unit": "mmol/L",
+   "flag": "C",
+   "referenceRange": {
+    "text": "3.5-5.2",
+    "low": 3.5,
+    "high": 5.2,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r29",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "Chloride",
+   "valueText": "101",
+   "value": 101,
+   "valueQualifier": null,
+   "unit": "mmol/L",
+   "flag": null,
+   "referenceRange": {
+    "text": "96-106",
+    "low": 96,
+    "high": 106,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r30",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "Carbon Dioxide, Total",
+   "valueText": "24",
+   "value": 24,
+   "valueQualifier": null,
+   "unit": "mmol/L",
+   "flag": null,
+   "referenceRange": {
+    "text": "20-29",
+    "low": 20,
+    "high": 29,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r31",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "Calcium",
+   "valueText": "9.4",
+   "value": 9.4,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "8.7-10.2",
+    "low": 8.7,
+    "high": 10.2,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r32",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "Protein, Total",
+   "valueText": "7.0",
+   "value": 7,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "6.0-8.5",
+    "low": 6,
+    "high": 8.5,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r33",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "Albumin",
+   "valueText": "4.5",
+   "value": 4.5,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "3.8-4.9",
+    "low": 3.8,
+    "high": 4.9,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r34",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "Globulin, Total",
+   "valueText": "2.5",
+   "value": 2.5,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "1.5-4.5",
+    "low": 1.5,
+    "high": 4.5,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r35",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "A/G Ratio",
+   "valueText": "1.8",
+   "value": 1.8,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": null,
+   "referenceRange": {
+    "text": "1.2-2.2",
+    "low": 1.2,
+    "high": 2.2,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r36",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "Bilirubin, Total",
+   "valueText": "0.6",
+   "value": 0.6,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.0-1.2",
+    "low": 0,
+    "high": 1.2,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r37",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "Alkaline Phosphatase",
+   "valueText": "68",
+   "value": 68,
+   "valueQualifier": null,
+   "unit": "IU/L",
+   "flag": null,
+   "referenceRange": {
+    "text": "44-121",
+    "low": 44,
+    "high": 121,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r38",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "AST (SGOT)",
+   "valueText": "22",
+   "value": 22,
+   "valueQualifier": null,
+   "unit": "IU/L",
+   "flag": null,
+   "referenceRange": {
+    "text": "0-40",
+    "low": 0,
+    "high": 40,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r39",
+   "panel": "Comp. Metabolic Panel (14)",
+   "name": "ALT (SGPT)",
+   "valueText": "27",
+   "value": 27,
+   "valueQualifier": null,
+   "unit": "IU/L",
+   "flag": null,
+   "referenceRange": {
+    "text": "0-44",
+    "low": 0,
+    "high": 44,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r40",
+   "panel": "Lipid Panel",
+   "name": "Cholesterol, Total",
+   "valueText": "210",
+   "value": 210,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": "H",
+   "referenceRange": {
+    "text": "100-199",
+    "low": 100,
+    "high": 199,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r41",
+   "panel": "Lipid Panel",
+   "name": "Triglycerides",
+   "valueText": "1,045",
+   "value": 1045,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": "H",
+   "referenceRange": {
+    "text": "0-149",
+    "low": 0,
+    "high": 149,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r42",
+   "panel": "Lipid Panel",
+   "name": "HDL Cholesterol",
+   "valueText": "38",
+   "value": 38,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": "L",
+   "referenceRange": {
+    "text": ">39",
+    "low": 39,
+    "high": null,
+    "kind": "gt"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r43",
+   "panel": "Lipid Panel",
+   "name": "VLDL Cholesterol Cal",
+   "valueText": "27",
+   "value": 27,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "5-40",
+    "low": 5,
+    "high": 40,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r44",
+   "panel": "Lipid Panel",
+   "name": "LDL Chol Calc (NIH)",
+   "valueText": "142",
+   "value": 142,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": "H",
+   "referenceRange": {
+    "text": "0-99",
+    "low": 0,
+    "high": 99,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": "Comment:\nDesirable range <100 mg/dL for primary prevention goal.",
+   "page": 2
+  },
+  {
+   "id": "r45",
+   "panel": "Lipid Panel",
+   "name": "Chol/HDL Ratio",
+   "valueText": "5.5",
+   "value": 5.5,
+   "valueQualifier": null,
+   "unit": "ratio",
+   "flag": "H",
+   "referenceRange": {
+    "text": "0.0-5.0",
+    "low": 0,
+    "high": 5,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  },
+  {
+   "id": "r46",
+   "panel": "Hemoglobin A1c",
+   "name": "Hemoglobin A1c",
+   "valueText": "5.9",
+   "value": 5.9,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": "H",
+   "referenceRange": {
+    "text": "4.8-5.6",
+    "low": 4.8,
+    "high": 5.6,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": "Please Note:\nPrediabetes: 5.7 - 6.4\nDiabetes: >6.4\nGlycemic control for adults with diabetes: <7.0",
+   "page": 3
+  },
+  {
+   "id": "r47",
+   "panel": "Hemoglobin A1c",
+   "name": "Estimated Average Glucose (eAG)",
+   "valueText": "123",
+   "value": 123,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": null,
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 3
+  },
+  {
+   "id": "r48",
+   "panel": "Vitamin D, 25-Hydroxy",
+   "name": "Vitamin D, 25-Hydroxy",
+   "valueText": "32.4",
+   "value": 32.4,
+   "valueQualifier": null,
+   "unit": "ng/mL",
+   "flag": null,
+   "referenceRange": {
+    "text": "30.0-100.0",
+    "low": 30,
+    "high": 100,
+    "kind": "range"
+   },
+   "performingLabCode": "02",
+   "comment": "Please Note:\nVitamin D deficiency has been defined by the Endocrine Society as a level of <20 ng/mL.",
+   "page": 3
+  },
+  {
+   "id": "r49",
+   "panel": "TSH",
+   "name": "TSH",
+   "valueText": "1.230",
+   "value": 1.23,
+   "valueQualifier": null,
+   "unit": "uIU/mL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.450-4.500",
+    "low": 0.45,
+    "high": 4.5,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 3
+  }
+ ]
+}

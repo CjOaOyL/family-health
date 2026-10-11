@@ -1,0 +1,320 @@
+{
+ "source": {
+  "vendor": "quest",
+  "reportStatus": "corrected",
+  "pageCount": 2
+ },
+ "patient": {
+  "fullName": "TEST, PAT",
+  "lastName": "TEST",
+  "firstName": "PAT",
+  "middleName": null,
+  "dob": "1975-03-03",
+  "sex": "F",
+  "ageAtCollection": 50,
+  "patientId": null,
+  "phone": null
+ },
+ "specimen": {
+  "specimenId": "ZZ999999X",
+  "requisition": "0099999",
+  "labRef": null,
+  "collectedAt": "2025-10-01T07:45",
+  "receivedAt": "2025-10-01T19:10",
+  "reportedAt": "2025-10-02T05:30",
+  "fasting": false
+ },
+ "provider": {
+  "orderingName": "DOE, JANE",
+  "npi": "1234567893",
+  "accountNumber": "87654321",
+  "accountName": null,
+  "address": "9 EXAMPLE ROAD, SOMEWHERE, NJ 08000"
+ },
+ "performingLabs": [
+  {
+   "code": "EZ",
+   "name": "Quest Diagnostics Nichols Institute",
+   "address": "33608 Example Hwy, San Juan Capistrano, CA 92675-2042",
+   "director": "SAMPLE DIRECTOR, MD",
+   "clia": "05D0000001",
+   "phone": "800.555.0199"
+  },
+  {
+   "code": "PR",
+   "name": "Quest Diagnostics-Teterboro",
+   "address": "1 Example Blvd, Teterboro, NJ 07608-1070",
+   "director": "TEST PATHOLOGIST, MD",
+   "clia": "31D0000002",
+   "phone": "800.555.0198"
+  }
+ ],
+ "panels": [
+  {
+   "name": "MAGNESIUM",
+   "resultIds": [
+    "r1"
+   ],
+   "page": 1
+  },
+  {
+   "name": "OSMOLALITY, CALCULATED",
+   "resultIds": [
+    "r2"
+   ],
+   "page": 1
+  },
+  {
+   "name": "C-REACTIVE PROTEIN",
+   "resultIds": [
+    "r3"
+   ],
+   "page": 1
+  },
+  {
+   "name": "CREATININE WITH EGFR",
+   "resultIds": [
+    "r4",
+    "r5"
+   ],
+   "page": 1
+  },
+  {
+   "name": "ANA SCREEN, IFA, W/REFL TITER AND PATTERN",
+   "resultIds": [
+    "r6",
+    "r7",
+    "r8"
+   ],
+   "page": 1
+  },
+  {
+   "name": "LIPOPROTEIN (a)",
+   "resultIds": [
+    "r9"
+   ],
+   "page": 1
+  },
+  {
+   "name": "ELECTROLYTE PANEL",
+   "resultIds": [
+    "r10",
+    "r11"
+   ],
+   "page": 1
+  },
+  {
+   "name": "HEMOGLOBIN A1c",
+   "resultIds": [
+    "r12"
+   ],
+   "page": 2
+  }
+ ],
+ "results": [
+  {
+   "id": "r1",
+   "name": "MAGNESIUM",
+   "valueText": "2.0",
+   "value": 2,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "EZ",
+   "panel": "MAGNESIUM",
+   "page": 1
+  },
+  {
+   "id": "r2",
+   "name": "OSMOLALITY, CALCULATED",
+   "valueText": "285",
+   "value": 285,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "EZ",
+   "panel": "OSMOLALITY, CALCULATED",
+   "page": 1
+  },
+  {
+   "id": "r3",
+   "name": "C-REACTIVE PROTEIN",
+   "valueText": "<0.1",
+   "value": 0.1,
+   "valueQualifier": "<",
+   "unit": "mg/L",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": 3,
+    "kind": "lt"
+   },
+   "performingLabCode": "EZ",
+   "panel": "C-REACTIVE PROTEIN",
+   "page": 1
+  },
+  {
+   "id": "r4",
+   "name": "CREATININE",
+   "valueText": "0.70",
+   "value": 0.7,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 0.5,
+    "high": 1.1,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CREATININE WITH EGFR",
+   "page": 1
+  },
+  {
+   "id": "r5",
+   "name": "EGFR",
+   "valueText": ">90",
+   "value": 90,
+   "valueQualifier": ">",
+   "unit": "mL/min/1.73m2",
+   "flag": null,
+   "referenceRange": {
+    "low": 60,
+    "high": null,
+    "kind": "ge"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CREATININE WITH EGFR",
+   "page": 1
+  },
+  {
+   "id": "r6",
+   "name": "ANA SCREEN, IFA",
+   "valueText": "POSITIVE",
+   "value": null,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": "A",
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "PR",
+   "panel": "ANA SCREEN, IFA, W/REFL TITER AND PATTERN",
+   "page": 1
+  },
+  {
+   "id": "r7",
+   "name": "ANA TITER",
+   "valueText": "1:40",
+   "value": null,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": "A",
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "PR",
+   "panel": "ANA SCREEN, IFA, W/REFL TITER AND PATTERN",
+   "page": 1
+  },
+  {
+   "id": "r8",
+   "name": "ANA PATTERN",
+   "valueText": "SPECKLED",
+   "value": null,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "PR",
+   "panel": "ANA SCREEN, IFA, W/REFL TITER AND PATTERN",
+   "page": 1
+  },
+  {
+   "id": "r9",
+   "name": "LIPOPROTEIN (a)",
+   "valueText": "SEE NOTE",
+   "value": null,
+   "valueQualifier": null,
+   "unit": "nmol/L",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": 75,
+    "kind": "lt"
+   },
+   "performingLabCode": "PR",
+   "panel": "LIPOPROTEIN (a)",
+   "page": 1
+  },
+  {
+   "id": "r10",
+   "name": "SODIUM",
+   "valueText": "140",
+   "value": 140,
+   "valueQualifier": null,
+   "unit": "mmol/L",
+   "flag": null,
+   "referenceRange": {
+    "low": 135,
+    "high": 146,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "ELECTROLYTE PANEL",
+   "page": 1
+  },
+  {
+   "id": "r11",
+   "name": "POTASSIUM",
+   "valueText": "5.6",
+   "value": 5.6,
+   "valueQualifier": null,
+   "unit": "mmol/L",
+   "flag": "A",
+   "referenceRange": {
+    "low": 3.5,
+    "high": 5.3,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "ELECTROLYTE PANEL",
+   "page": 1
+  },
+  {
+   "id": "r12",
+   "name": "HEMOGLOBIN A1c",
+   "valueText": "5.4",
+   "value": 5.4,
+   "valueQualifier": null,
+   "unit": "% of total Hgb",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": 5.7,
+    "kind": "lt"
+   },
+   "performingLabCode": "EZ",
+   "panel": "HEMOGLOBIN A1c",
+   "page": 2
+  }
+ ]
+}

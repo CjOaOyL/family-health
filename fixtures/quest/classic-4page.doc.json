@@ -1,0 +1,4989 @@
+{
+ "fileName": "classic-4page.pdf",
+ "fileHash": "378308e1560c9fcb9da09b104ba52ec0540396ad043c5343498cf91f913cc29b",
+ "pageCount": 4,
+ "pages": [
+  {
+   "pageNumber": 1,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p1l0",
+     "page": 1,
+     "y": 40,
+     "x0": 36,
+     "x1": 496,
+     "text": "Quest Diagnostics  FINAL",
+     "cells": [
+      "Quest Diagnostics",
+      "FINAL"
+     ],
+     "cellX": [
+      36,
+      470
+     ],
+     "items": [
+      {
+       "str": "Quest Diagnostics",
+       "x": 36,
+       "y": 40,
+       "w": 88.4,
+       "h": 10
+      },
+      {
+       "str": "FINAL",
+       "x": 470,
+       "y": 40,
+       "w": 26,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l1",
+     "page": 1,
+     "y": 51,
+     "x0": 36,
+     "x1": 523.6,
+     "text": "Patient Information  Specimen Information  Client Information",
+     "cells": [
+      "Patient Information",
+      "Specimen Information",
+      "Client Information"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Patient Information",
+       "x": 36,
+       "y": 51,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Specimen Information",
+       "x": 260,
+       "y": 51,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "Client Information",
+       "x": 430,
+       "y": 51,
+       "w": 93.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l2",
+     "page": 1,
+     "y": 62,
+     "x0": 36,
+     "x1": 523.6,
+     "text": "SAMPLE, ALEX Q  Specimen: AB123456C  Client #: 12345678",
+     "cells": [
+      "SAMPLE, ALEX Q",
+      "Specimen: AB123456C",
+      "Client #: 12345678"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "SAMPLE, ALEX Q",
+       "x": 36,
+       "y": 62,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "Specimen: AB123456C",
+       "x": 260,
+       "y": 62,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Client #: 12345678",
+       "x": 430,
+       "y": 62,
+       "w": 93.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l3",
+     "page": 1,
+     "y": 73,
+     "x0": 36,
+     "x1": 492.4,
+     "text": "DOB: 01/15/1980  AGE: 45  Requisition: 0012345  DR. JANE DOE",
+     "cells": [
+      "DOB: 01/15/1980",
+      "AGE: 45",
+      "Requisition: 0012345",
+      "DR. JANE DOE"
+     ],
+     "cellX": [
+      36,
+      150,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "DOB: 01/15/1980",
+       "x": 36,
+       "y": 73,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "AGE: 45",
+       "x": 150,
+       "y": 73,
+       "w": 36.4,
+       "h": 10
+      },
+      {
+       "str": "Requisition: 0012345",
+       "x": 260,
+       "y": 73,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "DR. JANE DOE",
+       "x": 430,
+       "y": 73,
+       "w": 62.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l4",
+     "page": 1,
+     "y": 84,
+     "x0": 36,
+     "x1": 549.6,
+     "text": "Gender: M  Lab Ref #: 1234567  ANYTOWN FAMILY MEDICINE",
+     "cells": [
+      "Gender: M",
+      "Lab Ref #: 1234567",
+      "ANYTOWN FAMILY MEDICINE"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Gender: M",
+       "x": 36,
+       "y": 84,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "Lab Ref #: 1234567",
+       "x": 260,
+       "y": 84,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "ANYTOWN FAMILY MEDICINE",
+       "x": 430,
+       "y": 84,
+       "w": 119.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l5",
+     "page": 1,
+     "y": 95,
+     "x0": 36,
+     "x1": 565.2,
+     "text": "Patient ID: 987654  Collected: 09/10/2025 / 08:15 EDT  123 MAIN STREET, SUITE 100",
+     "cells": [
+      "Patient ID: 987654",
+      "Collected: 09/10/2025 / 08:15 EDT",
+      "123 MAIN STREET, SUITE 100"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Patient ID: 987654",
+       "x": 36,
+       "y": 95,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "Collected: 09/10/2025 / 08:15 EDT",
+       "x": 260,
+       "y": 95,
+       "w": 171.6,
+       "h": 10
+      },
+      {
+       "str": "123 MAIN STREET, SUITE 100",
+       "x": 430,
+       "y": 95,
+       "w": 135.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l6",
+     "page": 1,
+     "y": 106,
+     "x0": 36,
+     "x1": 544.4,
+     "text": "Phone: 609.555.0100  Received: 09/10/2025 / 20:33 EDT  ANYTOWN, NJ 08540-0000",
+     "cells": [
+      "Phone: 609.555.0100",
+      "Received: 09/10/2025 / 20:33 EDT",
+      "ANYTOWN, NJ 08540-0000"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Phone: 609.555.0100",
+       "x": 36,
+       "y": 106,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Received: 09/10/2025 / 20:33 EDT",
+       "x": 260,
+       "y": 106,
+       "w": 166.4,
+       "h": 10
+      },
+      {
+       "str": "ANYTOWN, NJ 08540-0000",
+       "x": 430,
+       "y": 106,
+       "w": 114.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l7",
+     "page": 1,
+     "y": 117,
+     "x0": 260,
+     "x1": 508,
+     "text": "Reported: 09/11/2025 / 06:12 EDT  NPI: 1234567893",
+     "cells": [
+      "Reported: 09/11/2025 / 06:12 EDT",
+      "NPI: 1234567893"
+     ],
+     "cellX": [
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Reported: 09/11/2025 / 06:12 EDT",
+       "x": 260,
+       "y": 117,
+       "w": 166.4,
+       "h": 10
+      },
+      {
+       "str": "NPI: 1234567893",
+       "x": 430,
+       "y": 117,
+       "w": 78,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l8",
+     "page": 1,
+     "y": 128,
+     "x0": 260,
+     "x1": 312,
+     "text": "Fasting: Y",
+     "cells": [
+      "Fasting: Y"
+     ],
+     "cellX": [
+      260
+     ],
+     "items": [
+      {
+       "str": "Fasting: Y",
+       "x": 260,
+       "y": 128,
+       "w": 52,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l9",
+     "page": 1,
+     "y": 139,
+     "x0": 36,
+     "x1": 575.6,
+     "text": "Test Name  In Range  Out of Range  Reference Range  Lab",
+     "cells": [
+      "Test Name",
+      "In Range",
+      "Out of Range",
+      "Reference Range",
+      "Lab"
+     ],
+     "cellX": [
+      36,
+      260,
+      330,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "Test Name",
+       "x": 36,
+       "y": 139,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "In Range",
+       "x": 260,
+       "y": 139,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "Out of Range",
+       "x": 330,
+       "y": 139,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "Reference Range",
+       "x": 410,
+       "y": 139,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "Lab",
+       "x": 560,
+       "y": 139,
+       "w": 15.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l10",
+     "page": 1,
+     "y": 150,
+     "x0": 36,
+     "x1": 155.6,
+     "text": "CBC (INCLUDES DIFF/PLT)",
+     "cells": [
+      "CBC (INCLUDES DIFF/PLT)"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "CBC (INCLUDES DIFF/PLT)",
+       "x": 36,
+       "y": 150,
+       "w": 119.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l11",
+     "page": 1,
+     "y": 161,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "WBC  7.2  3.8-10.8 Thousand/uL  EZ",
+     "cells": [
+      "WBC",
+      "7.2",
+      "3.8-10.8 Thousand/uL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "WBC",
+       "x": 46,
+       "y": 161,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "7.2",
+       "x": 260,
+       "y": 161,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "3.8-10.8 Thousand/uL",
+       "x": 410,
+       "y": 161,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 161,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l12",
+     "page": 1,
+     "y": 172,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "RBC  4.85  4.20-5.80 Million/uL  EZ",
+     "cells": [
+      "RBC",
+      "4.85",
+      "4.20-5.80 Million/uL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "RBC",
+       "x": 46,
+       "y": 172,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "4.85",
+       "x": 260,
+       "y": 172,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "4.20-5.80 Million/uL",
+       "x": 410,
+       "y": 172,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 172,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l13",
+     "page": 1,
+     "y": 183,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "HEMOGLOBIN  12.9 L  13.2-17.1 g/dL  EZ",
+     "cells": [
+      "HEMOGLOBIN",
+      "12.9 L",
+      "13.2-17.1 g/dL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      330,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "HEMOGLOBIN",
+       "x": 46,
+       "y": 183,
+       "w": 52,
+       "h": 10
+      },
+      {
+       "str": "12.9 L",
+       "x": 330,
+       "y": 183,
+       "w": 31.2,
+       "h": 10
+      },
+      {
+       "str": "13.2-17.1 g/dL",
+       "x": 410,
+       "y": 183,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 183,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l14",
+     "page": 1,
+     "y": 194,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "HEMATOCRIT  39.5  38.5-50.0 %  EZ",
+     "cells": [
+      "HEMATOCRIT",
+      "39.5",
+      "38.5-50.0 %",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "HEMATOCRIT",
+       "x": 46,
+       "y": 194,
+       "w": 52,
+       "h": 10
+      },
+      {
+       "str": "39.5",
+       "x": 260,
+       "y": 194,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "38.5-50.0 %",
+       "x": 410,
+       "y": 194,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 194,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l15",
+     "page": 1,
+     "y": 205,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "MCV  87.6  80.0-100.0 fL  EZ",
+     "cells": [
+      "MCV",
+      "87.6",
+      "80.0-100.0 fL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "MCV",
+       "x": 46,
+       "y": 205,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "87.6",
+       "x": 260,
+       "y": 205,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "80.0-100.0 fL",
+       "x": 410,
+       "y": 205,
+       "w": 67.6,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 205,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l16",
+     "page": 1,
+     "y": 216,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "MCH  29.1  27.0-33.0 pg  EZ",
+     "cells": [
+      "MCH",
+      "29.1",
+      "27.0-33.0 pg",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "MCH",
+       "x": 46,
+       "y": 216,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "29.1",
+       "x": 260,
+       "y": 216,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "27.0-33.0 pg",
+       "x": 410,
+       "y": 216,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 216,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l17",
+     "page": 1,
+     "y": 227,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "MCHC  33.2  32.0-36.0 g/dL  EZ",
+     "cells": [
+      "MCHC",
+      "33.2",
+      "32.0-36.0 g/dL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "MCHC",
+       "x": 46,
+       "y": 227,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "33.2",
+       "x": 260,
+       "y": 227,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "32.0-36.0 g/dL",
+       "x": 410,
+       "y": 227,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 227,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l18",
+     "page": 1,
+     "y": 238,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "RDW  13.1  11.0-15.0 %  EZ",
+     "cells": [
+      "RDW",
+      "13.1",
+      "11.0-15.0 %",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "RDW",
+       "x": 46,
+       "y": 238,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "13.1",
+       "x": 260,
+       "y": 238,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "11.0-15.0 %",
+       "x": 410,
+       "y": 238,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 238,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l19",
+     "page": 1,
+     "y": 249,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "PLATELET COUNT  245  140-400 Thousand/uL  EZ",
+     "cells": [
+      "PLATELET COUNT",
+      "245",
+      "140-400 Thousand/uL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "PLATELET COUNT",
+       "x": 46,
+       "y": 249,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "245",
+       "x": 260,
+       "y": 249,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "140-400 Thousand/uL",
+       "x": 410,
+       "y": 249,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 249,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l20",
+     "page": 1,
+     "y": 260,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "MPV  10.2  Not Estab. fL  EZ",
+     "cells": [
+      "MPV",
+      "10.2",
+      "Not Estab. fL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "MPV",
+       "x": 46,
+       "y": 260,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "10.2",
+       "x": 260,
+       "y": 260,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "Not Estab. fL",
+       "x": 410,
+       "y": 260,
+       "w": 67.6,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 260,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l21",
+     "page": 1,
+     "y": 271,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "ABSOLUTE NEUTROPHILS  4,320  1,500-7,800 cells/uL  EZ",
+     "cells": [
+      "ABSOLUTE NEUTROPHILS",
+      "4,320",
+      "1,500-7,800 cells/uL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "ABSOLUTE NEUTROPHILS",
+       "x": 46,
+       "y": 271,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "4,320",
+       "x": 260,
+       "y": 271,
+       "w": 26,
+       "h": 10
+      },
+      {
+       "str": "1,500-7,800 cells/uL",
+       "x": 410,
+       "y": 271,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 271,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l22",
+     "page": 1,
+     "y": 282,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "ABSOLUTE LYMPHOCYTES  2,010  850-3,900 cells/uL  EZ",
+     "cells": [
+      "ABSOLUTE LYMPHOCYTES",
+      "2,010",
+      "850-3,900 cells/uL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "ABSOLUTE LYMPHOCYTES",
+       "x": 46,
+       "y": 282,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "2,010",
+       "x": 260,
+       "y": 282,
+       "w": 26,
+       "h": 10
+      },
+      {
+       "str": "850-3,900 cells/uL",
+       "x": 410,
+       "y": 282,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 282,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l23",
+     "page": 1,
+     "y": 293,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "ABSOLUTE MONOCYTES  540  200-950 cells/uL  EZ",
+     "cells": [
+      "ABSOLUTE MONOCYTES",
+      "540",
+      "200-950 cells/uL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "ABSOLUTE MONOCYTES",
+       "x": 46,
+       "y": 293,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "540",
+       "x": 260,
+       "y": 293,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "200-950 cells/uL",
+       "x": 410,
+       "y": 293,
+       "w": 83.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 293,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l24",
+     "page": 1,
+     "y": 304,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "ABSOLUTE EOSINOPHILS  180  15-500 cells/uL  EZ",
+     "cells": [
+      "ABSOLUTE EOSINOPHILS",
+      "180",
+      "15-500 cells/uL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "ABSOLUTE EOSINOPHILS",
+       "x": 46,
+       "y": 304,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "180",
+       "x": 260,
+       "y": 304,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "15-500 cells/uL",
+       "x": 410,
+       "y": 304,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 304,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l25",
+     "page": 1,
+     "y": 315,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "ABSOLUTE BASOPHILS  50  0-200 cells/uL  EZ",
+     "cells": [
+      "ABSOLUTE BASOPHILS",
+      "50",
+      "0-200 cells/uL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "ABSOLUTE BASOPHILS",
+       "x": 46,
+       "y": 315,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "50",
+       "x": 260,
+       "y": 315,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "0-200 cells/uL",
+       "x": 410,
+       "y": 315,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 315,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l26",
+     "page": 1,
+     "y": 326,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "NEUTROPHILS  60.0  %  EZ",
+     "cells": [
+      "NEUTROPHILS",
+      "60.0",
+      "%",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "NEUTROPHILS",
+       "x": 46,
+       "y": 326,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "60.0",
+       "x": 260,
+       "y": 326,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "%",
+       "x": 410,
+       "y": 326,
+       "w": 5.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 326,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l27",
+     "page": 1,
+     "y": 337,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "LYMPHOCYTES  27.9  %  EZ",
+     "cells": [
+      "LYMPHOCYTES",
+      "27.9",
+      "%",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "LYMPHOCYTES",
+       "x": 46,
+       "y": 337,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "27.9",
+       "x": 260,
+       "y": 337,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "%",
+       "x": 410,
+       "y": 337,
+       "w": 5.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 337,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l28",
+     "page": 1,
+     "y": 348,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "MONOCYTES  7.5  %  EZ",
+     "cells": [
+      "MONOCYTES",
+      "7.5",
+      "%",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "MONOCYTES",
+       "x": 46,
+       "y": 348,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "7.5",
+       "x": 260,
+       "y": 348,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "%",
+       "x": 410,
+       "y": 348,
+       "w": 5.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 348,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l29",
+     "page": 1,
+     "y": 359,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "EOSINOPHILS  2.5  %  EZ",
+     "cells": [
+      "EOSINOPHILS",
+      "2.5",
+      "%",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "EOSINOPHILS",
+       "x": 46,
+       "y": 359,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "2.5",
+       "x": 260,
+       "y": 359,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "%",
+       "x": 410,
+       "y": 359,
+       "w": 5.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 359,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l30",
+     "page": 1,
+     "y": 370,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "BASOPHILS  0.7  %  EZ",
+     "cells": [
+      "BASOPHILS",
+      "0.7",
+      "%",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "BASOPHILS",
+       "x": 46,
+       "y": 370,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "0.7",
+       "x": 260,
+       "y": 370,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "%",
+       "x": 410,
+       "y": 370,
+       "w": 5.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 370,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l31",
+     "page": 1,
+     "y": 740,
+     "x0": 36,
+     "x1": 527.2,
+     "text": "Patient: SAMPLE, ALEX Q  Specimen: AB123456C  Page 1 of 4",
+     "cells": [
+      "Patient: SAMPLE, ALEX Q",
+      "Specimen: AB123456C",
+      "Page 1 of 4"
+     ],
+     "cellX": [
+      36,
+      260,
+      470
+     ],
+     "items": [
+      {
+       "str": "Patient: SAMPLE, ALEX Q",
+       "x": 36,
+       "y": 740,
+       "w": 119.6,
+       "h": 10
+      },
+      {
+       "str": "Specimen: AB123456C",
+       "x": 260,
+       "y": 740,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Page 1 of 4",
+       "x": 470,
+       "y": 740,
+       "w": 57.2,
+       "h": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "pageNumber": 2,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p2l0",
+     "page": 2,
+     "y": 40,
+     "x0": 36,
+     "x1": 496,
+     "text": "Quest Diagnostics  FINAL",
+     "cells": [
+      "Quest Diagnostics",
+      "FINAL"
+     ],
+     "cellX": [
+      36,
+      470
+     ],
+     "items": [
+      {
+       "str": "Quest Diagnostics",
+       "x": 36,
+       "y": 40,
+       "w": 88.4,
+       "h": 10
+      },
+      {
+       "str": "FINAL",
+       "x": 470,
+       "y": 40,
+       "w": 26,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l1",
+     "page": 2,
+     "y": 51,
+     "x0": 36,
+     "x1": 523.6,
+     "text": "Patient Information  Specimen Information  Client Information",
+     "cells": [
+      "Patient Information",
+      "Specimen Information",
+      "Client Information"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Patient Information",
+       "x": 36,
+       "y": 51,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Specimen Information",
+       "x": 260,
+       "y": 51,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "Client Information",
+       "x": 430,
+       "y": 51,
+       "w": 93.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l2",
+     "page": 2,
+     "y": 62,
+     "x0": 36,
+     "x1": 523.6,
+     "text": "SAMPLE, ALEX Q  Specimen: AB123456C  Client #: 12345678",
+     "cells": [
+      "SAMPLE, ALEX Q",
+      "Specimen: AB123456C",
+      "Client #: 12345678"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "SAMPLE, ALEX Q",
+       "x": 36,
+       "y": 62,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "Specimen: AB123456C",
+       "x": 260,
+       "y": 62,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Client #: 12345678",
+       "x": 430,
+       "y": 62,
+       "w": 93.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l3",
+     "page": 2,
+     "y": 73,
+     "x0": 36,
+     "x1": 492.4,
+     "text": "DOB: 01/15/1980  AGE: 45  Requisition: 0012345  DR. JANE DOE",
+     "cells": [
+      "DOB: 01/15/1980",
+      "AGE: 45",
+      "Requisition: 0012345",
+      "DR. JANE DOE"
+     ],
+     "cellX": [
+      36,
+      150,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "DOB: 01/15/1980",
+       "x": 36,
+       "y": 73,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "AGE: 45",
+       "x": 150,
+       "y": 73,
+       "w": 36.4,
+       "h": 10
+      },
+      {
+       "str": "Requisition: 0012345",
+       "x": 260,
+       "y": 73,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "DR. JANE DOE",
+       "x": 430,
+       "y": 73,
+       "w": 62.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l4",
+     "page": 2,
+     "y": 84,
+     "x0": 36,
+     "x1": 549.6,
+     "text": "Gender: M  Lab Ref #: 1234567  ANYTOWN FAMILY MEDICINE",
+     "cells": [
+      "Gender: M",
+      "Lab Ref #: 1234567",
+      "ANYTOWN FAMILY MEDICINE"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Gender: M",
+       "x": 36,
+       "y": 84,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "Lab Ref #: 1234567",
+       "x": 260,
+       "y": 84,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "ANYTOWN FAMILY MEDICINE",
+       "x": 430,
+       "y": 84,
+       "w": 119.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l5",
+     "page": 2,
+     "y": 95,
+     "x0": 36,
+     "x1": 565.2,
+     "text": "Patient ID: 987654  Collected: 09/10/2025 / 08:15 EDT  123 MAIN STREET, SUITE 100",
+     "cells": [
+      "Patient ID: 987654",
+      "Collected: 09/10/2025 / 08:15 EDT",
+      "123 MAIN STREET, SUITE 100"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Patient ID: 987654",
+       "x": 36,
+       "y": 95,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "Collected: 09/10/2025 / 08:15 EDT",
+       "x": 260,
+       "y": 95,
+       "w": 171.6,
+       "h": 10
+      },
+      {
+       "str": "123 MAIN STREET, SUITE 100",
+       "x": 430,
+       "y": 95,
+       "w": 135.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l6",
+     "page": 2,
+     "y": 106,
+     "x0": 36,
+     "x1": 544.4,
+     "text": "Phone: 609.555.0100  Received: 09/10/2025 / 20:33 EDT  ANYTOWN, NJ 08540-0000",
+     "cells": [
+      "Phone: 609.555.0100",
+      "Received: 09/10/2025 / 20:33 EDT",
+      "ANYTOWN, NJ 08540-0000"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Phone: 609.555.0100",
+       "x": 36,
+       "y": 106,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Received: 09/10/2025 / 20:33 EDT",
+       "x": 260,
+       "y": 106,
+       "w": 166.4,
+       "h": 10
+      },
+      {
+       "str": "ANYTOWN, NJ 08540-0000",
+       "x": 430,
+       "y": 106,
+       "w": 114.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l7",
+     "page": 2,
+     "y": 117,
+     "x0": 260,
+     "x1": 508,
+     "text": "Reported: 09/11/2025 / 06:12 EDT  NPI: 1234567893",
+     "cells": [
+      "Reported: 09/11/2025 / 06:12 EDT",
+      "NPI: 1234567893"
+     ],
+     "cellX": [
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Reported: 09/11/2025 / 06:12 EDT",
+       "x": 260,
+       "y": 117,
+       "w": 166.4,
+       "h": 10
+      },
+      {
+       "str": "NPI: 1234567893",
+       "x": 430,
+       "y": 117,
+       "w": 78,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l8",
+     "page": 2,
+     "y": 128,
+     "x0": 260,
+     "x1": 312,
+     "text": "Fasting: Y",
+     "cells": [
+      "Fasting: Y"
+     ],
+     "cellX": [
+      260
+     ],
+     "items": [
+      {
+       "str": "Fasting: Y",
+       "x": 260,
+       "y": 128,
+       "w": 52,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l9",
+     "page": 2,
+     "y": 139,
+     "x0": 36,
+     "x1": 575.6,
+     "text": "Test Name  In Range  Out of Range  Reference Range  Lab",
+     "cells": [
+      "Test Name",
+      "In Range",
+      "Out of Range",
+      "Reference Range",
+      "Lab"
+     ],
+     "cellX": [
+      36,
+      260,
+      330,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "Test Name",
+       "x": 36,
+       "y": 139,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "In Range",
+       "x": 260,
+       "y": 139,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "Out of Range",
+       "x": 330,
+       "y": 139,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "Reference Range",
+       "x": 410,
+       "y": 139,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "Lab",
+       "x": 560,
+       "y": 139,
+       "w": 15.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l10",
+     "page": 2,
+     "y": 150,
+     "x0": 36,
+     "x1": 186.8,
+     "text": "COMPREHENSIVE METABOLIC PANEL",
+     "cells": [
+      "COMPREHENSIVE METABOLIC PANEL"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "COMPREHENSIVE METABOLIC PANEL",
+       "x": 36,
+       "y": 150,
+       "w": 150.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l11",
+     "page": 2,
+     "y": 161,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "GLUCOSE  92  65-99 mg/dL  EZ",
+     "cells": [
+      "GLUCOSE",
+      "92",
+      "65-99 mg/dL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "GLUCOSE",
+       "x": 46,
+       "y": 161,
+       "w": 36.4,
+       "h": 10
+      },
+      {
+       "str": "92",
+       "x": 260,
+       "y": 161,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "65-99 mg/dL",
+       "x": 410,
+       "y": 161,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 161,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l12",
+     "page": 2,
+     "y": 172,
+     "x0": 46,
+     "x1": 191.6,
+     "text": ". Fasting reference interval",
+     "cells": [
+      ". Fasting reference interval"
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". Fasting reference interval",
+       "x": 46,
+       "y": 172,
+       "w": 145.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l13",
+     "page": 2,
+     "y": 183,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "UREA NITROGEN (BUN)  14  7-25 mg/dL  EZ",
+     "cells": [
+      "UREA NITROGEN (BUN)",
+      "14",
+      "7-25 mg/dL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "UREA NITROGEN (BUN)",
+       "x": 46,
+       "y": 183,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "14",
+       "x": 260,
+       "y": 183,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "7-25 mg/dL",
+       "x": 410,
+       "y": 183,
+       "w": 52,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 183,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l14",
+     "page": 2,
+     "y": 194,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "CREATININE  0.98  0.60-1.35 mg/dL  EZ",
+     "cells": [
+      "CREATININE",
+      "0.98",
+      "0.60-1.35 mg/dL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "CREATININE",
+       "x": 46,
+       "y": 194,
+       "w": 52,
+       "h": 10
+      },
+      {
+       "str": "0.98",
+       "x": 260,
+       "y": 194,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "0.60-1.35 mg/dL",
+       "x": 410,
+       "y": 194,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 194,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l15",
+     "page": 2,
+     "y": 205,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "EGFR  95  > OR = 60 mL/min/1.73m2  EZ",
+     "cells": [
+      "EGFR",
+      "95",
+      "> OR = 60 mL/min/1.73m2",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "EGFR",
+       "x": 46,
+       "y": 205,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "95",
+       "x": 260,
+       "y": 205,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "> OR = 60 mL/min/1.73m2",
+       "x": 410,
+       "y": 205,
+       "w": 119.6,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 205,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l16",
+     "page": 2,
+     "y": 216,
+     "x0": 46,
+     "x1": 441.2,
+     "text": ". eGFR is calculated using the CKD-EPI 2021 equation (creatinine, age, sex).",
+     "cells": [
+      ". eGFR is calculated using the CKD-EPI 2021 equation (creatinine, age, sex)."
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". eGFR is calculated using the CKD-EPI 2021 equation (creatinine, age, sex).",
+       "x": 46,
+       "y": 216,
+       "w": 395.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l17",
+     "page": 2,
+     "y": 227,
+     "x0": 46,
+     "x1": 264.4,
+     "text": ". Reference Range: > OR = 60 mL/min/1.73m2",
+     "cells": [
+      ". Reference Range: > OR = 60 mL/min/1.73m2"
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". Reference Range: > OR = 60 mL/min/1.73m2",
+       "x": 46,
+       "y": 227,
+       "w": 218.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l18",
+     "page": 2,
+     "y": 238,
+     "x0": 46,
+     "x1": 446.4,
+     "text": "Please note: eGFR values between 60 and 89 may be normal in some individuals.",
+     "cells": [
+      "Please note: eGFR values between 60 and 89 may be normal in some individuals."
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": "Please note: eGFR values between 60 and 89 may be normal in some individuals.",
+       "x": 46,
+       "y": 238,
+       "w": 400.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l19",
+     "page": 2,
+     "y": 249,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "BUN/CREATININE RATIO  NOT APPLICABLE  6-22 (calc)  EZ",
+     "cells": [
+      "BUN/CREATININE RATIO",
+      "NOT APPLICABLE",
+      "6-22 (calc)",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "BUN/CREATININE RATIO",
+       "x": 46,
+       "y": 249,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "NOT APPLICABLE",
+       "x": 260,
+       "y": 249,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "6-22 (calc)",
+       "x": 410,
+       "y": 249,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 249,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l20",
+     "page": 2,
+     "y": 260,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "SODIUM  139  135-146 mmol/L  EZ",
+     "cells": [
+      "SODIUM",
+      "139",
+      "135-146 mmol/L",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "SODIUM",
+       "x": 46,
+       "y": 260,
+       "w": 31.2,
+       "h": 10
+      },
+      {
+       "str": "139",
+       "x": 260,
+       "y": 260,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "135-146 mmol/L",
+       "x": 410,
+       "y": 260,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 260,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l21",
+     "page": 2,
+     "y": 271,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "POTASSIUM  4.3  3.5-5.3 mmol/L  EZ",
+     "cells": [
+      "POTASSIUM",
+      "4.3",
+      "3.5-5.3 mmol/L",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "POTASSIUM",
+       "x": 46,
+       "y": 271,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "4.3",
+       "x": 260,
+       "y": 271,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "3.5-5.3 mmol/L",
+       "x": 410,
+       "y": 271,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 271,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l22",
+     "page": 2,
+     "y": 282,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "CHLORIDE  103  98-110 mmol/L  EZ",
+     "cells": [
+      "CHLORIDE",
+      "103",
+      "98-110 mmol/L",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "CHLORIDE",
+       "x": 46,
+       "y": 282,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "103",
+       "x": 260,
+       "y": 282,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "98-110 mmol/L",
+       "x": 410,
+       "y": 282,
+       "w": 67.6,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 282,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l23",
+     "page": 2,
+     "y": 293,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "CARBON DIOXIDE  26  20-32 mmol/L  EZ",
+     "cells": [
+      "CARBON DIOXIDE",
+      "26",
+      "20-32 mmol/L",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "CARBON DIOXIDE",
+       "x": 46,
+       "y": 293,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "26",
+       "x": 260,
+       "y": 293,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "20-32 mmol/L",
+       "x": 410,
+       "y": 293,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 293,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l24",
+     "page": 2,
+     "y": 304,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "CALCIUM  9.4  8.6-10.3 mg/dL  EZ",
+     "cells": [
+      "CALCIUM",
+      "9.4",
+      "8.6-10.3 mg/dL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "CALCIUM",
+       "x": 46,
+       "y": 304,
+       "w": 36.4,
+       "h": 10
+      },
+      {
+       "str": "9.4",
+       "x": 260,
+       "y": 304,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "8.6-10.3 mg/dL",
+       "x": 410,
+       "y": 304,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 304,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l25",
+     "page": 2,
+     "y": 315,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "PROTEIN, TOTAL  7.0  6.1-8.1 g/dL  EZ",
+     "cells": [
+      "PROTEIN, TOTAL",
+      "7.0",
+      "6.1-8.1 g/dL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "PROTEIN, TOTAL",
+       "x": 46,
+       "y": 315,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "7.0",
+       "x": 260,
+       "y": 315,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "6.1-8.1 g/dL",
+       "x": 410,
+       "y": 315,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 315,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l26",
+     "page": 2,
+     "y": 326,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "ALBUMIN  4.4  3.6-5.1 g/dL  EZ",
+     "cells": [
+      "ALBUMIN",
+      "4.4",
+      "3.6-5.1 g/dL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "ALBUMIN",
+       "x": 46,
+       "y": 326,
+       "w": 36.4,
+       "h": 10
+      },
+      {
+       "str": "4.4",
+       "x": 260,
+       "y": 326,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "3.6-5.1 g/dL",
+       "x": 410,
+       "y": 326,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 326,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l27",
+     "page": 2,
+     "y": 337,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "GLOBULIN  2.6  1.9-3.7 g/dL (calc)  EZ",
+     "cells": [
+      "GLOBULIN",
+      "2.6",
+      "1.9-3.7 g/dL (calc)",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "GLOBULIN",
+       "x": 46,
+       "y": 337,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "2.6",
+       "x": 260,
+       "y": 337,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "1.9-3.7 g/dL (calc)",
+       "x": 410,
+       "y": 337,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 337,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l28",
+     "page": 2,
+     "y": 348,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "ALBUMIN/GLOBULIN RATIO  1.7  1.0-2.5 (calc)  EZ",
+     "cells": [
+      "ALBUMIN/GLOBULIN RATIO",
+      "1.7",
+      "1.0-2.5 (calc)",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "ALBUMIN/GLOBULIN RATIO",
+       "x": 46,
+       "y": 348,
+       "w": 114.4,
+       "h": 10
+      },
+      {
+       "str": "1.7",
+       "x": 260,
+       "y": 348,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "1.0-2.5 (calc)",
+       "x": 410,
+       "y": 348,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 348,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l29",
+     "page": 2,
+     "y": 359,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "BILIRUBIN, TOTAL  0.6  0.2-1.2 mg/dL  EZ",
+     "cells": [
+      "BILIRUBIN, TOTAL",
+      "0.6",
+      "0.2-1.2 mg/dL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "BILIRUBIN, TOTAL",
+       "x": 46,
+       "y": 359,
+       "w": 83.2,
+       "h": 10
+      },
+      {
+       "str": "0.6",
+       "x": 260,
+       "y": 359,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "0.2-1.2 mg/dL",
+       "x": 410,
+       "y": 359,
+       "w": 67.6,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 359,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l30",
+     "page": 2,
+     "y": 370,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "ALKALINE PHOSPHATASE  68  36-130 U/L  EZ",
+     "cells": [
+      "ALKALINE PHOSPHATASE",
+      "68",
+      "36-130 U/L",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "ALKALINE PHOSPHATASE",
+       "x": 46,
+       "y": 370,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "68",
+       "x": 260,
+       "y": 370,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "36-130 U/L",
+       "x": 410,
+       "y": 370,
+       "w": 52,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 370,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l31",
+     "page": 2,
+     "y": 381,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "AST  22  10-35 U/L  EZ",
+     "cells": [
+      "AST",
+      "22",
+      "10-35 U/L",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "AST",
+       "x": 46,
+       "y": 381,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "22",
+       "x": 260,
+       "y": 381,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "10-35 U/L",
+       "x": 410,
+       "y": 381,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 381,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l32",
+     "page": 2,
+     "y": 392,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "ALT  28  9-46 U/L  EZ",
+     "cells": [
+      "ALT",
+      "28",
+      "9-46 U/L",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "ALT",
+       "x": 46,
+       "y": 392,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "28",
+       "x": 260,
+       "y": 392,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "9-46 U/L",
+       "x": 410,
+       "y": 392,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 392,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l33",
+     "page": 2,
+     "y": 740,
+     "x0": 36,
+     "x1": 527.2,
+     "text": "Patient: SAMPLE, ALEX Q  Specimen: AB123456C  Page 2 of 4",
+     "cells": [
+      "Patient: SAMPLE, ALEX Q",
+      "Specimen: AB123456C",
+      "Page 2 of 4"
+     ],
+     "cellX": [
+      36,
+      260,
+      470
+     ],
+     "items": [
+      {
+       "str": "Patient: SAMPLE, ALEX Q",
+       "x": 36,
+       "y": 740,
+       "w": 119.6,
+       "h": 10
+      },
+      {
+       "str": "Specimen: AB123456C",
+       "x": 260,
+       "y": 740,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Page 2 of 4",
+       "x": 470,
+       "y": 740,
+       "w": 57.2,
+       "h": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "pageNumber": 3,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p3l0",
+     "page": 3,
+     "y": 40,
+     "x0": 36,
+     "x1": 496,
+     "text": "Quest Diagnostics  FINAL",
+     "cells": [
+      "Quest Diagnostics",
+      "FINAL"
+     ],
+     "cellX": [
+      36,
+      470
+     ],
+     "items": [
+      {
+       "str": "Quest Diagnostics",
+       "x": 36,
+       "y": 40,
+       "w": 88.4,
+       "h": 10
+      },
+      {
+       "str": "FINAL",
+       "x": 470,
+       "y": 40,
+       "w": 26,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l1",
+     "page": 3,
+     "y": 51,
+     "x0": 36,
+     "x1": 523.6,
+     "text": "Patient Information  Specimen Information  Client Information",
+     "cells": [
+      "Patient Information",
+      "Specimen Information",
+      "Client Information"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Patient Information",
+       "x": 36,
+       "y": 51,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Specimen Information",
+       "x": 260,
+       "y": 51,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "Client Information",
+       "x": 430,
+       "y": 51,
+       "w": 93.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l2",
+     "page": 3,
+     "y": 62,
+     "x0": 36,
+     "x1": 523.6,
+     "text": "SAMPLE, ALEX Q  Specimen: AB123456C  Client #: 12345678",
+     "cells": [
+      "SAMPLE, ALEX Q",
+      "Specimen: AB123456C",
+      "Client #: 12345678"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "SAMPLE, ALEX Q",
+       "x": 36,
+       "y": 62,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "Specimen: AB123456C",
+       "x": 260,
+       "y": 62,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Client #: 12345678",
+       "x": 430,
+       "y": 62,
+       "w": 93.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l3",
+     "page": 3,
+     "y": 73,
+     "x0": 36,
+     "x1": 492.4,
+     "text": "DOB: 01/15/1980  AGE: 45  Requisition: 0012345  DR. JANE DOE",
+     "cells": [
+      "DOB: 01/15/1980",
+      "AGE: 45",
+      "Requisition: 0012345",
+      "DR. JANE DOE"
+     ],
+     "cellX": [
+      36,
+      150,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "DOB: 01/15/1980",
+       "x": 36,
+       "y": 73,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "AGE: 45",
+       "x": 150,
+       "y": 73,
+       "w": 36.4,
+       "h": 10
+      },
+      {
+       "str": "Requisition: 0012345",
+       "x": 260,
+       "y": 73,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "DR. JANE DOE",
+       "x": 430,
+       "y": 73,
+       "w": 62.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l4",
+     "page": 3,
+     "y": 84,
+     "x0": 36,
+     "x1": 549.6,
+     "text": "Gender: M  Lab Ref #: 1234567  ANYTOWN FAMILY MEDICINE",
+     "cells": [
+      "Gender: M",
+      "Lab Ref #: 1234567",
+      "ANYTOWN FAMILY MEDICINE"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Gender: M",
+       "x": 36,
+       "y": 84,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "Lab Ref #: 1234567",
+       "x": 260,
+       "y": 84,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "ANYTOWN FAMILY MEDICINE",
+       "x": 430,
+       "y": 84,
+       "w": 119.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l5",
+     "page": 3,
+     "y": 95,
+     "x0": 36,
+     "x1": 565.2,
+     "text": "Patient ID: 987654  Collected: 09/10/2025 / 08:15 EDT  123 MAIN STREET, SUITE 100",
+     "cells": [
+      "Patient ID: 987654",
+      "Collected: 09/10/2025 / 08:15 EDT",
+      "123 MAIN STREET, SUITE 100"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Patient ID: 987654",
+       "x": 36,
+       "y": 95,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "Collected: 09/10/2025 / 08:15 EDT",
+       "x": 260,
+       "y": 95,
+       "w": 171.6,
+       "h": 10
+      },
+      {
+       "str": "123 MAIN STREET, SUITE 100",
+       "x": 430,
+       "y": 95,
+       "w": 135.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l6",
+     "page": 3,
+     "y": 106,
+     "x0": 36,
+     "x1": 544.4,
+     "text": "Phone: 609.555.0100  Received: 09/10/2025 / 20:33 EDT  ANYTOWN, NJ 08540-0000",
+     "cells": [
+      "Phone: 609.555.0100",
+      "Received: 09/10/2025 / 20:33 EDT",
+      "ANYTOWN, NJ 08540-0000"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Phone: 609.555.0100",
+       "x": 36,
+       "y": 106,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Received: 09/10/2025 / 20:33 EDT",
+       "x": 260,
+       "y": 106,
+       "w": 166.4,
+       "h": 10
+      },
+      {
+       "str": "ANYTOWN, NJ 08540-0000",
+       "x": 430,
+       "y": 106,
+       "w": 114.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l7",
+     "page": 3,
+     "y": 117,
+     "x0": 260,
+     "x1": 508,
+     "text": "Reported: 09/11/2025 / 06:12 EDT  NPI: 1234567893",
+     "cells": [
+      "Reported: 09/11/2025 / 06:12 EDT",
+      "NPI: 1234567893"
+     ],
+     "cellX": [
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Reported: 09/11/2025 / 06:12 EDT",
+       "x": 260,
+       "y": 117,
+       "w": 166.4,
+       "h": 10
+      },
+      {
+       "str": "NPI: 1234567893",
+       "x": 430,
+       "y": 117,
+       "w": 78,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l8",
+     "page": 3,
+     "y": 128,
+     "x0": 260,
+     "x1": 312,
+     "text": "Fasting: Y",
+     "cells": [
+      "Fasting: Y"
+     ],
+     "cellX": [
+      260
+     ],
+     "items": [
+      {
+       "str": "Fasting: Y",
+       "x": 260,
+       "y": 128,
+       "w": 52,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l9",
+     "page": 3,
+     "y": 139,
+     "x0": 36,
+     "x1": 575.6,
+     "text": "Test Name  In Range  Out of Range  Reference Range  Lab",
+     "cells": [
+      "Test Name",
+      "In Range",
+      "Out of Range",
+      "Reference Range",
+      "Lab"
+     ],
+     "cellX": [
+      36,
+      260,
+      330,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "Test Name",
+       "x": 36,
+       "y": 139,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "In Range",
+       "x": 260,
+       "y": 139,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "Out of Range",
+       "x": 330,
+       "y": 139,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "Reference Range",
+       "x": 410,
+       "y": 139,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "Lab",
+       "x": 560,
+       "y": 139,
+       "w": 15.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l10",
+     "page": 3,
+     "y": 150,
+     "x0": 36,
+     "x1": 93.2,
+     "text": "LIPID PANEL",
+     "cells": [
+      "LIPID PANEL"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "LIPID PANEL",
+       "x": 36,
+       "y": 150,
+       "w": 57.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l11",
+     "page": 3,
+     "y": 161,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "CHOLESTEROL, TOTAL  210 H  <200 mg/dL  EZ",
+     "cells": [
+      "CHOLESTEROL, TOTAL",
+      "210 H",
+      "<200 mg/dL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      330,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "CHOLESTEROL, TOTAL",
+       "x": 46,
+       "y": 161,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "210 H",
+       "x": 330,
+       "y": 161,
+       "w": 26,
+       "h": 10
+      },
+      {
+       "str": "<200 mg/dL",
+       "x": 410,
+       "y": 161,
+       "w": 52,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 161,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l12",
+     "page": 3,
+     "y": 172,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "HDL CHOLESTEROL  52  > OR = 40 mg/dL  EZ",
+     "cells": [
+      "HDL CHOLESTEROL",
+      "52",
+      "> OR = 40 mg/dL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "HDL CHOLESTEROL",
+       "x": 46,
+       "y": 172,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "52",
+       "x": 260,
+       "y": 172,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "> OR = 40 mg/dL",
+       "x": 410,
+       "y": 172,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 172,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l13",
+     "page": 3,
+     "y": 183,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "TRIGLYCERIDES  1,250 HH  <150 mg/dL  EZ",
+     "cells": [
+      "TRIGLYCERIDES",
+      "1,250 HH",
+      "<150 mg/dL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      330,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "TRIGLYCERIDES",
+       "x": 46,
+       "y": 183,
+       "w": 67.6,
+       "h": 10
+      },
+      {
+       "str": "1,250 HH",
+       "x": 330,
+       "y": 183,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "<150 mg/dL",
+       "x": 410,
+       "y": 183,
+       "w": 52,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 183,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l14",
+     "page": 3,
+     "y": 194,
+     "x0": 46,
+     "x1": 332,
+     "text": ". Please note: Triglyceride results above 400 mg/dL may",
+     "cells": [
+      ". Please note: Triglyceride results above 400 mg/dL may"
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". Please note: Triglyceride results above 400 mg/dL may",
+       "x": 46,
+       "y": 194,
+       "w": 286,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l15",
+     "page": 3,
+     "y": 205,
+     "x0": 46,
+     "x1": 332,
+     "text": ". affect calculated LDL and non-HDL cholesterol values.",
+     "cells": [
+      ". affect calculated LDL and non-HDL cholesterol values."
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". affect calculated LDL and non-HDL cholesterol values.",
+       "x": 46,
+       "y": 205,
+       "w": 286,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l16",
+     "page": 3,
+     "y": 216,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "LDL-CHOLESTEROL  NOT CALC.  mg/dL (calc)  EZ",
+     "cells": [
+      "LDL-CHOLESTEROL",
+      "NOT CALC.",
+      "mg/dL (calc)",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "LDL-CHOLESTEROL",
+       "x": 46,
+       "y": 216,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "NOT CALC.",
+       "x": 260,
+       "y": 216,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "mg/dL (calc)",
+       "x": 410,
+       "y": 216,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 216,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l17",
+     "page": 3,
+     "y": 227,
+     "x0": 46,
+     "x1": 368.4,
+     "text": ". LDL-C is not calculated when triglycerides exceed 400 mg/dL.",
+     "cells": [
+      ". LDL-C is not calculated when triglycerides exceed 400 mg/dL."
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". LDL-C is not calculated when triglycerides exceed 400 mg/dL.",
+       "x": 46,
+       "y": 227,
+       "w": 322.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l18",
+     "page": 3,
+     "y": 238,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "CHOL/HDLC RATIO  4.0  <5.0 (calc)  EZ",
+     "cells": [
+      "CHOL/HDLC RATIO",
+      "4.0",
+      "<5.0 (calc)",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "CHOL/HDLC RATIO",
+       "x": 46,
+       "y": 238,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "4.0",
+       "x": 260,
+       "y": 238,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "<5.0 (calc)",
+       "x": 410,
+       "y": 238,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 238,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l19",
+     "page": 3,
+     "y": 249,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "NON HDL CHOLESTEROL  158 H  <130 mg/dL (calc)  EZ",
+     "cells": [
+      "NON HDL CHOLESTEROL",
+      "158 H",
+      "<130 mg/dL (calc)",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      330,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "NON HDL CHOLESTEROL",
+       "x": 46,
+       "y": 249,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "158 H",
+       "x": 330,
+       "y": 249,
+       "w": 26,
+       "h": 10
+      },
+      {
+       "str": "<130 mg/dL (calc)",
+       "x": 410,
+       "y": 249,
+       "w": 88.4,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 249,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l20",
+     "page": 3,
+     "y": 260,
+     "x0": 36,
+     "x1": 108.8,
+     "text": "HEMOGLOBIN A1c",
+     "cells": [
+      "HEMOGLOBIN A1c"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "HEMOGLOBIN A1c",
+       "x": 36,
+       "y": 260,
+       "w": 72.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l21",
+     "page": 3,
+     "y": 271,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "HEMOGLOBIN A1c  5.9 H  <5.7 % of total Hgb  EZ",
+     "cells": [
+      "HEMOGLOBIN A1c",
+      "5.9 H",
+      "<5.7 % of total Hgb",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      330,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "HEMOGLOBIN A1c",
+       "x": 46,
+       "y": 271,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "5.9 H",
+       "x": 330,
+       "y": 271,
+       "w": 26,
+       "h": 10
+      },
+      {
+       "str": "<5.7 % of total Hgb",
+       "x": 410,
+       "y": 271,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 271,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l22",
+     "page": 3,
+     "y": 282,
+     "x0": 46,
+     "x1": 358,
+     "text": ". For someone without known diabetes, a hemoglobin A1c value",
+     "cells": [
+      ". For someone without known diabetes, a hemoglobin A1c value"
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". For someone without known diabetes, a hemoglobin A1c value",
+       "x": 46,
+       "y": 282,
+       "w": 312,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l23",
+     "page": 3,
+     "y": 293,
+     "x0": 46,
+     "x1": 347.6,
+     "text": ". between 5.7% and 6.4% is consistent with prediabetes and",
+     "cells": [
+      ". between 5.7% and 6.4% is consistent with prediabetes and"
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". between 5.7% and 6.4% is consistent with prediabetes and",
+       "x": 46,
+       "y": 293,
+       "w": 301.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l24",
+     "page": 3,
+     "y": 304,
+     "x0": 46,
+     "x1": 274.8,
+     "text": ". should be confirmed with a follow-up test.",
+     "cells": [
+      ". should be confirmed with a follow-up test."
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". should be confirmed with a follow-up test.",
+       "x": 46,
+       "y": 304,
+       "w": 228.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l25",
+     "page": 3,
+     "y": 315,
+     "x0": 46,
+     "x1": 238.8,
+     "text": "Reference Range:  <5.7 % of total Hgb",
+     "cells": [
+      "Reference Range:",
+      "<5.7 % of total Hgb"
+     ],
+     "cellX": [
+      46,
+      140
+     ],
+     "items": [
+      {
+       "str": "Reference Range:",
+       "x": 46,
+       "y": 315,
+       "w": 83.2,
+       "h": 10
+      },
+      {
+       "str": "<5.7 % of total Hgb",
+       "x": 140,
+       "y": 315,
+       "w": 98.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l26",
+     "page": 3,
+     "y": 326,
+     "x0": 46,
+     "x1": 170.8,
+     "text": ". Prediabetes: 5.7 - 6.4",
+     "cells": [
+      ". Prediabetes: 5.7 - 6.4"
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". Prediabetes: 5.7 - 6.4",
+       "x": 46,
+       "y": 326,
+       "w": 124.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l27",
+     "page": 3,
+     "y": 337,
+     "x0": 46,
+     "x1": 160.4,
+     "text": ". Diabetes: > OR = 6.5",
+     "cells": [
+      ". Diabetes: > OR = 6.5"
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". Diabetes: > OR = 6.5",
+       "x": 46,
+       "y": 337,
+       "w": 114.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l28",
+     "page": 3,
+     "y": 348,
+     "x0": 46,
+     "x1": 300.8,
+     "text": ". Glycemic control for adults with diabetes: <7.0",
+     "cells": [
+      ". Glycemic control for adults with diabetes: <7.0"
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". Glycemic control for adults with diabetes: <7.0",
+       "x": 46,
+       "y": 348,
+       "w": 254.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p3l29",
+     "page": 3,
+     "y": 740,
+     "x0": 36,
+     "x1": 527.2,
+     "text": "Patient: SAMPLE, ALEX Q  Specimen: AB123456C  Page 3 of 4",
+     "cells": [
+      "Patient: SAMPLE, ALEX Q",
+      "Specimen: AB123456C",
+      "Page 3 of 4"
+     ],
+     "cellX": [
+      36,
+      260,
+      470
+     ],
+     "items": [
+      {
+       "str": "Patient: SAMPLE, ALEX Q",
+       "x": 36,
+       "y": 740,
+       "w": 119.6,
+       "h": 10
+      },
+      {
+       "str": "Specimen: AB123456C",
+       "x": 260,
+       "y": 740,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Page 3 of 4",
+       "x": 470,
+       "y": 740,
+       "w": 57.2,
+       "h": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "pageNumber": 4,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p4l0",
+     "page": 4,
+     "y": 40,
+     "x0": 36,
+     "x1": 496,
+     "text": "Quest Diagnostics  FINAL",
+     "cells": [
+      "Quest Diagnostics",
+      "FINAL"
+     ],
+     "cellX": [
+      36,
+      470
+     ],
+     "items": [
+      {
+       "str": "Quest Diagnostics",
+       "x": 36,
+       "y": 40,
+       "w": 88.4,
+       "h": 10
+      },
+      {
+       "str": "FINAL",
+       "x": 470,
+       "y": 40,
+       "w": 26,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l1",
+     "page": 4,
+     "y": 51,
+     "x0": 36,
+     "x1": 523.6,
+     "text": "Patient Information  Specimen Information  Client Information",
+     "cells": [
+      "Patient Information",
+      "Specimen Information",
+      "Client Information"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Patient Information",
+       "x": 36,
+       "y": 51,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Specimen Information",
+       "x": 260,
+       "y": 51,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "Client Information",
+       "x": 430,
+       "y": 51,
+       "w": 93.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l2",
+     "page": 4,
+     "y": 62,
+     "x0": 36,
+     "x1": 523.6,
+     "text": "SAMPLE, ALEX Q  Specimen: AB123456C  Client #: 12345678",
+     "cells": [
+      "SAMPLE, ALEX Q",
+      "Specimen: AB123456C",
+      "Client #: 12345678"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "SAMPLE, ALEX Q",
+       "x": 36,
+       "y": 62,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "Specimen: AB123456C",
+       "x": 260,
+       "y": 62,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Client #: 12345678",
+       "x": 430,
+       "y": 62,
+       "w": 93.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l3",
+     "page": 4,
+     "y": 73,
+     "x0": 36,
+     "x1": 492.4,
+     "text": "DOB: 01/15/1980  AGE: 45  Requisition: 0012345  DR. JANE DOE",
+     "cells": [
+      "DOB: 01/15/1980",
+      "AGE: 45",
+      "Requisition: 0012345",
+      "DR. JANE DOE"
+     ],
+     "cellX": [
+      36,
+      150,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "DOB: 01/15/1980",
+       "x": 36,
+       "y": 73,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "AGE: 45",
+       "x": 150,
+       "y": 73,
+       "w": 36.4,
+       "h": 10
+      },
+      {
+       "str": "Requisition: 0012345",
+       "x": 260,
+       "y": 73,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "DR. JANE DOE",
+       "x": 430,
+       "y": 73,
+       "w": 62.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l4",
+     "page": 4,
+     "y": 84,
+     "x0": 36,
+     "x1": 549.6,
+     "text": "Gender: M  Lab Ref #: 1234567  ANYTOWN FAMILY MEDICINE",
+     "cells": [
+      "Gender: M",
+      "Lab Ref #: 1234567",
+      "ANYTOWN FAMILY MEDICINE"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Gender: M",
+       "x": 36,
+       "y": 84,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "Lab Ref #: 1234567",
+       "x": 260,
+       "y": 84,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "ANYTOWN FAMILY MEDICINE",
+       "x": 430,
+       "y": 84,
+       "w": 119.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l5",
+     "page": 4,
+     "y": 95,
+     "x0": 36,
+     "x1": 565.2,
+     "text": "Patient ID: 987654  Collected: 09/10/2025 / 08:15 EDT  123 MAIN STREET, SUITE 100",
+     "cells": [
+      "Patient ID: 987654",
+      "Collected: 09/10/2025 / 08:15 EDT",
+      "123 MAIN STREET, SUITE 100"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Patient ID: 987654",
+       "x": 36,
+       "y": 95,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "Collected: 09/10/2025 / 08:15 EDT",
+       "x": 260,
+       "y": 95,
+       "w": 171.6,
+       "h": 10
+      },
+      {
+       "str": "123 MAIN STREET, SUITE 100",
+       "x": 430,
+       "y": 95,
+       "w": 135.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l6",
+     "page": 4,
+     "y": 106,
+     "x0": 36,
+     "x1": 544.4,
+     "text": "Phone: 609.555.0100  Received: 09/10/2025 / 20:33 EDT  ANYTOWN, NJ 08540-0000",
+     "cells": [
+      "Phone: 609.555.0100",
+      "Received: 09/10/2025 / 20:33 EDT",
+      "ANYTOWN, NJ 08540-0000"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Phone: 609.555.0100",
+       "x": 36,
+       "y": 106,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Received: 09/10/2025 / 20:33 EDT",
+       "x": 260,
+       "y": 106,
+       "w": 166.4,
+       "h": 10
+      },
+      {
+       "str": "ANYTOWN, NJ 08540-0000",
+       "x": 430,
+       "y": 106,
+       "w": 114.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l7",
+     "page": 4,
+     "y": 117,
+     "x0": 260,
+     "x1": 508,
+     "text": "Reported: 09/11/2025 / 06:12 EDT  NPI: 1234567893",
+     "cells": [
+      "Reported: 09/11/2025 / 06:12 EDT",
+      "NPI: 1234567893"
+     ],
+     "cellX": [
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Reported: 09/11/2025 / 06:12 EDT",
+       "x": 260,
+       "y": 117,
+       "w": 166.4,
+       "h": 10
+      },
+      {
+       "str": "NPI: 1234567893",
+       "x": 430,
+       "y": 117,
+       "w": 78,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l8",
+     "page": 4,
+     "y": 128,
+     "x0": 260,
+     "x1": 312,
+     "text": "Fasting: Y",
+     "cells": [
+      "Fasting: Y"
+     ],
+     "cellX": [
+      260
+     ],
+     "items": [
+      {
+       "str": "Fasting: Y",
+       "x": 260,
+       "y": 128,
+       "w": 52,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l9",
+     "page": 4,
+     "y": 139,
+     "x0": 36,
+     "x1": 575.6,
+     "text": "Test Name  In Range  Out of Range  Reference Range  Lab",
+     "cells": [
+      "Test Name",
+      "In Range",
+      "Out of Range",
+      "Reference Range",
+      "Lab"
+     ],
+     "cellX": [
+      36,
+      260,
+      330,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "Test Name",
+       "x": 36,
+       "y": 139,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "In Range",
+       "x": 260,
+       "y": 139,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "Out of Range",
+       "x": 330,
+       "y": 139,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "Reference Range",
+       "x": 410,
+       "y": 139,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "Lab",
+       "x": 560,
+       "y": 139,
+       "w": 15.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l10",
+     "page": 4,
+     "y": 150,
+     "x0": 36,
+     "x1": 160.8,
+     "text": "VITAMIN D,25-OH,TOTAL,IA",
+     "cells": [
+      "VITAMIN D,25-OH,TOTAL,IA"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "VITAMIN D,25-OH,TOTAL,IA",
+       "x": 36,
+       "y": 150,
+       "w": 124.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l11",
+     "page": 4,
+     "y": 161,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "VITAMIN D, 25-OH, TOTAL,  22 L  30-100 ng/mL  EZ",
+     "cells": [
+      "VITAMIN D, 25-OH, TOTAL,",
+      "22 L",
+      "30-100 ng/mL",
+      "EZ"
+     ],
+     "cellX": [
+      46,
+      330,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "VITAMIN D, 25-OH, TOTAL,",
+       "x": 46,
+       "y": 161,
+       "w": 124.8,
+       "h": 10
+      },
+      {
+       "str": "22 L",
+       "x": 330,
+       "y": 161,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "30-100 ng/mL",
+       "x": 410,
+       "y": 161,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 161,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l12",
+     "page": 4,
+     "y": 172,
+     "x0": 46,
+     "x1": 103.2,
+     "text": "IMMUNOASSAY",
+     "cells": [
+      "IMMUNOASSAY"
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": "IMMUNOASSAY",
+       "x": 46,
+       "y": 172,
+       "w": 57.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l13",
+     "page": 4,
+     "y": 183,
+     "x0": 46,
+     "x1": 514,
+     "text": ". Vitamin D Status: Deficiency <20 ng/mL; Insufficiency 20-29 ng/mL; Optimal 30-100 ng/mL.",
+     "cells": [
+      ". Vitamin D Status: Deficiency <20 ng/mL; Insufficiency 20-29 ng/mL; Optimal 30-100 ng/mL."
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". Vitamin D Status: Deficiency <20 ng/mL; Insufficiency 20-29 ng/mL; Optimal 30-100 ng/mL.",
+       "x": 46,
+       "y": 183,
+       "w": 468,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l14",
+     "page": 4,
+     "y": 194,
+     "x0": 36,
+     "x1": 51.6,
+     "text": "TSH",
+     "cells": [
+      "TSH"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "TSH",
+       "x": 36,
+       "y": 194,
+       "w": 15.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l15",
+     "page": 4,
+     "y": 205,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "TSH  1.85  0.40-4.50 mIU/L  PR",
+     "cells": [
+      "TSH",
+      "1.85",
+      "0.40-4.50 mIU/L",
+      "PR"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "TSH",
+       "x": 46,
+       "y": 205,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "1.85",
+       "x": 260,
+       "y": 205,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "0.40-4.50 mIU/L",
+       "x": 410,
+       "y": 205,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "PR",
+       "x": 560,
+       "y": 205,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l16",
+     "page": 4,
+     "y": 216,
+     "x0": 46,
+     "x1": 519.2,
+     "text": ". Reference range for TSH is age dependent; 0.40-4.50 mIU/L applies to adults 21 and older.",
+     "cells": [
+      ". Reference range for TSH is age dependent; 0.40-4.50 mIU/L applies to adults 21 and older."
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": ". Reference range for TSH is age dependent; 0.40-4.50 mIU/L applies to adults 21 and older.",
+       "x": 46,
+       "y": 216,
+       "w": 473.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l17",
+     "page": 4,
+     "y": 227,
+     "x0": 36,
+     "x1": 140,
+     "text": "HEPATITIS C ANTIBODY",
+     "cells": [
+      "HEPATITIS C ANTIBODY"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "HEPATITIS C ANTIBODY",
+       "x": 36,
+       "y": 227,
+       "w": 104,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l18",
+     "page": 4,
+     "y": 238,
+     "x0": 46,
+     "x1": 212.4,
+     "text": "HEPATITIS C ANTIBODY W/REFLEX TO",
+     "cells": [
+      "HEPATITIS C ANTIBODY W/REFLEX TO"
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": "HEPATITIS C ANTIBODY W/REFLEX TO",
+       "x": 46,
+       "y": 238,
+       "w": 166.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l19",
+     "page": 4,
+     "y": 249,
+     "x0": 46,
+     "x1": 570.4,
+     "text": "HCV RNA, QN, PCR  NON-REACTIVE  NON-REACTIVE  PR",
+     "cells": [
+      "HCV RNA, QN, PCR",
+      "NON-REACTIVE",
+      "NON-REACTIVE",
+      "PR"
+     ],
+     "cellX": [
+      46,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "HCV RNA, QN, PCR",
+       "x": 46,
+       "y": 249,
+       "w": 83.2,
+       "h": 10
+      },
+      {
+       "str": "NON-REACTIVE",
+       "x": 260,
+       "y": 249,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "NON-REACTIVE",
+       "x": 410,
+       "y": 249,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "PR",
+       "x": 560,
+       "y": 249,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l20",
+     "page": 4,
+     "y": 260,
+     "x0": 46,
+     "x1": 462,
+     "text": "Please note: A NON-REACTIVE result indicates that HCV antibody was not detected.",
+     "cells": [
+      "Please note: A NON-REACTIVE result indicates that HCV antibody was not detected."
+     ],
+     "cellX": [
+      46
+     ],
+     "items": [
+      {
+       "str": "Please note: A NON-REACTIVE result indicates that HCV antibody was not detected.",
+       "x": 46,
+       "y": 260,
+       "w": 416,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l21",
+     "page": 4,
+     "y": 271,
+     "x0": 36,
+     "x1": 119.2,
+     "text": "PERFORMING SITE:",
+     "cells": [
+      "PERFORMING SITE:"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "PERFORMING SITE:",
+       "x": 36,
+       "y": 271,
+       "w": 83.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l22",
+     "page": 4,
+     "y": 282,
+     "x0": 36,
+     "x1": 528,
+     "text": "EZ  Quest Diagnostics Nichols Institute, 33608 Example Hwy, San Juan Capistrano, CA 92675-2042",
+     "cells": [
+      "EZ",
+      "Quest Diagnostics Nichols Institute, 33608 Example Hwy, San Juan Capistrano, CA 92675-2042"
+     ],
+     "cellX": [
+      36,
+      60
+     ],
+     "items": [
+      {
+       "str": "EZ",
+       "x": 36,
+       "y": 282,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "Quest Diagnostics Nichols Institute, 33608 Example Hwy, San Juan Capistrano, CA 92675-2042",
+       "x": 60,
+       "y": 282,
+       "w": 468,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l23",
+     "page": 4,
+     "y": 293,
+     "x0": 60,
+     "x1": 470.8,
+     "text": "Laboratory Director: SAMPLE DIRECTOR, MD, CLIA: 05D0000001, Phone: 800.555.0199",
+     "cells": [
+      "Laboratory Director: SAMPLE DIRECTOR, MD, CLIA: 05D0000001, Phone: 800.555.0199"
+     ],
+     "cellX": [
+      60
+     ],
+     "items": [
+      {
+       "str": "Laboratory Director: SAMPLE DIRECTOR, MD, CLIA: 05D0000001, Phone: 800.555.0199",
+       "x": 60,
+       "y": 293,
+       "w": 410.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l24",
+     "page": 4,
+     "y": 304,
+     "x0": 36,
+     "x1": 418.8,
+     "text": "PR  Quest Diagnostics-Teterboro, 1 Example Blvd, Teterboro, NJ 07608-1070",
+     "cells": [
+      "PR",
+      "Quest Diagnostics-Teterboro, 1 Example Blvd, Teterboro, NJ 07608-1070"
+     ],
+     "cellX": [
+      36,
+      60
+     ],
+     "items": [
+      {
+       "str": "PR",
+       "x": 36,
+       "y": 304,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "Quest Diagnostics-Teterboro, 1 Example Blvd, Teterboro, NJ 07608-1070",
+       "x": 60,
+       "y": 304,
+       "w": 358.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l25",
+     "page": 4,
+     "y": 315,
+     "x0": 60,
+     "x1": 476,
+     "text": "Laboratory Director: TEST PATHOLOGIST, MD, CLIA: 31D0000002, Phone: 800.555.0198",
+     "cells": [
+      "Laboratory Director: TEST PATHOLOGIST, MD, CLIA: 31D0000002, Phone: 800.555.0198"
+     ],
+     "cellX": [
+      60
+     ],
+     "items": [
+      {
+       "str": "Laboratory Director: TEST PATHOLOGIST, MD, CLIA: 31D0000002, Phone: 800.555.0198",
+       "x": 60,
+       "y": 315,
+       "w": 416,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l26",
+     "page": 4,
+     "y": 326,
+     "x0": 36,
+     "x1": 197.2,
+     "text": "CLIENT SERVICES: 1.866.555.0100",
+     "cells": [
+      "CLIENT SERVICES: 1.866.555.0100"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "CLIENT SERVICES: 1.866.555.0100",
+       "x": 36,
+       "y": 326,
+       "w": 161.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l27",
+     "page": 4,
+     "y": 337,
+     "x0": 36,
+     "x1": 706.8,
+     "text": "Quest, Quest Diagnostics, the associated logo and all associated Quest Diagnostics marks are the trademarks of Quest Diagnostics.",
+     "cells": [
+      "Quest, Quest Diagnostics, the associated logo and all associated Quest Diagnostics marks are the trademarks of Quest Diagnostics."
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "Quest, Quest Diagnostics, the associated logo and all associated Quest Diagnostics marks are the trademarks of Quest Diagnostics.",
+       "x": 36,
+       "y": 337,
+       "w": 670.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p4l28",
+     "page": 4,
+     "y": 740,
+     "x0": 36,
+     "x1": 527.2,
+     "text": "Patient: SAMPLE, ALEX Q  Specimen: AB123456C  Page 4 of 4",
+     "cells": [
+      "Patient: SAMPLE, ALEX Q",
+      "Specimen: AB123456C",
+      "Page 4 of 4"
+     ],
+     "cellX": [
+      36,
+      260,
+      470
+     ],
+     "items": [
+      {
+       "str": "Patient: SAMPLE, ALEX Q",
+       "x": 36,
+       "y": 740,
+       "w": 119.6,
+       "h": 10
+      },
+      {
+       "str": "Specimen: AB123456C",
+       "x": 260,
+       "y": 740,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Page 4 of 4",
+       "x": 470,
+       "y": 740,
+       "w": 57.2,
+       "h": 10
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

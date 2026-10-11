@@ -1,0 +1,335 @@
+{
+ "source": {
+  "vendor": "quest",
+  "pageCount": 2
+ },
+ "patient": {
+  "fullName": "JORDAN SAMPLE",
+  "firstName": "JORDAN",
+  "lastName": "SAMPLE",
+  "dob": "2012-06-02",
+  "sex": "F",
+  "ageAtCollection": 13,
+  "patientId": null
+ },
+ "specimen": {
+  "collectedAt": "2025-09-10T08:15",
+  "collectedTz": "EDT",
+  "reportedAt": "2025-09-11",
+  "specimenId": null
+ },
+ "provider": {
+  "orderingName": "DR. JANE DOE"
+ },
+ "performingLabs": [
+  {
+   "code": null,
+   "name": "Quest Diagnostics Nichols Institute",
+   "address": "San Juan Capistrano, CA 92675",
+   "director": null,
+   "clia": null,
+   "phone": null
+  }
+ ],
+ "panels": [
+  {
+   "name": "CBC (INCLUDES DIFF/PLT)",
+   "resultIds": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9",
+    "r10"
+   ]
+  },
+  {
+   "name": "VITAMIN D,25-OH,TOTAL,IA",
+   "resultIds": [
+    "r11"
+   ]
+  },
+  {
+   "name": "FERRITIN",
+   "resultIds": [
+    "r12"
+   ]
+  },
+  {
+   "name": "IRON AND TIBC",
+   "resultIds": [
+    "r13",
+    "r14",
+    "r15"
+   ]
+  },
+  {
+   "name": "TSH",
+   "resultIds": [
+    "r16"
+   ]
+  }
+ ],
+ "results": [
+  {
+   "id": "r1",
+   "name": "WBC",
+   "valueText": "6.5",
+   "value": 6.5,
+   "valueQualifier": null,
+   "unit": "Thousand/uL",
+   "flag": null,
+   "referenceRange": {
+    "low": 4.5,
+    "high": 13,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "CBC (INCLUDES DIFF/PLT)"
+  },
+  {
+   "id": "r2",
+   "name": "RBC",
+   "valueText": "4.40",
+   "value": 4.4,
+   "valueQualifier": null,
+   "unit": "Million/uL",
+   "flag": null,
+   "referenceRange": {
+    "low": 3.8,
+    "high": 5.2,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "CBC (INCLUDES DIFF/PLT)"
+  },
+  {
+   "id": "r3",
+   "name": "HEMOGLOBIN",
+   "valueText": "11.2",
+   "value": 11.2,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": "L",
+   "referenceRange": {
+    "low": 11.7,
+    "high": 15.5,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "CBC (INCLUDES DIFF/PLT)"
+  },
+  {
+   "id": "r4",
+   "name": "HEMATOCRIT",
+   "valueText": "34.8",
+   "value": 34.8,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": "L",
+   "referenceRange": {
+    "low": 35,
+    "high": 45,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "CBC (INCLUDES DIFF/PLT)"
+  },
+  {
+   "id": "r5",
+   "name": "MCV",
+   "valueText": "79.1",
+   "value": 79.1,
+   "valueQualifier": null,
+   "unit": "fL",
+   "flag": null,
+   "referenceRange": {
+    "low": 78,
+    "high": 98,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "CBC (INCLUDES DIFF/PLT)"
+  },
+  {
+   "id": "r6",
+   "name": "MCH",
+   "valueText": "25.5",
+   "value": 25.5,
+   "valueQualifier": null,
+   "unit": "pg",
+   "flag": null,
+   "referenceRange": {
+    "low": 25,
+    "high": 33,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "CBC (INCLUDES DIFF/PLT)"
+  },
+  {
+   "id": "r7",
+   "name": "MCHC",
+   "valueText": "32.2",
+   "value": 32.2,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 31,
+    "high": 36,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "CBC (INCLUDES DIFF/PLT)"
+  },
+  {
+   "id": "r8",
+   "name": "RDW",
+   "valueText": "14.9",
+   "value": 14.9,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "low": 11,
+    "high": 15,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "CBC (INCLUDES DIFF/PLT)"
+  },
+  {
+   "id": "r9",
+   "name": "PLATELET COUNT",
+   "valueText": "455",
+   "value": 455,
+   "valueQualifier": null,
+   "unit": "Thousand/uL",
+   "flag": "H",
+   "referenceRange": {
+    "low": 140,
+    "high": 400,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "CBC (INCLUDES DIFF/PLT)"
+  },
+  {
+   "id": "r10",
+   "name": "MPV",
+   "valueText": "9.8",
+   "value": 9.8,
+   "valueQualifier": null,
+   "unit": "fL",
+   "flag": null,
+   "referenceRange": {
+    "low": 7.5,
+    "high": 12.5,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "CBC (INCLUDES DIFF/PLT)"
+  },
+  {
+   "id": "r11",
+   "name": "VITAMIN D, 25-OH, TOTAL",
+   "valueText": "18",
+   "value": 18,
+   "valueQualifier": null,
+   "unit": "ng/mL",
+   "flag": "L",
+   "referenceRange": {
+    "low": 30,
+    "high": 100,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "VITAMIN D,25-OH,TOTAL,IA"
+  },
+  {
+   "id": "r12",
+   "name": "FERRITIN",
+   "valueText": "8",
+   "value": 8,
+   "valueQualifier": null,
+   "unit": "ng/mL",
+   "flag": "L",
+   "referenceRange": {
+    "low": 16,
+    "high": 154,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "FERRITIN"
+  },
+  {
+   "id": "r13",
+   "name": "IRON, TOTAL",
+   "valueText": "45",
+   "value": 45,
+   "valueQualifier": null,
+   "unit": "mcg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 40,
+    "high": 190,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "IRON AND TIBC"
+  },
+  {
+   "id": "r14",
+   "name": "IRON BINDING CAPACITY",
+   "valueText": "410",
+   "value": 410,
+   "valueQualifier": null,
+   "unit": "mcg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 250,
+    "high": 450,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "IRON AND TIBC"
+  },
+  {
+   "id": "r15",
+   "name": "%SATURATION",
+   "valueText": "11",
+   "value": 11,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": "A",
+   "referenceRange": {
+    "low": 15,
+    "high": 45,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "IRON AND TIBC"
+  },
+  {
+   "id": "r16",
+   "name": "TSH",
+   "valueText": "2.10",
+   "value": 2.1,
+   "valueQualifier": null,
+   "unit": "mIU/L",
+   "flag": null,
+   "referenceRange": {
+    "low": 0.5,
+    "high": 4.3,
+    "kind": "range"
+   },
+   "performingLabCode": null,
+   "panel": "TSH"
+  }
+ ]
+}

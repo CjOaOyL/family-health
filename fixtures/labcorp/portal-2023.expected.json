@@ -1,0 +1,529 @@
+{
+ "source": {
+  "vendor": "labcorp",
+  "pageCount": 2,
+  "reportStatus": "final"
+ },
+ "patient": {
+  "fullName": "SAMPLE, JORDAN",
+  "lastName": "SAMPLE",
+  "firstName": "JORDAN",
+  "middleName": null,
+  "dob": "2012-06-02",
+  "sex": "F",
+  "ageAtCollection": 11,
+  "patientId": "998877",
+  "phone": null
+ },
+ "specimen": {
+  "specimenId": "123-456-7890-0",
+  "collectedAt": "2023-09-10T09:02",
+  "collectedTz": "Local",
+  "receivedAt": "2023-09-10",
+  "enteredAt": null,
+  "reportedAt": "2023-09-11T14:15",
+  "fasting": true
+ },
+ "provider": {
+  "orderingName": "A JONES",
+  "referringName": null,
+  "npi": "1234567893",
+  "accountNumber": "87654321",
+  "accountName": "SAMPLE PEDIATRICS GROUP",
+  "address": "456 FAKE AVE, ANYTOWN NY 12345",
+  "phone": null,
+  "fax": null
+ },
+ "performingLabs": [
+  {
+   "code": "01",
+   "name": "LabCorp Burlington",
+   "address": "1447 York Court, Burlington, NC 272153361",
+   "director": "Pat Example, MD",
+   "clia": null,
+   "phone": "800-555-0101"
+  }
+ ],
+ "panels": [
+  {
+   "name": "CBC With Differential/Platelet",
+   "resultIds": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9",
+    "r10",
+    "r11",
+    "r12",
+    "r13",
+    "r14",
+    "r15",
+    "r16",
+    "r17",
+    "r18",
+    "r19",
+    "r20",
+    "r21"
+   ],
+   "page": 1
+  },
+  {
+   "name": "Ferritin",
+   "resultIds": [
+    "r22"
+   ],
+   "page": 2
+  },
+  {
+   "name": "TSH",
+   "resultIds": [
+    "r23"
+   ],
+   "page": 2
+  }
+ ],
+ "results": [
+  {
+   "id": "r1",
+   "panel": "CBC With Differential/Platelet",
+   "name": "WBC",
+   "valueText": "7.2",
+   "value": 7.2,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "4.5-13.5",
+    "low": 4.5,
+    "high": 13.5,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r2",
+   "panel": "CBC With Differential/Platelet",
+   "name": "RBC",
+   "valueText": "4.60",
+   "value": 4.6,
+   "valueQualifier": null,
+   "unit": "x10E6/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "3.90-5.20",
+    "low": 3.9,
+    "high": 5.2,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r3",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Hemoglobin",
+   "valueText": "13.1",
+   "value": 13.1,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "11.1-14.7",
+    "low": 11.1,
+    "high": 14.7,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r4",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Hematocrit",
+   "valueText": "38.9",
+   "value": 38.9,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "34.0-44.0",
+    "low": 34,
+    "high": 44,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r5",
+   "panel": "CBC With Differential/Platelet",
+   "name": "MCV",
+   "valueText": "85",
+   "value": 85,
+   "valueQualifier": null,
+   "unit": "fL",
+   "flag": null,
+   "referenceRange": {
+    "text": "77-95",
+    "low": 77,
+    "high": 95,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r6",
+   "panel": "CBC With Differential/Platelet",
+   "name": "MCH",
+   "valueText": "28.5",
+   "value": 28.5,
+   "valueQualifier": null,
+   "unit": "pg",
+   "flag": null,
+   "referenceRange": {
+    "text": "25.0-33.0",
+    "low": 25,
+    "high": 33,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r7",
+   "panel": "CBC With Differential/Platelet",
+   "name": "MCHC",
+   "valueText": "33.7",
+   "value": 33.7,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "31.5-35.7",
+    "low": 31.5,
+    "high": 35.7,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r8",
+   "panel": "CBC With Differential/Platelet",
+   "name": "RDW",
+   "valueText": "12.5",
+   "value": 12.5,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "11.7-15.4",
+    "low": 11.7,
+    "high": 15.4,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r9",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Platelets",
+   "valueText": "298",
+   "value": 298,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "150-450",
+    "low": 150,
+    "high": 450,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r10",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Neutrophils",
+   "valueText": "45",
+   "value": 45,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "Not Estab.",
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r11",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Lymphs",
+   "valueText": "42",
+   "value": 42,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "Not Estab.",
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r12",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Monocytes",
+   "valueText": "8",
+   "value": 8,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "Not Estab.",
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r13",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Eos",
+   "valueText": "4",
+   "value": 4,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "Not Estab.",
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r14",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Basos",
+   "valueText": "1",
+   "value": 1,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "Not Estab.",
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r15",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Neutrophils (Absolute)",
+   "valueText": "3.2",
+   "value": 3.2,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "1.5-8.0",
+    "low": 1.5,
+    "high": 8,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r16",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Lymphs (Absolute)",
+   "valueText": "3.0",
+   "value": 3,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "1.2-5.2",
+    "low": 1.2,
+    "high": 5.2,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r17",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Monocytes(Absolute)",
+   "valueText": "0.6",
+   "value": 0.6,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.1-1.0",
+    "low": 0.1,
+    "high": 1,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r18",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Eos (Absolute)",
+   "valueText": "0.3",
+   "value": 0.3,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.0-0.7",
+    "low": 0,
+    "high": 0.7,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r19",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Baso (Absolute)",
+   "valueText": "0.1",
+   "value": 0.1,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.0-0.2",
+    "low": 0,
+    "high": 0.2,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r20",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Immature Granulocytes",
+   "valueText": "0",
+   "value": 0,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "text": "Not Estab.",
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r21",
+   "panel": "CBC With Differential/Platelet",
+   "name": "Immature Grans (Abs)",
+   "valueText": "0.0",
+   "value": 0,
+   "valueQualifier": null,
+   "unit": "x10E3/uL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.0-0.1",
+    "low": 0,
+    "high": 0.1,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 1
+  },
+  {
+   "id": "r22",
+   "panel": "Ferritin",
+   "name": "Ferritin",
+   "valueText": "9",
+   "value": 9,
+   "valueQualifier": null,
+   "unit": "ng/mL",
+   "flag": "L",
+   "referenceRange": {
+    "text": "13-150",
+    "low": 13,
+    "high": 150,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": "Please Note:\nReference interval for ferritin is age and sex dependent.",
+   "page": 2
+  },
+  {
+   "id": "r23",
+   "panel": "TSH",
+   "name": "TSH",
+   "valueText": "2.110",
+   "value": 2.11,
+   "valueQualifier": null,
+   "unit": "uIU/mL",
+   "flag": null,
+   "referenceRange": {
+    "text": "0.500-4.300",
+    "low": 0.5,
+    "high": 4.3,
+    "kind": "range"
+   },
+   "performingLabCode": "01",
+   "comment": null,
+   "page": 2
+  }
+ ]
+}

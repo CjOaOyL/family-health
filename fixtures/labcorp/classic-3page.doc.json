@@ -1,0 +1,2509 @@
+{
+ "fileName": "classic-3page.pdf",
+ "fileHash": "45338093b21347ab7655e895e3a85e356eed515c63dcec490980c629dbee3b50",
+ "pageCount": 3,
+ "pages": [
+  {
+   "pageNumber": 1,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p1l0",
+     "page": 1,
+     "y": 40,
+     "x0": 36,
+     "x1": 503,
+     "text": "Labcorp  Patient Report",
+     "cells": [
+      "Labcorp",
+      "Patient Report"
+     ],
+     "cellX": [
+      36,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l1",
+     "page": 1,
+     "y": 51.5,
+     "x0": 36,
+     "x1": 109,
+     "text": "SAMPLE, ALEX Q",
+     "cells": [
+      "SAMPLE, ALEX Q"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l2",
+     "page": 1,
+     "y": 63,
+     "x0": 36,
+     "x1": 518,
+     "text": "Patient Details  Specimen Details  Physician Details",
+     "cells": [
+      "Patient Details",
+      "Specimen Details",
+      "Physician Details"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l3",
+     "page": 1,
+     "y": 74.5,
+     "x0": 36,
+     "x1": 518,
+     "text": "DOB: 01/15/1980  Date collected: 03/04/2025 0815 Local  Ordering: J SMITH",
+     "cells": [
+      "DOB: 01/15/1980",
+      "Date collected: 03/04/2025 0815 Local",
+      "Ordering: J SMITH"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l4",
+     "page": 1,
+     "y": 86,
+     "x0": 36,
+     "x1": 482,
+     "text": "Age: 45  Date received: 03/04/2025  Referring:",
+     "cells": [
+      "Age: 45",
+      "Date received: 03/04/2025",
+      "Referring:"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l5",
+     "page": 1,
+     "y": 97.5,
+     "x0": 36,
+     "x1": 477,
+     "text": "Gender: M  Date entered: 03/04/2025  ID: 12345",
+     "cells": [
+      "Gender: M",
+      "Date entered: 03/04/2025",
+      "ID: 12345"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l6",
+     "page": 1,
+     "y": 109,
+     "x0": 36,
+     "x1": 508,
+     "text": "Patient ID: 100200300  Date reported: 03/05/2025 1023 ET  NPI: 1234567893",
+     "cells": [
+      "Patient ID: 100200300",
+      "Date reported: 03/05/2025 1023 ET",
+      "NPI: 1234567893"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l7",
+     "page": 1,
+     "y": 120.5,
+     "x0": 36,
+     "x1": 555,
+     "text": "Phone: 555-010-0100  Specimen ID: 063-123-4567-0  Account Number: 12345678",
+     "cells": [
+      "Phone: 555-010-0100",
+      "Specimen ID: 063-123-4567-0",
+      "Account Number: 12345678"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l8",
+     "page": 1,
+     "y": 132,
+     "x0": 220,
+     "x1": 544,
+     "text": "Fasting: Yes  SAMPLE FAMILY MEDICINE",
+     "cells": [
+      "Fasting: Yes",
+      "SAMPLE FAMILY MEDICINE"
+     ],
+     "cellX": [
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l9",
+     "page": 1,
+     "y": 143.5,
+     "x0": 430,
+     "x1": 539,
+     "text": "123 FAKE STREET STE 4",
+     "cells": [
+      "123 FAKE STREET STE 4"
+     ],
+     "cellX": [
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l10",
+     "page": 1,
+     "y": 155,
+     "x0": 430,
+     "x1": 539,
+     "text": "ANYTOWN NY 12345-0000",
+     "cells": [
+      "ANYTOWN NY 12345-0000"
+     ],
+     "cellX": [
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l11",
+     "page": 1,
+     "y": 166.5,
+     "x0": 430,
+     "x1": 608,
+     "text": "Phone: 555-010-0200  Fax: 555-010-0201",
+     "cells": [
+      "Phone: 555-010-0200",
+      "Fax: 555-010-0201"
+     ],
+     "cellX": [
+      430,
+      520
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l12",
+     "page": 1,
+     "y": 178,
+     "x0": 430,
+     "x1": 466,
+     "text": "Rte: 00",
+     "cells": [
+      "Rte: 00"
+     ],
+     "cellX": [
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l13",
+     "page": 1,
+     "y": 189.5,
+     "x0": 36,
+     "x1": 488,
+     "text": "Ordered Items: CBC With Differential/Platelet; Comp. Metabolic Panel (14); Lipid Panel;",
+     "cells": [
+      "Ordered Items: CBC With Differential/Platelet; Comp. Metabolic Panel (14); Lipid Panel;"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l14",
+     "page": 1,
+     "y": 201,
+     "x0": 36,
+     "x1": 254,
+     "text": "Hemoglobin A1c; Vitamin D, 25-Hydroxy; TSH",
+     "cells": [
+      "Hemoglobin A1c; Vitamin D, 25-Hydroxy; TSH"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l15",
+     "page": 1,
+     "y": 218.3,
+     "x0": 36,
+     "x1": 576,
+     "text": "TESTS  RESULT  FLAG  UNITS  REFERENCE INTERVAL  LAB",
+     "cells": [
+      "TESTS",
+      "RESULT",
+      "FLAG",
+      "UNITS",
+      "REFERENCE INTERVAL",
+      "LAB"
+     ],
+     "cellX": [
+      36,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l16",
+     "page": 1,
+     "y": 229.8,
+     "x0": 36,
+     "x1": 192,
+     "text": "CBC With Differential/Platelet",
+     "cells": [
+      "CBC With Differential/Platelet"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l17",
+     "page": 1,
+     "y": 241.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "WBC  6.8  x10E3/uL  3.4-10.8  01",
+     "cells": [
+      "WBC",
+      "6.8",
+      "x10E3/uL",
+      "3.4-10.8",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l18",
+     "page": 1,
+     "y": 252.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "RBC  4.95  x10E6/uL  4.14-5.80  01",
+     "cells": [
+      "RBC",
+      "4.95",
+      "x10E6/uL",
+      "4.14-5.80",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l19",
+     "page": 1,
+     "y": 264.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Hemoglobin  15.1  g/dL  13.0-17.7  01",
+     "cells": [
+      "Hemoglobin",
+      "15.1",
+      "g/dL",
+      "13.0-17.7",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l20",
+     "page": 1,
+     "y": 275.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Hematocrit  44.2  %  37.5-51.0  01",
+     "cells": [
+      "Hematocrit",
+      "44.2",
+      "%",
+      "37.5-51.0",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l21",
+     "page": 1,
+     "y": 287.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "MCV  89  fL  79-97  01",
+     "cells": [
+      "MCV",
+      "89",
+      "fL",
+      "79-97",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l22",
+     "page": 1,
+     "y": 298.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "MCH  30.5  pg  26.6-33.0  01",
+     "cells": [
+      "MCH",
+      "30.5",
+      "pg",
+      "26.6-33.0",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l23",
+     "page": 1,
+     "y": 310.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "MCHC  34.2  g/dL  31.5-35.7  01",
+     "cells": [
+      "MCHC",
+      "34.2",
+      "g/dL",
+      "31.5-35.7",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l24",
+     "page": 1,
+     "y": 321.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "RDW  12.9  %  11.6-15.4  01",
+     "cells": [
+      "RDW",
+      "12.9",
+      "%",
+      "11.6-15.4",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l25",
+     "page": 1,
+     "y": 333.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Platelets  462  High  x10E3/uL  150-450  01",
+     "cells": [
+      "Platelets",
+      "462",
+      "High",
+      "x10E3/uL",
+      "150-450",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l26",
+     "page": 1,
+     "y": 344.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Neutrophils  58  %  Not Estab.  01",
+     "cells": [
+      "Neutrophils",
+      "58",
+      "%",
+      "Not Estab.",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l27",
+     "page": 1,
+     "y": 356.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Lymphs  30  %  Not Estab.  01",
+     "cells": [
+      "Lymphs",
+      "30",
+      "%",
+      "Not Estab.",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l28",
+     "page": 1,
+     "y": 367.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Monocytes  8  %  Not Estab.  01",
+     "cells": [
+      "Monocytes",
+      "8",
+      "%",
+      "Not Estab.",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l29",
+     "page": 1,
+     "y": 379.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Eos  3  %  Not Estab.  01",
+     "cells": [
+      "Eos",
+      "3",
+      "%",
+      "Not Estab.",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l30",
+     "page": 1,
+     "y": 390.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Basos  1  %  Not Estab.  01",
+     "cells": [
+      "Basos",
+      "1",
+      "%",
+      "Not Estab.",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l31",
+     "page": 1,
+     "y": 402.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Neutrophils (Absolute)  3.9  x10E3/uL  1.4-7.0  01",
+     "cells": [
+      "Neutrophils (Absolute)",
+      "3.9",
+      "x10E3/uL",
+      "1.4-7.0",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l32",
+     "page": 1,
+     "y": 413.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Lymphs (Absolute)  2.0  x10E3/uL  0.7-3.1  01",
+     "cells": [
+      "Lymphs (Absolute)",
+      "2.0",
+      "x10E3/uL",
+      "0.7-3.1",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l33",
+     "page": 1,
+     "y": 425.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Monocytes(Absolute)  0.5  x10E3/uL  0.1-0.9  01",
+     "cells": [
+      "Monocytes(Absolute)",
+      "0.5",
+      "x10E3/uL",
+      "0.1-0.9",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l34",
+     "page": 1,
+     "y": 436.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Eos (Absolute)  0.2  x10E3/uL  0.0-0.4  01",
+     "cells": [
+      "Eos (Absolute)",
+      "0.2",
+      "x10E3/uL",
+      "0.0-0.4",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l35",
+     "page": 1,
+     "y": 448.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Baso (Absolute)  0.1  x10E3/uL  0.0-0.2  01",
+     "cells": [
+      "Baso (Absolute)",
+      "0.1",
+      "x10E3/uL",
+      "0.0-0.2",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l36",
+     "page": 1,
+     "y": 459.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Immature Granulocytes  0  %  Not Estab.  01",
+     "cells": [
+      "Immature Granulocytes",
+      "0",
+      "%",
+      "Not Estab.",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l37",
+     "page": 1,
+     "y": 471.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Immature Grans (Abs)  0.0  x10E3/uL  0.0-0.1  01",
+     "cells": [
+      "Immature Grans (Abs)",
+      "0.0",
+      "x10E3/uL",
+      "0.0-0.1",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l38",
+     "page": 1,
+     "y": 700,
+     "x0": 36,
+     "x1": 624,
+     "text": "01 BN  LabCorp Burlington  1447 York Court, Burlington, NC 272153361  Dir: Pat Example, MD  Phone: 800-555-0101",
+     "cells": [
+      "01 BN",
+      "LabCorp Burlington",
+      "1447 York Court, Burlington, NC 272153361",
+      "Dir: Pat Example, MD",
+      "Phone: 800-555-0101"
+     ],
+     "cellX": [
+      36,
+      78,
+      180,
+      410,
+      525
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l39",
+     "page": 1,
+     "y": 711.5,
+     "x0": 36,
+     "x1": 577,
+     "text": "Date Issued: 03/05/25 1023 ET  FINAL REPORT  Page 1 of 3",
+     "cells": [
+      "Date Issued: 03/05/25 1023 ET",
+      "FINAL REPORT",
+      "Page 1 of 3"
+     ],
+     "cellX": [
+      36,
+      300,
+      520
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l40",
+     "page": 1,
+     "y": 723,
+     "x0": 36,
+     "x1": 322,
+     "text": "© 1995-2025 Laboratory Corporation of America® Holdings",
+     "cells": [
+      "© 1995-2025 Laboratory Corporation of America® Holdings"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l41",
+     "page": 1,
+     "y": 734.5,
+     "x0": 36,
+     "x1": 312,
+     "text": "All Rights Reserved - Enterprise Report Version: 1.00",
+     "cells": [
+      "All Rights Reserved - Enterprise Report Version: 1.00"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p1l42",
+     "page": 1,
+     "y": 746,
+     "x0": 36,
+     "x1": 566,
+     "text": "This document contains private and confidential health information protected by state and federal law.",
+     "cells": [
+      "This document contains private and confidential health information protected by state and federal law."
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    }
+   ]
+  },
+  {
+   "pageNumber": 2,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p2l0",
+     "page": 2,
+     "y": 40,
+     "x0": 36,
+     "x1": 503,
+     "text": "Labcorp  Patient Report",
+     "cells": [
+      "Labcorp",
+      "Patient Report"
+     ],
+     "cellX": [
+      36,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l1",
+     "page": 2,
+     "y": 51.5,
+     "x0": 36,
+     "x1": 109,
+     "text": "SAMPLE, ALEX Q",
+     "cells": [
+      "SAMPLE, ALEX Q"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l2",
+     "page": 2,
+     "y": 63,
+     "x0": 36,
+     "x1": 518,
+     "text": "Patient Details  Specimen Details  Physician Details",
+     "cells": [
+      "Patient Details",
+      "Specimen Details",
+      "Physician Details"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l3",
+     "page": 2,
+     "y": 74.5,
+     "x0": 36,
+     "x1": 518,
+     "text": "DOB: 01/15/1980  Date collected: 03/04/2025 0815 Local  Ordering: J SMITH",
+     "cells": [
+      "DOB: 01/15/1980",
+      "Date collected: 03/04/2025 0815 Local",
+      "Ordering: J SMITH"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l4",
+     "page": 2,
+     "y": 86,
+     "x0": 36,
+     "x1": 482,
+     "text": "Age: 45  Date received: 03/04/2025  Referring:",
+     "cells": [
+      "Age: 45",
+      "Date received: 03/04/2025",
+      "Referring:"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l5",
+     "page": 2,
+     "y": 97.5,
+     "x0": 36,
+     "x1": 477,
+     "text": "Gender: M  Date entered: 03/04/2025  ID: 12345",
+     "cells": [
+      "Gender: M",
+      "Date entered: 03/04/2025",
+      "ID: 12345"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l6",
+     "page": 2,
+     "y": 109,
+     "x0": 36,
+     "x1": 508,
+     "text": "Patient ID: 100200300  Date reported: 03/05/2025 1023 ET  NPI: 1234567893",
+     "cells": [
+      "Patient ID: 100200300",
+      "Date reported: 03/05/2025 1023 ET",
+      "NPI: 1234567893"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l7",
+     "page": 2,
+     "y": 120.5,
+     "x0": 36,
+     "x1": 555,
+     "text": "Phone: 555-010-0100  Specimen ID: 063-123-4567-0  Account Number: 12345678",
+     "cells": [
+      "Phone: 555-010-0100",
+      "Specimen ID: 063-123-4567-0",
+      "Account Number: 12345678"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l8",
+     "page": 2,
+     "y": 132,
+     "x0": 220,
+     "x1": 544,
+     "text": "Fasting: Yes  SAMPLE FAMILY MEDICINE",
+     "cells": [
+      "Fasting: Yes",
+      "SAMPLE FAMILY MEDICINE"
+     ],
+     "cellX": [
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l9",
+     "page": 2,
+     "y": 143.5,
+     "x0": 430,
+     "x1": 539,
+     "text": "123 FAKE STREET STE 4",
+     "cells": [
+      "123 FAKE STREET STE 4"
+     ],
+     "cellX": [
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l10",
+     "page": 2,
+     "y": 155,
+     "x0": 430,
+     "x1": 539,
+     "text": "ANYTOWN NY 12345-0000",
+     "cells": [
+      "ANYTOWN NY 12345-0000"
+     ],
+     "cellX": [
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l11",
+     "page": 2,
+     "y": 166.5,
+     "x0": 430,
+     "x1": 608,
+     "text": "Phone: 555-010-0200  Fax: 555-010-0201",
+     "cells": [
+      "Phone: 555-010-0200",
+      "Fax: 555-010-0201"
+     ],
+     "cellX": [
+      430,
+      520
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l12",
+     "page": 2,
+     "y": 178,
+     "x0": 430,
+     "x1": 466,
+     "text": "Rte: 00",
+     "cells": [
+      "Rte: 00"
+     ],
+     "cellX": [
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l13",
+     "page": 2,
+     "y": 195.3,
+     "x0": 36,
+     "x1": 576,
+     "text": "TESTS  RESULT  FLAG  UNITS  REFERENCE INTERVAL  LAB",
+     "cells": [
+      "TESTS",
+      "RESULT",
+      "FLAG",
+      "UNITS",
+      "REFERENCE INTERVAL",
+      "LAB"
+     ],
+     "cellX": [
+      36,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l14",
+     "page": 2,
+     "y": 206.8,
+     "x0": 36,
+     "x1": 171,
+     "text": "Comp. Metabolic Panel (14)",
+     "cells": [
+      "Comp. Metabolic Panel (14)"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l15",
+     "page": 2,
+     "y": 218.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Glucose  102  High  mg/dL  70-99  01",
+     "cells": [
+      "Glucose",
+      "102",
+      "High",
+      "mg/dL",
+      "70-99",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l16",
+     "page": 2,
+     "y": 229.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "BUN  15  mg/dL  6-24  01",
+     "cells": [
+      "BUN",
+      "15",
+      "mg/dL",
+      "6-24",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l17",
+     "page": 2,
+     "y": 241.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Creatinine  0.98  mg/dL  0.76-1.27  01",
+     "cells": [
+      "Creatinine",
+      "0.98",
+      "mg/dL",
+      "0.76-1.27",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l18",
+     "page": 2,
+     "y": 252.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "eGFR  92  mL/min/1.73  >59  01",
+     "cells": [
+      "eGFR",
+      "92",
+      "mL/min/1.73",
+      ">59",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l19",
+     "page": 2,
+     "y": 264.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Please Note:  01",
+     "cells": [
+      "Please Note:",
+      "01"
+     ],
+     "cellX": [
+      42,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l20",
+     "page": 2,
+     "y": 275.8,
+     "x0": 42,
+     "x1": 494,
+     "text": "eGFR is calculated using the 2021 CKD-EPI creatinine equation, without a race variable.",
+     "cells": [
+      "eGFR is calculated using the 2021 CKD-EPI creatinine equation, without a race variable."
+     ],
+     "cellX": [
+      42
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l21",
+     "page": 2,
+     "y": 287.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "BUN/Creatinine Ratio  15  9-20  01",
+     "cells": [
+      "BUN/Creatinine Ratio",
+      "15",
+      "9-20",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l22",
+     "page": 2,
+     "y": 298.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Sodium  140  mmol/L  134-144  01",
+     "cells": [
+      "Sodium",
+      "140",
+      "mmol/L",
+      "134-144",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l23",
+     "page": 2,
+     "y": 310.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Potassium  6.3  Critical  mmol/L  3.5-5.2  01",
+     "cells": [
+      "Potassium",
+      "6.3",
+      "Critical",
+      "mmol/L",
+      "3.5-5.2",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l24",
+     "page": 2,
+     "y": 321.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Chloride  101  mmol/L  96-106  01",
+     "cells": [
+      "Chloride",
+      "101",
+      "mmol/L",
+      "96-106",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l25",
+     "page": 2,
+     "y": 333.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Carbon Dioxide, Total  24  mmol/L  20-29  01",
+     "cells": [
+      "Carbon Dioxide, Total",
+      "24",
+      "mmol/L",
+      "20-29",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l26",
+     "page": 2,
+     "y": 344.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Calcium  9.4  mg/dL  8.7-10.2  01",
+     "cells": [
+      "Calcium",
+      "9.4",
+      "mg/dL",
+      "8.7-10.2",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l27",
+     "page": 2,
+     "y": 356.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Protein, Total  7.0  g/dL  6.0-8.5  01",
+     "cells": [
+      "Protein, Total",
+      "7.0",
+      "g/dL",
+      "6.0-8.5",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l28",
+     "page": 2,
+     "y": 367.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Albumin  4.5  g/dL  3.8-4.9  01",
+     "cells": [
+      "Albumin",
+      "4.5",
+      "g/dL",
+      "3.8-4.9",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l29",
+     "page": 2,
+     "y": 379.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Globulin, Total  2.5  g/dL  1.5-4.5  01",
+     "cells": [
+      "Globulin, Total",
+      "2.5",
+      "g/dL",
+      "1.5-4.5",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l30",
+     "page": 2,
+     "y": 390.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "A/G Ratio  1.8  1.2-2.2  01",
+     "cells": [
+      "A/G Ratio",
+      "1.8",
+      "1.2-2.2",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l31",
+     "page": 2,
+     "y": 402.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Bilirubin, Total  0.6  mg/dL  0.0-1.2  01",
+     "cells": [
+      "Bilirubin, Total",
+      "0.6",
+      "mg/dL",
+      "0.0-1.2",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l32",
+     "page": 2,
+     "y": 413.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Alkaline Phosphatase  68  IU/L  44-121  01",
+     "cells": [
+      "Alkaline Phosphatase",
+      "68",
+      "IU/L",
+      "44-121",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l33",
+     "page": 2,
+     "y": 425.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "AST (SGOT)  22  IU/L  0-40  01",
+     "cells": [
+      "AST (SGOT)",
+      "22",
+      "IU/L",
+      "0-40",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l34",
+     "page": 2,
+     "y": 436.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "ALT (SGPT)  27  IU/L  0-44  01",
+     "cells": [
+      "ALT (SGPT)",
+      "27",
+      "IU/L",
+      "0-44",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l35",
+     "page": 2,
+     "y": 448.3,
+     "x0": 36,
+     "x1": 93,
+     "text": "Lipid Panel",
+     "cells": [
+      "Lipid Panel"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l36",
+     "page": 2,
+     "y": 459.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Cholesterol, Total  210  High  mg/dL  100-199  01",
+     "cells": [
+      "Cholesterol, Total",
+      "210",
+      "High",
+      "mg/dL",
+      "100-199",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l37",
+     "page": 2,
+     "y": 471.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Triglycerides  1,045  High  mg/dL  0-149  01",
+     "cells": [
+      "Triglycerides",
+      "1,045",
+      "High",
+      "mg/dL",
+      "0-149",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l38",
+     "page": 2,
+     "y": 482.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "HDL Cholesterol  38  Low  mg/dL  >39  01",
+     "cells": [
+      "HDL Cholesterol",
+      "38",
+      "Low",
+      "mg/dL",
+      ">39",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l39",
+     "page": 2,
+     "y": 494.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "VLDL Cholesterol Cal  27  mg/dL  5-40  01",
+     "cells": [
+      "VLDL Cholesterol Cal",
+      "27",
+      "mg/dL",
+      "5-40",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l40",
+     "page": 2,
+     "y": 505.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "LDL Chol Calc (NIH)  142  High  mg/dL  0-99  01",
+     "cells": [
+      "LDL Chol Calc (NIH)",
+      "142",
+      "High",
+      "mg/dL",
+      "0-99",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l41",
+     "page": 2,
+     "y": 517.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Comment:  01",
+     "cells": [
+      "Comment:",
+      "01"
+     ],
+     "cellX": [
+      42,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l42",
+     "page": 2,
+     "y": 528.8,
+     "x0": 42,
+     "x1": 328,
+     "text": "Desirable range <100 mg/dL for primary prevention goal.",
+     "cells": [
+      "Desirable range <100 mg/dL for primary prevention goal."
+     ],
+     "cellX": [
+      42
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l43",
+     "page": 2,
+     "y": 540.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Chol/HDL Ratio  5.5  High  ratio  0.0-5.0  01",
+     "cells": [
+      "Chol/HDL Ratio",
+      "5.5",
+      "High",
+      "ratio",
+      "0.0-5.0",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l44",
+     "page": 2,
+     "y": 700,
+     "x0": 36,
+     "x1": 624,
+     "text": "01 BN  LabCorp Burlington  1447 York Court, Burlington, NC 272153361  Dir: Pat Example, MD  Phone: 800-555-0101",
+     "cells": [
+      "01 BN",
+      "LabCorp Burlington",
+      "1447 York Court, Burlington, NC 272153361",
+      "Dir: Pat Example, MD",
+      "Phone: 800-555-0101"
+     ],
+     "cellX": [
+      36,
+      78,
+      180,
+      410,
+      525
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l45",
+     "page": 2,
+     "y": 711.5,
+     "x0": 36,
+     "x1": 577,
+     "text": "Date Issued: 03/05/25 1023 ET  FINAL REPORT  Page 2 of 3",
+     "cells": [
+      "Date Issued: 03/05/25 1023 ET",
+      "FINAL REPORT",
+      "Page 2 of 3"
+     ],
+     "cellX": [
+      36,
+      300,
+      520
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l46",
+     "page": 2,
+     "y": 723,
+     "x0": 36,
+     "x1": 322,
+     "text": "© 1995-2025 Laboratory Corporation of America® Holdings",
+     "cells": [
+      "© 1995-2025 Laboratory Corporation of America® Holdings"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l47",
+     "page": 2,
+     "y": 734.5,
+     "x0": 36,
+     "x1": 312,
+     "text": "All Rights Reserved - Enterprise Report Version: 1.00",
+     "cells": [
+      "All Rights Reserved - Enterprise Report Version: 1.00"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p2l48",
+     "page": 2,
+     "y": 746,
+     "x0": 36,
+     "x1": 566,
+     "text": "This document contains private and confidential health information protected by state and federal law.",
+     "cells": [
+      "This document contains private and confidential health information protected by state and federal law."
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    }
+   ]
+  },
+  {
+   "pageNumber": 3,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p3l0",
+     "page": 3,
+     "y": 40,
+     "x0": 36,
+     "x1": 503,
+     "text": "Labcorp  Patient Report",
+     "cells": [
+      "Labcorp",
+      "Patient Report"
+     ],
+     "cellX": [
+      36,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l1",
+     "page": 3,
+     "y": 51.5,
+     "x0": 36,
+     "x1": 109,
+     "text": "SAMPLE, ALEX Q",
+     "cells": [
+      "SAMPLE, ALEX Q"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l2",
+     "page": 3,
+     "y": 63,
+     "x0": 36,
+     "x1": 518,
+     "text": "Patient Details  Specimen Details  Physician Details",
+     "cells": [
+      "Patient Details",
+      "Specimen Details",
+      "Physician Details"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l3",
+     "page": 3,
+     "y": 74.5,
+     "x0": 36,
+     "x1": 518,
+     "text": "DOB: 01/15/1980  Date collected: 03/04/2025 0815 Local  Ordering: J SMITH",
+     "cells": [
+      "DOB: 01/15/1980",
+      "Date collected: 03/04/2025 0815 Local",
+      "Ordering: J SMITH"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l4",
+     "page": 3,
+     "y": 86,
+     "x0": 36,
+     "x1": 482,
+     "text": "Age: 45  Date received: 03/04/2025  Referring:",
+     "cells": [
+      "Age: 45",
+      "Date received: 03/04/2025",
+      "Referring:"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l5",
+     "page": 3,
+     "y": 97.5,
+     "x0": 36,
+     "x1": 477,
+     "text": "Gender: M  Date entered: 03/04/2025  ID: 12345",
+     "cells": [
+      "Gender: M",
+      "Date entered: 03/04/2025",
+      "ID: 12345"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l6",
+     "page": 3,
+     "y": 109,
+     "x0": 36,
+     "x1": 508,
+     "text": "Patient ID: 100200300  Date reported: 03/05/2025 1023 ET  NPI: 1234567893",
+     "cells": [
+      "Patient ID: 100200300",
+      "Date reported: 03/05/2025 1023 ET",
+      "NPI: 1234567893"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l7",
+     "page": 3,
+     "y": 120.5,
+     "x0": 36,
+     "x1": 555,
+     "text": "Phone: 555-010-0100  Specimen ID: 063-123-4567-0  Account Number: 12345678",
+     "cells": [
+      "Phone: 555-010-0100",
+      "Specimen ID: 063-123-4567-0",
+      "Account Number: 12345678"
+     ],
+     "cellX": [
+      36,
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l8",
+     "page": 3,
+     "y": 132,
+     "x0": 220,
+     "x1": 544,
+     "text": "Fasting: Yes  SAMPLE FAMILY MEDICINE",
+     "cells": [
+      "Fasting: Yes",
+      "SAMPLE FAMILY MEDICINE"
+     ],
+     "cellX": [
+      220,
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l9",
+     "page": 3,
+     "y": 143.5,
+     "x0": 430,
+     "x1": 539,
+     "text": "123 FAKE STREET STE 4",
+     "cells": [
+      "123 FAKE STREET STE 4"
+     ],
+     "cellX": [
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l10",
+     "page": 3,
+     "y": 155,
+     "x0": 430,
+     "x1": 539,
+     "text": "ANYTOWN NY 12345-0000",
+     "cells": [
+      "ANYTOWN NY 12345-0000"
+     ],
+     "cellX": [
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l11",
+     "page": 3,
+     "y": 166.5,
+     "x0": 430,
+     "x1": 608,
+     "text": "Phone: 555-010-0200  Fax: 555-010-0201",
+     "cells": [
+      "Phone: 555-010-0200",
+      "Fax: 555-010-0201"
+     ],
+     "cellX": [
+      430,
+      520
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l12",
+     "page": 3,
+     "y": 178,
+     "x0": 430,
+     "x1": 466,
+     "text": "Rte: 00",
+     "cells": [
+      "Rte: 00"
+     ],
+     "cellX": [
+      430
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l13",
+     "page": 3,
+     "y": 195.3,
+     "x0": 36,
+     "x1": 576,
+     "text": "TESTS  RESULT  FLAG  UNITS  REFERENCE INTERVAL  LAB",
+     "cells": [
+      "TESTS",
+      "RESULT",
+      "FLAG",
+      "UNITS",
+      "REFERENCE INTERVAL",
+      "LAB"
+     ],
+     "cellX": [
+      36,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l14",
+     "page": 3,
+     "y": 206.8,
+     "x0": 36,
+     "x1": 109,
+     "text": "Hemoglobin A1c",
+     "cells": [
+      "Hemoglobin A1c"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l15",
+     "page": 3,
+     "y": 218.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Hemoglobin A1c  5.9  High  %  4.8-5.6  01",
+     "cells": [
+      "Hemoglobin A1c",
+      "5.9",
+      "High",
+      "%",
+      "4.8-5.6",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      330,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l16",
+     "page": 3,
+     "y": 229.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "Please Note:  01",
+     "cells": [
+      "Please Note:",
+      "01"
+     ],
+     "cellX": [
+      42,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l17",
+     "page": 3,
+     "y": 241.3,
+     "x0": 42,
+     "x1": 156,
+     "text": "Prediabetes: 5.7 - 6.4",
+     "cells": [
+      "Prediabetes: 5.7 - 6.4"
+     ],
+     "cellX": [
+      42
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l18",
+     "page": 3,
+     "y": 252.8,
+     "x0": 42,
+     "x1": 115,
+     "text": "Diabetes: >6.4",
+     "cells": [
+      "Diabetes: >6.4"
+     ],
+     "cellX": [
+      42
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l19",
+     "page": 3,
+     "y": 264.3,
+     "x0": 42,
+     "x1": 286,
+     "text": "Glycemic control for adults with diabetes: <7.0",
+     "cells": [
+      "Glycemic control for adults with diabetes: <7.0"
+     ],
+     "cellX": [
+      42
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l20",
+     "page": 3,
+     "y": 275.8,
+     "x0": 42,
+     "x1": 130,
+     "text": "Estimated Average",
+     "cells": [
+      "Estimated Average"
+     ],
+     "cellX": [
+      42
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l21",
+     "page": 3,
+     "y": 287.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Glucose (eAG)  123  mg/dL  01",
+     "cells": [
+      "Glucose (eAG)",
+      "123",
+      "mg/dL",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l22",
+     "page": 3,
+     "y": 298.8,
+     "x0": 36,
+     "x1": 145,
+     "text": "Vitamin D, 25-Hydroxy",
+     "cells": [
+      "Vitamin D, 25-Hydroxy"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l23",
+     "page": 3,
+     "y": 310.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Vitamin D,  32.4  ng/mL  30.0-100.0  02",
+     "cells": [
+      "Vitamin D,",
+      "32.4",
+      "ng/mL",
+      "30.0-100.0",
+      "02"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l24",
+     "page": 3,
+     "y": 321.8,
+     "x0": 42,
+     "x1": 94,
+     "text": "25-Hydroxy",
+     "cells": [
+      "25-Hydroxy"
+     ],
+     "cellX": [
+      42
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l25",
+     "page": 3,
+     "y": 333.3,
+     "x0": 42,
+     "x1": 570,
+     "text": "Please Note:  02",
+     "cells": [
+      "Please Note:",
+      "02"
+     ],
+     "cellX": [
+      42,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l26",
+     "page": 3,
+     "y": 344.8,
+     "x0": 42,
+     "x1": 494,
+     "text": "Vitamin D deficiency has been defined by the Endocrine Society as a level of <20 ng/mL.",
+     "cells": [
+      "Vitamin D deficiency has been defined by the Endocrine Society as a level of <20 ng/mL."
+     ],
+     "cellX": [
+      42
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l27",
+     "page": 3,
+     "y": 356.3,
+     "x0": 36,
+     "x1": 52,
+     "text": "TSH",
+     "cells": [
+      "TSH"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l28",
+     "page": 3,
+     "y": 367.8,
+     "x0": 42,
+     "x1": 570,
+     "text": "TSH  1.230  uIU/mL  0.450-4.500  01",
+     "cells": [
+      "TSH",
+      "1.230",
+      "uIU/mL",
+      "0.450-4.500",
+      "01"
+     ],
+     "cellX": [
+      42,
+      250,
+      380,
+      450,
+      560
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l29",
+     "page": 3,
+     "y": 700,
+     "x0": 36,
+     "x1": 624,
+     "text": "01 BN  LabCorp Burlington  1447 York Court, Burlington, NC 272153361  Dir: Pat Example, MD  Phone: 800-555-0101",
+     "cells": [
+      "01 BN",
+      "LabCorp Burlington",
+      "1447 York Court, Burlington, NC 272153361",
+      "Dir: Pat Example, MD",
+      "Phone: 800-555-0101"
+     ],
+     "cellX": [
+      36,
+      78,
+      180,
+      410,
+      525
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l30",
+     "page": 3,
+     "y": 711.5,
+     "x0": 36,
+     "x1": 624,
+     "text": "02 SE  LabCorp Phoenix  5005 S 40th St Ste 1100, Phoenix, AZ 850403222  Dir: Chris Sample, MD  Phone: 800-555-0102",
+     "cells": [
+      "02 SE",
+      "LabCorp Phoenix",
+      "5005 S 40th St Ste 1100, Phoenix, AZ 850403222",
+      "Dir: Chris Sample, MD",
+      "Phone: 800-555-0102"
+     ],
+     "cellX": [
+      36,
+      78,
+      180,
+      410,
+      525
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l31",
+     "page": 3,
+     "y": 723,
+     "x0": 36,
+     "x1": 577,
+     "text": "Date Issued: 03/05/25 1023 ET  FINAL REPORT  Page 3 of 3",
+     "cells": [
+      "Date Issued: 03/05/25 1023 ET",
+      "FINAL REPORT",
+      "Page 3 of 3"
+     ],
+     "cellX": [
+      36,
+      300,
+      520
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l32",
+     "page": 3,
+     "y": 734.5,
+     "x0": 36,
+     "x1": 322,
+     "text": "© 1995-2025 Laboratory Corporation of America® Holdings",
+     "cells": [
+      "© 1995-2025 Laboratory Corporation of America® Holdings"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l33",
+     "page": 3,
+     "y": 746,
+     "x0": 36,
+     "x1": 312,
+     "text": "All Rights Reserved - Enterprise Report Version: 1.00",
+     "cells": [
+      "All Rights Reserved - Enterprise Report Version: 1.00"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    },
+    {
+     "id": "p3l34",
+     "page": 3,
+     "y": 757.5,
+     "x0": 36,
+     "x1": 566,
+     "text": "This document contains private and confidential health information protected by state and federal law.",
+     "cells": [
+      "This document contains private and confidential health information protected by state and federal law."
+     ],
+     "cellX": [
+      36
+     ],
+     "items": []
+    }
+   ]
+  }
+ ]
+}

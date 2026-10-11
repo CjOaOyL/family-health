@@ -15,13 +15,13 @@ index.html                 app shell served by GitHub Pages
 app/                       UI modules (ES modules). app/main.js is the entry.
 app/styles.css
 src/pdf/extractor.js       createExtractor(pdfjsLib) -> extract(bytes, fileName) -> Document
-src/pdf/lines.js           buildLines(textItems, pageWidth, pageHeight) -> Line[]   (pure, testable)
+src/pdf/lines.js           buildLines(textItems, pageWidth, pageHeight, pageNumber) -> Line[]   (pure, testable)
 src/parse/detect.js        detectVendor(doc) -> { vendor, confidence, evidence }
 src/parse/common.js        shared helpers: dates, numbers, ranges, flags, units, name splitting
 src/parse/labcorp.js       parseLabcorp(doc) -> ParseResult
 src/parse/quest.js         parseQuest(doc) -> ParseResult
 src/parse/index.js         parseDocument(doc, opts) -> LabReport (runs detect, parser, audit, analyte mapping)
-src/audit/confidence.js    buildAudit(doc, parseResult) -> Audit
+src/audit/confidence.js    buildAudit(doc, parseResult, report) -> Audit; scoreResult(result, hints) ; resultLike(line); isBoilerplate(line)
 src/model/schema.js        emptyReport(), emptyResult(), validateReport(), constants (FLAGS, REQUIRED_FIELDS)
 src/model/analytes.js      ANALYTES dictionary + normalizeAnalyte(name, unit) + normalizeUnit() + convertUnit()
 src/model/redact.js        redactForSharing(report, doc) -> string  (safe diagnostic export)
@@ -32,7 +32,7 @@ fixtures/labcorp/*.expected.json expected LabReport subset for each fixture
 fixtures/quest/...
 fixtures/gen/build.js      generates synthetic PDFs into fixtures/pdf/ with pdf-lib
 fixtures/pdf/*.pdf         synthetic PDFs (committed)
-cli/extract.js             node cli/extract.js <file.pdf> [--json] [--redacted]  (user's private local check, no agents)
+cli/extract.js             node cli/extract.js <file.pdf> [--json] [--redacted] [--vendor labcorp|quest]  (user's private local check, no agents)
 test/*.test.js             node:test
 ```
 
@@ -86,7 +86,7 @@ LabReport {
               collectedAt: ISO|null, collectedTz: string|null, receivedAt, reportedAt, enteredAt,
               fasting: boolean|null, collectionSite: { name, address, code }|null }
   provider: { orderingName: string|null, referringName, npi, accountNumber, accountName, address, phone, fax }
-  performingLabs: Array<{ code: string, name: string|null, address: string|null, director: string|null, clia: string|null, phone: string|null }>
+  performingLabs: Array<{ code: string|null /* null when the report names a site without a code, e.g. MyQuest */, name: string|null, address: string|null, director: string|null, clia: string|null, phone: string|null }>
   panels: Array<{ name: string, resultIds: string[], page: number }>
   results: Result[]
   comments: Array<{ text: string, page: number, lineIds: string[], attachedTo: resultId|null }>
@@ -124,7 +124,11 @@ ParseResult {
   consumed: Map<lineId, string>    // lineId → reason tag (e.g. 'header','patient.dob','result:r12','comment','footer','pageno','blank')
   notes: string[]                  // parser-level warnings, human readable
   fieldEvidence: Record<fieldPath, lineId[]>   // e.g. 'patient.dob' → ['p1l4']
+  fieldStatus?: Record<fieldPath, FieldStatus> // optional: mark 'uncertain' when pages disagree (buildAudit honors it)
 }
+// Optional per-result hint for the audit: `result.hints = { wrapped?: boolean, misaligned?: boolean }`.
+// index.js feeds it to scoreResult() (−0.1 each) and deletes it from the final report. If a parser sets
+// result.confidence itself, index.js keeps min(parser confidence, scoreResult(result)).
 parseLabcorp(doc: Document): ParseResult
 parseQuest(doc: Document): ParseResult
 detectVendor(doc): { vendor: 'labcorp'|'quest'|'unknown', confidence: number, evidence: string[] }
@@ -156,6 +160,8 @@ Audit {
 - `resultLike(line)` heuristic: line has ≥1 alphabetic token and (a numeric token followed by a unit-ish token, or a flag token, or a range pattern) and is not a known boilerplate pattern. Keep the regex in `confidence.js` and export it for tests.
 - Per-result confidence: start 1.0; −0.25 missing unit when value numeric; −0.25 missing range when value numeric (unless range kind 'text' is clearly N/A); −0.4 value missing; −0.1 name wrapped/merged; −0.1 column misaligned (value not under RESULT column). Clamp 0..1.
 - Overall = 0.40 × (required found fraction, uncertain counts 0.5) + 0.15 × (important found fraction) + 0.30 × (1 − resultLikeUnconsumed / max(1, results.count + resultLikeUnconsumed)) + 0.15 × (pages complete ? 1 : 0.5 × seen/declared).
+- An IMPORTANT (optional) field whose label never appears in the document gets status 'na' and counts as found (it is not a miss). Labels are in `OPTIONAL_FIELD_LABELS` in confidence.js.
+- A directionless critical flag ('C') is resolved to HH/LL by index.js when the numeric range shows the side.
 - Any required field missing caps overall at 0.90. Any resultLikeUnconsumed > 0 caps overall at 0.94 (so 'complete' is only possible when every result-like line was consumed).
 - warnings[] gets a plain-English line for each cap applied and each parser note.
 
