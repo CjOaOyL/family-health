@@ -125,7 +125,8 @@ export function parseRange(raw) {
 /** Normalize a printed flag to 'H'|'L'|'HH'|'LL'|'A'|'C'|null. */
 export function normalizeFlag(raw) {
   if (raw == null) return null;
-  const t = String(raw).trim().toUpperCase().replace(/\*+$/, '').trim();
+  const t0 = String(raw).trim().toUpperCase();
+  const t = /^\*+$/.test(t0) ? t0 : t0.replace(/\*+$/, '').trim();
   if (!t) return null;
   const map = {
     H: 'H', HI: 'H', HIGH: 'H', 'H*': 'H',
