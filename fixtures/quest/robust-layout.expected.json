@@ -1,0 +1,389 @@
+{
+ "source": {
+  "vendor": "quest",
+  "reportStatus": "final",
+  "pageCount": 2
+ },
+ "patient": {
+  "fullName": "ROBUST, CASEY",
+  "lastName": "ROBUST",
+  "firstName": "CASEY",
+  "dob": "1970-02-20",
+  "sex": "F",
+  "ageAtCollection": 55,
+  "patientId": "246810",
+  "phone": "609.555.0155",
+  "address": null
+ },
+ "specimen": {
+  "specimenId": "RB246810Z",
+  "requisition": "0055555",
+  "collectedAt": "2025-09-15T07:30",
+  "receivedAt": "2025-09-15T18:05",
+  "reportedAt": "2025-09-16T05:40"
+ },
+ "provider": {
+  "orderingName": "DR. SAM ROE",
+  "npi": "1234567893",
+  "accountNumber": "55555555",
+  "address": "55 EXAMPLE AVENUE, ANYTOWN, NJ 08540"
+ },
+ "performingLabs": [
+  {
+   "code": "EZ",
+   "name": "Quest Diagnostics Nichols Institute",
+   "address": "33608 Example Hwy, San Juan Capistrano, CA 92675-2042",
+   "director": "SAMPLE DIRECTOR, MD",
+   "clia": "05D0000001",
+   "phone": "800.555.0199"
+  },
+  {
+   "code": "PR",
+   "name": "Quest Diagnostics-Teterboro",
+   "address": "1 Example Blvd, Teterboro, NJ 07608-1070",
+   "director": "TEST PATHOLOGIST, MD",
+   "clia": "31D0000002",
+   "phone": "800.555.0198"
+  }
+ ],
+ "panels": [
+  {
+   "name": "CBC (INCLUDES DIFF/PLT)",
+   "resultIds": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5"
+   ],
+   "page": 1
+  },
+  {
+   "name": "MISCELLANEOUS CHEMISTRY",
+   "resultIds": [
+    "r6",
+    "r7",
+    "r8",
+    "r9",
+    "r10",
+    "r11",
+    "r12"
+   ],
+   "page": 1
+  },
+  {
+   "name": "HEPATITIS PANEL, ACUTE",
+   "resultIds": [
+    "r13",
+    "r14",
+    "r15"
+   ],
+   "page": 2
+  },
+  {
+   "name": "TSH",
+   "resultIds": [
+    "r16"
+   ],
+   "page": 2
+  },
+  {
+   "name": "MAGNESIUM",
+   "resultIds": [
+    "r17"
+   ],
+   "page": 2
+  }
+ ],
+ "results": [
+  {
+   "id": "r1",
+   "name": "WBC",
+   "valueText": "7.2",
+   "value": 7.2,
+   "valueQualifier": null,
+   "unit": "Thousand/uL",
+   "flag": null,
+   "referenceRange": {
+    "low": 3.8,
+    "high": 10.8,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r2",
+   "name": "HEMOGLOBIN",
+   "valueText": "15.1",
+   "value": 15.1,
+   "valueQualifier": null,
+   "unit": "g/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 13.2,
+    "high": 17.1,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r3",
+   "name": "PLATELET COUNT",
+   "valueText": "135",
+   "value": 135,
+   "valueQualifier": null,
+   "unit": "Thousand/uL",
+   "flag": "L",
+   "referenceRange": {
+    "low": 140,
+    "high": 400,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r4",
+   "name": "ABSOLUTE NEUTROPHILS",
+   "valueText": "4320",
+   "value": 4320,
+   "valueQualifier": null,
+   "unit": "cells/uL",
+   "flag": null,
+   "referenceRange": {
+    "low": 1500,
+    "high": 7800,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r5",
+   "name": "NEUTROPHILS",
+   "valueText": "58.0",
+   "value": 58,
+   "valueQualifier": null,
+   "unit": "%",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "EZ",
+   "panel": "CBC (INCLUDES DIFF/PLT)",
+   "page": 1
+  },
+  {
+   "id": "r6",
+   "name": "25-OH VITAMIN D",
+   "valueText": "31.8",
+   "value": 31.8,
+   "valueQualifier": null,
+   "unit": "ng/mL",
+   "flag": null,
+   "referenceRange": {
+    "low": 30,
+    "high": 100,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "MISCELLANEOUS CHEMISTRY",
+   "page": 1
+  },
+  {
+   "id": "r7",
+   "name": "5-HIAA",
+   "valueText": "3.2",
+   "value": 3.2,
+   "valueQualifier": null,
+   "unit": "mg/24 hr",
+   "flag": null,
+   "referenceRange": {
+    "low": 2,
+    "high": 8,
+    "kind": "range"
+   },
+   "performingLabCode": "PR",
+   "panel": "MISCELLANEOUS CHEMISTRY",
+   "page": 1
+  },
+  {
+   "id": "r8",
+   "name": "GLUCOSE",
+   "valueText": "104",
+   "value": 104,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": "H",
+   "referenceRange": {
+    "low": 65,
+    "high": 99,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "MISCELLANEOUS CHEMISTRY",
+   "page": 1
+  },
+  {
+   "id": "r9",
+   "name": "POTASSIUM",
+   "valueText": "6.1",
+   "value": 6.1,
+   "valueQualifier": null,
+   "unit": "mmol/L",
+   "flag": "C",
+   "referenceRange": {
+    "low": 3.5,
+    "high": 5.3,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "MISCELLANEOUS CHEMISTRY",
+   "page": 1
+  },
+  {
+   "id": "r10",
+   "name": "HEMOGLOBIN A1c",
+   "valueText": "6.2",
+   "value": 6.2,
+   "valueQualifier": null,
+   "unit": "% of total Hgb",
+   "flag": "A",
+   "referenceRange": {
+    "low": null,
+    "high": 5.7,
+    "kind": "lt"
+   },
+   "performingLabCode": "EZ",
+   "panel": "MISCELLANEOUS CHEMISTRY",
+   "page": 1
+  },
+  {
+   "id": "r11",
+   "name": "LDL-CHOLESTEROL",
+   "valueText": "133",
+   "value": 133,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "EZ",
+   "panel": "MISCELLANEOUS CHEMISTRY",
+   "page": 1
+  },
+  {
+   "id": "r12",
+   "name": "HEMOGLOBIN A1c, POC",
+   "valueText": "5.4",
+   "value": 5.4,
+   "valueQualifier": null,
+   "unit": "% of total Hgb",
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": null
+   },
+   "performingLabCode": "EZ",
+   "panel": "MISCELLANEOUS CHEMISTRY",
+   "page": 1
+  },
+  {
+   "id": "r13",
+   "name": "HEPATITIS B SURFACE ANTIGEN",
+   "valueText": "NON-REACTIVE",
+   "value": null,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "PR",
+   "panel": "HEPATITIS PANEL, ACUTE",
+   "page": 2
+  },
+  {
+   "id": "r14",
+   "name": "HEPATITIS A IGM",
+   "valueText": "NON-REACTIVE",
+   "value": null,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "PR",
+   "panel": "HEPATITIS PANEL, ACUTE",
+   "page": 2
+  },
+  {
+   "id": "r15",
+   "name": "HEPATITIS C ANTIBODY W/REFLEX TO HCV RNA, QN, PCR",
+   "valueText": "NON-REACTIVE",
+   "value": null,
+   "valueQualifier": null,
+   "unit": null,
+   "flag": null,
+   "referenceRange": {
+    "low": null,
+    "high": null,
+    "kind": "text"
+   },
+   "performingLabCode": "PR",
+   "panel": "HEPATITIS PANEL, ACUTE",
+   "page": 2
+  },
+  {
+   "id": "r16",
+   "name": "TSH",
+   "valueText": "2.15",
+   "value": 2.15,
+   "valueQualifier": null,
+   "unit": "mIU/L",
+   "flag": null,
+   "referenceRange": {
+    "low": 0.4,
+    "high": 4.5,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ",
+   "panel": "TSH",
+   "page": 2
+  },
+  {
+   "id": "r17",
+   "panel": "MAGNESIUM",
+   "page": 2,
+   "name": "MAGNESIUM",
+   "valueText": "2.0",
+   "value": 2,
+   "valueQualifier": null,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "low": 1.5,
+    "high": 2.5,
+    "kind": "range"
+   },
+   "performingLabCode": "EZ"
+  }
+ ]
+}

@@ -82,6 +82,10 @@ export function start({ pdfjsLib, pdfjsError } = {}) {
   setPdfjs(pdfjsLib, pdfjsError);
   buildNav();
   onSessionChange(updateBadge);
+  // Pending imports live only in memory: warn before a reload/close would silently drop them.
+  window.addEventListener('beforeunload', (e) => {
+    if (pendingCount() > 0) { e.preventDefault(); e.returnValue = ''; }
+  });
   window.addEventListener('hashchange', route);
   if (!location.hash) location.replace('#/import');
   route();

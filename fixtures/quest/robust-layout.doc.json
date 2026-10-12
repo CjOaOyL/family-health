@@ -1,0 +1,1977 @@
+{
+ "fileName": "robust-layout.pdf",
+ "fileHash": "648f517dfbebb4cd0a2ea33d85e09a59f46c6b593aa734c5f0789e4ca94bc7f6",
+ "pageCount": 2,
+ "pages": [
+  {
+   "pageNumber": 1,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p1l0",
+     "page": 1,
+     "y": 40,
+     "x0": 36,
+     "x1": 496,
+     "text": "Quest Diagnostics  FINAL",
+     "cells": [
+      "Quest Diagnostics",
+      "FINAL"
+     ],
+     "cellX": [
+      36,
+      470
+     ],
+     "items": [
+      {
+       "str": "Quest Diagnostics",
+       "x": 36,
+       "y": 40,
+       "w": 88.4,
+       "h": 10
+      },
+      {
+       "str": "FINAL",
+       "x": 470,
+       "y": 40,
+       "w": 26,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l1",
+     "page": 1,
+     "y": 51,
+     "x0": 36,
+     "x1": 523.6,
+     "text": "Patient Information  Specimen Information  Client Information",
+     "cells": [
+      "Patient Information",
+      "Specimen Information",
+      "Client Information"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Patient Information",
+       "x": 36,
+       "y": 51,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Specimen Information",
+       "x": 260,
+       "y": 51,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "Client Information",
+       "x": 430,
+       "y": 51,
+       "w": 93.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l2",
+     "page": 1,
+     "y": 62,
+     "x0": 36,
+     "x1": 523.6,
+     "text": "ROBUST, CASEY  Specimen: RB246810Z  Client #: 55555555",
+     "cells": [
+      "ROBUST, CASEY",
+      "Specimen: RB246810Z",
+      "Client #: 55555555"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "ROBUST, CASEY",
+       "x": 36,
+       "y": 62,
+       "w": 67.6,
+       "h": 10
+      },
+      {
+       "str": "Specimen: RB246810Z",
+       "x": 260,
+       "y": 62,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Client #: 55555555",
+       "x": 430,
+       "y": 62,
+       "w": 93.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l3",
+     "page": 1,
+     "y": 73,
+     "x0": 36,
+     "x1": 487.2,
+     "text": "DOB: 02/20/1970  AGE: 55  Gender: F  Requisition: 0055555  DR. SAM ROE",
+     "cells": [
+      "DOB: 02/20/1970  AGE: 55  Gender: F",
+      "Requisition: 0055555",
+      "DR. SAM ROE"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "DOB: 02/20/1970  AGE: 55  Gender: F",
+       "x": 36,
+       "y": 73,
+       "w": 182,
+       "h": 10
+      },
+      {
+       "str": "Requisition: 0055555",
+       "x": 260,
+       "y": 73,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "DR. SAM ROE",
+       "x": 430,
+       "y": 73,
+       "w": 57.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l4",
+     "page": 1,
+     "y": 84,
+     "x0": 36,
+     "x1": 518.4,
+     "text": "Patient ID:  Collected: 09/15/2025 / 07:30 EDT  55 EXAMPLE AVENUE",
+     "cells": [
+      "Patient ID:",
+      "Collected: 09/15/2025 / 07:30 EDT",
+      "55 EXAMPLE AVENUE"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Patient ID:",
+       "x": 36,
+       "y": 84,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "Collected: 09/15/2025 / 07:30 EDT",
+       "x": 260,
+       "y": 84,
+       "w": 171.6,
+       "h": 10
+      },
+      {
+       "str": "55 EXAMPLE AVENUE",
+       "x": 430,
+       "y": 84,
+       "w": 88.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l5",
+     "page": 1,
+     "y": 95,
+     "x0": 36,
+     "x1": 518.4,
+     "text": "246810  Received: 09/15/2025 / 18:05 EDT  ANYTOWN, NJ 08540",
+     "cells": [
+      "246810",
+      "Received: 09/15/2025 / 18:05 EDT",
+      "ANYTOWN, NJ 08540"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "246810",
+       "x": 36,
+       "y": 95,
+       "w": 31.2,
+       "h": 10
+      },
+      {
+       "str": "Received: 09/15/2025 / 18:05 EDT",
+       "x": 260,
+       "y": 95,
+       "w": 166.4,
+       "h": 10
+      },
+      {
+       "str": "ANYTOWN, NJ 08540",
+       "x": 430,
+       "y": 95,
+       "w": 88.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l6",
+     "page": 1,
+     "y": 106,
+     "x0": 36,
+     "x1": 508,
+     "text": "Phone: 609.555.0155  Reported: 09/16/2025 / 05:40 EDT  NPI: 1234567893",
+     "cells": [
+      "Phone: 609.555.0155",
+      "Reported: 09/16/2025 / 05:40 EDT",
+      "NPI: 1234567893"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Phone: 609.555.0155",
+       "x": 36,
+       "y": 106,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Reported: 09/16/2025 / 05:40 EDT",
+       "x": 260,
+       "y": 106,
+       "w": 166.4,
+       "h": 10
+      },
+      {
+       "str": "NPI: 1234567893",
+       "x": 430,
+       "y": 106,
+       "w": 78,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l7",
+     "page": 1,
+     "y": 117,
+     "x0": 36,
+     "x1": 575.6,
+     "text": "Test Name  In Range  Out of Range  Reference Range  Lab",
+     "cells": [
+      "Test Name",
+      "In Range",
+      "Out of Range",
+      "Reference Range",
+      "Lab"
+     ],
+     "cellX": [
+      36,
+      260,
+      330,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "Test Name",
+       "x": 36,
+       "y": 117,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "In Range",
+       "x": 260,
+       "y": 117,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "Out of Range",
+       "x": 330,
+       "y": 117,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "Reference Range",
+       "x": 410,
+       "y": 117,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "Lab",
+       "x": 560,
+       "y": 117,
+       "w": 15.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l8",
+     "page": 1,
+     "y": 128,
+     "x0": 36,
+     "x1": 155.6,
+     "text": "CBC (INCLUDES DIFF/PLT)",
+     "cells": [
+      "CBC (INCLUDES DIFF/PLT)"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "CBC (INCLUDES DIFF/PLT)",
+       "x": 36,
+       "y": 128,
+       "w": 119.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l9",
+     "page": 1,
+     "y": 139,
+     "x0": 31,
+     "x1": 555.4,
+     "text": "WBC  7.2  3.8-10.8 Thousand/uL  EZ",
+     "cells": [
+      "WBC",
+      "7.2",
+      "3.8-10.8 Thousand/uL",
+      "EZ"
+     ],
+     "cellX": [
+      31,
+      245,
+      395,
+      545
+     ],
+     "items": [
+      {
+       "str": "WBC",
+       "x": 31,
+       "y": 139,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "7.2",
+       "x": 245,
+       "y": 139,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "3.8-10.8 Thousand/uL",
+       "x": 395,
+       "y": 139,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 545,
+       "y": 139,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l10",
+     "page": 1,
+     "y": 150,
+     "x0": 31,
+     "x1": 555.4,
+     "text": "HEMOGLOBIN  15.1  13.2-17.1 g/dL  EZ",
+     "cells": [
+      "HEMOGLOBIN",
+      "15.1",
+      "13.2-17.1 g/dL",
+      "EZ"
+     ],
+     "cellX": [
+      31,
+      245,
+      395,
+      545
+     ],
+     "items": [
+      {
+       "str": "HEMOGLOBIN",
+       "x": 31,
+       "y": 150,
+       "w": 52,
+       "h": 10
+      },
+      {
+       "str": "15.1",
+       "x": 245,
+       "y": 150,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "13.2-17.1 g/dL",
+       "x": 395,
+       "y": 150,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 545,
+       "y": 150,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l11",
+     "page": 1,
+     "y": 161,
+     "x0": 31,
+     "x1": 555.4,
+     "text": "PLATELET COUNT  135 L  140-400 Thousand/uL  EZ",
+     "cells": [
+      "PLATELET COUNT",
+      "135 L",
+      "140-400 Thousand/uL",
+      "EZ"
+     ],
+     "cellX": [
+      31,
+      315,
+      395,
+      545
+     ],
+     "items": [
+      {
+       "str": "PLATELET COUNT",
+       "x": 31,
+       "y": 161,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "135 L",
+       "x": 315,
+       "y": 161,
+       "w": 26,
+       "h": 10
+      },
+      {
+       "str": "140-400 Thousand/uL",
+       "x": 395,
+       "y": 161,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 545,
+       "y": 161,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l12",
+     "page": 1,
+     "y": 172,
+     "x0": 31,
+     "x1": 555.4,
+     "text": "ABSOLUTE NEUTROPHILS  4320  1500-7800 cells/uL  EZ",
+     "cells": [
+      "ABSOLUTE NEUTROPHILS",
+      "4320",
+      "1500-7800 cells/uL",
+      "EZ"
+     ],
+     "cellX": [
+      31,
+      245,
+      395,
+      545
+     ],
+     "items": [
+      {
+       "str": "ABSOLUTE NEUTROPHILS",
+       "x": 31,
+       "y": 172,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "4320",
+       "x": 245,
+       "y": 172,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "1500-7800 cells/uL",
+       "x": 395,
+       "y": 172,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 545,
+       "y": 172,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l13",
+     "page": 1,
+     "y": 183,
+     "x0": 31,
+     "x1": 555.4,
+     "text": "NEUTROPHILS  58.0  %  EZ",
+     "cells": [
+      "NEUTROPHILS",
+      "58.0",
+      "%",
+      "EZ"
+     ],
+     "cellX": [
+      31,
+      245,
+      395,
+      545
+     ],
+     "items": [
+      {
+       "str": "NEUTROPHILS",
+       "x": 31,
+       "y": 183,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "58.0",
+       "x": 245,
+       "y": 183,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "%",
+       "x": 395,
+       "y": 183,
+       "w": 5.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 545,
+       "y": 183,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l14",
+     "page": 1,
+     "y": 194,
+     "x0": 36,
+     "x1": 155.6,
+     "text": "MISCELLANEOUS CHEMISTRY",
+     "cells": [
+      "MISCELLANEOUS CHEMISTRY"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "MISCELLANEOUS CHEMISTRY",
+       "x": 36,
+       "y": 194,
+       "w": 119.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l15",
+     "page": 1,
+     "y": 205,
+     "x0": 31,
+     "x1": 555.4,
+     "text": "25-OH VITAMIN D  31.8  30.0-100.0 ng/mL  EZ",
+     "cells": [
+      "25-OH VITAMIN D",
+      "31.8",
+      "30.0-100.0 ng/mL",
+      "EZ"
+     ],
+     "cellX": [
+      31,
+      245,
+      395,
+      545
+     ],
+     "items": [
+      {
+       "str": "25-OH VITAMIN D",
+       "x": 31,
+       "y": 205,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "31.8",
+       "x": 245,
+       "y": 205,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "30.0-100.0 ng/mL",
+       "x": 395,
+       "y": 205,
+       "w": 83.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 545,
+       "y": 205,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l16",
+     "page": 1,
+     "y": 216,
+     "x0": 31,
+     "x1": 555.4,
+     "text": "5-HIAA  3.2  2.0-8.0 mg/24 hr  PR",
+     "cells": [
+      "5-HIAA",
+      "3.2",
+      "2.0-8.0 mg/24 hr",
+      "PR"
+     ],
+     "cellX": [
+      31,
+      245,
+      395,
+      545
+     ],
+     "items": [
+      {
+       "str": "5-HIAA",
+       "x": 31,
+       "y": 216,
+       "w": 31.2,
+       "h": 10
+      },
+      {
+       "str": "3.2",
+       "x": 245,
+       "y": 216,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "2.0-8.0 mg/24 hr",
+       "x": 395,
+       "y": 216,
+       "w": 83.2,
+       "h": 10
+      },
+      {
+       "str": "PR",
+       "x": 545,
+       "y": 216,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l17",
+     "page": 1,
+     "y": 227,
+     "x0": 31,
+     "x1": 555.4,
+     "text": "GLUCOSE  104 High  65-99 mg/dL  EZ",
+     "cells": [
+      "GLUCOSE",
+      "104 High",
+      "65-99 mg/dL",
+      "EZ"
+     ],
+     "cellX": [
+      31,
+      315,
+      395,
+      545
+     ],
+     "items": [
+      {
+       "str": "GLUCOSE",
+       "x": 31,
+       "y": 227,
+       "w": 36.4,
+       "h": 10
+      },
+      {
+       "str": "104 High",
+       "x": 315,
+       "y": 227,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "65-99 mg/dL",
+       "x": 395,
+       "y": 227,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 545,
+       "y": 227,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l18",
+     "page": 1,
+     "y": 238,
+     "x0": 31,
+     "x1": 555.4,
+     "text": "POTASSIUM  6.1 Critical  3.5-5.3 mmol/L  EZ",
+     "cells": [
+      "POTASSIUM",
+      "6.1 Critical",
+      "3.5-5.3 mmol/L",
+      "EZ"
+     ],
+     "cellX": [
+      31,
+      315,
+      395,
+      545
+     ],
+     "items": [
+      {
+       "str": "POTASSIUM",
+       "x": 31,
+       "y": 238,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "6.1 Critical",
+       "x": 315,
+       "y": 238,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "3.5-5.3 mmol/L",
+       "x": 395,
+       "y": 238,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 545,
+       "y": 238,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l19",
+     "page": 1,
+     "y": 249,
+     "x0": 31,
+     "x1": 555.4,
+     "text": "HEMOGLOBIN A1c  6.2*  <5.7 % of total Hgb  EZ",
+     "cells": [
+      "HEMOGLOBIN A1c",
+      "6.2*",
+      "<5.7 % of total Hgb",
+      "EZ"
+     ],
+     "cellX": [
+      31,
+      315,
+      395,
+      545
+     ],
+     "items": [
+      {
+       "str": "HEMOGLOBIN A1c",
+       "x": 31,
+       "y": 249,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "6.2*",
+       "x": 315,
+       "y": 249,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "<5.7 % of total Hgb",
+       "x": 395,
+       "y": 249,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 545,
+       "y": 249,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l20",
+     "page": 1,
+     "y": 260,
+     "x0": 31,
+     "x1": 555.4,
+     "text": "LDL-CHOLESTEROL  133 mg/dL (calc)  EZ",
+     "cells": [
+      "LDL-CHOLESTEROL",
+      "133 mg/dL (calc)",
+      "EZ"
+     ],
+     "cellX": [
+      31,
+      245,
+      545
+     ],
+     "items": [
+      {
+       "str": "LDL-CHOLESTEROL",
+       "x": 31,
+       "y": 260,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "133 mg/dL (calc)",
+       "x": 245,
+       "y": 260,
+       "w": 83.2,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 545,
+       "y": 260,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l21",
+     "page": 1,
+     "y": 271,
+     "x0": 31,
+     "x1": 566.6,
+     "text": "Reference range for LDL is based on  the ATP III guidelines <100 mg/dL",
+     "cells": [
+      "Reference range for LDL is based on",
+      "the ATP III guidelines <100 mg/dL"
+     ],
+     "cellX": [
+      31,
+      395
+     ],
+     "items": [
+      {
+       "str": "Reference range for LDL is based on",
+       "x": 31,
+       "y": 271,
+       "w": 182,
+       "h": 10
+      },
+      {
+       "str": "the ATP III guidelines <100 mg/dL",
+       "x": 395,
+       "y": 271,
+       "w": 171.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l22",
+     "page": 1,
+     "y": 282,
+     "x0": 31,
+     "x1": 555.4,
+     "text": "HEMOGLOBIN A1c, POC  5.4 % of total Hgb  EZ",
+     "cells": [
+      "HEMOGLOBIN A1c, POC",
+      "5.4 % of total Hgb",
+      "EZ"
+     ],
+     "cellX": [
+      31,
+      245,
+      545
+     ],
+     "items": [
+      {
+       "str": "HEMOGLOBIN A1c, POC",
+       "x": 31,
+       "y": 282,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "5.4 % of total Hgb",
+       "x": 245,
+       "y": 282,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 545,
+       "y": 282,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l23",
+     "page": 1,
+     "y": 293,
+     "x0": 31,
+     "x1": 363.8,
+     "text": "Physician should correlate these results with clinical findings.",
+     "cells": [
+      "Physician should correlate these results with clinical findings."
+     ],
+     "cellX": [
+      31
+     ],
+     "items": [
+      {
+       "str": "Physician should correlate these results with clinical findings.",
+       "x": 31,
+       "y": 293,
+       "w": 332.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l24",
+     "page": 1,
+     "y": 740,
+     "x0": 36,
+     "x1": 527.2,
+     "text": "Patient: ROBUST, CASEY  Specimen: RB246810Z  Page 1 of 2",
+     "cells": [
+      "Patient: ROBUST, CASEY",
+      "Specimen: RB246810Z",
+      "Page 1 of 2"
+     ],
+     "cellX": [
+      36,
+      260,
+      470
+     ],
+     "items": [
+      {
+       "str": "Patient: ROBUST, CASEY",
+       "x": 36,
+       "y": 740,
+       "w": 114.4,
+       "h": 10
+      },
+      {
+       "str": "Specimen: RB246810Z",
+       "x": 260,
+       "y": 740,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Page 1 of 2",
+       "x": 470,
+       "y": 740,
+       "w": 57.2,
+       "h": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "pageNumber": 2,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p2l0",
+     "page": 2,
+     "y": 40,
+     "x0": 36,
+     "x1": 496,
+     "text": "Quest Diagnostics  FINAL",
+     "cells": [
+      "Quest Diagnostics",
+      "FINAL"
+     ],
+     "cellX": [
+      36,
+      470
+     ],
+     "items": [
+      {
+       "str": "Quest Diagnostics",
+       "x": 36,
+       "y": 40,
+       "w": 88.4,
+       "h": 10
+      },
+      {
+       "str": "FINAL",
+       "x": 470,
+       "y": 40,
+       "w": 26,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l1",
+     "page": 2,
+     "y": 51,
+     "x0": 36,
+     "x1": 523.6,
+     "text": "Patient Information  Specimen Information  Client Information",
+     "cells": [
+      "Patient Information",
+      "Specimen Information",
+      "Client Information"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Patient Information",
+       "x": 36,
+       "y": 51,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Specimen Information",
+       "x": 260,
+       "y": 51,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "Client Information",
+       "x": 430,
+       "y": 51,
+       "w": 93.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l2",
+     "page": 2,
+     "y": 62,
+     "x0": 36,
+     "x1": 523.6,
+     "text": "ROBUST, CASEY  Specimen: RB246810Z  Client #: 55555555",
+     "cells": [
+      "ROBUST, CASEY",
+      "Specimen: RB246810Z",
+      "Client #: 55555555"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "ROBUST, CASEY",
+       "x": 36,
+       "y": 62,
+       "w": 67.6,
+       "h": 10
+      },
+      {
+       "str": "Specimen: RB246810Z",
+       "x": 260,
+       "y": 62,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Client #: 55555555",
+       "x": 430,
+       "y": 62,
+       "w": 93.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l3",
+     "page": 2,
+     "y": 73,
+     "x0": 36,
+     "x1": 487.2,
+     "text": "DOB: 02/20/1970  AGE: 55  Gender: F  Requisition: 0055555  DR. SAM ROE",
+     "cells": [
+      "DOB: 02/20/1970  AGE: 55  Gender: F",
+      "Requisition: 0055555",
+      "DR. SAM ROE"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "DOB: 02/20/1970  AGE: 55  Gender: F",
+       "x": 36,
+       "y": 73,
+       "w": 182,
+       "h": 10
+      },
+      {
+       "str": "Requisition: 0055555",
+       "x": 260,
+       "y": 73,
+       "w": 104,
+       "h": 10
+      },
+      {
+       "str": "DR. SAM ROE",
+       "x": 430,
+       "y": 73,
+       "w": 57.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l4",
+     "page": 2,
+     "y": 84,
+     "x0": 36,
+     "x1": 518.4,
+     "text": "Patient ID:  Collected: 09/15/2025 / 07:30 EDT  55 EXAMPLE AVENUE",
+     "cells": [
+      "Patient ID:",
+      "Collected: 09/15/2025 / 07:30 EDT",
+      "55 EXAMPLE AVENUE"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Patient ID:",
+       "x": 36,
+       "y": 84,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "Collected: 09/15/2025 / 07:30 EDT",
+       "x": 260,
+       "y": 84,
+       "w": 171.6,
+       "h": 10
+      },
+      {
+       "str": "55 EXAMPLE AVENUE",
+       "x": 430,
+       "y": 84,
+       "w": 88.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l5",
+     "page": 2,
+     "y": 95,
+     "x0": 36,
+     "x1": 518.4,
+     "text": "246810  Received: 09/15/2025 / 18:05 EDT  ANYTOWN, NJ 08540",
+     "cells": [
+      "246810",
+      "Received: 09/15/2025 / 18:05 EDT",
+      "ANYTOWN, NJ 08540"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "246810",
+       "x": 36,
+       "y": 95,
+       "w": 31.2,
+       "h": 10
+      },
+      {
+       "str": "Received: 09/15/2025 / 18:05 EDT",
+       "x": 260,
+       "y": 95,
+       "w": 166.4,
+       "h": 10
+      },
+      {
+       "str": "ANYTOWN, NJ 08540",
+       "x": 430,
+       "y": 95,
+       "w": 88.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l6",
+     "page": 2,
+     "y": 106,
+     "x0": 36,
+     "x1": 508,
+     "text": "Phone: 609.555.0155  Reported: 09/16/2025 / 05:40 EDT  NPI: 1234567893",
+     "cells": [
+      "Phone: 609.555.0155",
+      "Reported: 09/16/2025 / 05:40 EDT",
+      "NPI: 1234567893"
+     ],
+     "cellX": [
+      36,
+      260,
+      430
+     ],
+     "items": [
+      {
+       "str": "Phone: 609.555.0155",
+       "x": 36,
+       "y": 106,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Reported: 09/16/2025 / 05:40 EDT",
+       "x": 260,
+       "y": 106,
+       "w": 166.4,
+       "h": 10
+      },
+      {
+       "str": "NPI: 1234567893",
+       "x": 430,
+       "y": 106,
+       "w": 78,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l7",
+     "page": 2,
+     "y": 117,
+     "x0": 36,
+     "x1": 575.6,
+     "text": "Test Name  In Range  Out of Range  Reference Range  Lab",
+     "cells": [
+      "Test Name",
+      "In Range",
+      "Out of Range",
+      "Reference Range",
+      "Lab"
+     ],
+     "cellX": [
+      36,
+      260,
+      330,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "Test Name",
+       "x": 36,
+       "y": 117,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "In Range",
+       "x": 260,
+       "y": 117,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "Out of Range",
+       "x": 330,
+       "y": 117,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "Reference Range",
+       "x": 410,
+       "y": 117,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "Lab",
+       "x": 560,
+       "y": 117,
+       "w": 15.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l8",
+     "page": 2,
+     "y": 128,
+     "x0": 36,
+     "x1": 150.4,
+     "text": "HEPATITIS PANEL, ACUTE",
+     "cells": [
+      "HEPATITIS PANEL, ACUTE"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "HEPATITIS PANEL, ACUTE",
+       "x": 36,
+       "y": 128,
+       "w": 114.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l9",
+     "page": 2,
+     "y": 139,
+     "x0": 36,
+     "x1": 570.4,
+     "text": "HEPATITIS B SURFACE  NON-REACTIVE  NON-REACTIVE  PR",
+     "cells": [
+      "HEPATITIS B SURFACE",
+      "NON-REACTIVE",
+      "NON-REACTIVE",
+      "PR"
+     ],
+     "cellX": [
+      36,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "HEPATITIS B SURFACE",
+       "x": 36,
+       "y": 139,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "NON-REACTIVE",
+       "x": 260,
+       "y": 139,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "NON-REACTIVE",
+       "x": 410,
+       "y": 139,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "PR",
+       "x": 560,
+       "y": 139,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l10",
+     "page": 2,
+     "y": 150,
+     "x0": 36,
+     "x1": 72.4,
+     "text": "ANTIGEN",
+     "cells": [
+      "ANTIGEN"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "ANTIGEN",
+       "x": 36,
+       "y": 150,
+       "w": 36.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l11",
+     "page": 2,
+     "y": 161,
+     "x0": 36,
+     "x1": 570.4,
+     "text": "HEPATITIS A IGM  NON-REACTIVE  NON-REACTIVE  PR",
+     "cells": [
+      "HEPATITIS A IGM",
+      "NON-REACTIVE",
+      "NON-REACTIVE",
+      "PR"
+     ],
+     "cellX": [
+      36,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "HEPATITIS A IGM",
+       "x": 36,
+       "y": 161,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "NON-REACTIVE",
+       "x": 260,
+       "y": 161,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "NON-REACTIVE",
+       "x": 410,
+       "y": 161,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "PR",
+       "x": 560,
+       "y": 161,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l12",
+     "page": 2,
+     "y": 172,
+     "x0": 36,
+     "x1": 202.4,
+     "text": "HEPATITIS C ANTIBODY W/REFLEX TO",
+     "cells": [
+      "HEPATITIS C ANTIBODY W/REFLEX TO"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "HEPATITIS C ANTIBODY W/REFLEX TO",
+       "x": 36,
+       "y": 172,
+       "w": 166.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l13",
+     "page": 2,
+     "y": 183,
+     "x0": 36,
+     "x1": 570.4,
+     "text": "HCV RNA, QN, PCR  NON-REACTIVE  NON-REACTIVE  PR",
+     "cells": [
+      "HCV RNA, QN, PCR",
+      "NON-REACTIVE",
+      "NON-REACTIVE",
+      "PR"
+     ],
+     "cellX": [
+      36,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "HCV RNA, QN, PCR",
+       "x": 36,
+       "y": 183,
+       "w": 83.2,
+       "h": 10
+      },
+      {
+       "str": "NON-REACTIVE",
+       "x": 260,
+       "y": 183,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "NON-REACTIVE",
+       "x": 410,
+       "y": 183,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "PR",
+       "x": 560,
+       "y": 183,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l14",
+     "page": 2,
+     "y": 194,
+     "x0": 36,
+     "x1": 51.6,
+     "text": "TSH",
+     "cells": [
+      "TSH"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "TSH",
+       "x": 36,
+       "y": 194,
+       "w": 15.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l15",
+     "page": 2,
+     "y": 205,
+     "x0": 36,
+     "x1": 570.4,
+     "text": "TSH  2.15  0.40-4.50 mIU/L  EZ",
+     "cells": [
+      "TSH",
+      "2.15",
+      "0.40-4.50 mIU/L",
+      "EZ"
+     ],
+     "cellX": [
+      36,
+      260,
+      410,
+      560
+     ],
+     "items": [
+      {
+       "str": "TSH",
+       "x": 36,
+       "y": 205,
+       "w": 15.6,
+       "h": 10
+      },
+      {
+       "str": "2.15",
+       "x": 260,
+       "y": 205,
+       "w": 20.8,
+       "h": 10
+      },
+      {
+       "str": "0.40-4.50 mIU/L",
+       "x": 410,
+       "y": 205,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "EZ",
+       "x": 560,
+       "y": 205,
+       "w": 10.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l16",
+     "page": 2,
+     "y": 216,
+     "x0": 36,
+     "x1": 82.8,
+     "text": "MAGNESIUM",
+     "cells": [
+      "MAGNESIUM"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "MAGNESIUM",
+       "x": 36,
+       "y": 216,
+       "w": 46.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l17",
+     "page": 2,
+     "y": 227,
+     "x0": 36,
+     "x1": 192,
+     "text": "MAGNESIUM 2.0 1.5-2.5 mg/dL EZ",
+     "cells": [
+      "MAGNESIUM 2.0 1.5-2.5 mg/dL EZ"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "MAGNESIUM 2.0 1.5-2.5 mg/dL EZ",
+       "x": 36,
+       "y": 227,
+       "w": 156,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l18",
+     "page": 2,
+     "y": 238,
+     "x0": 36,
+     "x1": 119.2,
+     "text": "PERFORMING SITE:",
+     "cells": [
+      "PERFORMING SITE:"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "PERFORMING SITE:",
+       "x": 36,
+       "y": 238,
+       "w": 83.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l19",
+     "page": 2,
+     "y": 249,
+     "x0": 36,
+     "x1": 528,
+     "text": "EZ  Quest Diagnostics Nichols Institute, 33608 Example Hwy, San Juan Capistrano, CA 92675-2042",
+     "cells": [
+      "EZ",
+      "Quest Diagnostics Nichols Institute, 33608 Example Hwy, San Juan Capistrano, CA 92675-2042"
+     ],
+     "cellX": [
+      36,
+      60
+     ],
+     "items": [
+      {
+       "str": "EZ",
+       "x": 36,
+       "y": 249,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "Quest Diagnostics Nichols Institute, 33608 Example Hwy, San Juan Capistrano, CA 92675-2042",
+       "x": 60,
+       "y": 249,
+       "w": 468,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l20",
+     "page": 2,
+     "y": 260,
+     "x0": 60,
+     "x1": 470.8,
+     "text": "Laboratory Director: SAMPLE DIRECTOR, MD, CLIA: 05D0000001, Phone: 800.555.0199",
+     "cells": [
+      "Laboratory Director: SAMPLE DIRECTOR, MD, CLIA: 05D0000001, Phone: 800.555.0199"
+     ],
+     "cellX": [
+      60
+     ],
+     "items": [
+      {
+       "str": "Laboratory Director: SAMPLE DIRECTOR, MD, CLIA: 05D0000001, Phone: 800.555.0199",
+       "x": 60,
+       "y": 260,
+       "w": 410.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l21",
+     "page": 2,
+     "y": 271,
+     "x0": 36,
+     "x1": 418.8,
+     "text": "PR  Quest Diagnostics-Teterboro, 1 Example Blvd, Teterboro, NJ 07608-1070",
+     "cells": [
+      "PR",
+      "Quest Diagnostics-Teterboro, 1 Example Blvd, Teterboro, NJ 07608-1070"
+     ],
+     "cellX": [
+      36,
+      60
+     ],
+     "items": [
+      {
+       "str": "PR",
+       "x": 36,
+       "y": 271,
+       "w": 10.4,
+       "h": 10
+      },
+      {
+       "str": "Quest Diagnostics-Teterboro, 1 Example Blvd, Teterboro, NJ 07608-1070",
+       "x": 60,
+       "y": 271,
+       "w": 358.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l22",
+     "page": 2,
+     "y": 282,
+     "x0": 60,
+     "x1": 476,
+     "text": "Laboratory Director: TEST PATHOLOGIST, MD, CLIA: 31D0000002, Phone: 800.555.0198",
+     "cells": [
+      "Laboratory Director: TEST PATHOLOGIST, MD, CLIA: 31D0000002, Phone: 800.555.0198"
+     ],
+     "cellX": [
+      60
+     ],
+     "items": [
+      {
+       "str": "Laboratory Director: TEST PATHOLOGIST, MD, CLIA: 31D0000002, Phone: 800.555.0198",
+       "x": 60,
+       "y": 282,
+       "w": 416,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l23",
+     "page": 2,
+     "y": 293,
+     "x0": 36,
+     "x1": 197.2,
+     "text": "CLIENT SERVICES: 1.866.555.0100",
+     "cells": [
+      "CLIENT SERVICES: 1.866.555.0100"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "CLIENT SERVICES: 1.866.555.0100",
+       "x": 36,
+       "y": 293,
+       "w": 161.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l24",
+     "page": 2,
+     "y": 304,
+     "x0": 36,
+     "x1": 706.8,
+     "text": "Quest, Quest Diagnostics, the associated logo and all associated Quest Diagnostics marks are the trademarks of Quest Diagnostics.",
+     "cells": [
+      "Quest, Quest Diagnostics, the associated logo and all associated Quest Diagnostics marks are the trademarks of Quest Diagnostics."
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "Quest, Quest Diagnostics, the associated logo and all associated Quest Diagnostics marks are the trademarks of Quest Diagnostics.",
+       "x": 36,
+       "y": 304,
+       "w": 670.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p2l25",
+     "page": 2,
+     "y": 740,
+     "x0": 36,
+     "x1": 527.2,
+     "text": "Patient: ROBUST, CASEY  Specimen: RB246810Z  Page 2 of 2",
+     "cells": [
+      "Patient: ROBUST, CASEY",
+      "Specimen: RB246810Z",
+      "Page 2 of 2"
+     ],
+     "cellX": [
+      36,
+      260,
+      470
+     ],
+     "items": [
+      {
+       "str": "Patient: ROBUST, CASEY",
+       "x": 36,
+       "y": 740,
+       "w": 114.4,
+       "h": 10
+      },
+      {
+       "str": "Specimen: RB246810Z",
+       "x": 260,
+       "y": 740,
+       "w": 98.8,
+       "h": 10
+      },
+      {
+       "str": "Page 2 of 2",
+       "x": 470,
+       "y": 740,
+       "w": 57.2,
+       "h": 10
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

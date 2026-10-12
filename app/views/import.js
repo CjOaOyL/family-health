@@ -2,6 +2,7 @@
 import { el, clear, append, button, notice, chip, toast, vendorChip, pct } from '../ui.js';
 import { extractAndParse, hasPdfjs, pdfjsProblem, sha256Hex, getParserVersion } from '../pipeline.js';
 import { addPending, session, navigate, hashFor } from '../state.js';
+import { migrateOverrides, docHasNoText } from '../reportUtil.js';
 import { getReport } from '../../src/store/db.js';
 
 export const title = 'Import';
@@ -55,6 +56,8 @@ export async function render(root, { query }) {
         const { doc, report, error, parserVersion } = await extractAndParse(bytes, file.name);
         const id = doc?.fileHash || report?.id || (await sha256Hex(bytes));
         const existing = await getReport(id).catch(() => null);
+        // Legacy id-keyed overrides are rekeyed against the report they were made on, never the new parse.
+        if (existing) migrateOverrides(existing, existing.report);
         const rec = {
           id, fileName: file.name, bytes, doc, report, error,
           overrides: existing?.overrides ? { ...existing.overrides } : {},
@@ -68,8 +71,12 @@ export async function render(root, { query }) {
         ids.push(id);
         li.querySelector('.spinner').replaceWith(el('span', { 'aria-hidden': 'true' }, error ? '⚠' : '✓'));
         clear(status);
-        if (error) {
+        if (error && !doc) {
+          status.append(chip('not a readable PDF', 'critical'), ' ', error.message || String(error));
+        } else if (error) {
           status.append(chip('error', 'critical'), ' ', error.message || String(error));
+        } else if (docHasNoText(doc)) {
+          status.append(chip('no text', 'critical'), ' No text found in this PDF (scanned image?). Nothing can be extracted.');
         } else {
           const a = report.audit;
           status.append(vendorChip(report.source?.vendor), ' ', chip(a ? `${pct(a.overall)} ${a.label}` : 'parsed', a ? a.label : 'muted'), ` ${report.results?.length || 0} results`);
@@ -94,10 +101,13 @@ export async function render(root, { query }) {
       if (!r) continue;
       list.appendChild(el('li',
         el('span', { class: 'fn' }, r.fileName),
-        r.error ? chip('error', 'critical') : chip(r.report?.audit?.label || 'parsed', r.report?.audit?.label || 'muted'),
+        r.error ? chip('error', 'critical') : docHasNoText(r.doc) ? chip('no text', 'critical') : chip(r.report?.audit?.label || 'parsed', r.report?.audit?.label || 'muted'),
         el('a', { href: hashFor('review', id) }, 'Review')));
     }
-    return el('section', { class: 'card' }, el('h2', 'Awaiting review'), el('p', { class: 'muted small' }, 'These are parsed in memory and not saved yet. Open each to check and save.'), list);
+    return el('section', { class: 'card' }, el('h2', 'Awaiting review'),
+      el('p', { class: 'muted small' }, 'These are parsed in memory and not saved yet. Open each to check and save.'),
+      el('p', { class: 'muted small' }, 'Unsaved imports are lost if you reload or close this tab; the browser will ask before leaving.'),
+      list);
   }
 
   return () => { busy.on = false; };

@@ -50,8 +50,8 @@ function buildDoc(fileName, pageSpecs) {
 
 // ---------- expected derivation (intent of the description, independent of the parser) ----------
 const UNITS = ['Thousand/uL', 'Million/uL', 'cells/uL', 'g/dL', '%', 'fL', 'pg', 'mg/dL', 'mmol/L', 'U/L', 'mL/min/1.73m2',
-  '% of total Hgb', 'ng/mL', 'mIU/L', 'mg/L', 'nmol/L', 'mcg/dL'];
-const NUM = '[-+]?\\d{1,3}(?:,\\d{3})*(?:\\.\\d+)?|[-+]?\\d*\\.\\d+';
+  '% of total Hgb', 'ng/mL', 'mIU/L', 'mg/L', 'nmol/L', 'mcg/dL', 'mg/24 hr'];
+const NUM = '[-+]?\\d{1,3}(?:,\\d{3})+(?:\\.\\d+)?|[-+]?\\d+(?:\\.\\d+)?|[-+]?\\.\\d+';   // "4,320", "4320", "0.98", ".5"
 const toN = (s) => parseFloat(s.replace(/,/g, ''));
 
 function expectRef(ref) {
@@ -73,11 +73,12 @@ function expectRef(ref) {
   return { unit, range };
 }
 
+const FLAG_WORDS = { HH: 'HH', LL: 'LL', H: 'H', L: 'L', A: 'A', C: 'C', High: 'H', Low: 'L', Critical: 'C', Abnormal: 'A' };
 function expectValue(printed) {
   if (printed == null) return { valueText: '', value: null, valueQualifier: null, flag: null };
   let valueText = printed, flag = null;
-  const m = printed.match(/^(.*?)(?:\s+(HH|LL|H|L|A|C)|\s*(\*))$/);
-  if (m && m[1]) { valueText = m[1]; flag = m[3] ? 'A' : m[2]; }
+  const m = printed.match(/^(.*?)(?:\s+(HH|LL|H|L|A|C|High|Low|Critical|Abnormal)|\s*(\*))$/);
+  if (m && m[1]) { valueText = m[1]; flag = m[3] ? 'A' : FLAG_WORDS[m[2]]; }
   const n = valueText.match(new RegExp(`^([<>]=?)?(${NUM})$`));
   return { valueText, value: n ? toN(n[2]) : null, valueQualifier: n ? (n[1] || null) : null, flag };
 }
@@ -96,9 +97,14 @@ const N = (text) => ({ kind: 'note', cells: [[C.ind, text]] });
 const N2 = (a, b) => ({ kind: 'note', cells: [[C.ind, a], [140, b]] });
 const X = (...cells) => ({ kind: 'raw', cells });
 
-/** Render classic-layout entries → { specs, results, panels }. Shared state keeps r-ids sequential across pages. */
+/**
+ * Render classic-layout entries → { specs, results, panels }. Shared state keeps r-ids sequential across pages.
+ * state.cols (optional) overrides the row column x's ({ ind, inr, out, ref, lab }) — used to print rows drifted
+ * relative to the table header, or flush with the panel names.
+ */
 function renderClassic(entries, state) {
   const specs = [];
+  const K = { ...C, ...(state.cols || {}) };
   let pendingWrap = null;
   for (const e of entries) {
     if (e.kind === 'panel') {
@@ -106,15 +112,22 @@ function renderClassic(entries, state) {
       state.panels.push(state.panel);
       specs.push({ cells: [[C.name, e.name]] });
     } else if (e.kind === 'wrap') {
-      specs.push({ cells: [[C.ind, e.text]] });
+      specs.push({ cells: [[K.ind, e.text]] });
       if (e.below && state.lastResult) { state.lastResult.name = `${state.lastResult.name} ${e.text}`; }
       else pendingWrap = e.text;
+    } else if (e.kind === 'rawrow') {                       // a row printed as ONE text item with single spaces
+      specs.push({ cells: e.cells });
+      const id = `r${++state.seq}`;
+      const result = { id, panel: state.panel ? state.panel.name : null, page: state.page, ...e.result };
+      state.results.push(result);
+      state.lastResult = result;
+      if (state.panel) state.panel.resultIds.push(id);
     } else if (e.kind === 'row') {
-      const cells = [[C.ind, e.name]];
-      if (e.inr != null) cells.push([C.inr, e.inr]);
-      if (e.out != null) cells.push([C.out, e.out]);
-      if (e.ref != null) cells.push([C.ref, e.ref]);
-      if (e.lab != null) cells.push([C.lab, e.lab]);
+      const cells = [[K.ind, e.name]];
+      if (e.inr != null) cells.push([K.inr, e.inr]);
+      if (e.out != null) cells.push([K.out, e.out]);
+      if (e.ref != null) cells.push([K.ref, e.ref]);
+      if (e.lab != null) cells.push([K.lab, e.lab]);
       specs.push({ cells });
       const id = `r${++state.seq}`;
       const v = expectValue(e.out != null ? e.out : e.inr);
@@ -421,8 +434,129 @@ function buildEdge() {
   return { doc, expected };
 }
 
+// ================= robust-layout =================
+// Classic report whose geometry and vocabulary differ from the "clean" fixtures (each item mirrors a parser fix):
+//  - page 1 rows are printed 15pt LEFT of the table-header labels (column drift); page 2 rows are flush with the panel names
+//  - "DOB: … AGE: … Gender: …" is ONE text item; "Patient ID:" has its value on the line below
+//  - result names starting with a digit; flag words (High/Low/Critical); "6.2*" star flag; units printed after the value
+//  - a two-cell prose comment whose second cell sits under Reference Range; a "Physician should …" sentence in the table
+//  - wrapped names without indentation (continuation below and above); a one-word panel directly after a row
+//  - a row printed as a single text item with single spaces (relaxed split)
+function buildRobust() {
+  const st = { seq: 0, results: [], panels: [], panel: null, lastResult: null, page: 1, cols: null };
+  const header = () => [
+    { cells: [[C.name, 'Quest Diagnostics'], [C.status, 'FINAL']] },
+    { cells: [[C.blkPatient, 'Patient Information'], [C.blkSpecimen, 'Specimen Information'], [C.blkClient, 'Client Information']] },
+    { cells: [[36, 'ROBUST, CASEY'], [260, 'Specimen: RB246810Z'], [430, 'Client #: 55555555']] },
+    { cells: [[36, 'DOB: 02/20/1970  AGE: 55  Gender: F'], [260, 'Requisition: 0055555'], [430, 'DR. SAM ROE']] },
+    { cells: [[36, 'Patient ID:'], [260, 'Collected: 09/15/2025 / 07:30 EDT'], [430, '55 EXAMPLE AVENUE']] },
+    { cells: [[36, '246810'], [260, 'Received: 09/15/2025 / 18:05 EDT'], [430, 'ANYTOWN, NJ 08540']] },
+    { cells: [[36, 'Phone: 609.555.0155'], [260, 'Reported: 09/16/2025 / 05:40 EDT'], [430, 'NPI: 1234567893']] },
+    { cells: [[C.name, 'Test Name'], [C.inr, 'In Range'], [C.out, 'Out of Range'], [C.ref, 'Reference Range'], [C.lab, 'Lab']] },
+  ];
+  const footer = (n) => classicFooter(n, 2, 'ROBUST, CASEY', 'RB246810Z');
+  // ---- page 1: rows drifted 15pt left of the header labels ----
+  const page1 = [
+    P('CBC (INCLUDES DIFF/PLT)'),
+    R('WBC', '7.2', null, '3.8-10.8 Thousand/uL', 'EZ'),
+    R('HEMOGLOBIN', '15.1', null, '13.2-17.1 g/dL', 'EZ'),
+    R('PLATELET COUNT', null, '135 L', '140-400 Thousand/uL', 'EZ'),
+    R('ABSOLUTE NEUTROPHILS', '4320', null, '1500-7800 cells/uL', 'EZ'),
+    R('NEUTROPHILS', '58.0', null, '%', 'EZ'),
+    P('MISCELLANEOUS CHEMISTRY'),
+    R('25-OH VITAMIN D', '31.8', null, '30.0-100.0 ng/mL', 'EZ'),
+    R('5-HIAA', '3.2', null, '2.0-8.0 mg/24 hr', 'PR'),
+    R('GLUCOSE', null, '104 High', '65-99 mg/dL', 'EZ'),
+    R('POTASSIUM', null, '6.1 Critical', '3.5-5.3 mmol/L', 'EZ'),
+    R('HEMOGLOBIN A1c', null, '6.2*', '<5.7 % of total Hgb', 'EZ'),
+    R('LDL-CHOLESTEROL', '133 mg/dL (calc)', null, null, 'EZ', { expect: { valueText: '133', value: 133, unit: 'mg/dL' } }),
+    { kind: 'note', cells: [[31, 'Reference range for LDL is based on'], [C.ref - 15, 'the ATP III guidelines <100 mg/dL']] },
+    R('HEMOGLOBIN A1c, POC', '5.4 % of total Hgb', null, null, 'EZ', { expect: { valueText: '5.4', value: 5.4, unit: '% of total Hgb' } }),
+    { kind: 'note', cells: [[31, 'Physician should correlate these results with clinical findings.']] },
+  ];
+  // ---- page 2: rows flush with the panel names (x = 36) ----
+  const page2 = [
+    P('HEPATITIS PANEL, ACUTE'),
+    R('HEPATITIS B SURFACE', 'NON-REACTIVE', null, 'NON-REACTIVE', 'PR'),
+    { kind: 'wrap', text: 'ANTIGEN', below: true },
+    R('HEPATITIS A IGM', 'NON-REACTIVE', null, 'NON-REACTIVE', 'PR'),
+    W('HEPATITIS C ANTIBODY W/REFLEX TO'),
+    R('HCV RNA, QN, PCR', 'NON-REACTIVE', null, 'NON-REACTIVE', 'PR'),
+    P('TSH'),
+    R('TSH', '2.15', null, '0.40-4.50 mIU/L', 'EZ'),
+    P('MAGNESIUM'),
+    { kind: 'rawrow', cells: [[36, 'MAGNESIUM 2.0 1.5-2.5 mg/dL EZ']],
+      result: { name: 'MAGNESIUM', valueText: '2.0', value: 2, valueQualifier: null, unit: 'mg/dL', flag: null, referenceRange: { low: 1.5, high: 2.5, kind: 'range' }, performingLabCode: 'EZ' } },
+    ...LEGEND,
+  ];
+  const pages = [];
+  st.page = 1; st.cols = { ind: 31, inr: C.inr - 15, out: C.out - 15, ref: C.ref - 15, lab: C.lab - 15 };
+  pages.push([...header(), ...renderClassic(page1, st), ...footer(1)]);
+  st.page = 2; st.cols = { ind: 36 };
+  pages.push([...header(), ...renderClassic(page2, st), ...footer(2)]);
+  const doc = buildDoc('robust-layout.pdf', pages);
+  const expected = {
+    source: { vendor: 'quest', reportStatus: 'final', pageCount: 2 },
+    patient: { fullName: 'ROBUST, CASEY', lastName: 'ROBUST', firstName: 'CASEY', dob: '1970-02-20', sex: 'F', ageAtCollection: 55, patientId: '246810', phone: '609.555.0155', address: null },
+    specimen: { specimenId: 'RB246810Z', requisition: '0055555', collectedAt: '2025-09-15T07:30', receivedAt: '2025-09-15T18:05', reportedAt: '2025-09-16T05:40' },
+    provider: { orderingName: 'DR. SAM ROE', npi: '1234567893', accountNumber: '55555555', address: '55 EXAMPLE AVENUE, ANYTOWN, NJ 08540' },
+    performingLabs: LEGEND_LABS,
+    panels: st.panels,
+    results: st.results,
+  };
+  return { doc, expected };
+}
+
+// ================= myquest-noheader =================
+// MyQuest export without any "Test / Your Value / Reference Range / Flag" header line, "Results for" / "Ordered by"
+// with the value on the next line, DOB + Sex in one text item, no AGE label (age derived from DOB and collection date),
+// a 4-cell flagged row, "6.2* %" and "0-2 /HPF" values, a "Non Reactive" text value, and a printed "Final" status.
+function buildMyQuestNoHeader() {
+  const results = [], panels = [];
+  let seq = 0, panel = null;
+  const row = (name, value, ref, flag, exp) => {
+    const cells = [[M.name, name], [M.value, value], [M.ref, ref]];
+    if (flag) cells.push([M.flag, flag]);
+    const id = `r${++seq}`;
+    results.push({ id, name, panel: panel.name, page: 1, performingLabCode: null, ...exp });
+    panel.resultIds.push(id);
+    return { cells };
+  };
+  const card = (name) => { panel = { name, resultIds: [], page: 1 }; panels.push(panel); return { cells: [[M.name, name]] }; };
+  const page1 = [
+    { cells: [[M.name, 'MyQuest'], [430, 'Quest Diagnostics']] },
+    { cells: [[M.name, 'Results for'], [430, 'Final']] },
+    { cells: [[M.name, 'JORDAN SAMPLE']] },
+    { cells: [[M.name, 'Date of Birth: 06/02/2012  Sex: Female']] },
+    { cells: [[M.name, 'Collected on 09/10/2025 8:15 AM EDT'], [300, 'Reported on 09/11/2025']] },
+    { cells: [[M.name, 'Ordered by'], [300, 'Specimen: CD789012E']] },
+    { cells: [[M.name, 'DR. JANE DOE']] },
+    card('LIPID PANEL'),
+    row('CHOLESTEROL, TOTAL', '178 mg/dL', '<170 mg/dL', 'H', { valueText: '178', value: 178, unit: 'mg/dL', flag: 'H', referenceRange: { text: '<170', low: null, high: 170, kind: 'lt' } }),
+    row('HDL CHOLESTEROL', '52 mg/dL', '> OR = 45 mg/dL', null, { valueText: '52', value: 52, unit: 'mg/dL', flag: null, referenceRange: { text: '> OR = 45', low: 45, high: null, kind: 'ge' } }),
+    card('HEMOGLOBIN A1c'),
+    row('HEMOGLOBIN A1c', '6.2* %', '4.8-5.6 %', null, { valueText: '6.2', value: 6.2, unit: '%', flag: 'A', referenceRange: { text: '4.8-5.6', low: 4.8, high: 5.6, kind: 'range' } }),
+    card('URINALYSIS, COMPLETE'),
+    row('RBC, UA', '0-2 /HPF', '0-1 /HPF', null, { valueText: '0-2', value: null, unit: '/HPF', flag: null, referenceRange: { text: '0-1', low: 0, high: 1, kind: 'range' } }),
+    card('HIV SCREEN'),
+    row('HIV AG/AB', 'Non Reactive', 'Non Reactive', null, { valueText: 'Non Reactive', value: null, unit: null, flag: null, referenceRange: { text: 'Non Reactive', kind: 'text' } }),
+    { cells: [[M.name, 'Quest, Quest Diagnostics and MyQuest are trademarks of Quest Diagnostics.']] },
+    { at: 740, cells: [[M.name, 'MyQuest'], [M.pageno, 'Page 1 of 1']] },
+  ];
+  const doc = buildDoc('myquest-noheader.pdf', [page1]);
+  const expected = {
+    source: { vendor: 'quest', reportStatus: 'final', pageCount: 1 },
+    patient: { fullName: 'JORDAN SAMPLE', firstName: 'JORDAN', lastName: 'SAMPLE', dob: '2012-06-02', sex: 'F', ageAtCollection: 13, patientId: null, address: null },
+    specimen: { specimenId: 'CD789012E', collectedAt: '2025-09-10T08:15', collectedTz: 'EDT', reportedAt: '2025-09-11' },
+    provider: { orderingName: 'DR. JANE DOE', address: null },
+    panels,
+    results,
+  };
+  return { doc, expected };
+}
+
 // ---------- write ----------
-const FIXTURES = { 'classic-4page': buildClassic, 'myquest-portal': buildMyQuest, 'edge-cases': buildEdge };
+const FIXTURES = { 'classic-4page': buildClassic, 'myquest-portal': buildMyQuest, 'edge-cases': buildEdge, 'robust-layout': buildRobust, 'myquest-noheader': buildMyQuestNoHeader };
 for (const [name, build] of Object.entries(FIXTURES)) {
   const { doc, expected } = build();
   writeFileSync(join(OUT_DIR, `${name}.doc.json`), JSON.stringify(doc, null, 1) + '\n');

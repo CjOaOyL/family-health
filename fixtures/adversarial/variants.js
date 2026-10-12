@@ -181,6 +181,8 @@ const LC_FLAG = { '': '', H: 'High', L: 'Low', HH: 'Critical', LL: 'Critical' };
 export function rowsFor(layout, neutral) {
   return neutral.map((n) => {
     const o = {}; if (n.notes) o.notes = n.notes; if (n.cont) o.cont = n.cont; if ('expectValue' in n) o.expectValue = n.expectValue;
+    // Labcorp: a trailing "*" on a value is an abnormal flag; valueText stays as printed ("6.2*"), flag A.
+    if (layout.startsWith('labcorp') && /\*$/.test(n.value)) o.expectFlag = 'A';
     if (layout.startsWith('labcorp')) return L(n.name, n.value, LC_FLAG[n.flag || ''] ?? n.flag, n.unit || '', n.ref || '', '01', o);
     // Quest: a trailing "*" on a value is an abnormal flag (SPEC §6), so expect "6.2*" → valueText "6.2", flag A.
     if (/\*$/.test(n.value)) { o.expectValueText = n.value.replace(/\*+$/, ''); o.expectFlag = 'A'; }

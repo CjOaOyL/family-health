@@ -1,8 +1,8 @@
 // Settings: backup export/import, keep-PDF toggle, clear data, parser version + re-parse all,
 // redacted diagnostic copy, and the (disabled) Assist placeholder.
-import { el, clear, append, button, chip, select, fmtDate, toast, download, notice, errorBox, copyText, vendorLabel } from '../ui.js';
-import { SETTING_KEEP_FILES, effectiveReport } from '../reportUtil.js';
-import { moduleStatus, extractAndParse, redact, hasPdfjs } from '../pipeline.js';
+import { el, clear, append, button, chip, select, fmtDate, toast, download, notice, errorBox, copyText, vendorLabel, todayIso } from '../ui.js';
+import { SETTING_KEEP_FILES, effectiveReport, migrateOverrides, resolveOverrides } from '../reportUtil.js';
+import { moduleStatus, extractAndParse, redact, hasPdfjs, getAnalytesModule } from '../pipeline.js';
 import { exportAll, importAll, clearAll, getSetting, setSetting, counts, listReports, listFileMeta, getFile, putReport, listMembers } from '../../src/store/db.js';
 
 export const title = 'Settings';
@@ -52,7 +52,7 @@ export async function render(root) {
         button('Export JSON backup', async () => {
           try {
             const obj = await exportAll({ includeFiles: withFiles.checked });
-            download(`family-health-backup-${new Date().toISOString().slice(0, 10)}.json`, JSON.stringify(obj), 'application/json');
+            download(`family-health-backup-${todayIso()}.json`, JSON.stringify(obj), 'application/json');
             toast('Backup downloaded');
           } catch (err) { page.prepend(errorBox(err, 'Export failed')); }
         }, { kind: 'primary' }),
@@ -87,30 +87,36 @@ export async function render(root) {
       if (!reparsable.length) { toast('No stored PDFs to re-parse'); return; }
       run.disabled = true;
       clear(log);
-      let ok = 0, failed = 0;
+      let ok = 0, failed = 0, orphans = 0;
       for (const rec of reparsable) {
         const li = el('li', el('span', { class: 'spinner' }), el('span', { class: 'fn' }, rec.report?.source?.fileName || rec.id), el('span', { class: 'muted small status' }, 'parsing…'));
         log.appendChild(li);
         try {
+          // Rekey any legacy id-based overrides against the OLD report before it is replaced, so an edit
+          // stays attached to the analyte it was made on even if result ids shift in the new parse.
+          migrateOverrides(rec, rec.report);
           const f = await getFile(rec.id);
           const { report, error } = await extractAndParse(f.bytes, f.fileName || rec.report?.source?.fileName || 'report.pdf');
           if (!report) throw error || new Error('no report');
-          await putReport({ ...rec, report });
-          ok++;
+          const { orphaned } = resolveOverrides(rec, report);
+          await putReport({ ...rec, report, orphanedOverrides: orphaned });
+          ok++; orphans += orphaned.length;
           li.querySelector('.spinner').replaceWith(el('span', '✓'));
-          li.querySelector('.status').replaceChildren(chip(report.audit?.label || 'parsed', report.audit?.label || 'muted'), ` ${report.results?.length || 0} results · parser ${report.source?.parserVersion || '?'}`);
+          const status = clear(li.querySelector('.status'));
+          append(status, chip(report.audit?.label || 'parsed', report.audit?.label || 'muted'), ` ${report.results?.length || 0} results · parser ${report.source?.parserVersion || '?'}`,
+            orphaned.length ? el('span', ' ', chip(`${orphaned.length} edit${orphaned.length === 1 ? '' : 's'} not re-applied`, 'warning', orphaned.map((o) => `${o.name} → ${o.value}`).join('; ')), ' ', el('a', { href: `#/review/${encodeURIComponent(rec.id)}` }, 'review')) : null);
         } catch (err) {
           failed++;
           li.querySelector('.spinner').replaceWith(el('span', '⚠'));
           li.querySelector('.status').textContent = `failed: ${err.message || err}`;
         }
       }
-      toast(`Re-parsed ${ok}${failed ? `, ${failed} failed` : ''}`);
+      toast(`Re-parsed ${ok}${failed ? `, ${failed} failed` : ''}${orphans ? `; ${orphans} edit${orphans === 1 ? '' : 's'} could not be re-applied` : ''}`);
       run.disabled = false;
     }, { disabled: !hasPdfjs() || !status.parser || !status.extractor });
     return el('section', { class: 'card' },
       el('div', { class: 'card-head' }, el('h2', 'Parser'), chip(status.parserVersion ? `v${status.parserVersion}` : 'unavailable', status.parserVersion ? 'accent' : 'critical')),
-      el('p', { class: 'text-2 small' }, stale.length ? `${stale.length} stored report${stale.length === 1 ? ' was' : 's were'} parsed with an older parser version. Overrides and member assignments are kept when re-parsing.` : 'All stored reports are up to date with the current parser.'),
+      el('p', { class: 'text-2 small' }, stale.length ? `${stale.length} stored report${stale.length === 1 ? ' was' : 's were'} parsed with an older parser version. Your edits and member assignments are kept when re-parsing; edits are matched to results by source line and test name, and any that cannot be re-applied are flagged on the report's Review page.` : 'All stored reports are up to date with the current parser.'),
       el('div', { class: 'toolbar' }, run),
       log);
   }
@@ -129,6 +135,7 @@ export async function render(root) {
         const f = await getFile(rec.id);
         const { doc, error } = await extractAndParse(f.bytes, f.fileName || 'report.pdf');
         if (!doc) throw error || new Error('extraction failed');
+        await getAnalytesModule();
         const text = await redact(effectiveReport(rec), doc);
         out.value = text; out.classList.remove('hidden');
         toast((await copyText(text)) ? 'Copied to clipboard' : 'Could not copy automatically; select the text below');

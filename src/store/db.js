@@ -1,6 +1,8 @@
 // IndexedDB wrapper for family-health. Promise-based, no library, browser-only.
 // Stores:
-//   reports  { id = fileHash, memberId, overrides: {fieldPath: value}, report: LabReport, savedAt, updatedAt }
+//   reports  { id = fileHash, memberId, overrides: {fieldPath: value}, orphanedOverrides?: [...], report: LabReport, savedAt, updatedAt }
+//            Result overrides are keyed by a stable result key: 'results[<firstLineId>|<normalizedName>].<field>'
+//            (see app/reportUtil.js); header overrides use plain dotted paths ('patient.dob').
 //   members  { id, name, dob, sex, createdAt }
 //   files    { id = fileHash, bytes: ArrayBuffer, fileName }
 //   settings { key, value }
@@ -212,6 +214,12 @@ function base64ToBuf(b64) {
   return out.buffer;
 }
 
+/**
+ * Settings that may travel in a backup. Allow-list, not deny-list: anything else in the settings store
+ * (e.g. a future assist API key) must never land in an exported file or be imported from one.
+ */
+export const EXPORTABLE_SETTINGS = ['keepFiles'];
+
 /** JSON-able snapshot of everything. Files are included as base64 when includeFiles is true. */
 export async function exportAll({ includeFiles = false } = {}) {
   const [reports, members, settings] = await Promise.all([
@@ -225,7 +233,7 @@ export async function exportAll({ includeFiles = false } = {}) {
     exportedAt: nowIso(),
     members: members || [],
     reports: reports || [],
-    settings: settings || [],
+    settings: (settings || []).filter((s) => s && EXPORTABLE_SETTINGS.includes(s.key)).map((s) => ({ key: s.key, value: s.value })),
   };
   if (includeFiles) {
     const files = await tx('files', 'readonly', (s) => reqToPromise(s.getAll()));
@@ -258,7 +266,7 @@ export async function importAll(obj, { merge = true } = {}) {
         await reqToPromise(rs.put(rec)); counts.reports++;
       } else counts.skipped++;
     }
-    for (const s of settings) { if (s && s.key) { await reqToPromise(ss.put({ key: s.key, value: s.value })); counts.settings++; } else counts.skipped++; }
+    for (const s of settings) { if (s && s.key && EXPORTABLE_SETTINGS.includes(s.key)) { await reqToPromise(ss.put({ key: s.key, value: s.value })); counts.settings++; } else counts.skipped++; }
   });
   if (files.length) {
     await tx('files', 'readwrite', async (fs) => {

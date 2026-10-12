@@ -61,7 +61,7 @@ function markerPath(shape, cx, cy, r) {
 /**
  * renderTimeline(container, { series, band, unit, title }) → cleanup()
  * series: [{ key: vendor, label, points: [{ t(ms), date(iso), y, valueText, unit, flag, reportId, range }] }]
- * band:   { low, high, text, from } | null
+ * band:   { low, high, text, unit, from } | null — low/high must already be in the plotted (canonical) unit
  */
 export function renderTimeline(container, { series = [], band = null, unit = '', title = '' } = {}) {
   let ro = null;
@@ -100,7 +100,7 @@ export function renderTimeline(container, { series = [], band = null, unit = '',
       const bottom = band.low != null ? y(band.low) : m.top + ph;
       const g = svg('g', { class: 'band' },
         svg('rect', { x: m.left, y: Math.min(top, bottom), width: pw, height: Math.max(1, Math.abs(bottom - top)) }),
-        svg('text', { x: m.left + 4, y: Math.min(top, bottom) + 11, 'text-anchor': 'start' }, `ref ${band.text || ''}`));
+        svg('text', { x: m.left + 4, y: Math.min(top, bottom) + 11, 'text-anchor': 'start' }, `ref ${band.text || ''}${band.unit ? ' ' + band.unit : ''}`));
       root.appendChild(g);
     }
 
@@ -157,6 +157,8 @@ export function renderTimeline(container, { series = [], band = null, unit = '',
         hit.addEventListener('focus', () => showTip(p.t, cx));
         hit.addEventListener('blur', hideTip);
         hit.addEventListener('pointerenter', () => showTip(p.t, cx));
+        // Hits sit above the overlay, so the overlay never sees the pointer leave: hide from the hit too.
+        hit.addEventListener('pointerleave', (e) => { if (!root.contains(e.relatedTarget)) hideTip(); });
         hitsLayer.appendChild(hit);
       });
       root.appendChild(g);
@@ -178,13 +180,14 @@ export function renderTimeline(container, { series = [], band = null, unit = '',
     overlay.addEventListener('pointerleave', hideTip);
     root.appendChild(overlay);
     root.appendChild(hitsLayer);
+    root.addEventListener('pointerleave', hideTip);
     container.appendChild(root);
 
     // Legend: only for 2+ series; band legend when present.
     if (series.length >= 2 || band) {
       const legend = el('div', { class: 'legend' });
       if (series.length >= 2) for (const s of series) legend.appendChild(el('span', { class: 'item' }, el('span', { class: `key ${vendorKey(s.key)}` }), `${s.label} (${SHAPE[vendorKey(s.key)]})`));
-      if (band) legend.appendChild(el('span', { class: 'item' }, el('span', { class: 'swatch-band' }), `Reference ${band.text || ''}${band.from ? ' · from ' + band.from : ''}`));
+      if (band) legend.appendChild(el('span', { class: 'item' }, el('span', { class: 'swatch-band' }), `Reference ${band.text || ''}${band.unit ? ' ' + band.unit : ''}${band.from ? ' · from ' + band.from : ''}`));
       container.appendChild(legend);
     }
 
@@ -198,6 +201,7 @@ export function renderTimeline(container, { series = [], band = null, unit = '',
         tip.appendChild(el('div', { class: 'r' },
           el('span', { class: `key ${vendorKey(p.series.key)}` }),
           el('span', { class: 'val' }, `${p.valueText || fmtNum(p.y)}${p.unit ? ' ' + p.unit : ''}`),
+          p.printed ? el('span', { class: 'lab', title: 'As printed on the report' }, `(${p.printed})`) : null,
           p.flag ? el('span', { class: `chip chip-flag-${p.flag}` }, p.flag) : null,
           el('span', { class: 'lab' }, p.series.label)));
       }

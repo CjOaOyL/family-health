@@ -1,0 +1,572 @@
+{
+ "fileName": "myquest-noheader.pdf",
+ "fileHash": "0affefe442536d322d18b0f33d853633724daeeb7beb2016bc216e3b8b04a44e",
+ "pageCount": 1,
+ "pages": [
+  {
+   "pageNumber": 1,
+   "width": 612,
+   "height": 792,
+   "lines": [
+    {
+     "id": "p1l0",
+     "page": 1,
+     "y": 40,
+     "x0": 36,
+     "x1": 518.4,
+     "text": "MyQuest  Quest Diagnostics",
+     "cells": [
+      "MyQuest",
+      "Quest Diagnostics"
+     ],
+     "cellX": [
+      36,
+      430
+     ],
+     "items": [
+      {
+       "str": "MyQuest",
+       "x": 36,
+       "y": 40,
+       "w": 36.4,
+       "h": 10
+      },
+      {
+       "str": "Quest Diagnostics",
+       "x": 430,
+       "y": 40,
+       "w": 88.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l1",
+     "page": 1,
+     "y": 51,
+     "x0": 36,
+     "x1": 456,
+     "text": "Results for  Final",
+     "cells": [
+      "Results for",
+      "Final"
+     ],
+     "cellX": [
+      36,
+      430
+     ],
+     "items": [
+      {
+       "str": "Results for",
+       "x": 36,
+       "y": 51,
+       "w": 57.2,
+       "h": 10
+      },
+      {
+       "str": "Final",
+       "x": 430,
+       "y": 51,
+       "w": 26,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l2",
+     "page": 1,
+     "y": 62,
+     "x0": 36,
+     "x1": 103.6,
+     "text": "JORDAN SAMPLE",
+     "cells": [
+      "JORDAN SAMPLE"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "JORDAN SAMPLE",
+       "x": 36,
+       "y": 62,
+       "w": 67.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l3",
+     "page": 1,
+     "y": 73,
+     "x0": 36,
+     "x1": 233.6,
+     "text": "Date of Birth: 06/02/2012  Sex: Female",
+     "cells": [
+      "Date of Birth: 06/02/2012  Sex: Female"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "Date of Birth: 06/02/2012  Sex: Female",
+       "x": 36,
+       "y": 73,
+       "w": 197.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l4",
+     "page": 1,
+     "y": 84,
+     "x0": 36,
+     "x1": 414.4,
+     "text": "Collected on 09/10/2025 8:15 AM EDT  Reported on 09/11/2025",
+     "cells": [
+      "Collected on 09/10/2025 8:15 AM EDT",
+      "Reported on 09/11/2025"
+     ],
+     "cellX": [
+      36,
+      300
+     ],
+     "items": [
+      {
+       "str": "Collected on 09/10/2025 8:15 AM EDT",
+       "x": 36,
+       "y": 84,
+       "w": 182,
+       "h": 10
+      },
+      {
+       "str": "Reported on 09/11/2025",
+       "x": 300,
+       "y": 84,
+       "w": 114.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l5",
+     "page": 1,
+     "y": 95,
+     "x0": 36,
+     "x1": 398.8,
+     "text": "Ordered by  Specimen: CD789012E",
+     "cells": [
+      "Ordered by",
+      "Specimen: CD789012E"
+     ],
+     "cellX": [
+      36,
+      300
+     ],
+     "items": [
+      {
+       "str": "Ordered by",
+       "x": 36,
+       "y": 95,
+       "w": 52,
+       "h": 10
+      },
+      {
+       "str": "Specimen: CD789012E",
+       "x": 300,
+       "y": 95,
+       "w": 98.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l6",
+     "page": 1,
+     "y": 106,
+     "x0": 36,
+     "x1": 98.4,
+     "text": "DR. JANE DOE",
+     "cells": [
+      "DR. JANE DOE"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "DR. JANE DOE",
+       "x": 36,
+       "y": 106,
+       "w": 62.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l7",
+     "page": 1,
+     "y": 117,
+     "x0": 36,
+     "x1": 93.2,
+     "text": "LIPID PANEL",
+     "cells": [
+      "LIPID PANEL"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "LIPID PANEL",
+       "x": 36,
+       "y": 117,
+       "w": 57.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l8",
+     "page": 1,
+     "y": 128,
+     "x0": 36,
+     "x1": 525.2,
+     "text": "CHOLESTEROL, TOTAL  178 mg/dL  <170 mg/dL  H",
+     "cells": [
+      "CHOLESTEROL, TOTAL",
+      "178 mg/dL",
+      "<170 mg/dL",
+      "H"
+     ],
+     "cellX": [
+      36,
+      240,
+      360,
+      520
+     ],
+     "items": [
+      {
+       "str": "CHOLESTEROL, TOTAL",
+       "x": 36,
+       "y": 128,
+       "w": 93.6,
+       "h": 10
+      },
+      {
+       "str": "178 mg/dL",
+       "x": 240,
+       "y": 128,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "<170 mg/dL",
+       "x": 360,
+       "y": 128,
+       "w": 52,
+       "h": 10
+      },
+      {
+       "str": "H",
+       "x": 520,
+       "y": 128,
+       "w": 5.2,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l9",
+     "page": 1,
+     "y": 139,
+     "x0": 36,
+     "x1": 438,
+     "text": "HDL CHOLESTEROL  52 mg/dL  > OR = 45 mg/dL",
+     "cells": [
+      "HDL CHOLESTEROL",
+      "52 mg/dL",
+      "> OR = 45 mg/dL"
+     ],
+     "cellX": [
+      36,
+      240,
+      360
+     ],
+     "items": [
+      {
+       "str": "HDL CHOLESTEROL",
+       "x": 36,
+       "y": 139,
+       "w": 78,
+       "h": 10
+      },
+      {
+       "str": "52 mg/dL",
+       "x": 240,
+       "y": 139,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "> OR = 45 mg/dL",
+       "x": 360,
+       "y": 139,
+       "w": 78,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l10",
+     "page": 1,
+     "y": 150,
+     "x0": 36,
+     "x1": 108.8,
+     "text": "HEMOGLOBIN A1c",
+     "cells": [
+      "HEMOGLOBIN A1c"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "HEMOGLOBIN A1c",
+       "x": 36,
+       "y": 150,
+       "w": 72.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l11",
+     "page": 1,
+     "y": 161,
+     "x0": 36,
+     "x1": 406.8,
+     "text": "HEMOGLOBIN A1c  6.2* %  4.8-5.6 %",
+     "cells": [
+      "HEMOGLOBIN A1c",
+      "6.2* %",
+      "4.8-5.6 %"
+     ],
+     "cellX": [
+      36,
+      240,
+      360
+     ],
+     "items": [
+      {
+       "str": "HEMOGLOBIN A1c",
+       "x": 36,
+       "y": 161,
+       "w": 72.8,
+       "h": 10
+      },
+      {
+       "str": "6.2* %",
+       "x": 240,
+       "y": 161,
+       "w": 31.2,
+       "h": 10
+      },
+      {
+       "str": "4.8-5.6 %",
+       "x": 360,
+       "y": 161,
+       "w": 46.8,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l12",
+     "page": 1,
+     "y": 172,
+     "x0": 36,
+     "x1": 140,
+     "text": "URINALYSIS, COMPLETE",
+     "cells": [
+      "URINALYSIS, COMPLETE"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "URINALYSIS, COMPLETE",
+       "x": 36,
+       "y": 172,
+       "w": 104,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l13",
+     "page": 1,
+     "y": 183,
+     "x0": 36,
+     "x1": 401.6,
+     "text": "RBC, UA  0-2 /HPF  0-1 /HPF",
+     "cells": [
+      "RBC, UA",
+      "0-2 /HPF",
+      "0-1 /HPF"
+     ],
+     "cellX": [
+      36,
+      240,
+      360
+     ],
+     "items": [
+      {
+       "str": "RBC, UA",
+       "x": 36,
+       "y": 183,
+       "w": 36.4,
+       "h": 10
+      },
+      {
+       "str": "0-2 /HPF",
+       "x": 240,
+       "y": 183,
+       "w": 41.6,
+       "h": 10
+      },
+      {
+       "str": "0-1 /HPF",
+       "x": 360,
+       "y": 183,
+       "w": 41.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l14",
+     "page": 1,
+     "y": 194,
+     "x0": 36,
+     "x1": 88,
+     "text": "HIV SCREEN",
+     "cells": [
+      "HIV SCREEN"
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "HIV SCREEN",
+       "x": 36,
+       "y": 194,
+       "w": 52,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l15",
+     "page": 1,
+     "y": 205,
+     "x0": 36,
+     "x1": 422.4,
+     "text": "HIV AG/AB  Non Reactive  Non Reactive",
+     "cells": [
+      "HIV AG/AB",
+      "Non Reactive",
+      "Non Reactive"
+     ],
+     "cellX": [
+      36,
+      240,
+      360
+     ],
+     "items": [
+      {
+       "str": "HIV AG/AB",
+       "x": 36,
+       "y": 205,
+       "w": 46.8,
+       "h": 10
+      },
+      {
+       "str": "Non Reactive",
+       "x": 240,
+       "y": 205,
+       "w": 62.4,
+       "h": 10
+      },
+      {
+       "str": "Non Reactive",
+       "x": 360,
+       "y": 205,
+       "w": 62.4,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l16",
+     "page": 1,
+     "y": 216,
+     "x0": 36,
+     "x1": 415.6,
+     "text": "Quest, Quest Diagnostics and MyQuest are trademarks of Quest Diagnostics.",
+     "cells": [
+      "Quest, Quest Diagnostics and MyQuest are trademarks of Quest Diagnostics."
+     ],
+     "cellX": [
+      36
+     ],
+     "items": [
+      {
+       "str": "Quest, Quest Diagnostics and MyQuest are trademarks of Quest Diagnostics.",
+       "x": 36,
+       "y": 216,
+       "w": 379.6,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "p1l17",
+     "page": 1,
+     "y": 740,
+     "x0": 36,
+     "x1": 527.2,
+     "text": "MyQuest  Page 1 of 1",
+     "cells": [
+      "MyQuest",
+      "Page 1 of 1"
+     ],
+     "cellX": [
+      36,
+      470
+     ],
+     "items": [
+      {
+       "str": "MyQuest",
+       "x": 36,
+       "y": 740,
+       "w": 36.4,
+       "h": 10
+      },
+      {
+       "str": "Page 1 of 1",
+       "x": 470,
+       "y": 740,
+       "w": 57.2,
+       "h": 10
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

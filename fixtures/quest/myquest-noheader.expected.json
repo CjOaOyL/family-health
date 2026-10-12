@@ -1,0 +1,143 @@
+{
+ "source": {
+  "vendor": "quest",
+  "reportStatus": "final",
+  "pageCount": 1
+ },
+ "patient": {
+  "fullName": "JORDAN SAMPLE",
+  "firstName": "JORDAN",
+  "lastName": "SAMPLE",
+  "dob": "2012-06-02",
+  "sex": "F",
+  "ageAtCollection": 13,
+  "patientId": null,
+  "address": null
+ },
+ "specimen": {
+  "specimenId": "CD789012E",
+  "collectedAt": "2025-09-10T08:15",
+  "collectedTz": "EDT",
+  "reportedAt": "2025-09-11"
+ },
+ "provider": {
+  "orderingName": "DR. JANE DOE",
+  "address": null
+ },
+ "panels": [
+  {
+   "name": "LIPID PANEL",
+   "resultIds": [
+    "r1",
+    "r2"
+   ],
+   "page": 1
+  },
+  {
+   "name": "HEMOGLOBIN A1c",
+   "resultIds": [
+    "r3"
+   ],
+   "page": 1
+  },
+  {
+   "name": "URINALYSIS, COMPLETE",
+   "resultIds": [
+    "r4"
+   ],
+   "page": 1
+  },
+  {
+   "name": "HIV SCREEN",
+   "resultIds": [
+    "r5"
+   ],
+   "page": 1
+  }
+ ],
+ "results": [
+  {
+   "id": "r1",
+   "name": "CHOLESTEROL, TOTAL",
+   "panel": "LIPID PANEL",
+   "page": 1,
+   "performingLabCode": null,
+   "valueText": "178",
+   "value": 178,
+   "unit": "mg/dL",
+   "flag": "H",
+   "referenceRange": {
+    "text": "<170",
+    "low": null,
+    "high": 170,
+    "kind": "lt"
+   }
+  },
+  {
+   "id": "r2",
+   "name": "HDL CHOLESTEROL",
+   "panel": "LIPID PANEL",
+   "page": 1,
+   "performingLabCode": null,
+   "valueText": "52",
+   "value": 52,
+   "unit": "mg/dL",
+   "flag": null,
+   "referenceRange": {
+    "text": "> OR = 45",
+    "low": 45,
+    "high": null,
+    "kind": "ge"
+   }
+  },
+  {
+   "id": "r3",
+   "name": "HEMOGLOBIN A1c",
+   "panel": "HEMOGLOBIN A1c",
+   "page": 1,
+   "performingLabCode": null,
+   "valueText": "6.2",
+   "value": 6.2,
+   "unit": "%",
+   "flag": "A",
+   "referenceRange": {
+    "text": "4.8-5.6",
+    "low": 4.8,
+    "high": 5.6,
+    "kind": "range"
+   }
+  },
+  {
+   "id": "r4",
+   "name": "RBC, UA",
+   "panel": "URINALYSIS, COMPLETE",
+   "page": 1,
+   "performingLabCode": null,
+   "valueText": "0-2",
+   "value": null,
+   "unit": "/HPF",
+   "flag": null,
+   "referenceRange": {
+    "text": "0-1",
+    "low": 0,
+    "high": 1,
+    "kind": "range"
+   }
+  },
+  {
+   "id": "r5",
+   "name": "HIV AG/AB",
+   "panel": "HIV SCREEN",
+   "page": 1,
+   "performingLabCode": null,
+   "valueText": "Non Reactive",
+   "value": null,
+   "unit": null,
+   "flag": null,
+   "referenceRange": {
+    "text": "Non Reactive",
+    "kind": "text"
+   }
+  }
+ ]
+}

@@ -151,14 +151,11 @@ code, .mono { font-family: var(--mono); font-size: 0.9em; }
 .brand .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-right: 6px; vertical-align: 0; }
 .nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 2px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
   max-width: 100%;
   flex-basis: 100%;
 }
-.nav::-webkit-scrollbar { display: none; }
 .nav a {
   flex: 0 0 auto;
   text-decoration: none;
@@ -168,6 +165,13 @@ code, .mono { font-family: var(--mono); font-size: 0.9em; }
   font-weight: 500;
   font-size: 0.95rem;
   position: relative;
+  white-space: nowrap;
+}
+/* Phone widths: shrink so all five links fit on one row at 375px (wrap is the fallback, never clipping). */
+@media (max-width: 479px) {
+  .nav { gap: 0; justify-content: space-between; }
+  .nav a { padding: 6px 6px; font-size: 0.86rem; }
+  .nav .badge { min-width: 16px; padding: 0 4px; margin-left: 3px; font-size: 0.68rem; line-height: 16px; }
 }
 .nav a:hover { background: var(--surface-2); }
 .nav a.active { color: var(--text); background: var(--surface-2); }
@@ -380,6 +384,8 @@ details.panel > .body { padding: 0 var(--gutter) 12px; }
 .lines li .pg { color: var(--muted); }
 .lines li.rl { background: color-mix(in oklab, var(--warning) 14%, transparent); font-weight: 600; }
 .lines li.rl .pg::after { content: " !"; color: var(--warning-text); }
+.lines-head { margin: 10px 0 4px; font-size: 0.82rem; color: var(--text-2); font-weight: 600; }
+ul.warnings li .count { color: var(--muted); font-weight: 600; margin-left: 4px; }
 
 /* ---------- drop zone (Import) ---------- */
 .drop {

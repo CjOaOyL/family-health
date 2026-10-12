@@ -4,10 +4,11 @@ import { parseLabcorp } from './labcorp.js';
 import { parseQuest } from './quest.js';
 import { parseGeneric } from './generic.js';
 import { normalizeAnalyte, normalizeUnit, convertUnit } from '../model/analytes.js';
+import { parseValue } from './common.js';
 import { emptyReport, emptyResult } from '../model/schema.js';
 import { buildAudit, scoreResult } from '../audit/confidence.js';
 
-export const PARSER_VERSION = '1.0.0';
+export const PARSER_VERSION = '1.1.0';
 
 const VENDOR_PARSERS = { labcorp: parseLabcorp, quest: parseQuest };
 
@@ -54,6 +55,9 @@ function canonicalize(r, notes) {
         if (from && to && from !== to) {
           const conv = convertUnit(r.value, r.unit, r.canonicalUnit, r.canonicalId);
           if (typeof conv === 'number' && Number.isFinite(conv)) cv = conv;
+          // No conversion known: keep the raw value AND label it with the printed unit so canonicalValue and
+          // canonicalUnit always agree (SPEC §3). Compare must never plot a raw value under the dictionary unit.
+          else r.canonicalUnit = from || r.unit;
         }
       }
       r.canonicalValue = cv;
@@ -63,6 +67,22 @@ function canonicalize(r, notes) {
   } catch (e) {
     r.canonicalValue = typeof r.value === 'number' ? r.value : null;
     if (notes) notes.push(`Analyte mapping failed for "${r.name}": ${e && e.message ? e.message : e}`);
+  }
+}
+
+/**
+ * Defensive: a value printed with a trailing "*" ("6.2*", "6.2 *") is an abnormal marker (Quest). If the parser left
+ * the star in valueText with no flag, set flag 'A'; if it also left value null, fill the numeric value from valueText.
+ */
+function honorStarFlag(r) {
+  if (typeof r.valueText !== 'string' || !/\*\s*$/.test(r.valueText)) return;
+  const pv = parseValue(r.valueText);
+  if (!pv || !pv.starFlag) return;
+  if (r.flag == null) { r.flag = 'A'; if (r.fieldStatus) r.fieldStatus.flag = 'found'; }
+  if (r.value == null && !pv.isText && typeof pv.value === 'number') {
+    r.value = pv.value;
+    r.valueQualifier = pv.qualifier;
+    if (r.fieldStatus) r.fieldStatus.value = 'found';
   }
 }
 
@@ -138,10 +158,12 @@ export function parseDocument(doc, { vendor } = {}) {
 
   // 4. Analyte mapping + per-result confidence
   for (const r of report.results) {
+    honorStarFlag(r);
     canonicalize(r, notes);
     resolveCriticalDirection(r);
     const computed = scoreResult(r);
-    r.confidence = typeof r.confidence === 'number' && r.confidence > 0 ? Math.min(r.confidence, computed) : computed;
+    // A parser-supplied confidence (including exactly 0) is honored: keep min(parser, computed).
+    r.confidence = typeof r.confidence === 'number' && Number.isFinite(r.confidence) ? Math.min(r.confidence, computed) : computed;
     delete r.hints;
   }
 
@@ -162,7 +184,7 @@ export function parseDocument(doc, { vendor } = {}) {
     report.audit = buildAudit(safeDoc, auditInput, report);
   } catch (e) {
     report.audit = {
-      overall: 0, label: 'incomplete', fields: {}, coverage: { totalLines: 0, consumedLines: 0, unconsumed: [], resultLikeUnconsumed: 0 },
+      overall: 0, label: 'incomplete', fields: {}, coverage: { totalLines: 0, consumedLines: 0, unconsumed: [], resultLikeUnconsumed: 0, suspiciousConsumed: [], resultLikeTotal: 0 },
       pages: { declared: null, seen: safeDoc.pageCount || 0, complete: false }, results: { count: report.results.length, fullyParsed: 0, withIssues: report.results.length },
       warnings: [...auditInput.notes, `Audit failed: ${e && e.message ? e.message : e}`],
     };

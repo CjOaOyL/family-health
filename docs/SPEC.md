@@ -104,6 +104,10 @@ Result {
   unit: string|null                // as printed
   canonicalUnit: string|null
   canonicalValue: number|null      // value converted to canonicalUnit when a conversion exists, else value
+                                   // (when the printed unit differs from the dictionary unit and convertUnit() knows no
+                                   //  factor, index.js sets canonicalUnit = normalizeUnit(printed unit) so canonicalValue
+                                   //  and canonicalUnit always agree; Compare must never plot a raw value under the
+                                   //  dictionary unit)
   flag: 'H'|'L'|'HH'|'LL'|'A'|'C'|null     // H high, L low, HH/LL critical, A abnormal, C critical
   referenceRange: { text: string|null, low: number|null, high: number|null, kind: 'range'|'lt'|'gt'|'le'|'ge'|'text'|null }
   performingLabCode: string|null
@@ -128,7 +132,13 @@ ParseResult {
 }
 // Optional per-result hint for the audit: `result.hints = { wrapped?: boolean, misaligned?: boolean }`.
 // index.js feeds it to scoreResult() (−0.1 each) and deletes it from the final report. If a parser sets
-// result.confidence itself, index.js keeps min(parser confidence, scoreResult(result)).
+// result.confidence itself (any finite number, including 0), index.js keeps min(parser confidence, scoreResult(result)).
+// Abnormal star: `parseValue("6.2*")` (and "6.2 *") → { value: 6.2, valueText: "6.2*", starFlag: true }. Parsers set
+// flag 'A' from starFlag when no other flag is printed; index.js also does this defensively when valueText ends in "*"
+// and flag is null (and fills value from valueText if the parser left it null).
+// Shared header helper: `splitLabels(text, labels)` in common.js splits "DOB: 01/15/1980  AGE: 45  Gender: M" into
+// [{ label, key, value }] for the caller's label list (strings, [label,key] pairs or a Map); text before the first
+// label is `parts.prefix`. Two-digit years pivot on the current year (2000+y > currentYear+1 → 19xx).
 parseLabcorp(doc: Document): ParseResult
 parseQuest(doc: Document): ParseResult
 detectVendor(doc): { vendor: 'labcorp'|'quest'|'unknown', confidence: number, evidence: string[] }
@@ -151,18 +161,21 @@ Audit {
   overall: number                   // 0..1
   label: 'complete'|'review'|'incomplete'   // >=0.95, >=0.80, else
   fields: Record<fieldPath, { status: FieldStatus, confidence: number, evidence: lineId[] }>
-  coverage: { totalLines, consumedLines, unconsumed: Array<{ lineId, page, text, resultLike: boolean }>, resultLikeUnconsumed: number }
+  coverage: { totalLines, consumedLines, unconsumed: Array<{ lineId, page, text, resultLike: boolean }>, resultLikeUnconsumed: number,
+              suspiciousConsumed: Array<{ lineId, page, text, tag }>,   // consumed as comment/wrap but shaped like a result row
+              resultLikeTotal: number }                                  // resultLikeUnconsumed + suspiciousConsumed.length
   pages: { declared: number|null, seen: number, complete: boolean }     // from "Page x of y"
   results: { count: number, fullyParsed: number, withIssues: number }
   warnings: string[]
 }
 ```
-- `resultLike(line)` heuristic: line has ≥1 alphabetic token and (a numeric token followed by a unit-ish token, or a flag token, or a range pattern) and is not a known boilerplate pattern. Keep the regex in `confidence.js` and export it for tests.
-- Per-result confidence: start 1.0; −0.25 missing unit when value numeric; −0.25 missing range when value numeric (unless range kind 'text' is clearly N/A); −0.4 value missing; −0.1 name wrapped/merged; −0.1 column misaligned (value not under RESULT column). Clamp 0..1.
-- Overall = 0.40 × (required found fraction, uncertain counts 0.5) + 0.15 × (important found fraction) + 0.30 × (1 − resultLikeUnconsumed / max(1, results.count + resultLikeUnconsumed)) + 0.15 × (pages complete ? 1 : 0.5 × seen/declared).
+- `resultLike(line)` heuristic (UNconsumed lines; deliberately broad): line has ≥1 alphabetic token and (a numeric token followed by a unit-ish token, or a flag token, or a range pattern, or a whole cell that is a known text value) and is not a known boilerplate pattern. Keep the regex in `confidence.js` and export it for tests.
+- **Audit blindness guard** — `suspiciousConsumed`: a parser may swallow a real result row as a comment (`consumed` tag starting with `comment`) or as a wrapped-name continuation (tag containing `wrap`), which hides it from the unconsumed list. For every such line the audit runs the strict `resultRowLike(line)` (= `resultLike(line, { strict: true })`): the line must START with a name-like cell (short, label-free — no trailing ":", no sentence words) followed by a numeric cell, i.e. `<Name> <number[qualifier][*]> [flag] [unit] [range] [labcode]` with ≥2 cells and every trailing cell row-shaped; or ≥3 cells with a name cell, a numeric cell and a unit/range cell; or ≥3 cells with a name cell, a known text value and only text/range/lab-code cells after it. Prose that merely mentions a number and a unit ("Desirable range <100 mg/dL for primary prevention") is a single cell and never trips it. Matching lines are listed in `coverage.suspiciousConsumed` with their tag and count exactly like `resultLikeUnconsumed` in the coverage term and the 0.94 cap, with the warning "N lines consumed as comments look like result rows (lineIds); the parser may have dropped these results."
+- Per-result confidence: start 1.0; −0.25 missing unit when value numeric; −0.25 missing range when value numeric AND no interval text was printed; −0.4 value missing; −0.1 name wrapped/merged; −0.1 column misaligned (value not under RESULT column). Clamp 0..1. A printed text interval is never penalized: N/A-style text ("Not Estab.", "N/A", "Not Applicable", "See Note", "Negative", "Non Reactive", "None Detected", "Not Detected", "Normal"; `NA_RANGE_RE` / `isNARangeText()` in common.js) means status 'na'; any other text interval (kind 'text') IS a range and counts as found. Status 'na' set by the parser is honored even without text.
+- Overall = 0.40 × (required found fraction, uncertain counts 0.5) + 0.15 × (important found fraction) + 0.30 × (1 − resultLikeTotal / max(1, results.count + resultLikeTotal)) + 0.15 × (pages complete ? 1 : 0.5 × seen/declared), where resultLikeTotal = resultLikeUnconsumed + suspiciousConsumed.length.
 - An IMPORTANT (optional) field whose label never appears in the document gets status 'na' and counts as found (it is not a miss). Labels are in `OPTIONAL_FIELD_LABELS` in confidence.js.
 - A directionless critical flag ('C') is resolved to HH/LL by index.js when the numeric range shows the side.
-- Any required field missing caps overall at 0.90. Any resultLikeUnconsumed > 0 caps overall at 0.94 (so 'complete' is only possible when every result-like line was consumed).
+- Any required field missing caps overall at 0.90. Any resultLikeUnconsumed > 0 or suspiciousConsumed.length > 0 caps overall at 0.94 (so 'complete' is only possible when every result-like line was consumed as something other than a comment).
 - warnings[] gets a plain-English line for each cap applied and each parser note.
 
 ## 6. Vendor layout notes (public knowledge; synthetic fixtures must mimic these)

@@ -45,37 +45,7 @@ const MYQUEST_VALUE_BELOW_LABEL = 'quest.js LABELS: "Results for" / "Ordered by"
 const MYQUEST_NO_TABLE_HEADER = 'quest.js analyzeRowFallback(): without a header, a 4-cell flagged row [name, "178 mg/dL", "<170 mg/dL", "H"] is rejected (the 3rd cell "H" is neither range nor lab) and filed as a COMMENT; silently dropped (overall=1)';
 
 export const KNOWN_FAILURES = {
-  'labcorp-classic/rows-15': LABCORP_ROWS_LEFT_OF_HEADER,
-  'labcorp-classic/right-aligned': `${LABCORP_FLAG_IN_VALUE_CELL} (value right-aligned to 8pt before the FLAG column merges with the flag item)`,
-  'labcorp-classic/flag-inline': LABCORP_FLAG_IN_VALUE_CELL,
-  'labcorp-classic/flag-gap2': LABCORP_FLAG_IN_VALUE_CELL,
-  'labcorp-classic/values': LABCORP_STAR_VALUE,
-  'labcorp-classic/comments': LABCORP_NOTE_AS_WRAPPED_NAME,
-  'labcorp-classic/header-value-below': LABCORP_VALUE_BELOW_LABEL,
-  'labcorp-classic/no-table-header': LABCORP_NO_TABLE_HEADER,
-  'labcorp-portal/rows-15': LABCORP_ROWS_LEFT_OF_HEADER,
-  'labcorp-portal/right-aligned': LABCORP_FLAG_IN_VALUE_CELL,
-  'labcorp-portal/flag-inline': LABCORP_FLAG_IN_VALUE_CELL,
-  'labcorp-portal/flag-gap2': LABCORP_FLAG_IN_VALUE_CELL,
-  'labcorp-portal/values': LABCORP_STAR_VALUE,
-  'labcorp-portal/comments': LABCORP_NOTE_AS_WRAPPED_NAME,
-  'labcorp-portal/header-value-below': LABCORP_VALUE_BELOW_LABEL,
-  'labcorp-portal/no-table-header': LABCORP_PORTAL_NO_TABLE_HEADER,
-  'quest-classic/rows-15': QUEST_ROWS_LEFT_OF_HEADER,
-  'quest-classic/names': QUEST_DIGIT_NAMES,
-  'quest-classic/header-combined-item': QUEST_COMBINED_HEADER_ITEM,
-  'quest-classic/header-value-below': QUEST_VALUE_BELOW_LABEL,
-  'quest-classic/no-table-header': QUEST_NO_TABLE_HEADER,
-  'quest-classic/units-in-value-cell': QUEST_UNIT_AFTER_VALUE,
-  'quest-classic/flags-words': QUEST_FLAG_WORDS,
-  'quest-myquest/rows-15': QUEST_ROWS_LEFT_OF_HEADER,
-  'quest-myquest/right-aligned': MYQUEST_RIGHT_ALIGNED,
-  'quest-myquest/names': QUEST_DIGIT_NAMES,
-  'quest-myquest/values': MYQUEST_STAR_VALUE,
-  'quest-myquest/ranges': MYQUEST_RANGE_VALUE,
-  'quest-myquest/header-combined-item': QUEST_COMBINED_HEADER_ITEM,
-  'quest-myquest/header-value-below': MYQUEST_VALUE_BELOW_LABEL,
-  'quest-myquest/no-table-header': MYQUEST_NO_TABLE_HEADER,
+  // All adversarial variants pass as of parser 1.1.0. Add an entry here (id → reason) to mark a new variant as a known gap.
 };
 
 /** Extra, variant-specific assertions on top of the generic pass criteria. */
@@ -184,15 +154,18 @@ describe('two family members, otherwise identical reports', () => {
 });
 
 describe('audit blind spots', () => {
-  test('rows the parser mis-files as comments are invisible to the coverage audit', { todo: 'labcorp.js/quest.js attach ANY unexplained in-table line as a comment, so buildAudit() never sees it: labcorp-classic/rows-15 drops 15 rows with resultLikeUnconsumed=0 and overall=1' }, () => {
-    const r = results.get('labcorp-classic/rows-15');
-    assert.ok(r && !r.error);
-    const dropped = r.diff.missing.length;
-    assert.ok(dropped > 0, 'variant still drops rows');
-    assert.ok(r.report.audit.coverage.resultLikeUnconsumed >= dropped || r.report.audit.overall < 0.95,
-      `audit should flag ${dropped} dropped rows; got resultLikeUnconsumed=${r.report.audit.coverage.resultLikeUnconsumed}, overall=${r.report.audit.overall}`);
+  test('rows the parser mis-files as comments are caught by the coverage audit (suspiciousConsumed)', async () => {
+    const { buildAudit } = await import('../src/audit/confidence.js');
+    const line = { id: 'p1l5', page: 1, y: 300, x0: 42, x1: 560, text: 'BUN  15  mg/dL  6-24  01',
+      cells: ['BUN', '15', 'mg/dL', '6-24', '01'], cellX: [42, 250, 380, 450, 560], items: [] };
+    const doc = { fileName: 'x.pdf', fileHash: 'h', pageCount: 1, pages: [{ pageNumber: 1, width: 612, height: 792, lines: [line] }] };
+    const report = { source: { vendor: 'labcorp' }, patient: { fullName: 'A, B', dob: '1980-01-01', sex: 'M' },
+      specimen: { collectedAt: '2025-01-01', reportedAt: '2025-01-02', specimenId: 'S' }, provider: { orderingName: 'DR X' }, results: [], performingLabs: [] };
+    const audit = buildAudit(doc, { consumed: new Map([['p1l5', 'comment:r1']]), notes: [], fieldEvidence: {} }, report);
+    assert.equal((audit.coverage.suspiciousConsumed || []).length, 1, 'the swallowed row is listed as suspicious');
+    assert.ok(audit.overall <= 0.94, `overall must be capped, got ${audit.overall}`);
   });
-  test('comment text that is really a dropped row is attached to the previous result', { todo: 'same root cause; the dropped "BUN 15 mg/dL 6-24" line becomes part of the previous result\'s comment' }, () => {
+  test('comment text that is really a dropped row is attached to the previous result', () => {
     const r = results.get('labcorp-classic/rows-15');
     const polluted = r.report.results.filter((x) => x.comment && /\b(?:mg\/dL|mmol\/L|x10E3\/uL)\b/.test(x.comment) && /\d-\d/.test(x.comment));
     assert.equal(polluted.length, 0, `results whose comment contains a swallowed row: ${polluted.map((x) => x.name).join(', ')}`);
@@ -200,26 +173,26 @@ describe('audit blind spots', () => {
 });
 
 describe('common.js primitives (observed on the adversarial inputs)', () => {
-  test('parseRange: 4-digit bounds ("1500-7800", "232-1245") give numeric low/high', { todo: 'common.js parseRange() num pattern is \\d{1,3}(?:,\\d{3})* → "1500-7800" (Quest absolute neutrophils, in the authors\' own fixture) parses as kind "text" with low/high null' }, () => {
+  test('parseRange: 4-digit bounds ("1500-7800", "232-1245") give numeric low/high', () => {
     for (const [s, lo, hi] of [['1500-7800', 1500, 7800], ['232-1245', 232, 1245], ['850-3900', 850, 3900]]) {
       const r = parseRange(s);
       assert.equal(r.kind, 'range', s);
       assert.equal(r.low, lo, s); assert.equal(r.high, hi, s);
     }
   });
-  test('parseRange: titer range "<1:80" is text, not "< 1"', { todo: 'common.js parseRange("<1:80") → kind "lt", high 1 (quest.js patches this locally; labcorp.js does not)' }, () => {
+  test('parseRange: titer range "<1:80" is text, not "< 1"', () => {
     const r = parseRange('<1:80');
     assert.equal(r.kind, 'text'); assert.equal(r.high, null);
   });
-  test('parseRange: "< OR = 4.0" is a <= bound', { todo: 'common.js parseRange("< OR = 4.0") → kind "text" (quest.js normalizes "< OR =" before calling it; labcorp.js does not)' }, () => {
+  test('parseRange: "< OR = 4.0" is a <= bound', () => {
     const r = parseRange('< OR = 4.0');
     assert.equal(r.kind, 'le'); assert.equal(r.high, 4);
   });
-  test('parseValue: "6.2*" is 6.2 with an abnormal marker', { todo: 'common.js parseValue("6.2*") → null' }, () => {
+  test('parseValue: "6.2*" is 6.2 with an abnormal marker', () => {
     const r = parseValue('6.2*');
     assert.ok(r && r.value === 6.2, JSON.stringify(r));
   });
-  test('isTextValue: "Non Reactive" (space) is a known text value like "NON-REACTIVE"', { todo: 'common.js TEXT_VALUES has NON-REACTIVE/NONREACTIVE but not "NON REACTIVE"; confidence.js isCellTextValue() works around it, quest.js marks the value uncertain' }, () => {
+  test('isTextValue: "Non Reactive" (space) is a known text value like "NON-REACTIVE"', () => {
     assert.ok(isTextValue('Non Reactive'));
   });
   test('parseRange handles the ranges the parsers do get right', () => {

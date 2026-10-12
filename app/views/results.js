@@ -1,5 +1,5 @@
 // Results view: all results for a member across reports, with filters, sort, CSV export.
-import { el, clear, button, chip, select, field, fmtDate, fmtShortDate, flagChip, vendorChip, vendorLabel, table, download, toCSV, emptyState, toast } from '../ui.js';
+import { el, clear, button, chip, select, field, fmtDate, fmtShortDate, flagChip, vendorChip, vendorLabel, table, download, toCSV, emptyState, toast, notice, todayIso } from '../ui.js';
 import { hashFor, navigate } from '../state.js';
 import { flattenResults, analyteOptions } from '../reportUtil.js';
 import { analyteNames } from '../pipeline.js';
@@ -10,14 +10,24 @@ export const title = 'Results';
 export async function render(root, { query }) {
   const members = await listMembers();
   const names = await analyteNames();
+  // An unknown member id in the URL (deleted member, stale link) falls back to the first member and the URL is fixed.
+  const requested = query.member || '';
+  const known = requested && members.some((m) => m.id === requested);
+  let memberNotice = null;
+  if (requested && !known) {
+    memberNotice = members.length
+      ? notice(`Member not found (id ${requested.slice(0, 8)}…); showing ${members[0].name} instead.`, 'warn')
+      : notice('Member not found.', 'warn');
+  }
   const state = {
-    memberId: query.member || members[0]?.id || '',
+    memberId: known ? requested : (members[0]?.id || ''),
     analyte: query.analyte || '',
     vendor: query.vendor || '',
     from: query.from || '',
     to: query.to || '',
     sortDesc: query.sort !== 'asc',
   };
+  if (requested && !known) history.replaceState(null, '', hashFor('results', null, { member: state.memberId, analyte: state.analyte, vendor: state.vendor, from: state.from, to: state.to, sort: state.sortDesc ? '' : 'asc' }));
 
   const page = el('div');
   root.appendChild(page);
@@ -26,6 +36,7 @@ export async function render(root, { query }) {
   async function draw() {
     clear(page);
     page.appendChild(el('div', { class: 'page-title' }, el('h1', 'Results')));
+    if (memberNotice) { page.appendChild(memberNotice); memberNotice = null; }
     if (!members.length) { page.appendChild(emptyState('No family members yet. Import a report first.', el('a', { class: 'btn', href: '#/import' }, 'Import a PDF'))); return; }
 
     const records = state.memberId ? await listReports(state.memberId) : [];
@@ -97,7 +108,7 @@ export async function render(root, { query }) {
     const data = [['Date', 'Vendor', 'Panel', 'Test', 'Canonical ID', 'Value', 'Numeric', 'Unit', 'Flag', 'Reference', 'Low', 'High', 'Confidence', 'Report']];
     for (const r of rows) data.push([r.date || '', vendorLabel(r.vendor), r.panel || '', r.name, r.canonicalId || '', r.valueText ?? '', r.value ?? '', r.unit || '', r.flag || '', r.rangeText || '', r.range?.low ?? '', r.range?.high ?? '', r.confidence ?? '', r.reportId]);
     const safe = (member?.name || 'member').replace(/[^\w-]+/g, '_');
-    download(`results-${safe}-${new Date().toISOString().slice(0, 10)}.csv`, toCSV(data), 'text/csv');
+    download(`results-${safe}-${todayIso()}.csv`, toCSV(data), 'text/csv');
     toast('CSV downloaded');
   }
 }

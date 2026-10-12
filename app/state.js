@@ -46,10 +46,15 @@ export function parseHash(hash = location.hash) {
   const qi = h.indexOf('?');
   if (qi >= 0) {
     const qs = h.slice(qi + 1); h = h.slice(0, qi);
-    for (const [k, v] of new URLSearchParams(qs)) query[k] = v;
+    try { for (const [k, v] of new URLSearchParams(qs)) query[k] = v; } catch { query = {}; }
   }
   const parts = h.split('/').filter(Boolean);
-  return { name: parts[0] || 'import', id: parts[1] ? decodeURIComponent(parts[1]) : null, query };
+  let id = null;
+  if (parts[1]) {
+    // A malformed escape (e.g. "#/review/%E0") must not throw out of the router and blank the app.
+    try { id = decodeURIComponent(parts[1]); } catch { id = parts[1]; }
+  }
+  return { name: parts[0] || 'import', id, query };
 }
 
 export function hashFor(name, id, query) {

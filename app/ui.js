@@ -60,9 +60,11 @@ export function chip(text, kind, title) {
 }
 
 const STATUS_ICON = { found: '✓', missing: '✕', uncertain: '?', na: '–', edited: '✎' };
+const STATUS_LABEL = { na: 'n/a' };
+const STATUS_TITLE = { na: 'Not printed on this report (optional field)' };
 export function statusChip(status) {
   const s = status || 'missing';
-  return el('span', { class: `chip chip-${s}`, title: `Field status: ${s}` }, el('span', { class: 'ico', 'aria-hidden': 'true' }, STATUS_ICON[s] || ''), s);
+  return el('span', { class: `chip chip-${s}`, title: STATUS_TITLE[s] || `Field status: ${s}` }, el('span', { class: 'ico', 'aria-hidden': 'true' }, STATUS_ICON[s] || ''), STATUS_LABEL[s] || s);
 }
 
 export function labelChip(label) {
@@ -118,7 +120,7 @@ export function fmtDate(iso, opts = {}) {
 export function fmtShortDate(iso) {
   const d = parseLocalDate(iso);
   if (!d) return iso ? String(iso) : '';
-  return d.toLocaleDateString(undefined, { year: '2-digit', month: 'short', day: 'numeric' });
+  return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
 export function todayIso() {

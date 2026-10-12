@@ -208,6 +208,158 @@ test('edge-cases spot checks', () => {
   assert.ok(!notes.some((n) => n.startsWith('conflict:')), `duplicated header must reconcile without conflict: ${notes.join(' | ')}`);
 });
 
+test('robust-layout spot checks (column drift, digit names, flag words, star, inline units, flush wraps, relaxed split)', () => {
+  const { doc } = load('robust-layout');
+  const { report, consumed, notes } = parseQuest(doc);
+  // header: combined labels in one text item, value on the line below its label
+  assert.deepEqual([report.patient.dob, report.patient.ageAtCollection, report.patient.sex, report.patient.patientId, report.patient.address],
+    ['1970-02-20', 55, 'F', '246810', null]);
+  assert.equal(report.provider.orderingName, 'DR. SAM ROE', 'a "Physician should correlate ..." sentence must not become the ordering provider');
+  assert.ok([...consumed.values()].some((r) => r.split(',').includes('patient.patientId')), 'the bare value line below "Patient ID:" is consumed as the patient id');
+  // rows drifted 15pt left of the header labels
+  const plt = byName(report, 'PLATELET COUNT');
+  assert.deepEqual([plt.valueText, plt.value, plt.flag, plt.unit, plt.referenceRange.low, plt.referenceRange.high, plt.performingLabCode, plt.fieldStatus.flag],
+    ['135', 135, 'L', 'Thousand/uL', 140, 400, 'EZ', 'found']);
+  const wbc = byName(report, 'WBC');
+  assert.deepEqual([wbc.value, wbc.unit, wbc.referenceRange.low, wbc.performingLabCode, wbc.flag], [7.2, 'Thousand/uL', 3.8, 'EZ', null]);
+  const neut = byName(report, 'ABSOLUTE NEUTROPHILS');
+  assert.deepEqual([neut.value, neut.referenceRange.low, neut.referenceRange.high, neut.referenceRange.kind], [4320, 1500, 7800, 'range']);
+  // names starting with a digit
+  const vitd = byName(report, '25-OH VITAMIN D');
+  assert.deepEqual([vitd.value, vitd.unit, vitd.referenceRange.high], [31.8, 'ng/mL', 100]);
+  const hiaa = byName(report, '5-HIAA');
+  assert.deepEqual([hiaa.value, hiaa.unit, hiaa.performingLabCode], [3.2, 'mg/24 hr', 'PR']);
+  // flag words and star
+  assert.deepEqual([byName(report, 'GLUCOSE').value, byName(report, 'GLUCOSE').flag], [104, 'H']);
+  assert.deepEqual([byName(report, 'POTASSIUM').value, byName(report, 'POTASSIUM').flag], [6.1, 'C']);
+  const a1c = byName(report, 'HEMOGLOBIN A1c');
+  assert.deepEqual([a1c.valueText, a1c.value, a1c.flag, a1c.unit, a1c.referenceRange.high], ['6.2', 6.2, 'A', '% of total Hgb', 5.7]);
+  // unit printed after the value, with a parenthetical / prose tail
+  const ldl = byName(report, 'LDL-CHOLESTEROL');
+  assert.deepEqual([ldl.valueText, ldl.value, ldl.unit, ldl.fieldStatus.value, ldl.fieldStatus.unit], ['133', 133, 'mg/dL', 'found', 'found']);
+  assert.match(ldl.comment, /^Reference range for LDL is based on the ATP III guidelines <100 mg\/dL$/, 'two-cell prose stays a comment, not a result');
+  const poc = byName(report, 'HEMOGLOBIN A1c, POC');
+  assert.deepEqual([poc.value, poc.unit], [5.4, '% of total Hgb']);
+  assert.ok(!report.results.some((r) => /^(?:the ATP|Reference range|Physician)/.test(r.name)), 'no prose line became a result');
+  assert.ok(report.comments.some((c) => /^Physician should correlate/.test(c.text)));
+  // flush (un-indented) wrapped names below and above, one-word panel right after a row
+  const hbs = byName(report, 'HEPATITIS B SURFACE ANTIGEN');
+  assert.ok(hbs, 'continuation line below the value line merged without indentation');
+  assert.equal(hbs.lineIds.length, 2);
+  const hcv = byName(report, 'HEPATITIS C ANTIBODY W/REFLEX TO HCV RNA, QN, PCR');
+  assert.ok(hcv, 'continuation line above the value line merged without indentation');
+  assert.equal(report.panels.map((p) => p.name).join('|'), 'CBC (INCLUDES DIFF/PLT)|MISCELLANEOUS CHEMISTRY|HEPATITIS PANEL, ACUTE|TSH|MAGNESIUM');
+  assert.deepEqual([byName(report, 'TSH').panel, byName(report, 'TSH').value], ['TSH', 2.15]);
+  // a row printed as one text item with single spaces
+  const mg = byName(report, 'MAGNESIUM');
+  assert.deepEqual([mg.value, mg.unit, mg.referenceRange.low, mg.referenceRange.high, mg.performingLabCode, mg.confidence], [2, 'mg/dL', 1.5, 2.5, 'EZ', 0.9]);
+  assert.equal(report.results.length, 17);
+  assert.ok(!notes.some((n) => n.startsWith('conflict:')), notes.join(' | '));
+});
+
+test('myquest-noheader spot checks (no table header, value below label, derived age, 4-cell flagged row, star + unit)', () => {
+  const { doc } = load('myquest-noheader');
+  const { report, consumed, fieldEvidence } = parseQuest(doc);
+  assert.deepEqual([report.patient.fullName, report.patient.sex, report.patient.dob, report.patient.ageAtCollection, report.provider.orderingName, report.source.reportStatus],
+    ['JORDAN SAMPLE', 'F', '2012-06-02', 13, 'DR. JANE DOE', 'final']);
+  assert.ok(fieldEvidence['patient.ageAtCollection'].length >= 2, 'derived age cites the DOB and collection lines');
+  assert.equal(report.results.length, 5);
+  const chol = byName(report, 'CHOLESTEROL, TOTAL');
+  assert.deepEqual([chol.value, chol.unit, chol.flag, chol.referenceRange.high, chol.panel, chol.fieldStatus.flag], [178, 'mg/dL', 'H', 170, 'LIPID PANEL', 'found']);
+  const a1c = byName(report, 'HEMOGLOBIN A1c');
+  assert.deepEqual([a1c.valueText, a1c.value, a1c.flag, a1c.unit], ['6.2', 6.2, 'A', '%']);
+  const rbc = byName(report, 'RBC, UA');
+  assert.deepEqual([rbc.valueText, rbc.value, rbc.unit, rbc.referenceRange.high], ['0-2', null, '/HPF', 1]);
+  const hiv = byName(report, 'HIV AG/AB');
+  assert.deepEqual([hiv.valueText, hiv.fieldStatus.value, hiv.referenceRange.kind], ['Non Reactive', 'found', 'text']);
+  assert.ok(report.results.every((r) => r.confidence <= 0.9), 'rows without a learned header are marked misaligned');
+  assert.ok([...consumed.values()].some((r) => r === 'provider.orderingName'), 'the value line below "Ordered by" is consumed as the ordering name');
+});
+
+const mkLine = (i, cells, cellX, extra = {}) => ({ id: `p1l${i}`, page: 1, y: 40 + 11 * i, x0: cellX[0], x1: 560, text: cells.join('  '), cells, cellX, items: [], ...extra });
+const mkDoc = (lines) => ({ fileName: 'u.pdf', fileHash: '1', pageCount: 1, pages: [{ pageNumber: 1, width: 612, height: 792, lines }] });
+const QHEADER = (i) => mkLine(i, ['Test Name', 'In Range', 'Out of Range', 'Reference Range', 'Lab'], [36, 260, 330, 410, 560]);
+
+test('a result-shaped line the column model cannot parse is left unconsumed, never filed as a comment', () => {
+  const doc = mkDoc([
+    mkLine(0, ['Quest Diagnostics'], [36]),
+    QHEADER(1),
+    mkLine(2, ['LIPID PANEL'], [36]),
+    mkLine(3, ['CHOLESTEROL, TOTAL', '210 H', '<200 mg/dL', 'EZ'], [46, 330, 410, 560]),
+    // two non-name cells that are not a parseable row (garbled value and range, no site code): must NOT become the previous result's comment
+    mkLine(4, ['HDL CHOLESTEROL', 'abc', 'xyz'], [46, 260, 410]),
+    // a genuine comment line is still attached
+    mkLine(5, ['Desirable range <200 mg/dL for primary prevention.'], [46]),
+  ]);
+  const { report, consumed, notes } = parseQuest(doc);
+  assert.equal(report.results.length, 1);
+  assert.ok(!consumed.has('p1l4'), 'unparseable multi-cell line stays unconsumed for the audit');
+  assert.ok(notes.some((n) => n === 'result-shaped line not parsed: p1l4'));
+  assert.equal(report.results[0].comment, 'Desirable range <200 mg/dL for primary prevention.');
+  assert.ok(!/abc|xyz/.test(report.results[0].comment || ''));
+});
+
+test('in table mode, colon-less header labels are not harvested from comment text', () => {
+  const doc = mkDoc([
+    mkLine(0, ['Quest Diagnostics'], [36]),
+    mkLine(1, ['Patient Information'], [36]),
+    mkLine(2, ['DOE, JANE'], [36]),
+    mkLine(3, ['Gender: F'], [36]),
+    QHEADER(4),
+    mkLine(5, ['TSH'], [36]),
+    mkLine(6, ['TSH', '2.15', '0.40-4.50 mIU/L', 'EZ'], [46, 260, 410, 560]),
+    mkLine(7, ['Physician should correlate these results with clinical findings.'], [46]),
+    mkLine(8, ['Patient was fasting at the time of collection.'], [46]),
+    mkLine(9, ['Reported: 10/02/2025 / 05:30 EDT'], [46]),
+  ]);
+  const { report } = parseQuest(doc);
+  assert.equal(report.provider.orderingName, null);
+  assert.equal(report.patient.fullName, 'DOE, JANE');
+  assert.equal(report.specimen.reportedAt, '2025-10-02T05:30', 'an explicit "Label:" is still honored in table mode');
+  assert.match(report.results[0].comment, /Physician should correlate/);
+  assert.match(report.results[0].comment, /Patient was fasting/);
+});
+
+test('"LAST, FIRST" result names never become the patient name', () => {
+  const doc = mkDoc([
+    mkLine(0, ['Quest Diagnostics'], [36]),
+    mkLine(1, ['Patient Information'], [36]),
+    mkLine(2, ['SAMPLE, ALEX'], [36]),
+    mkLine(3, ['DOB: 01/15/1980'], [36]),
+    mkLine(4, ['Gender: M'], [36]),
+    mkLine(5, ['Phone: 609.555.0100'], [36]),
+    mkLine(6, ['Patient ID: 987654'], [36]),
+    mkLine(7, ['CHOLESTEROL, TOTAL'], [36]),         // no table header and no value: looks like "LAST, FIRST" but sits outside the patient block
+    mkLine(8, ['CHOLESTEROL, TOTAL', '210 H', '<200 mg/dL', 'EZ'], [36, 260, 410, 560]),
+  ]);
+  const { report, notes } = parseQuest(doc);
+  assert.equal(report.patient.fullName, 'SAMPLE, ALEX');
+  assert.ok(!notes.some((n) => n.startsWith('conflict:patient.fullName')), notes.join(' | '));
+  assert.equal(report.results.length, 1);
+  assert.equal(report.results[0].value, 210);
+});
+
+test('parser notes carry paths and line ids only, never extracted values', () => {
+  const doc = mkDoc([
+    mkLine(0, ['Quest Diagnostics'], [36]),
+    QHEADER(1),
+    mkLine(2, ['ANA PATTERN', 'SPECKLED-ZZ', '', 'PR'], [46, 260, 410, 560]),
+    mkLine(3, ['ANA TITER', '1:40', '<1:40', 'ez'], [46, 260, 410, 560]),
+  ]);
+  const { report, notes } = parseQuest(doc);
+  assert.equal(report.results.length, 2);
+  assert.equal(report.results[0].fieldStatus.value, 'uncertain');
+  assert.ok(notes.some((n) => /value not recognized/.test(n)), notes.join(' | '));
+  assert.ok(notes.some((n) => /Lab column text is not a site code/.test(n)), notes.join(' | '));
+  for (const n of notes) assert.ok(!/SPECKLED|\bez\b|1:40/.test(n), `note leaks a value: ${n}`);
+});
+
+test('MyQuest without a printed status keeps reportStatus null (never fabricated)', () => {
+  const { doc } = load('myquest-portal');
+  const { report } = parseQuest(doc);
+  assert.equal(report.source.reportStatus, null);
+});
+
 test('parseQuest never throws on an empty or minimal document', () => {
   const r = parseQuest({ fileName: 'x.pdf', fileHash: 'abc', pageCount: 1, pages: [{ pageNumber: 1, width: 612, height: 792, lines: [] }] });
   assert.equal(r.report.results.length, 0);

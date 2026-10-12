@@ -1,6 +1,7 @@
 // Lazy, load-safe access to the extraction/parsing modules written by other parts of the app.
 // Every import is dynamic and wrapped so a missing or broken module degrades to a clear error
 // instead of taking the whole UI down. pdf.js is injected from index.html, never imported here.
+import { useAnalytes } from './reportUtil.js';
 
 let pdfjsLib = null;
 let pdfjsError = null;
@@ -22,6 +23,7 @@ async function load(name) {
   if (name in mods) return mods[name];
   try {
     mods[name] = await import(PATHS[name]);
+    if (name === 'analytes') useAnalytes(mods[name]);
   } catch (e) {
     mods[name] = null;
     errors[name] = e;

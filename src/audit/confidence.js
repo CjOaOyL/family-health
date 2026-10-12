@@ -1,6 +1,6 @@
 // Coverage audit and confidence scoring. Implements docs/SPEC.md §5 exactly.
 import { REQUIRED_FIELDS, IMPORTANT_FIELDS, getPath } from '../model/schema.js';
-import { parsePageOf, isTextValue, isUnitToken, UNIT_RE } from '../parse/common.js';
+import { parsePageOf, isTextValue, isUnitToken, UNIT_RE, FLAG_TOKEN_RE, parseRange, isNARangeText, clean } from '../parse/common.js';
 
 // ---------------------------------------------------------------------------------------------
 // Heuristics (exported so tests can reference them)
@@ -88,7 +88,8 @@ export function isBoilerplate(line) {
  * resultLike(line): ≥1 alphabetic token AND (numeric token followed by a unit-ish token, OR a flag token
  * after a number, OR a range pattern, OR a whole cell that is a recognized text value) AND not boilerplate.
  */
-export function resultLike(line) {
+export function resultLike(line, { strict = false } = {}) {
+  if (strict) return resultRowLike(line);
   const text = typeof line === 'string' ? line : (line && line.text) || '';
   if (!text.trim()) return false;
   if (!/[A-Za-z]{2,}/.test(text)) return false;
@@ -100,6 +101,90 @@ export function resultLike(line) {
   if (cells.length >= 2 && cells.slice(1).some((c) => isCellTextValue(c))) return true;
   return false;
 }
+
+// ---------------------------------------------------------------------------------------------
+// Strict result-row shape (used for lines the parser consumed as comments / wrapped names)
+// ---------------------------------------------------------------------------------------------
+
+/** First cell of a result row: short, label-free, sentence-free test name ("Cholesterol, Total", "25-OH Vitamin D"). */
+const NAME_CELL_RE = /^[A-Za-z0-9(][A-Za-z0-9 ,.()\/\-+%#'&]*$/;
+const NAME_STOP_RE = /^(?:please\s+note|note|comment|comments|ref|reference|desirable|optimal|interpretation|disclaimer|see\s|the\s|this\s|these\s|for\s|results?\s|patient\s|according|method|performed|\.)/i;
+const SENTENCE_WORD_RE = /\b(?:is|are|was|were|the|for|may|should|than|this|these|if|be|been|has|have|using|used|please|note|range|interval|desirable|optimal|according|between|above|below|within|applies|defined|calculated|reported|recommended)\b/i;
+const NAME_ABBREV_RE = /\b(?:Estab|Calc|Abs|Tot|Ser|Pl|Ur|Qn|Ql|Dir|Immun|Bld|Bind|Cap|Sat|Avg|Glu|Hgb|Est|Conc|Chol|Trig|Vit|Hydroxy)\.$/i;
+const LAB_CODE_RE = /^(?:\d{2}|[A-Z]{2,3})$/;
+/** Leading numeric value with optional qualifier and trailing abnormal star: "6.2", "<0.1", ">=60", "1,234", "6.2*", "6.2 *". */
+const VALUE_HEAD_RE = /^(?:[<>]=?|≤|≥)?\s*[-+]?(?:\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?|\.\d+)(?:\s*\*)?/;
+/** The whole cell is nothing but a range: "3.4-10.8", "<200", "> OR = 45", ">=60", "0.0 – 5.0". */
+const RANGE_ONLY_RE = /^(?:[<>]=?|≤|≥|<\s*or\s*=|>\s*or\s*=|less than|greater than|up to)?\s*[-+]?[\d.,]+(?:\s*(?:-|–|—|−|to)\s*[-+]?[\d.,]+|\s*(?:or|and)\s*(?:above|below|higher|lower|greater|less|more))?$/i;
+
+/** Name-like first cell: not a label (no trailing ":"), not a sentence, not a value/unit/flag by itself. */
+export function isNameCell(c) {
+  const t = clean(c);
+  if (!t || t.length > 60) return false;
+  if (!NAME_CELL_RE.test(t)) return false;
+  if ((t.match(/[A-Za-z]/g) || []).length < 2) return false;      // "A1c", "RBC", "eGFR" qualify; "5" / "%" do not
+  if (/\.$/.test(t) && !NAME_ABBREV_RE.test(t)) return false;
+  if (NAME_STOP_RE.test(t) || SENTENCE_WORD_RE.test(t)) return false;
+  if (VALUE_HEAD_RE.test(t) && /^[<>≤≥]?\s*[-+]?[\d.,]+\s*\*?$/.test(t)) return false;
+  if (isUnitToken(t) || FLAG_TOKEN_RE.test(t) || isTextValue(t)) return false;
+  return true;
+}
+
+/** A value cell: number[qualifier][*] optionally followed only by flag / unit tokens ("104 H", "7.9 Thousand/uL", "6.2* %"). */
+export function isValueCell(c) {
+  const t = clean(c);
+  const m = t.match(VALUE_HEAD_RE);
+  if (!m) return false;
+  const rest = t.slice(m[0].length).trim();
+  if (!rest) return true;
+  if (/^[\/:\d]/.test(rest)) return false;              // "01/15/1980", "1:40", "063-123-4567"
+  return rest.split(/\s+/).every((tok) => FLAG_TOKEN_RE.test(tok) || isUnitToken(tok) || /^\((?:calc|calculated)\)$/i.test(tok));
+}
+
+/** A reference-range cell (unit suffix allowed): "3.4-10.8", "<200 mg/dL", "> OR = 45 mg/dL", "Not Estab.", "Negative". */
+export function isRangeCell(c) {
+  const t = clean(c).replace(/\s*\([^)]*\)\s*$/, '');
+  if (!t) return false;
+  const toks = t.split(/\s+/);
+  while (toks.length > 1 && isUnitToken(toks[toks.length - 1])) toks.pop();
+  const core = toks.join(' ');
+  if (isNARangeText(core) || isCellTextValue(core)) return true;
+  const pr = parseRange(core);
+  if (pr.kind == null || pr.kind === 'text') return false;
+  return RANGE_ONLY_RE.test(core);
+}
+
+const isTailCell = (c) => {
+  const t = clean(c);
+  return !!t && (FLAG_TOKEN_RE.test(t) || isUnitToken(t.replace(/\s*\([^)]*\)\s*$/, '')) || LAB_CODE_RE.test(t) || isRangeCell(t) || isCellTextValue(t));
+};
+
+/**
+ * resultRowLike(line): strict table-row shape, used for lines the parser consumed as a comment or wrapped name.
+ * Requires the line to START with a name-like cell followed by a numeric cell, i.e.
+ *   "<Name> <number[qualifier][*]> [flag] [unit] [range] [labcode]"   (≥2 cells, every trailing cell row-shaped), or
+ *   ≥3 cells with a name cell, a numeric cell and a unit/range cell (all other cells row-shaped), or
+ *   ≥3 cells with a name cell, a known text value ("NEGATIVE", "Non Reactive") and only text/range/lab-code cells after it.
+ * Prose that merely mentions a number and a unit ("Desirable range <100 mg/dL for primary prevention") is NOT a row,
+ * because it is a single cell and does not start with a name cell followed by a numeric cell.
+ */
+export function resultRowLike(line) {
+  const text = typeof line === 'string' ? line : (line && line.text) || '';
+  if (!text.trim() || isBoilerplate(text)) return false;
+  const raw = typeof line === 'string' || !Array.isArray(line.cells) ? text.split(/\s{2,}/) : line.cells;
+  const cells = raw.map((c) => clean(c)).filter(Boolean);
+  if (cells.length < 2 || !isNameCell(cells[0])) return false;
+  const tail = cells.slice(1);
+  if (isValueCell(cells[1]) && tail.slice(1).every(isTailCell)) return true;
+  if (cells.length >= 3) {
+    if (tail.some(isValueCell) && tail.some((c) => isUnitToken(c) || isRangeCell(c)) && tail.every((c) => isValueCell(c) || isTailCell(c))) return true;
+    if (isCellTextValue(cells[1]) && tail.slice(1).every((c) => isCellTextValue(c) || LAB_CODE_RE.test(c) || isRangeCell(c))) return true;
+  }
+  return false;
+}
+
+/** Consumed-line tags that hide a line from the unconsumed list but may still have swallowed a result row. */
+export const SUSPICIOUS_TAG_RE = /^comment|wrap/i;
 
 // ---------------------------------------------------------------------------------------------
 // Per-result confidence (§5)
@@ -124,9 +209,13 @@ export function scoreResult(result, hints = {}) {
   if (numeric) {
     const unitMissing = fs.unit === 'missing' || (fs.unit !== 'na' && fs.unit !== 'found' && !result.unit);
     if (unitMissing) c -= RESULT_PENALTIES.missingUnit;
+    // Range (§5): the penalty applies only when NO interval text was printed. A printed text interval is never
+    // penalized: N/A-style text ("Not Estab.", "N/A", "See Note", "Negative", ...) is status 'na'; any other text
+    // interval IS a range and counts as found.
     const rr = result.referenceRange || {};
-    const rangeNA = fs.range === 'na' || (rr.kind === 'text' && rr.text != null);
-    const rangeMissing = !rangeNA && (fs.range === 'missing' || (fs.range !== 'found' && rr.text == null));
+    const rangePrinted = rr.text != null && String(rr.text).trim() !== '';
+    const rangeNA = fs.range === 'na' || (rangePrinted && isNARangeText(rr.text));
+    const rangeMissing = !rangeNA && !rangePrinted && (fs.range === 'missing' || fs.range !== 'found');
     if (rangeMissing) c -= RESULT_PENALTIES.missingRange;
   }
   if (h.wrapped) c -= RESULT_PENALTIES.wrapped;
@@ -221,6 +310,7 @@ export function buildAudit(doc, parseResult, report) {
   // Coverage
   const pages = Array.isArray(doc && doc.pages) ? doc.pages : [];
   const unconsumed = [];
+  const suspiciousConsumed = [];
   let totalLines = 0;
   let consumedLines = 0;
   let declared = null;
@@ -229,11 +319,21 @@ export function buildAudit(doc, parseResult, report) {
       totalLines++;
       const po = parsePageOf(line.text);
       if (po && (declared == null || po.of > declared)) declared = po.of;
-      if (consumed.has(line.id)) { consumedLines++; continue; }
+      if (consumed.has(line.id)) {
+        consumedLines++;
+        // Audit blindness guard: a line swallowed as a comment (or as a wrapped-name continuation) that itself has the
+        // full shape of a result row was most likely a dropped result. Count it like an unconsumed result-like line.
+        const tag = String(consumed.get(line.id) ?? '');
+        if (SUSPICIOUS_TAG_RE.test(tag) && resultRowLike(line)) {
+          suspiciousConsumed.push({ lineId: line.id, page: line.page ?? page.pageNumber, text: line.text, tag });
+        }
+        continue;
+      }
       unconsumed.push({ lineId: line.id, page: line.page ?? page.pageNumber, text: line.text, resultLike: resultLike(line) });
     }
   }
   const resultLikeUnconsumed = unconsumed.filter((u) => u.resultLike).length;
+  const resultLikeTotal = resultLikeUnconsumed + suspiciousConsumed.length;
 
   // Pages
   const seen = (doc && doc.pageCount) || pages.length;
@@ -248,7 +348,7 @@ export function buildAudit(doc, parseResult, report) {
   // Overall
   const requiredFrac = foundFraction(fields, REQUIRED_FIELDS);
   const importantFrac = foundFraction(fields, IMPORTANT_FIELDS);
-  const coverageFrac = 1 - resultLikeUnconsumed / Math.max(1, results.length + resultLikeUnconsumed);
+  const coverageFrac = 1 - resultLikeTotal / Math.max(1, results.length + resultLikeTotal);
   const pagesFrac = pagesComplete ? 1 : 0.5 * (declared ? seen / declared : 1);
   let overall = WEIGHTS.required * requiredFrac + WEIGHTS.important * importantFrac + WEIGHTS.coverage * coverageFrac + WEIGHTS.pages * pagesFrac;
 
@@ -266,6 +366,12 @@ export function buildAudit(doc, parseResult, report) {
     warnings.push(resultLikeUnconsumed === 1
       ? `1 line that looks like a result was not parsed; review the unconsumed lines. Overall score capped at ${CAPS.resultLikeUnconsumed}.`
       : `${resultLikeUnconsumed} lines that look like results were not parsed; review the unconsumed lines. Overall score capped at ${CAPS.resultLikeUnconsumed}.`);
+  }
+  if (suspiciousConsumed.length > 0) {
+    overall = Math.min(overall, CAPS.resultLikeUnconsumed);
+    const n = suspiciousConsumed.length;
+    const ids = suspiciousConsumed.map((s) => s.lineId).join(', ');
+    warnings.push(`${n} line${n === 1 ? '' : 's'} consumed as comments look${n === 1 ? 's' : ''} like result row${n === 1 ? '' : 's'} (${ids}); the parser may have dropped ${n === 1 ? 'this result' : 'these results'}. Overall score capped at ${CAPS.resultLikeUnconsumed}.`);
   }
   if (!pagesComplete) {
     warnings.push(`The report declares ${declared} pages but only ${seen} ${seen === 1 ? 'was' : 'were'} found; the PDF may be truncated.`);
@@ -287,7 +393,7 @@ export function buildAudit(doc, parseResult, report) {
     overall,
     label,
     fields,
-    coverage: { totalLines, consumedLines, unconsumed, resultLikeUnconsumed },
+    coverage: { totalLines, consumedLines, unconsumed, resultLikeUnconsumed, suspiciousConsumed, resultLikeTotal },
     pages: pagesInfo,
     results: resultsInfo,
     warnings,

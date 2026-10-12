@@ -11,9 +11,14 @@
 //   { row:[name, valueText, value, qualifier, unit, flagPrinted, rangeText, low, high, kind, lab],
 //     wrapAbove:'first part' | wrapBelow:'second part' }   result row (name printed at x=42); the
 //                                       expected object is typed here, not computed
+//     row options: merge:'flag' prints "142 Low" as ONE cell; merge:'unit+flag' prints "11.9 g/dL Low" as one
+//       cell; single:true prints the whole row as one cell (space-joined); rightAlign:true right-aligns the
+//       value cell 8pt before the FLAG column; dx:n shifts every non-name cell by n; expectFlag overrides the
+//       expected flag (e.g. 'A' for a "6.2*" value with no printed flag)
 //   { note:'text', lab:'01' }           comment line under the previous row (attached in expected)
 //   { y:number } / { gap:n }            absolute y / extra blank space before the line
-//   { table:true }                      table header line (TESTS … LAB); { table:'portal' } uses Test Name …
+//   { table:true }                      table header line (TESTS … LAB); { table:'portal' } uses Test Name …;
+//                                       { table:'split' } prints REFERENCE and INTERVAL as two cells
 //   { legend:[code, site, name, address, director, phone] }   performing-lab footer line
 //   { footer:[dateIssued, STATUS, 'Page x of y'] }
 
@@ -53,20 +58,30 @@ function build(name, pagesSpec) {
       if (s.table) {
         const labels = s.table === 'portal' ? ['Test Name', 'Result', 'Flag', 'Units', 'Reference Interval', 'Lab']
           : ['TESTS', 'RESULT', 'FLAG', 'UNITS', 'REFERENCE INTERVAL', 'LAB'];
+        if (s.table === 'split') {
+          push([[COLS.name, labels[0]], [COLS.result, labels[1]], [COLS.flag, labels[2]], [COLS.units, labels[3]], [COLS.ref, 'REFERENCE'], [COLS.ref + 55, 'INTERVAL'], [COLS.lab, labels[5]]]);
+          continue;
+        }
         push([[COLS.name, labels[0]], [COLS.result, labels[1]], [COLS.flag, labels[2]], [COLS.units, labels[3]], [COLS.ref, labels[4]], [COLS.lab, labels[5]]]);
         continue;
       }
       if (s.panel) { panel = { name: s.panel, resultIds: [], page: pageNumber }; expected.panels.push(panel); push([[COLS.name, s.panel]]); lastResult = null; continue; }
       if (s.row) {
         const [n, vt, v, q, u, f, rt, lo, hi, kind, lab] = s.row;
+        const dx = s.dx || 0;
+        let valueCell = vt, flagCell = f, unitCell = u;
+        if (s.merge === 'flag' && f) { valueCell = `${vt} ${f}`; flagCell = null; }
+        if (s.merge === 'unit+flag') { valueCell = [vt, u, f].filter(Boolean).join(' '); flagCell = null; unitCell = null; }
+        const vx = s.rightAlign ? Math.round(COLS.flag - 8 - valueCell.length * CW) : COLS.result + dx;
         if (s.wrapAbove) push([[COLS.nameRow, s.wrapAbove]]);
-        push([[COLS.nameRow, n], [COLS.result, vt], [COLS.flag, f], [COLS.units, u], [COLS.ref, rt], [COLS.lab, lab]]);
+        if (s.single) push([[COLS.nameRow, [n, valueCell, flagCell, unitCell, rt, lab].filter(Boolean).join(' ')]]);
+        else push([[COLS.nameRow, n], [vx, valueCell], [COLS.flag + dx, flagCell], [COLS.units + dx, unitCell], [COLS.ref + dx, rt], [COLS.lab + dx, lab]]);
         if (s.wrapBelow) push([[COLS.nameRow, s.wrapBelow]]);
         const id = `r${++rid}`;
         const fullName = s.wrapAbove ? `${s.wrapAbove} ${n}` : s.wrapBelow ? `${n} ${s.wrapBelow}` : n;
         lastResult = {
           id, panel: panel ? panel.name : null, name: fullName, valueText: vt, value: v, valueQualifier: q,
-          unit: u ?? null, flag: FLAG_MAP[f] ?? null,
+          unit: u ?? null, flag: s.expectFlag !== undefined ? s.expectFlag : (FLAG_MAP[f] ?? null),
           referenceRange: { text: rt ?? null, low: lo, high: hi, kind },
           performingLabCode: lab ?? null, comment: null, page: pageNumber,
         };
@@ -376,6 +391,84 @@ write('edge-cases', edgePages, {
     enteredAt: '2024-05-20', reportedAt: '2024-05-21T09:12', fasting: null },
   provider: { orderingName: 'R DOE', referringName: null, npi: '1234567893', accountNumber: '55566677', accountName: 'SAMPLE CLINIC',
     address: null, phone: null, fax: null },
+  performingLabs: [
+    { code: '01', name: 'LabCorp Burlington', address: '1447 York Court, Burlington, NC 272153361', director: 'Pat Example, MD', clia: null, phone: '800-555-0101' },
+    { code: '02', name: 'LabCorp Phoenix', address: '5005 S 40th St Ste 1100, Phoenix, AZ 850403222', director: 'Chris Sample, MD', clia: null, phone: '800-555-0102' },
+  ],
+});
+
+// =====================================================================================
+// robust-cases: SAMPLE, ROBIN — one layout quirk per parser fix:
+//   page 1: no table header (shape fallback); "Ordering:" / "Patient ID:" with the value on the line BELOW;
+//           account block in the LEFT column with the first panel two lines under it; "142 Low" and
+//           "11.9 g/dL Low" as single cells; a whole row in one cell; "6.2*" star value; labelled A1c notes
+//           ("Prediabetes: 5.7 - 6.4", "Diabetes: >6.4") directly above the next row
+//   page 2: table header split as REFERENCE | INTERVAL; rows printed 15pt left of the header; right-aligned
+//           values; an in-table comment that looks like a performing-lab legend ("50 TO 100 mg/dL is ...");
+//           a short note with a range above a row; panel headings with function words not in Ordered Items
+// =====================================================================================
+const robustHeader = () => [
+  { cells: [[36, 'Labcorp'], [430, 'Patient Report']] },
+  'SAMPLE, ROBIN',
+  { hdr: ['Patient Details', 'Specimen Details', 'Physician Details'] },
+  { hdr: ['DOB: 04/02/1975', 'Date collected: 06/10/2025 0745 Local', 'Ordering:'] },
+  { hdr: ['Age: 50', 'Date received: 06/10/2025', 'K LEE'] },
+  { hdr: ['Gender: F', 'Date entered: 06/10/2025', 'Referring:'] },
+  { hdr: ['Patient ID:', 'Date reported: 06/11/2025 0930 ET', 'NPI: 1234567893'] },
+  { hdr: ['200300400', 'Specimen ID: 063-555-1212-0', ''] },
+  { hdr: ['Account Number: 22334455', '', ''] },
+  { hdr: ['SAMPLE INTERNAL MEDICINE', '', ''] },
+  { hdr: ['77 FAKE ROAD', '', ''] },
+];
+const robustFooter = (pg, labs) => [
+  ...labs.map((l, i) => (i === 0 ? { legend: l, y: 700 } : { legend: l })),
+  { footer: ['06/11/25 0930 ET', 'FINAL REPORT', `Page ${pg} of 2`] },
+  COPYRIGHT,
+];
+const robustPages = [
+  [
+    ...robustHeader(),
+    'Ordered Items: CBC With Differential/Platelet; Hemoglobin A1c; Lipid Panel',
+    { panel: 'CBC With Differential/Platelet', gap: 0.5 },
+    { row: ['WBC', '7.7', 7.7, null, 'x10E3/uL', null, '3.4-10.8', 3.4, 10.8, 'range', '01'] },
+    { row: ['Platelets', '142', 142, null, 'x10E3/uL', 'Low', '150-450', 150, 450, 'range', '01'], merge: 'flag' },
+    { row: ['Hemoglobin', '11.9', 11.9, null, 'g/dL', 'Low', '13.0-17.7', 13.0, 17.7, 'range', '01'], merge: 'unit+flag' },
+    { row: ['MCV', '101', 101, null, 'fL', 'High', '79-97', 79, 97, 'range', '01'], single: true },
+    { panel: 'Hemoglobin A1c' },
+    { row: ['Hemoglobin A1c', '6.2*', 6.2, null, '%', null, '4.8-5.6', 4.8, 5.6, 'range', '01'], expectFlag: 'A' },
+    { note: 'Please Note:', lab: '01' },
+    { note: 'Prediabetes: 5.7 - 6.4' },
+    { note: 'Diabetes: >6.4' },
+    { row: ['Glucose (eAG)', '131', 131, null, 'mg/dL', null, null, null, null, null, '01'] },
+    ...robustFooter(1, [LAB01]),
+  ],
+  [
+    ...robustHeader(),
+    { table: 'split', gap: 0.5 },
+    { panel: 'Lipid Panel' },
+    { row: ['Cholesterol, Total', '210', 210, null, 'mg/dL', 'High', '100-199', 100, 199, 'range', '01'], dx: -15 },
+    { row: ['Triglycerides', '98', 98, null, 'mg/dL', null, '0-149', 0, 149, 'range', '01'], dx: -15 },
+    { row: ['HDL Cholesterol', '58', 58, null, 'mg/dL', null, '>39', 39, null, 'gt', '01'], rightAlign: true },
+    { note: '50 TO 100 mg/dL is the optimal target' },
+    { row: ['LDL Chol Calc (NIH)', '135', 135, null, 'mg/dL', 'High', '0-99', 0, 99, 'range', '01'], rightAlign: true, merge: 'flag' },
+    { note: 'Fasting 8-12 hours' },
+    { row: ['Chol/HDL Ratio', '3.6', 3.6, null, 'ratio', null, '0.0-5.0', 0.0, 5.0, 'range', '01'] },
+    { panel: 'Thyroid Panel With TSH' },
+    { row: ['TSH', '2.410', 2.41, null, 'uIU/mL', null, '0.450-4.500', 0.45, 4.5, 'range', '01'] },
+    { row: ['Thyroxine (T4)', '7.9', 7.9, null, 'ug/dL', null, '4.5-12.0', 4.5, 12.0, 'range', '01'] },
+    { panel: 'Iron and TIBC' },
+    { row: ['Iron', '85', 85, null, 'ug/dL', null, '27-159', 27, 159, 'range', '02'] },
+    ...robustFooter(2, [LAB01, LAB02]),
+  ],
+];
+write('robust-cases', robustPages, {
+  source: { vendor: 'labcorp', pageCount: 2, reportStatus: 'final' },
+  patient: { fullName: 'SAMPLE, ROBIN', lastName: 'SAMPLE', firstName: 'ROBIN', middleName: null, dob: '1975-04-02', sex: 'F',
+    ageAtCollection: 50, patientId: '200300400', phone: null },
+  specimen: { specimenId: '063-555-1212-0', collectedAt: '2025-06-10T07:45', collectedTz: 'Local', receivedAt: '2025-06-10',
+    enteredAt: '2025-06-10', reportedAt: '2025-06-11T09:30', fasting: null },
+  provider: { orderingName: 'K LEE', referringName: null, npi: '1234567893', accountNumber: '22334455', accountName: 'SAMPLE INTERNAL MEDICINE',
+    address: '77 FAKE ROAD', phone: null, fax: null },
   performingLabs: [
     { code: '01', name: 'LabCorp Burlington', address: '1447 York Court, Burlington, NC 272153361', director: 'Pat Example, MD', clia: null, phone: '800-555-0101' },
     { code: '02', name: 'LabCorp Phoenix', address: '5005 S 40th St Ste 1100, Phoenix, AZ 850403222', director: 'Chris Sample, MD', clia: null, phone: '800-555-0102' },

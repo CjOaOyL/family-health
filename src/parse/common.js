@@ -5,6 +5,15 @@ const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8,
 const pad2 = (n) => String(n).padStart(2, '0');
 
 /**
+ * Two-digit year → four-digit year. A date can be at most one year in the future (next year's
+ * report date), so "26" → 2026 but "49" → 1949 and "80" → 1980. Exported for tests (`now` is overridable).
+ */
+export function expandTwoDigitYear(y, now = new Date()) {
+  const currentYear = now.getFullYear();
+  return 2000 + y > currentYear + 1 ? 1900 + y : 2000 + y;
+}
+
+/**
  * Parse a US-style date/time as printed by Labcorp or Quest.
  * Accepts: "03/04/2025", "03/04/25", "03/04/2025 0815 Local", "03/04/2025 08:15 EDT",
  *          "03/04/2025 / 08:15 EDT", "03/05/25 1023 ET", "Mar 04, 2025", "2025-03-04".
@@ -18,7 +27,7 @@ export function parseUSDate(input) {
   let mt = s.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{2}|\d{4})(?:\b|\s)(.*)$/);
   if (mt) {
     m = +mt[1]; d = +mt[2]; y = +mt[3]; rest = mt[4] || '';
-    if (mt[3].length === 2) y += y < 50 ? 2000 : 1900;
+    if (mt[3].length === 2) y = expandTwoDigitYear(y);
   } else if ((mt = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T\s](.*))?$/))) {
     y = +mt[1]; m = +mt[2]; d = +mt[3]; rest = mt[4] || '';
   } else if ((mt = s.match(/^([A-Za-z]{3,9})\.?\s+(\d{1,2}),?\s+(\d{4})(.*)$/))) {
@@ -56,7 +65,7 @@ export function findDate(text) {
   return m ? parseUSDate(m[1]) : null;
 }
 
-const NUM_RE = /^([<>]=?|≤|≥)?\s*([-+]?\d{1,3}(?:,\d{3})+(?:\.\d+)?|[-+]?\d*\.?\d+)\s*$/;
+const NUM_RE = /^([<>]=?|≤|≥)?\s*([-+]?\d{1,3}(?:,\d{3})+(?:\.\d+)?|[-+]?\d*\.?\d+)\s*(\*)?\s*$/;
 export const NUMERIC_TOKEN_RE = /(?:[<>]=?)?\s*[-+]?\d{1,3}(?:,\d{3})*(?:\.\d+)?|(?:[<>]=?)?\s*[-+]?\d*\.\d+/;
 
 const TEXT_VALUES = [
@@ -65,19 +74,29 @@ const TEXT_VALUES = [
   'N/A', 'NA', 'PENDING', 'CANCELED', 'CANCELLED', 'TNP', 'QNS', 'CLEAR', 'YELLOW', 'STRAW', 'AMBER', 'INDETERMINATE',
   'EQUIVOCAL', 'INCONCLUSIVE', 'FEW', 'MODERATE', 'MANY', 'RARE', 'OCCASIONAL', 'ADEQUATE', 'INSUFFICIENT', 'SUFFICIENT',
   'COMMENT', 'NOT CALCULATED', 'NOT CALC.', 'NOT APPLICABLE', 'IMMUNE', 'NON-IMMUNE', 'HIGH', 'LOW', 'NOT INDICATED',
+  'NONE DETECTED', 'NONE', 'UNDETECTABLE', 'INSUFFICIENT SAMPLE', 'INSUFFICIENT SPECIMEN', 'NOT CALC', 'NOT ESTABLISHED',
+  'NOT REPORTED', 'NOT PERFORMED', 'NOT TESTED', 'NOT DONE', 'NOT AVAILABLE', 'INVALID', 'HEMOLYZED', 'LIPEMIC', 'ICTERIC',
 ];
-const TEXT_VALUE_SET = new Set(TEXT_VALUES);
+/** Canonical spelling for lookup: uppercase, whitespace and hyphens collapsed to one space, trailing "*" dropped. */
+const textKey = (s) => String(s).toUpperCase().replace(/\*+$/, '').replace(/[\s\-]+/g, ' ').trim();
+const TEXT_VALUE_SET = new Set(TEXT_VALUES.map(textKey));
 
-/** True when the token is a recognized non-numeric result value ("NEGATIVE", "Not Estab.", "1:40" ...). */
+/**
+ * True when the token is a recognized non-numeric result value ("NEGATIVE", "Not Estab.", "Non Reactive",
+ * "None Detected", "1:40", "<1:80" ...). Whitespace/hyphens are interchangeable and a trailing "*" is ignored.
+ */
 export function isTextValue(tok) {
   if (!tok) return false;
-  const t = tok.trim().toUpperCase().replace(/\s+/g, ' ');
-  return TEXT_VALUE_SET.has(t) || /^\d+:\d+$/.test(t) || /^[<>]\s*\d+:\d+$/.test(t);
+  const t = textKey(tok);
+  if (!t) return false;
+  return TEXT_VALUE_SET.has(t) || /^\d+:\d+$/.test(t) || /^[<>]=? ?\d+:\d+$/.test(t);
 }
 
 /**
  * Parse a printed result value.
- * Returns { valueText, value: number|null, qualifier: '<'|'>'|'<='|'>='|null, isText: boolean } or null if not value-like.
+ * Returns { valueText, value: number|null, qualifier: '<'|'>'|'<='|'>='|null, isText: boolean, starFlag: boolean }
+ * or null if not value-like. `starFlag` is true when the value carries a trailing abnormal marker ("6.2*", "6.2 *");
+ * parsers should map it to flag 'A' when no other flag is printed. valueText is kept as printed (including the "*").
  */
 export function parseValue(raw) {
   if (raw == null) return null;
@@ -88,37 +107,63 @@ export function parseValue(raw) {
     let q = m[1] || null;
     if (q === '≤') q = '<='; if (q === '≥') q = '>=';
     const value = parseFloat(m[2].replace(/,/g, ''));
-    if (Number.isFinite(value)) return { valueText: text, value, qualifier: q, isText: false };
+    if (Number.isFinite(value)) return { valueText: text, value, qualifier: q, isText: false, starFlag: !!m[3] };
   }
-  if (isTextValue(text)) return { valueText: text, value: null, qualifier: null, isText: true };
+  if (isTextValue(text)) return { valueText: text, value: null, qualifier: null, isText: true, starFlag: /\*\s*$/.test(text) };
   return null;
 }
 
-/** Parse a reference interval string → { text, low, high, kind } (kind: range|lt|gt|le|ge|text|null). */
+/** Number inside a reference interval: "1,250", "1500", "0.45", ".5", "-2.0". Any digit count (with optional thousands commas). */
+const RANGE_NUM = /[-+]?\d{1,3}(?:,\d{3})+(?:\.\d+)?|[-+]?\d+(?:\.\d+)?|[-+]?\.\d+/.source;
+const S = (re) => re.source;   // compose regexes from literals (no escaped strings)
+const RANGE_RE_BETWEEN = new RegExp(`^(${RANGE_NUM})${S(/\s*(?:-|to)\s*/)}(${RANGE_NUM})${S(/(?![\d.,])/)}`);
+const RANGE_RE_LT = new RegExp(`${S(/^(?:<|less than)\s*(=)?\s*/)}(${RANGE_NUM})${S(/(?![\d.,:])/)}`, 'i');
+const RANGE_RE_GT = new RegExp(`${S(/^(?:>|greater than)\s*(=)?\s*/)}(${RANGE_NUM})${S(/(?![\d.,:])/)}`, 'i');
+const RANGE_RE_OR_ABOVE = new RegExp(`^(${RANGE_NUM})${S(/\s*(?:or|and)\s*(?:above|higher|greater|more)/)}`, 'i');
+const RANGE_RE_OR_BELOW = new RegExp(`^(${RANGE_NUM})${S(/\s*(?:or|and)\s*(?:below|lower|less)/)}`, 'i');
+const RANGE_RE_UP_TO = new RegExp(`${S(/^up to\s*/)}(${RANGE_NUM})`, 'i');
+const TITER_RE = /^(?:[<>]=?|≤|≥)?\s*\d+:\d+/;
+
+/**
+ * Reference-interval text that means "no numeric interval applies" (never penalized as a missing range):
+ * "Not Estab.", "N/A", "Not Applicable", "See Note", "Negative", "Non Reactive", "None Detected", "None", "Not Detected", "Normal".
+ */
+export const NA_RANGE_RE = /^(?:not\s*estab(?:lished)?\.?|n\/?a|not\s+applicable|none|see\s+(?:note|below|comment)|negative|neg\.?|non[\s\-]?reactive|none\s+(?:detected|seen)|not\s+detected|normal|absent|not\s+indicated|not\s+calc(?:ulated|\.)?|tnp)\s*(?:\(.*\))?$/i;
+export const isNARangeText = (text) => text != null && NA_RANGE_RE.test(String(text).trim());
+
+/**
+ * Normalize the spelling of a printed interval before parsing: unicode minus / en dash / em dash → "-",
+ * "< OR = 4.0" → "<= 4.0", "> OR = 60" → ">= 60", "≤"/"≥" → "<="/">=", "=<"/"=>" → "<="/">=".
+ */
+export function normalizeRangeText(s) {
+  return String(s)
+    .replace(/[\u2212\u2010\u2011\u2012\u2013\u2014]/g, '-')
+    .replace(/≤/g, '<=').replace(/≥/g, '>=')
+    .replace(/<\s*or\s*=/gi, '<=').replace(/>\s*or\s*=/gi, '>=')
+    .replace(/=\s*</g, '<=').replace(/=\s*>/g, '>=')
+    .replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Parse a reference interval string → { text, low, high, kind } (kind: range|lt|gt|le|ge|text|null).
+ * `text` is the printed text (whitespace collapsed). Handles "3.4-10.8", "1500-7800", "10,000-20,000", "0.0 – 5.0",
+ * "<200", "< OR = 4.0", ">=60", "> OR = 60", "0-1 /HPF" (trailing unit ignored), "70-99 (Fasting)".
+ * Titers ("<1:80", ">1:640", "1:40") and words ("Not Estab.", "Negative", "Non Reactive", "None Detected") are kind 'text'.
+ */
 export function parseRange(raw) {
   if (raw == null) return { text: null, low: null, high: null, kind: null };
-  let text = String(raw).trim().replace(/\s+/g, ' ');
+  const text = String(raw).trim().replace(/\s+/g, ' ');
   if (!text) return { text: null, low: null, high: null, kind: null };
-  const core = text.replace(/\s*\([^)]*\)\s*$/, '').trim();        // drop trailing "(Fasting)" / "(see note)"
-  const num = '[-+]?\\d{1,3}(?:,\\d{3})*(?:\\.\\d+)?|[-+]?\\d*\\.\\d+';
+  const core = normalizeRangeText(text).replace(/\s*\([^)]*\)\s*$/, '').trim();   // drop trailing "(Fasting)" / "(see note)"
   const toN = (s) => parseFloat(s.replace(/,/g, ''));
   let m;
-  if ((m = core.match(new RegExp(`^(${num})\\s*(?:-|–|—|to)\\s*(${num})\\b`)))) {
-    return { text, low: toN(m[1]), high: toN(m[2]), kind: 'range' };
-  }
-  if ((m = core.match(new RegExp(`^(?:<|less than)\\s*=?\\s*(${num})`, 'i')))) {
-    const le = /^<\s*=|^≤/.test(core);
-    return { text, low: null, high: toN(m[1]), kind: le ? 'le' : 'lt' };
-  }
-  if ((m = core.match(new RegExp(`^≤\\s*(${num})`)))) return { text, low: null, high: toN(m[1]), kind: 'le' };
-  if ((m = core.match(new RegExp(`^(?:>|greater than)\\s*=?\\s*(${num})`, 'i')))) {
-    const ge = /^>\s*=|^≥/.test(core);
-    return { text, low: toN(m[1]), high: null, kind: ge ? 'ge' : 'gt' };
-  }
-  if ((m = core.match(new RegExp(`^≥\\s*(${num})`)))) return { text, low: toN(m[1]), high: null, kind: 'ge' };
-  if ((m = core.match(new RegExp(`^(${num})\\s*(?:or|and)\\s*(?:above|higher|greater)`, 'i')))) return { text, low: toN(m[1]), high: null, kind: 'ge' };
-  if ((m = core.match(new RegExp(`^(${num})\\s*(?:or|and)\\s*(?:below|lower|less)`, 'i')))) return { text, low: null, high: toN(m[1]), kind: 'le' };
-  if ((m = core.match(new RegExp(`^up to\\s*(${num})`, 'i')))) return { text, low: null, high: toN(m[1]), kind: 'le' };
+  if (TITER_RE.test(core)) return { text, low: null, high: null, kind: 'text' };
+  if ((m = core.match(RANGE_RE_BETWEEN))) return { text, low: toN(m[1]), high: toN(m[2]), kind: 'range' };
+  if ((m = core.match(RANGE_RE_LT))) return { text, low: null, high: toN(m[2]), kind: m[1] ? 'le' : 'lt' };
+  if ((m = core.match(RANGE_RE_GT))) return { text, low: toN(m[2]), high: null, kind: m[1] ? 'ge' : 'gt' };
+  if ((m = core.match(RANGE_RE_OR_ABOVE))) return { text, low: toN(m[1]), high: null, kind: 'ge' };
+  if ((m = core.match(RANGE_RE_OR_BELOW))) return { text, low: null, high: toN(m[1]), kind: 'le' };
+  if ((m = core.match(RANGE_RE_UP_TO))) return { text, low: null, high: toN(m[1]), kind: 'le' };
   return { text, low: null, high: null, kind: 'text' };
 }
 
@@ -216,4 +261,45 @@ export function parseAge(raw) {
   if (u.startsWith('M')) return Math.round((n / 12) * 100) / 100;
   if (u.startsWith('D')) return Math.round((n / 365) * 100) / 100;
   return n;
+}
+
+const escapeLabel = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
+
+/**
+ * splitLabels(text, labels) — split a header cell that carries several "Label: value" pairs, e.g.
+ *   "DOB: 01/15/1980  AGE: 45  Gender: M"  →  [{ label: 'DOB', key: 'dob', value: '01/15/1980' },
+ *                                               { label: 'AGE', key: 'age', value: '45' },
+ *                                               { label: 'Gender', key: 'gender', value: 'M' }]
+ * `labels` is the caller's known label list: an array of strings, an array of [label, key] pairs, or a Map/object
+ * label → key. Matching is case-insensitive, tolerant of extra spaces inside the label, and longest-label-first
+ * ("Date collected" wins over "Date"). Each label must be followed by ":" (an optional "#" before the colon is
+ * allowed, so "Lab Ref #: 123" and "Client #: 5" work with labels "Lab Ref"/"Client" or "Lab Ref #"/"Client #").
+ * The value of each pair runs to the next label. Text before the first label is returned as the non-enumerable
+ * `prefix` property of the array (e.g. a patient name printed before "DOB:"). Returns [] when no label matches.
+ * `key` is the caller's key when pairs/Map were given, else the label lower-cased.
+ */
+export function splitLabels(text, labels) {
+  const out = [];
+  Object.defineProperty(out, 'prefix', { value: '', writable: true, enumerable: false });
+  if (!text || !labels) return out;
+  const defs = [];
+  if (labels instanceof Map) for (const [l, k] of labels) defs.push([String(l), k]);
+  else if (Array.isArray(labels)) for (const d of labels) defs.push(Array.isArray(d) ? [String(d[0]), d[1]] : [String(d), null]);
+  else for (const [l, k] of Object.entries(labels)) defs.push([l, k]);
+  if (!defs.length) return out;
+  const keyOf = new Map(defs.map(([l, k]) => [l.toLowerCase().replace(/\s+/g, ' '), k == null ? l.toLowerCase() : k]));
+  const alt = defs.map((d) => d[0]).sort((a, b) => b.length - a.length).map(escapeLabel).join('|');
+  const re = new RegExp(`(?<![A-Za-z0-9])(${alt})\\s*#?\\s*:\\s*`, 'gi');
+  const s = String(text);
+  let last = null; let m;
+  while ((m = re.exec(s))) {
+    if (last) last.value = s.slice(last.end, m.index).trim();
+    else out.prefix = s.slice(0, m.index).trim();
+    const label = m[1];
+    last = { label, key: keyOf.get(label.toLowerCase().replace(/\s+/g, ' ')) ?? label.toLowerCase(), value: '', end: m.index + m[0].length };
+    out.push(last);
+  }
+  if (last) last.value = s.slice(last.end).trim();
+  for (const p of out) delete p.end;
+  return out;
 }

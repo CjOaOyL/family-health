@@ -30,7 +30,7 @@ function assertSubset(actual, expected, where = '$') {
 const fixtures = readdirSync(DIR).filter((f) => f.endsWith('.doc.json')).map((f) => f.replace(/\.doc\.json$/, ''));
 assert.ok(fixtures.length >= 3, 'expected at least three Labcorp fixtures');
 
-const FULLY_CONSUMED = ['classic-3page', 'portal-2023', 'edge-cases'];
+const FULLY_CONSUMED = ['classic-3page', 'portal-2023', 'edge-cases', 'robust-cases'];
 
 for (const name of fixtures) {
   const doc = load(`${name}.doc.json`);
@@ -222,6 +222,135 @@ test('performing-lab legend parses when the extractor did not split it into cell
   const { report } = parseLabcorp(doc);
   assert.deepEqual(report.performingLabs[1], { code: '02', name: 'LabCorp Phoenix', address: '5005 S 40th St Ste 1100, Phoenix, AZ 850403222',
     director: 'Chris Sample, MD', clia: null, phone: '800-555-0102' });
+});
+
+// ---------------- robustness fixes (fixtures/labcorp/robust-cases) ----------------
+test('robust-cases: header values printed on the line below their label are taken, with both lines as evidence', () => {
+  const doc = load('robust-cases.doc.json');
+  const { report, consumed, notes, fieldEvidence } = parseLabcorp(doc);
+  assert.equal(report.provider.orderingName, 'K LEE');
+  assert.equal(report.patient.patientId, '200300400');
+  assert.deepEqual(fieldEvidence['provider.orderingName'], ['p1l4', 'p1l3', 'p2l4', 'p2l3']);
+  assert.deepEqual(fieldEvidence['patient.patientId'], ['p1l7', 'p1l6', 'p2l7', 'p2l6']);
+  assert.equal(consumed.get('p1l4'), 'header');                 // "Age: 50 | Date received: ... | K LEE"
+  assert.ok(!notes.some((n) => /Unrecognized header fragment/.test(n)), notes.join('\n'));
+  // account block in the left column, no table header: the first panel two lines below it is NOT eaten as the address
+  assert.equal(report.provider.accountName, 'SAMPLE INTERNAL MEDICINE');
+  assert.equal(report.provider.address, '77 FAKE ROAD');
+  assert.equal(consumed.get('p1l12'), 'panel');
+  assert.equal(report.panels[0].name, 'CBC With Differential/Platelet');
+});
+
+test('robust-cases: value+flag / value+unit+flag in one cell, star values, whole row in one cell', () => {
+  const doc = load('robust-cases.doc.json');
+  const { report, consumed } = parseLabcorp(doc);
+  const by = (n) => report.results.find((r) => r.name === n);
+  const plt = by('Platelets');                                   // "142 Low" as one cell
+  assert.equal(plt.valueText, '142'); assert.equal(plt.value, 142); assert.equal(plt.flag, 'L'); assert.equal(plt.unit, 'x10E3/uL');
+  assert.equal(plt.fieldStatus.value, 'found'); assert.equal(plt.fieldStatus.flag, 'found'); assert.equal(plt.confidence, 1);
+  const hgb = by('Hemoglobin');                                  // "11.9 g/dL Low" as one cell
+  assert.equal(hgb.value, 11.9); assert.equal(hgb.unit, 'g/dL'); assert.equal(hgb.flag, 'L'); assert.equal(hgb.referenceRange.high, 17.7);
+  const a1c = by('Hemoglobin A1c');                              // "6.2*": printed text kept, value parsed, star → flag A
+  assert.equal(a1c.valueText, '6.2*'); assert.equal(a1c.value, 6.2); assert.equal(a1c.flag, 'A'); assert.equal(a1c.fieldStatus.flag, 'found');
+  const mcv = by('MCV');                                         // "MCV 101 High fL 79-97 01" as ONE cell → relaxed split
+  assert.ok(mcv, 'single-cell row recovered');
+  assert.equal(mcv.value, 101); assert.equal(mcv.flag, 'H'); assert.equal(mcv.unit, 'fL');
+  assert.deepEqual([mcv.referenceRange.low, mcv.referenceRange.high], [79, 97]); assert.equal(mcv.performingLabCode, '01');
+  assert.equal(mcv.confidence, 0.9);                             // −0.1 misaligned hint for the relaxed parse
+  assert.equal(consumed.get(mcv.lineIds[0]), `result:${mcv.id}`);
+});
+
+test('robust-cases: labelled notes and short notes with ranges are comments, never wrapped names', () => {
+  const doc = load('robust-cases.doc.json');
+  const { report } = parseLabcorp(doc);
+  const by = (n) => report.results.find((r) => r.name === n);
+  const a1c = by('Hemoglobin A1c');
+  assert.equal(a1c.comment, 'Please Note:\nPrediabetes: 5.7 - 6.4\nDiabetes: >6.4');
+  assert.ok(by('Glucose (eAG)'), 'row after "Diabetes: >6.4" keeps its own name');
+  assert.ok(!report.results.some((r) => /Diabetes|Prediabetes/.test(r.name)), 'no note hijacked as a name');
+  const ldl = by('LDL Chol Calc (NIH)');
+  assert.equal(ldl.comment, 'Fasting 8-12 hours');
+  assert.ok(by('Chol/HDL Ratio'), 'row after "Fasting 8-12 hours" keeps its own name');
+  assert.deepEqual(report.comments.filter((c) => c.attachedTo == null), [], 'every comment is attached');
+});
+
+test('robust-cases: legend-shaped in-table comment is not a performing lab; function-word panel headings are panels', () => {
+  const doc = load('robust-cases.doc.json');
+  const { report } = parseLabcorp(doc);
+  const by = (n) => report.results.find((r) => r.name === n);
+  assert.deepEqual(report.performingLabs.map((l) => l.code), ['01', '02']);
+  assert.equal(by('HDL Cholesterol').comment, '50 TO 100 mg/dL is the optimal target');
+  assert.deepEqual(report.panels.map((p) => [p.name, p.resultIds.length, p.page]), [
+    ['CBC With Differential/Platelet', 4, 1], ['Hemoglobin A1c', 2, 1], ['Lipid Panel', 5, 2],
+    ['Thyroid Panel With TSH', 2, 2], ['Iron and TIBC', 1, 2],
+  ]);
+  assert.equal(by('TSH').panel, 'Thyroid Panel With TSH');
+  assert.equal(by('Iron').panel, 'Iron and TIBC');
+});
+
+test('robust-cases: split REFERENCE | INTERVAL header is learned; drifted and right-aligned rows keep every column', () => {
+  const doc = load('robust-cases.doc.json');
+  const { report, consumed } = parseLabcorp(doc);
+  const by = (n) => report.results.find((r) => r.name === n);
+  const hdr = doc.pages[1].lines.find((l) => l.cells[0] === 'TESTS');
+  assert.deepEqual(hdr.cells.slice(4, 6), ['REFERENCE', 'INTERVAL']);
+  assert.equal(consumed.get(hdr.id), 'table.header');
+  for (const n of ['Cholesterol, Total', 'Triglycerides']) {      // rows 15pt left of the header labels
+    const r = by(n);
+    assert.equal(r.unit, 'mg/dL', n); assert.equal(r.fieldStatus.range, 'found', n); assert.equal(r.performingLabCode, '01', n);
+    assert.equal(r.confidence, 1, `${n} is not penalized as misaligned`);
+  }
+  assert.equal(by('Cholesterol, Total').flag, 'H');
+  const hdl = by('HDL Cholesterol');                              // value right-aligned just before the FLAG column
+  assert.equal(hdl.value, 58); assert.equal(hdl.unit, 'mg/dL'); assert.equal(hdl.referenceRange.kind, 'gt'); assert.equal(hdl.confidence, 1);
+  const ldl = by('LDL Chol Calc (NIH)');                           // right-aligned "135 High" in one cell
+  assert.equal(ldl.value, 135); assert.equal(ldl.flag, 'H'); assert.equal(ldl.referenceRange.high, 99);
+  assert.equal(report.results.length, 14);
+});
+
+test('a result-like line the probe cannot parse is retried with a relaxed split (header learned)', () => {
+  const doc = load('classic-3page.doc.json');
+  const l = doc.pages[1].lines.find((x) => x.cells[0] === 'BUN');
+  l.cells = ['BUN 15 mg/dL 6-24 01']; l.cellX = [42]; l.text = l.cells[0];
+  const { report, consumed } = parseLabcorp(doc);
+  const bun = report.results.find((r) => r.name === 'BUN');
+  assert.ok(bun, 'BUN recovered from a single-cell line');
+  assert.equal(bun.value, 15); assert.equal(bun.unit, 'mg/dL'); assert.deepEqual([bun.referenceRange.low, bun.referenceRange.high], [6, 24]);
+  assert.equal(bun.performingLabCode, '01'); assert.equal(bun.confidence, 0.9);
+  assert.equal(consumed.get(l.id), `result:${bun.id}`);
+  assert.equal(report.results.length, 49);
+});
+
+test('a row-shaped line with no name to attach to is left UNCONSUMED, not filed as a comment', () => {
+  const doc = load('edge-cases.doc.json');
+  const l = doc.pages[0].lines.find((x) => x.cells[0] === 'T3 Uptake');
+  l.cells = ['30 mIU/L 24-39 01']; l.cellX = [42]; l.text = l.cells[0];   // value + unit + range + lab, but no name
+  const { report, consumed, notes } = parseLabcorp(doc);
+  assert.ok(!consumed.has(l.id), 'line stays unconsumed for the audit');
+  assert.ok(notes.includes(`Result-like line could not be parsed at ${l.id}`), notes.join('\n'));
+  assert.ok(!report.results.some((r) => r.name === 'T3 Uptake'));
+  assert.ok(!report.results.some((r) => r.comment && r.comment.includes('24-39')), 'not swallowed into a comment');
+  assert.ok(!report.comments.some((c) => c.text.includes('24-39')));
+  assert.equal(report.results.length, 14);
+  // the rows around it are unaffected
+  assert.ok(report.results.find((r) => r.name === 'Thyroxine (T4)'));
+  assert.ok(report.results.find((r) => r.name === 'Free Thyroxine Index'));
+});
+
+test('parser notes name the field path and line ids, never the conflicting or stray values', () => {
+  const doc = load('classic-3page.doc.json');
+  const l = doc.pages[1].lines.find((x) => x.text.startsWith('DOB:'));
+  l.cells[0] = 'DOB: 01/16/1980'; l.text = l.text.replace('01/15/1980', '01/16/1980');
+  const stray = doc.pages[2].lines.find((x) => x.text.startsWith('Age:'));
+  stray.cells.push('ZZSTRAYZZ'); stray.cellX.push(300); stray.text += '  ZZSTRAYZZ';
+  const { notes } = parseLabcorp(doc);
+  const conflict = notes.find((n) => n.startsWith('conflict:patient.dob:'));
+  assert.ok(conflict, notes.join('\n'));
+  assert.match(conflict, /^conflict:patient\.dob: value at p2l\d+ differs from p1l\d+/);
+  assert.ok(!/1980/.test(conflict), 'conflict note must not contain the values');
+  const frag = notes.find((n) => n.startsWith('Unrecognized header fragment'));
+  assert.equal(frag, `Unrecognized header fragment at ${stray.id}`);
+  assert.ok(!notes.some((n) => /ZZSTRAYZZ|01\/1[56]\/1980|1980-01-1[56]/.test(n)), notes.join('\n'));
 });
 
 test('parseLabcorp tolerates an empty document', () => {
