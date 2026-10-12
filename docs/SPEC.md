@@ -214,7 +214,7 @@ Cover at least: CBC with differential (absolute + %), CMP (14), lipid panel (+ V
 ## 8. App (`app/`, `index.html`)
 Views (hash router): **Import** (drop/choose PDF → parse in browser → Review), **Review** (header fields with status chips, result table with per-row confidence, unconsumed lines panel, page completeness, inline edit of any field creates an override saved with the report; Save assigns to a family member matched by name+DOB or lets user pick), **Family** (members list, counts), **Results** (per member, filter by analyte/vendor/date, table), **Compare** (pick member + analyte → timeline chart with vendor as series, reference band from latest ranges; or pick two reports side-by-side by canonicalId), **Settings** (export/import JSON backup, clear data, optional assist key, redacted diagnostic export, parser version + re-parse stored PDFs).
 - Charts are inline SVG, no chart library. Vendor color is consistent across the app.
-- IndexedDB stores: `reports` (LabReport + overrides), `members` ({id, name, dob, sex}), `files` (original PDF bytes, toggle default ON) so the user can re-parse after parser updates.
+- IndexedDB (version 2) stores: `reports` (record: id, memberId, overrides, orphanedOverrides, report, savedAt, updatedAt), `members` ({id, name, dob, sex, createdAt, updatedAt}), `files` (original PDF bytes, toggle default ON) so the user can re-parse after parser updates, `settings` (key/value; only `keepFiles` is exported in backups), `tombstones` ({id, kind, deletedAt} left by every delete so sync can propagate it).
 - Everything must work on phone width.
 
 ## 9. Optional LLM assist (`src/assist/`) — phase 2, scaffold only
@@ -229,3 +229,11 @@ Interface `assistUnparsed({ fragments: string[], vendor }) → Array<{ fragment,
 
 ## 11. Versioning
 `PARSER_VERSION = '1.0.0'` exported from `src/parse/index.js`. Bump on any parser change; the app shows it and offers re-parse of stored PDFs when it changes.
+
+## 12. Cross-device sync (Google Drive)
+See `docs/SYNC.md` for details. Summary of the contract:
+- `src/sync/merge.js`: `merge(local, remote) → { merged, localChanges, remoteChanged, summary }`, pure. Newer `updatedAt` wins per id; a tombstone wins when `deletedAt >= updatedAt`, else the record is resurrected.
+- `src/sync/drive.js`: `createSyncEngine({ db, fetch, getToken }) → { sync(), ensureFileBytes(hash), deleteAllRemote() }`. DOM-free; all Drive I/O goes through the injected fetch. Snapshot file `family-health-sync.json` and `pdf-<fileHash>.pdf` files, all in `appDataFolder`.
+- `app/sync.js`: Google Identity Services token client, scope `drive.appdata` only, tokens in memory only, triggers (start, after writes, visibility, manual) with 1.5 s debounce, nav status pill.
+- Client id: `app/config.js` `GOOGLE_CLIENT_ID`, overridable by the `googleClientId` setting (never exported in backups).
+- CSP additions: script-src + frame-src `https://accounts.google.com`; connect-src `https://www.googleapis.com https://oauth2.googleapis.com`. No other host may be added.

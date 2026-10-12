@@ -6,14 +6,21 @@
 //   members  { id, name, dob, sex, createdAt }
 //   files    { id = fileHash, bytes: ArrayBuffer, fileName }
 //   settings { key, value }
+//   tombstones { id, kind: 'member'|'report', deletedAt }   (v2) a delete leaves a tombstone so Drive sync can
+//            propagate it to other devices; a later write of the same id removes the tombstone (resurrect).
+//
+// Version history:
+//   1  reports, members, files, settings
+//   2  + tombstones store; every member gets updatedAt (= createdAt or migration time); every report gets
+//      updatedAt (= existing updatedAt, else savedAt, else migration time). Sync merges by updatedAt.
 
 export const DB_NAME = 'family-health';
-export const DB_VERSION = 1;
-export const STORES = ['reports', 'members', 'files', 'settings'];
+export const DB_VERSION = 2;
+export const STORES = ['reports', 'members', 'files', 'settings', 'tombstones'];
 
 let dbPromise = null;
 
-function upgrade(db) {
+function upgrade(db, oldVersion, txn) {
   if (!db.objectStoreNames.contains('reports')) {
     const s = db.createObjectStore('reports', { keyPath: 'id' });
     s.createIndex('memberId', 'memberId', { unique: false });
@@ -21,6 +28,26 @@ function upgrade(db) {
   if (!db.objectStoreNames.contains('members')) db.createObjectStore('members', { keyPath: 'id' });
   if (!db.objectStoreNames.contains('files')) db.createObjectStore('files', { keyPath: 'id' });
   if (!db.objectStoreNames.contains('settings')) db.createObjectStore('settings', { keyPath: 'key' });
+  if (!db.objectStoreNames.contains('tombstones')) {
+    const t = db.createObjectStore('tombstones', { keyPath: 'id' });
+    t.createIndex('kind', 'kind', { unique: false });
+  }
+  if (oldVersion > 0 && oldVersion < 2 && txn) {
+    // v1 -> v2: stamp updatedAt on every existing member and report so the sync merge can order them.
+    const stamp = nowIso();
+    const walk = (store, fn) => {
+      const req = store.openCursor();
+      req.onsuccess = () => {
+        const cur = req.result;
+        if (!cur) return;
+        const v = cur.value;
+        if (fn(v)) cur.update(v);
+        cur.continue();
+      };
+    };
+    walk(txn.objectStore('members'), (m) => { if (!m.updatedAt) { m.updatedAt = m.createdAt || stamp; return true; } return false; });
+    walk(txn.objectStore('reports'), (r) => { if (!r.updatedAt) { r.updatedAt = r.savedAt || stamp; return true; } return false; });
+  }
 }
 
 export function openDb() {
@@ -28,7 +55,7 @@ export function openDb() {
   dbPromise = new Promise((resolve, reject) => {
     if (typeof indexedDB === 'undefined') { reject(new Error('IndexedDB is not available in this browser')); return; }
     const req = indexedDB.open(DB_NAME, DB_VERSION);
-    req.onupgradeneeded = () => upgrade(req.result);
+    req.onupgradeneeded = (e) => upgrade(req.result, e.oldVersion || 0, req.transaction);
     req.onsuccess = () => {
       const db = req.result;
       db.onversionchange = () => { db.close(); dbPromise = null; };
@@ -86,7 +113,8 @@ export async function putReport(rec) {
   };
   // Never persist transient in-memory fields.
   delete record.doc; delete record.bytes; delete record.error; delete record.stored;
-  await tx('reports', 'readwrite', (s) => reqToPromise(s.put(record)));
+  // Writing a record resurrects it: drop any tombstone with the same id.
+  await tx(['reports', 'tombstones'], 'readwrite', async ([s, t]) => { await reqToPromise(s.put(record)); await reqToPromise(t.delete(record.id)); });
   return record;
 }
 
@@ -104,8 +132,13 @@ export async function listReports(memberId) {
   return (rows || []).sort((a, b) => (key(a) < key(b) ? 1 : key(a) > key(b) ? -1 : 0));
 }
 
+/** Delete a report and leave a tombstone so the deletion syncs to other devices. */
 export function deleteReport(id) {
-  return tx('reports', 'readwrite', (s) => reqToPromise(s.delete(id)));
+  const deletedAt = nowIso();
+  return tx(['reports', 'tombstones'], 'readwrite', async ([s, t]) => {
+    await reqToPromise(s.delete(id));
+    await reqToPromise(t.put({ id, kind: 'report', deletedAt }));
+  });
 }
 
 // ---------- members ----------
@@ -118,8 +151,9 @@ export async function putMember(m) {
     dob: m.dob ?? null,
     sex: m.sex ?? null,
     createdAt: m.createdAt || nowIso(),
+    updatedAt: nowIso(),
   };
-  await tx('members', 'readwrite', (s) => reqToPromise(s.put(member)));
+  await tx(['members', 'tombstones'], 'readwrite', async ([s, t]) => { await reqToPromise(s.put(member)); await reqToPromise(t.delete(member.id)); });
   return member;
 }
 
@@ -132,22 +166,76 @@ export async function listMembers() {
   return (rows || []).sort((a, b) => String(a.name).localeCompare(String(b.name)));
 }
 
-/** Delete a member; reports assigned to it become unassigned (memberId = null). */
+/** Delete a member (leaving a tombstone); reports assigned to it become unassigned (memberId = null). */
 export function deleteMember(id) {
-  return tx(['members', 'reports'], 'readwrite', async ([members, reports]) => {
+  const at = nowIso();
+  return tx(['members', 'reports', 'tombstones'], 'readwrite', async ([members, reports, tombs]) => {
     await reqToPromise(members.delete(id));
+    await reqToPromise(tombs.put({ id, kind: 'member', deletedAt: at }));
     const assigned = await reqToPromise(reports.index('memberId').getAll(id));
-    for (const r of assigned || []) { r.memberId = null; await reqToPromise(reports.put(r)); }
+    for (const r of assigned || []) { r.memberId = null; r.updatedAt = at; await reqToPromise(reports.put(r)); }
   });
 }
 
-/** Reassign every report from one member to another and delete the source member. */
+/** Reassign every report from one member to another and delete the source member (tombstoned). */
 export function mergeMembers(fromId, intoId) {
   if (fromId === intoId) return Promise.resolve();
-  return tx(['members', 'reports'], 'readwrite', async ([members, reports]) => {
+  const at = nowIso();
+  return tx(['members', 'reports', 'tombstones'], 'readwrite', async ([members, reports, tombs]) => {
     const assigned = await reqToPromise(reports.index('memberId').getAll(fromId));
-    for (const r of assigned || []) { r.memberId = intoId; if (r.report?.patient) r.report.patient.memberId = intoId; await reqToPromise(reports.put(r)); }
+    for (const r of assigned || []) { r.memberId = intoId; if (r.report?.patient) r.report.patient.memberId = intoId; r.updatedAt = at; await reqToPromise(reports.put(r)); }
     await reqToPromise(members.delete(fromId));
+    await reqToPromise(tombs.put({ id: fromId, kind: 'member', deletedAt: at }));
+  });
+}
+
+// ---------- tombstones + sync metadata ----------
+
+export async function listTombstones() {
+  const rows = await tx('tombstones', 'readonly', (s) => reqToPromise(s.getAll()));
+  return rows || [];
+}
+
+const SYNC_META_KEY = 'syncMeta';
+
+/** { lastSyncAt, snapshotDriveId, deviceId, remoteModifiedTime, localDigest } - never exported in backups. */
+export async function getSyncMeta() {
+  const m = await getSetting(SYNC_META_KEY, null);
+  return m && typeof m === 'object' ? { ...m } : { lastSyncAt: null, snapshotDriveId: null, deviceId: null };
+}
+
+export async function setSyncMeta(patch) {
+  const cur = await getSyncMeta();
+  const next = { ...cur, ...(patch || {}) };
+  await setSetting(SYNC_META_KEY, next);
+  return next;
+}
+
+/**
+ * Apply the result of a sync merge in one transaction WITHOUT re-stamping updatedAt (the timestamps come
+ * from whichever device made the change). Removing a report also drops its stored PDF.
+ * changes: { members: [], reports: [], tombstones: [], removeMembers: [], removeReports: [], removeTombstones: [] }
+ */
+export function applySyncChanges(changes = {}) {
+  const c = {
+    members: changes.members || [], reports: changes.reports || [], tombstones: changes.tombstones || [],
+    removeMembers: changes.removeMembers || [], removeReports: changes.removeReports || [], removeTombstones: changes.removeTombstones || [],
+  };
+  const n = c.members.length + c.reports.length + c.tombstones.length + c.removeMembers.length + c.removeReports.length + c.removeTombstones.length;
+  if (!n) return Promise.resolve(0);
+  return tx(['members', 'reports', 'tombstones', 'files'], 'readwrite', async ([ms, rs, ts, fs]) => {
+    for (const m of c.members) if (m && m.id) await reqToPromise(ms.put(m));
+    for (const r of c.reports) {
+      if (!r || !r.id || !r.report) continue;
+      const rec = { ...r, overrides: r.overrides && typeof r.overrides === 'object' ? r.overrides : {}, memberId: r.memberId ?? null };
+      delete rec.doc; delete rec.bytes; delete rec.error; delete rec.stored;
+      await reqToPromise(rs.put(rec));
+    }
+    for (const t of c.tombstones) if (t && t.id && t.kind && t.deletedAt) await reqToPromise(ts.put({ id: t.id, kind: t.kind, deletedAt: t.deletedAt }));
+    for (const id of c.removeMembers) await reqToPromise(ms.delete(id));
+    for (const id of c.removeReports) { await reqToPromise(rs.delete(id)); await reqToPromise(fs.delete(id)); }
+    for (const id of c.removeTombstones) await reqToPromise(ts.delete(id));
+    return n;
   });
 }
 
@@ -222,10 +310,11 @@ export const EXPORTABLE_SETTINGS = ['keepFiles'];
 
 /** JSON-able snapshot of everything. Files are included as base64 when includeFiles is true. */
 export async function exportAll({ includeFiles = false } = {}) {
-  const [reports, members, settings] = await Promise.all([
+  const [reports, members, settings, tombstones] = await Promise.all([
     tx('reports', 'readonly', (s) => reqToPromise(s.getAll())),
     tx('members', 'readonly', (s) => reqToPromise(s.getAll())),
     tx('settings', 'readonly', (s) => reqToPromise(s.getAll())),
+    tx('tombstones', 'readonly', (s) => reqToPromise(s.getAll())),
   ]);
   const out = {
     app: 'family-health',
@@ -233,6 +322,7 @@ export async function exportAll({ includeFiles = false } = {}) {
     exportedAt: nowIso(),
     members: members || [],
     reports: reports || [],
+    tombstones: tombstones || [],
     settings: (settings || []).filter((s) => s && EXPORTABLE_SETTINGS.includes(s.key)).map((s) => ({ key: s.key, value: s.value })),
   };
   if (includeFiles) {
@@ -253,20 +343,31 @@ export async function importAll(obj, { merge = true } = {}) {
   const reports = Array.isArray(obj.reports) ? obj.reports : [];
   const settings = Array.isArray(obj.settings) ? obj.settings : [];
   const files = Array.isArray(obj.files) ? obj.files : [];
+  const tombstones = Array.isArray(obj.tombstones) ? obj.tombstones : [];
   if (!merge) await clearAll();
-  const counts = { members: 0, reports: 0, settings: 0, files: 0, skipped: 0 };
-  await tx(['members', 'reports', 'settings'], 'readwrite', async ([ms, rs, ss]) => {
-    for (const m of members) { if (m && m.id) { await reqToPromise(ms.put(m)); counts.members++; } else counts.skipped++; }
+  const counts = { members: 0, reports: 0, settings: 0, files: 0, tombstones: 0, skipped: 0 };
+  const at = nowIso();
+  await tx(['members', 'reports', 'settings', 'tombstones'], 'readwrite', async ([ms, rs, ss, ts]) => {
+    // Imported records are stamped "now": a restored backup wins over older copies on other devices.
+    for (const m of members) { if (m && m.id) { await reqToPromise(ms.put({ ...m, updatedAt: at })); await reqToPromise(ts.delete(m.id)); counts.members++; } else counts.skipped++; }
     for (const r of reports) {
       let rec = r;
       if (rec && !rec.report && rec.results && rec.source) rec = { id: rec.id, memberId: rec.patient?.memberId ?? null, overrides: {}, report: rec };
       if (rec && rec.id && rec.report) {
-        rec = { ...rec, overrides: rec.overrides || {}, memberId: rec.memberId ?? null, savedAt: rec.savedAt || nowIso(), updatedAt: nowIso() };
+        rec = { ...rec, overrides: rec.overrides || {}, memberId: rec.memberId ?? null, savedAt: rec.savedAt || at, updatedAt: at };
         delete rec.doc; delete rec.bytes;
-        await reqToPromise(rs.put(rec)); counts.reports++;
+        await reqToPromise(rs.put(rec)); await reqToPromise(ts.delete(rec.id)); counts.reports++;
       } else counts.skipped++;
     }
     for (const s of settings) { if (s && s.key && EXPORTABLE_SETTINGS.includes(s.key)) { await reqToPromise(ss.put({ key: s.key, value: s.value })); counts.settings++; } else counts.skipped++; }
+    // Tombstones: keep the newer of local/backup, and never shadow a record the backup itself restores.
+    const restored = new Set(members.map((m) => m && m.id).concat(reports.map((r) => r && r.id)));
+    for (const t of tombstones) {
+      if (!t || !t.id || !t.kind || !t.deletedAt || restored.has(t.id)) { counts.skipped++; continue; }
+      const cur = await reqToPromise(ts.get(t.id));
+      if (cur && cur.deletedAt >= t.deletedAt) continue;
+      await reqToPromise(ts.put({ id: t.id, kind: t.kind, deletedAt: t.deletedAt })); counts.tombstones++;
+    }
   });
   if (files.length) {
     await tx('files', 'readwrite', async (fs) => {
@@ -282,8 +383,21 @@ export async function importAll(obj, { merge = true } = {}) {
   return counts;
 }
 
+/** Settings keys used by Drive sync (app/sync.js). Kept here so clearAll knows about them. */
+export const CLIENT_ID_SETTING = 'googleClientId';
+export const DRIVE_CONNECTED_SETTING = 'driveConnected';
+
+/**
+ * Wipe every store on this device. The Google OAuth Client ID (a configuration value, not family data)
+ * survives so the user does not have to paste it again; the Drive connection flag and sync metadata do not.
+ */
 export function clearAll() {
-  return tx(STORES, 'readwrite', async (stores) => { for (const s of stores) await reqToPromise(s.clear()); });
+  return tx(STORES, 'readwrite', async (stores) => {
+    const settings = stores[STORES.indexOf('settings')];
+    const keep = await reqToPromise(settings.get(CLIENT_ID_SETTING));
+    for (const s of stores) await reqToPromise(s.clear());
+    if (keep && keep.value) await reqToPromise(settings.put(keep));
+  });
 }
 
 export async function counts() {

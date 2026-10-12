@@ -2,6 +2,7 @@
 import { el, clear, errorBox } from './ui.js';
 import { setPdfjs } from './pipeline.js';
 import { parseHash, pendingCount, onSessionChange } from './state.js';
+import { initSync, onSyncStatus, getSyncStatus, statusLabel, needsSignIn, connect, SYNC_EVENT } from './sync.js';
 import * as importView from './views/import.js';
 import * as reviewView from './views/review.js';
 import * as familyView from './views/family.js';
@@ -41,8 +42,28 @@ function buildNav() {
   }
   clear(bar).appendChild(el('div', { class: 'topbar-inner' },
     el('a', { class: 'brand', href: '#/import' }, el('span', { class: 'dot', 'aria-hidden': 'true' }), APP_NAME),
+    syncPill(),
     nav));
   updateBadge();
+}
+
+/** Small Drive status pill: "Drive: synced 2 min ago" etc. Click → Settings (or straight to Google sign-in when needed). */
+function syncPill() {
+  const pill = el('a', { class: 'sync-pill', href: '#/settings', title: 'Google Drive sync status', dataset: { state: 'not-connected' } }, statusLabel(getSyncStatus()));
+  const refresh = () => {
+    const s = getSyncStatus();
+    pill.textContent = statusLabel(s);
+    pill.dataset.state = s.status;
+    pill.title = s.message ? `Google Drive sync: ${s.message}` : 'Google Drive sync status';
+  };
+  onSyncStatus(refresh);
+  setInterval(refresh, 30 * 1000);
+  pill.addEventListener('click', (e) => {
+    if (!needsSignIn()) return;
+    e.preventDefault();
+    connect();
+  });
+  return pill;
 }
 
 function updateBadge() {
@@ -82,6 +103,13 @@ export function start({ pdfjsLib, pdfjsError } = {}) {
   setPdfjs(pdfjsLib, pdfjsError);
   buildNav();
   onSessionChange(updateBadge);
+  // Drive sync: only does anything when the user connected it earlier on this device.
+  initSync().catch(() => {});
+  // Remote changes landed: redraw list views so they show the new data (Review is left alone — it may hold edits).
+  window.addEventListener(SYNC_EVENT, () => {
+    const { name } = parseHash();
+    if (['family', 'results', 'compare', 'settings'].includes(name)) route();
+  });
   // Pending imports live only in memory: warn before a reload/close would silently drop them.
   window.addEventListener('beforeunload', (e) => {
     if (pendingCount() > 0) { e.preventDefault(); e.returnValue = ''; }

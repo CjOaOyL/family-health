@@ -9,10 +9,15 @@ your device, and lets you compare results across vendors and over time.
 ## Privacy model
 
 - Extraction is deterministic code (layout + pattern parsing), not an AI model.
-  Your PDF never leaves the browser. The only network request is loading the
-  pdf.js library itself from cdnjs; the page's Content-Security-Policy forbids
-  every other connection.
+  Parsing happens entirely in the browser. Until you connect Google Drive, the
+  only network request is loading the pdf.js library from cdnjs.
 - Data lives in your browser's IndexedDB. Use Settings → Export to back it up.
+- Optional cross-device sync stores the records (and PDFs, if kept) in the
+  hidden app folder of **your own Google Drive**, readable only by this app's
+  client id. It is off until you connect it in Settings; see
+  `docs/GOOGLE-DRIVE-SETUP.md`. The page's Content-Security-Policy allows
+  connections to Google only (accounts.google.com, googleapis.com) and nothing
+  else.
 - The optional "assist" feature (not yet enabled) would only ever send redacted
   leftover text fragments, and only if you paste your own API key.
 - The folder `private/` is git-ignored. Put real PDFs there for local checks.

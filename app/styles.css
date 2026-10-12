@@ -191,6 +191,36 @@ code, .mono { font-family: var(--mono); font-size: 0.9em; }
 @media (min-width: 640px) {
   .nav { flex-basis: auto; }
 }
+.sync-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  max-width: 60vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sync-pill::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--muted); flex: 0 0 auto; }
+.sync-pill[data-state="synced"]::before { background: var(--good); }
+.sync-pill[data-state="syncing"]::before { background: var(--accent); animation: sync-pulse 1s ease-in-out infinite; }
+.sync-pill[data-state="idle"]::before { background: var(--accent); }
+.sync-pill[data-state="offline"]::before { background: var(--warning); }
+.sync-pill[data-state="needs-auth"]::before { background: var(--warning); }
+.sync-pill[data-state="error"]::before { background: var(--critical); }
+.sync-pill[data-state="error"] { color: var(--critical-text); }
+.sync-pill[data-state="needs-auth"] { color: var(--warning-text); }
+.sync-pill:hover { background: var(--surface-3); }
+@keyframes sync-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@media (prefers-reduced-motion: reduce) { .sync-pill[data-state="syncing"]::before { animation: none; } }
+@media (max-width: 479px) { .sync-pill { font-size: 0.7rem; padding: 1px 7px; } }
 
 /* ---------- cards / sections ---------- */
 .card {

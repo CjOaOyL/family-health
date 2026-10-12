@@ -5,7 +5,8 @@ import { session, removePending, nextPending, navigate, hashFor } from '../state
 import { effectiveReport, validateOverride, getPathAny, matchMember, membersSharingDob, displayNameFromReport, rangeText, SETTING_KEEP_FILES, resultPath, resolveOverrides, migrateOverrides, reportHasNoText } from '../reportUtil.js';
 import { extractAndParse, getParserVersion, hasPdfjs, getAnalytesModule } from '../pipeline.js';
 import { REQUIRED_FIELDS, IMPORTANT_FIELDS } from '../../src/model/schema.js';
-import { getReport, putReport, putFile, getFile, listMembers, putMember, getSetting, listFileIds, deleteReport, deleteFile } from '../../src/store/db.js';
+import { getReport, putReport, putFile, listMembers, putMember, getSetting, listFileIds, deleteReport, deleteFile } from '../../src/store/db.js';
+import { requestSync, ensureFileBytes, remoteFileIds } from '../sync.js';
 
 export const title = 'Review';
 
@@ -41,7 +42,8 @@ export async function render(root, { id }) {
 
   const members = await listMembers();
   const fileIds = await listFileIds().catch(() => []);
-  const hasStoredFile = fileIds.includes(id);
+  // The PDF may live only in Drive (saved on another device): re-parse can fetch it on demand.
+  const hasStoredFile = fileIds.includes(id) || remoteFileIds().includes(id);
   const parserVersion = await getParserVersion();
   const keepFiles = await getSetting(SETTING_KEEP_FILES, true);
 
@@ -194,6 +196,7 @@ export async function render(root, { id }) {
       if (rec.doc) session.docs.set(rec.id, rec.doc);
       const next = nextPending(rec.id);
       removePending(rec.id);
+      requestSync('save');
       toast(memberId ? 'Report saved' : 'Report saved (no member assigned)');
       if (next) navigate(hashFor('review', next));
       else if (memberId) navigate(hashFor('results', null, { member: memberId }));
@@ -206,8 +209,13 @@ export async function render(root, { id }) {
   async function reparse() {
     const { rec } = state;
     let bytes = rec.bytes;
-    if (!bytes) { const f = await getFile(rec.id); bytes = f?.bytes || null; }
-    if (!bytes) { toast('No stored PDF bytes for this report'); return; }
+    if (!bytes) {
+      toast('Fetching the stored PDF…');
+      const f = await ensureFileBytes(rec.id, { fileName: rec.fileName || rec.report?.source?.fileName || null });
+      bytes = f?.bytes || null;
+      if (f && f.source === 'drive') state.hasStoredFile = true;
+    }
+    if (!bytes) { toast('No stored PDF for this report on this device or in Drive'); return; }
     toast('Re-parsing…');
     // Overrides are keyed by stable result keys (migrated above), so they re-attach by line + name, not by id.
     const { doc, report, error } = await extractAndParse(bytes, rec.fileName || rec.report?.source?.fileName || 'report.pdf');
@@ -227,6 +235,7 @@ export async function render(root, { id }) {
     await deleteReport(state.rec.id);
     await deleteFile(state.rec.id).catch(() => {});
     removePending(state.rec.id);
+    requestSync('report-delete');
     toast('Report deleted');
     navigate('#/family');
   }

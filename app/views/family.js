@@ -2,6 +2,7 @@
 import { el, clear, append, button, chip, fmtDate, toast, select, emptyState, vendorChip, notice } from '../ui.js';
 import { hashFor } from '../state.js';
 import { listMembers, listReports, putMember, deleteMember, mergeMembers } from '../../src/store/db.js';
+import { requestSync } from '../sync.js';
 
 export const title = 'Family';
 
@@ -50,6 +51,7 @@ export async function render(root) {
     const add = button('Add member', async () => {
       if (!name.value.trim()) { toast('Name is required'); name.focus(); return; }
       await putMember({ name: name.value.trim(), dob: dob.value || null, sex: sex.value || null });
+      requestSync('member-add');
       toast('Member added');
       await draw();
     }, { kind: 'primary' });
@@ -85,7 +87,7 @@ export async function render(root) {
       const sex = select({ placeholder: 'Sex', value: m.sex || '', options: [{ value: 'F', label: 'F' }, { value: 'M', label: 'M' }, { value: 'U', label: 'U' }] });
       clear(li);
       append(li, name, dob, sex,
-        button('Save', async () => { await putMember({ ...m, name: name.value.trim() || m.name, dob: dob.value || null, sex: sex.value || null }); toast('Member updated'); await draw(); }, { small: true, kind: 'primary' }),
+        button('Save', async () => { await putMember({ ...m, name: name.value.trim() || m.name, dob: dob.value || null, sex: sex.value || null }); requestSync('member-rename'); toast('Member updated'); await draw(); }, { small: true, kind: 'primary' }),
         button('Cancel', main, { small: true, kind: 'ghost' }));
       name.focus();
     };
@@ -99,6 +101,7 @@ export async function render(root) {
           const into = others.find((o) => o.id === target.value);
           if (!confirm(`Move ${reports.length} report(s) from “${m.name}” to “${into.name}” and delete “${m.name}”?`)) return;
           await mergeMembers(m.id, into.id);
+          requestSync('member-merge');
           toast('Members merged');
           await draw();
         }, { small: true, kind: 'primary' }),
@@ -107,6 +110,7 @@ export async function render(root) {
     const remove = async () => {
       if (!confirm(`Delete “${m.name}”? ${reports.length ? `Its ${reports.length} report(s) will stay stored but become unassigned.` : ''}`)) return;
       await deleteMember(m.id);
+      requestSync('member-delete');
       toast('Member deleted');
       await draw();
     };
