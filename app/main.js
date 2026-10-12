@@ -105,10 +105,11 @@ export function start({ pdfjsLib, pdfjsError } = {}) {
   onSessionChange(updateBadge);
   // Drive sync: only does anything when the user connected it earlier on this device.
   initSync().catch(() => {});
-  // Remote changes landed: redraw list views so they show the new data (Review is left alone — it may hold edits).
+  // Remote changes landed: redraw list views so they show the new data. Review and Settings are left alone — they
+  // may hold unsaved input (edits, a half-typed Client ID); Settings updates its own status line via onSyncStatus.
   window.addEventListener(SYNC_EVENT, () => {
     const { name } = parseHash();
-    if (['family', 'results', 'compare', 'settings'].includes(name)) route();
+    if (['family', 'results', 'compare'].includes(name)) route();
   });
   // Pending imports live only in memory: warn before a reload/close would silently drop them.
   window.addEventListener('beforeunload', (e) => {

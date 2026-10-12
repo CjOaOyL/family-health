@@ -262,6 +262,7 @@ export async function render(root, { id }) {
       const m = await putMember({ name: suggested || 'Unnamed', dob: report.patient?.dob || null, sex: report.patient?.sex || null });
       state.members = await listMembers();
       rec.memberId = m.id; state.dirty = true;
+      requestSync('member-add');
       toast(`Member ${m.name} created`);
       draw();
     }, { small: true });

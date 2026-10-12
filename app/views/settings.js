@@ -3,7 +3,7 @@
 import { el, clear, append, button, chip, select, fmtDate, toast, download, notice, errorBox, copyText, vendorLabel, todayIso } from '../ui.js';
 import { SETTING_KEEP_FILES, effectiveReport, migrateOverrides, resolveOverrides } from '../reportUtil.js';
 import { moduleStatus, extractAndParse, redact, hasPdfjs, getAnalytesModule } from '../pipeline.js';
-import { exportAll, importAll, clearAll, getSetting, setSetting, counts, listReports, listFileMeta, putReport, listMembers } from '../../src/store/db.js';
+import { exportAll, importAll, getSetting, setSetting, counts, listReports, listFileMeta, putReport, listMembers } from '../../src/store/db.js';
 import { getSyncStatus, onSyncStatus, connect, disconnect, syncNow, requestSync, setClientId, configClientId, ensureFileBytes, remoteFileIds, relTime, DRIVE_SCOPE } from '../sync.js';
 
 export const title = 'Settings';
@@ -89,6 +89,7 @@ export async function render(root) {
       else {
         statusLine.append(`Connected to Google Drive. Last sync: ${s.lastSyncAt ? `${fmtDate(s.lastSyncAt.slice(0, 16))} (${relTime(s.lastSyncAt)})` : 'never'}.`);
         if (s.message && s.status !== 'synced') statusLine.append(' ', el('span', { class: s.status === 'error' ? 'chip chip-critical' : 'chip chip-warning' }, s.message));
+        else if (s.notice) statusLine.append(' ', el('span', { class: 'chip chip-warning' }, s.notice));
       }
       connectBtn.textContent = s.connected ? 'Sign in again' : 'Connect Google Drive';
       connectBtn.disabled = !s.clientId || !s.available;
@@ -168,7 +169,9 @@ export async function render(root) {
         button('Clear all data', async () => {
           if (!confirm(`Delete ALL ${c.reports} reports, ${c.members} members and ${c.files} PDFs from this browser? This cannot be undone.${getSyncStatus().connected ? ' Drive sync is disconnected on this device; data already in Drive stays there.' : ''}`)) return;
           if (!confirm('Really delete everything? Export a backup first if you are not sure.')) return;
-          await clearAll();
+          // Through the sync module so the connection flag, the in-memory token and the pill are reset as well;
+          // a bare db.clearAll() would leave the engine "connected" and the next trigger would re-pull from Drive.
+          await disconnect({ eraseLocal: true });
           toast('All data cleared on this device');
           await draw();
         }, { kind: 'danger' })));

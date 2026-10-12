@@ -19,6 +19,7 @@ const state = {
   connected: false,            // the user connected Drive on this device (persisted flag)
   status: 'not-connected',     // not-connected | idle | syncing | synced | offline | needs-auth | error
   message: '',
+  notice: '',                  // one-line note from the last successful sync that the user should still see (e.g. a quarantined corrupt snapshot)
   lastSyncAt: null,
   lastResult: null,
   clientId: '',
@@ -163,9 +164,13 @@ export async function setClientId(id) {
 export async function connect() {
   if (!state.clientId) return { ok: false, status: 'error', message: 'Paste your Google OAuth Client ID first' };
   setStatus(state.connected ? 'syncing' : 'idle', 'Waiting for Google sign-in…');
-  const r = await requestToken(state.connected ? '' : 'select_account');
+  const prompt = state.connected ? '' : 'select_account';
+  const started = Date.now();
+  const r = await requestToken(prompt);
   if (!r.token) {
-    const msg = describeAuthError(r.error);
+    // A popup that closes within a few seconds of a select_account prompt is almost never the user cancelling:
+    // Google showed an error page (bad Client ID, origin not authorised) that GIS only reports as popup_closed.
+    const msg = describeAuthError(r.error, { quick: prompt === 'select_account' && Date.now() - started < 3000 });
     setStatus(state.connected ? 'needs-auth' : 'not-connected', msg);
     return { ok: false, status: 'needs-auth', message: msg };
   }
@@ -177,8 +182,11 @@ export async function connect() {
   return runSync('connect', { force: true });
 }
 
-function describeAuthError(err) {
+const CLIENT_ID_HINT = 'If Google showed an error, check the Client ID and the Authorized JavaScript origin (docs/GOOGLE-DRIVE-SETUP.md)';
+
+function describeAuthError(err, { quick = false } = {}) {
   const e = String(err || '');
+  if (/popup_closed/.test(e) && quick) return `Sign-in was cancelled. ${CLIENT_ID_HINT}`;
   if (/popup_closed|access_denied/.test(e)) return 'Sign-in was cancelled';
   if (/popup_failed/.test(e)) return 'The sign-in window was blocked; allow pop-ups for this site and try again';
   if (/invalid_client|idpiframe|origin/i.test(e)) return `Google rejected the Client ID or this page's origin (${e})`;
@@ -200,7 +208,7 @@ export async function disconnect({ eraseRemote = false, eraseLocal = false } = {
     try { await new Promise((res) => { google.accounts.oauth2.revoke(token.value, () => res()); setTimeout(res, 3000); }); } catch { /* ignore */ }
   }
   token = null; tokenClient = null; tokenClientFor = null;
-  state.connected = false; state.lastSyncAt = null; state.lastResult = null;
+  state.connected = false; state.lastSyncAt = null; state.lastResult = null; state.notice = '';
   await db.setSetting(db.DRIVE_CONNECTED_SETTING, false);
   await db.setSyncMeta({ lastSyncAt: null, snapshotDriveId: null, remoteModifiedTime: null, localDigest: null });
   if (eraseLocal) { await db.clearAll(); out.message += '; local data erased'; }
@@ -231,6 +239,7 @@ async function runSync(reason, opts = {}) {
   let r;
   try { r = await getEngine().sync({ reason, ...opts }); } catch (e) { r = { ok: false, status: 'error', message: e && e.message ? e.message : String(e) }; }
   state.lastResult = r;
+  state.notice = (r && r.notice) || '';
   if (r.ok) {
     state.lastSyncAt = r.at || new Date().toISOString();
     setStatus('synced', r.message);

@@ -211,9 +211,16 @@ export async function setSyncMeta(patch) {
   return next;
 }
 
+/** True when the record already stored is newer than the incoming one (it was edited while a sync was computing). */
+export function isStoredNewer(stored, incoming) {
+  return !!stored && String(stored.updatedAt || '') > String((incoming && incoming.updatedAt) || '');
+}
+
 /**
  * Apply the result of a sync merge in one transaction WITHOUT re-stamping updatedAt (the timestamps come
  * from whichever device made the change). Removing a report also drops its stored PDF.
+ * A record edited on this device after the sync read it (stored updatedAt newer than the incoming record or
+ * tombstone) is left alone; the next sync pushes it. Otherwise the edit would be silently overwritten.
  * changes: { members: [], reports: [], tombstones: [], removeMembers: [], removeReports: [], removeTombstones: [] }
  */
 export function applySyncChanges(changes = {}) {
@@ -224,16 +231,29 @@ export function applySyncChanges(changes = {}) {
   const n = c.members.length + c.reports.length + c.tombstones.length + c.removeMembers.length + c.removeReports.length + c.removeTombstones.length;
   if (!n) return Promise.resolve(0);
   return tx(['members', 'reports', 'tombstones', 'files'], 'readwrite', async ([ms, rs, ts, fs]) => {
-    for (const m of c.members) if (m && m.id) await reqToPromise(ms.put(m));
+    const kept = new Set(); // ids whose stored record out-dates the incoming change
+    for (const m of c.members) {
+      if (!m || !m.id) continue;
+      if (isStoredNewer(await reqToPromise(ms.get(m.id)), m)) { kept.add(m.id); continue; }
+      await reqToPromise(ms.put(m));
+    }
     for (const r of c.reports) {
       if (!r || !r.id || !r.report) continue;
+      if (isStoredNewer(await reqToPromise(rs.get(r.id)), r)) { kept.add(r.id); continue; }
       const rec = { ...r, overrides: r.overrides && typeof r.overrides === 'object' ? r.overrides : {}, memberId: r.memberId ?? null };
       delete rec.doc; delete rec.bytes; delete rec.error; delete rec.stored;
       await reqToPromise(rs.put(rec));
     }
-    for (const t of c.tombstones) if (t && t.id && t.kind && t.deletedAt) await reqToPromise(ts.put({ id: t.id, kind: t.kind, deletedAt: t.deletedAt }));
-    for (const id of c.removeMembers) await reqToPromise(ms.delete(id));
-    for (const id of c.removeReports) { await reqToPromise(rs.delete(id)); await reqToPromise(fs.delete(id)); }
+    const tombAt = new Map(c.tombstones.filter((t) => t && t.id && t.deletedAt).map((t) => [t.id, t.deletedAt]));
+    for (const id of c.removeMembers) {
+      if (isStoredNewer(await reqToPromise(ms.get(id)), { updatedAt: tombAt.get(id) })) { kept.add(id); continue; }
+      await reqToPromise(ms.delete(id));
+    }
+    for (const id of c.removeReports) {
+      if (isStoredNewer(await reqToPromise(rs.get(id)), { updatedAt: tombAt.get(id) })) { kept.add(id); continue; }
+      await reqToPromise(rs.delete(id)); await reqToPromise(fs.delete(id));
+    }
+    for (const t of c.tombstones) if (t && t.id && t.kind && t.deletedAt && !kept.has(t.id)) await reqToPromise(ts.put({ id: t.id, kind: t.kind, deletedAt: t.deletedAt }));
     for (const id of c.removeTombstones) await reqToPromise(ts.delete(id));
     return n;
   });
@@ -347,7 +367,7 @@ export async function importAll(obj, { merge = true } = {}) {
   if (!merge) await clearAll();
   const counts = { members: 0, reports: 0, settings: 0, files: 0, tombstones: 0, skipped: 0 };
   const at = nowIso();
-  await tx(['members', 'reports', 'settings', 'tombstones'], 'readwrite', async ([ms, rs, ss, ts]) => {
+  await tx(['members', 'reports', 'settings', 'tombstones', 'files'], 'readwrite', async ([ms, rs, ss, ts, fs]) => {
     // Imported records are stamped "now": a restored backup wins over older copies on other devices.
     for (const m of members) { if (m && m.id) { await reqToPromise(ms.put({ ...m, updatedAt: at })); await reqToPromise(ts.delete(m.id)); counts.members++; } else counts.skipped++; }
     for (const r of reports) {
@@ -361,9 +381,18 @@ export async function importAll(obj, { merge = true } = {}) {
     }
     for (const s of settings) { if (s && s.key && EXPORTABLE_SETTINGS.includes(s.key)) { await reqToPromise(ss.put({ key: s.key, value: s.value })); counts.settings++; } else counts.skipped++; }
     // Tombstones: keep the newer of local/backup, and never shadow a record the backup itself restores.
+    // Against a record that exists on this device: the tombstone deletes it (and its PDF) when the record is not
+    // newer than the deletion; a newer local record wins and the tombstone is dropped. Never both side by side.
     const restored = new Set(members.map((m) => m && m.id).concat(reports.map((r) => r && r.id)));
     for (const t of tombstones) {
-      if (!t || !t.id || !t.kind || !t.deletedAt || restored.has(t.id)) { counts.skipped++; continue; }
+      if (!t || !t.id || !t.kind || !t.deletedAt || restored.has(t.id) || (t.kind !== 'member' && t.kind !== 'report')) { counts.skipped++; continue; }
+      const store = t.kind === 'member' ? ms : rs;
+      const live = await reqToPromise(store.get(t.id));
+      if (live) {
+        if (String(live.updatedAt || '') > String(t.deletedAt)) { counts.skipped++; continue; }
+        await reqToPromise(store.delete(t.id));
+        if (t.kind === 'report') await reqToPromise(fs.delete(t.id));
+      }
       const cur = await reqToPromise(ts.get(t.id));
       if (cur && cur.deletedAt >= t.deletedAt) continue;
       await reqToPromise(ts.put({ id: t.id, kind: t.kind, deletedAt: t.deletedAt })); counts.tombstones++;
